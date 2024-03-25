@@ -1,0 +1,48 @@
+type new_driverLicenses {
+    idDriverLicense: Int
+    employee: String
+}
+
+
+input create_driverLicenses {
+    idEmployee: String
+    number: String
+    idTypeLicense: String
+    licenseEffectiveDate: String
+    dateSeniority: String
+    userLoggedIn: String
+}
+
+input doc_driverLicenses {
+    idDriverLicense: String
+    link: String
+    userLoggedIn: String
+}
+
+input edit_driverLicenses {
+    idLicense: String
+    idEmployee: String
+    number: String
+    idTypeLicense: String
+    licenseEffectiveDate: String
+    dateSeniority: String
+    userLoggedIn: String
+    documentLink: String
+}
+
+input edit_driverLicenses_without_document {
+    idLicense: String
+    idEmployee: String
+    number: String
+    idTypeLicense: String
+    licenseEffectiveDate: String
+    dateSeniority: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_DRIVER_LICENSE(input: create_driverLicenses): [new_driverLicenses]
+    SET_DRIVER_LICENSE_DOCUMENTS(input: doc_driverLicenses): String
+    EDIT_DRIVER_LICENSE(input: edit_driverLicenses): String
+    EDIT_DRIVER_LICENSE_WITHOUT_DOCUMENT(input: edit_driverLicenses_without_document): String
+}

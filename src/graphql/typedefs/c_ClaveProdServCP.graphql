@@ -1,0 +1,13 @@
+type c_ClaveProdServCP {
+    id: ID
+    claveProdServ: String
+    name: String
+    description: String
+    dangerousMaterial: String
+    textDangerousMaterial: String
+    status: String
+}
+
+type Query {
+    GET_C_CLAVEPRODSERVCP(clave:String!, description:String!, status:String!): [c_ClaveProdServCP]
+}

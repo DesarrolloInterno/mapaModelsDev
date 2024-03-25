@@ -1,0 +1,10 @@
+type c_TipoMateria {
+    id: ID
+    claveTipoMateria: String
+    description: String
+    status: String
+}
+
+type Query {
+    GET_ALL_C_TIPO_MATERIA(clave:String!, description:String!, status:String!): [c_TipoMateria]
+}

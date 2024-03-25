@@ -1,0 +1,364 @@
+type employees {
+    id: ID
+    name: String
+    firstName: String
+    paternalLastName: String
+    maternalLastName: String
+    mailNotification: String
+    phone: String
+    employee_number: String
+    nomipaq: String
+    nickname: String
+    DateOfBirth: String
+    placeOfBirth: String
+    gender: String
+    civilStatus: String
+    children: String
+    startDate: String
+    jobTitle: String
+    idJobTitle: Int
+    businessPhone: String
+    address: String
+    outsideAddressNumber: String
+    insideAddressNumber: String
+    neighborhood: String
+    country: String
+    idCountry: Int
+    state: String
+    idState: Int
+    town: String
+    idTown: Int
+    CP: String
+    socialSecurityNumber: String
+    CURP: String
+    RFC: String
+    CPSAT: String
+    bankAccount: String
+    expenseAccount: String
+    netSalary: Float
+    grossSalary: Float
+    IDS: Float
+    allergies: String
+    Disease: String
+    surgeries: String
+    medicalTreatments: String
+    typeBlood: String
+    idTypeBlood: Int
+    medicalEffectiveDate: String
+    docLinkMedicalEffective: String
+    idMedicalEffective: Int
+    antidopingDate: String
+    idAntidoping: Int
+    antidopingResult: String
+    docLinkAntidoping: String
+    commentsAntidoping: String
+    typeLicense: String
+    idTypeLicense: Int
+    idLicense: Int
+    numberLicense: String
+    licenseEffectiveDate: String
+    docLinkLicense: String
+    dateSeniority: String
+    status: String
+    age: Int
+    infonavitCredit: Float
+    imgLink: String
+    shoeSizes: String
+    dressVestSizes: String
+    tshirtSizes: String
+    imageLink: String
+    dateRemoved: String
+}
+
+type employees_name{
+    name: String
+    docLink: String
+}
+
+type employees_name_doc{
+    name: String
+    docLink: String
+}
+
+type new_employees{
+    idNewEmployees: String
+    message: String
+}
+
+type employees_typeReceipt {
+  id: ID
+  idEmployee: String
+  idTypeReceipt: String
+  status: String
+  nameTypeReceipt: String
+  docLink: String
+  returnedItem: String
+}
+
+type employeetypeReceiptFile {
+  idEmployee: String
+  employee: String
+  idTypeReceipt: String
+  nameTypeReceipt: String
+  docLink: String
+}
+
+type registration_dismissal_employees {
+    idReentryEmployeeHistory: Int
+    idDeletedEmployeeHistory: Int
+    idEmployee: Int
+    name: String
+    date: String
+    comment: String
+    type: String
+    jobTitle: String
+    department: String
+}
+
+type registration_driverLicenses_employees {
+    idTypeLicense: Int
+    idEmployee: Int
+    typeLicense: String
+    number: String
+    employee: String
+    licenseEffectiveDate: String
+    dateSeniority: String
+    docLink: String
+    jobTitle: String
+    department: String
+}
+
+type registration_antidoping_employees {
+    idAntidoping: Int
+    idEmployee: Int
+    antidopingDate: String
+    docLink: String
+    employee: String
+    comments: String
+    result: String
+    jobTitle: String
+    department: String
+}
+
+type registration_medicalValidity_employees {
+    idMedicalValidity: Int
+    idEmployee: Int
+    medicalEffectiveDate: String
+    docLink: String
+    employee: String
+    jobTitle: String
+    department: String
+}
+
+type worker_rotation {
+    currentMonth: Int
+    currentYear: Int
+    onboarding: Int
+    startEmployee: Int
+    dismissals: Int
+    average: Float
+    workerRotationMonth: Float
+    workerRotationYear: Float
+}
+
+type Query {
+    GET_ALL_EMPLOYEES(status: String!): [employees]
+    GET_EMPLOYEE_BY_ID(idEmployee: Int!): [employees]
+    GET_NAME_EMPLOYEE(idEmployee: Int!): [employees_name]
+    GET_DOC_MEDICAL_VALIDITY(idEmployee: Int!): [employees_name_doc]
+    GET_DOC_ANTIDOPING_EMPLOYEE(idEmployee: Int!): [employees_name_doc]
+    GET_TYPERECEIPT_BY_EMPLOYEE(idEmployee: String!):[employees_typeReceipt]
+    GET_TYPERECEIPT_EMPLOYEE_FILE(idEmployeeTypeReceipt: String!):[employeetypeReceiptFile]
+    GET_ALL_REGISTRATION_DISMISSAL_EMPLOYEE(date1: String!, date2: String!, status: String!, idDepartment: String!): [registration_dismissal_employees]
+    GET_ALL_DRIVERLICENSE_EMPLOYEE(date1: String!, date2: String!): [registration_driverLicenses_employees]
+    GET_ALL_DRIVERLICENSE_EMPLOYEE2(date1: String!, date2: String!, typeReport: String!, status: String!, idDepartment: String!): [registration_driverLicenses_employees]
+    GET_ALL_ANTIDOPING_EMPLOYEE(date1: String!, date2: String!, typeReport: String!, status: String!, idDepartment: String!): [registration_antidoping_employees]
+    GET_ALL_MEDICAL_VALIDITY_EMPLOYEE(date1: String!, date2: String!, typeReport: String!, status: String!, idDepartment: String!): [registration_medicalValidity_employees]
+    GET_WORKER_ROTATION(date: String!, idDepartment: String!): [worker_rotation]
+}
+
+input update_employees {
+    idEmployees: String,
+    firstName: String,
+    paternalLastName: String,
+    maternalLastName: String,
+    mailNotification: String,
+    phone: String,
+    employee_number: String,
+    nomipaq: String,
+    nickname: String,
+    DateOfBirth: String,
+    gender: String,
+    civilStatus: String,
+    children: String,
+    startDate: String,
+    idJobTitle: String,
+    businessPhone: String,
+    address: String,
+    outsideAddressNumber: String,
+    insideAddressNumber: String,
+    neighborhood: String,
+    idCountry: String,
+    idState: String,
+    idTown: String,
+    CP: String,
+    socialSecurityNumber: String,
+    CURP: String,
+    RFC: String,
+    CPSAT: String,                                                  
+    bankAccount: String,
+    expenseAccount: String,
+    netSalary: String,
+    grossSalary: String,
+    IDS: String,
+    allergies: String,
+    Disease: String,
+    surgeries: String,
+    medicalTreatments: String,
+    idTypeBlood: String,
+    userLoggedIn: String,
+    infonavitCredit: String,
+    shoeSizes: String,
+    dressVestSizes: String,
+    tshirtSizes: String
+}
+
+input update_employees_personal_information {
+    idEmployees: String,
+    firstName: String,
+    paternalLastName: String,
+    maternalLastName: String,
+    mailNotification: String,
+    phone: String,
+    employee_number: String,
+    nomipaq: String,
+    nickname: String,
+    address: String,
+    outsideAddressNumber: String,
+    insideAddressNumber: String,
+    neighborhood: String,
+    idCountry: String,
+    idState: String,
+    idTown: String,
+    town: String,
+    CP: String,
+    userLoggedIn: String,
+    DateOfBirth: String,
+    gender: String,
+    civilStatus: String
+}
+
+input update_employees_income_data {
+    idEmployees: String,
+    startDate: String,
+    idJobTitle: String,
+    businessPhone: String,
+    socialSecurityNumber: String,
+    CURP: String,
+    RFC: String,
+    CPSAT: String,
+    bankAccount: String,
+    expenseAccount: String,
+    netSalary: String,
+    grossSalary: String,
+    IDS: String,
+    userLoggedIn: String,
+    infonavitCredit: String
+}
+
+input update_employees_medical_information {
+    idEmployees: String,
+    allergies: String,
+    Disease: String,
+    surgeries: String,
+    medicalTreatments: String,
+    idTypeBlood: String,
+    userLoggedIn: String,
+}
+
+input update_employees_work_equipment {
+    idEmployees: String,
+    shoeSizes: String,
+    dressVestSizes: String,
+    tshirtSizes: String,
+    userLoggedIn: String,
+}
+
+input employees_personal_information {
+    firstName: String,
+    paternalLastName: String,
+    maternalLastName: String,
+    mailNotification: String,
+    phone: String,
+    employee_number: String,
+    nomipaq: String,
+    nickname: String,
+    address: String,
+    outsideAddressNumber: String,
+    insideAddressNumber: String,
+    neighborhood: String,
+    idCountry: String,
+    idState: String,
+    idTown: String,
+    CP: String,
+    userLoggedIn: String
+}
+
+input employee_image {
+    idEmployee: String,
+    link: String,
+    userLoggedIn: String
+}
+
+input delete_employee {
+    idEmployee: String,
+    userLoggedIn: String,
+    dateRemoved: String,
+    comment: String
+}
+
+input reentry_employee {
+    idEmployee: String,
+    userLoggedIn: String,
+    dateReentry: String,
+    comment: String
+}
+
+input setemployeetypeReceipt {
+    idEmployee: String,
+    idTypeReceipt: String,
+    userLoggedIn: String,
+}
+
+input deleteemployeetypeReceipt {
+    idEmployeeTypeReceipt: String,
+    userLoggedIn: String,
+}
+
+input linkemployeetypeReceipt {
+    idEmployeeTypeReceipt: String,
+    link: String,
+    userLoggedIn: String,
+}
+
+input status_employee_Receipt {
+    idEmployeesTypeReceipt: String,
+    returnedItem: String
+}
+
+type Mutation {
+    UPDATE_EMPLOYEE(input: update_employees): String
+    UPDATE_EMPLOYEE_PERSONALINFORMATION(input: update_employees_personal_information): String
+    UPDATE_EMPLOYEE_INCOME_DATA(input: update_employees_income_data): String
+    UPDATE_EMPLOYEE_MEDICAL_INFORMATION(input: update_employees_medical_information): String
+    UPDATE_EMPLOYEE_WORKEQUIPMENT(input: update_employees_work_equipment): String
+    SET_EMPLOYEE_IMAGE(input: employee_image): String
+    CREATE_EMPLOYEE(input: update_employees): [new_employees]
+    CREATE_EMPLOYEE_PERSONALINFORMATION(input: employees_personal_information): [new_employees]
+    DELETE_EMPLOYEE(input: delete_employee): String
+    REENTRY_EMPLOYEE(input: reentry_employee): String
+    SET_EMPLOYEE_TYPERECEIPT(input: setemployeetypeReceipt): String
+    DELETE_EMPLOYEE_TYPERECEIPT(input: deleteemployeetypeReceipt): String
+    SET_LINK_EMPLOYEE_TYPERECEIPT(input: linkemployeetypeReceipt): String
+    SET_STATUS_EMPLOYEE_RECEIPT(input: status_employee_Receipt): String
+}

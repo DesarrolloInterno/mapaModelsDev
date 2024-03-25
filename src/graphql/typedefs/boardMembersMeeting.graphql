@@ -1,0 +1,34 @@
+type boardMembersMeeting {
+    id: ID
+    idStartingMeeting: Int
+    name: String
+    mail: String
+    status: String
+    phone: String
+}
+
+type Query {
+    GET_BOARD_MEMBERS_MEETING_BY_ID_STARTING_MEETING(idStartingMeeting: String!): [boardMembersMeeting]
+}
+
+input new_boardMembersMeeting {
+    idStartingMeeting: String
+    name: String
+    mail: String
+    userLoggedIn: String
+    phone: String
+}
+
+input update_boardMembersMeeting {
+    idBoardMembersMeeting: String
+    idStartingMeeting: String
+    name: String
+    mail: String
+    userLoggedIn: String
+    phone: String
+}
+
+type Mutation {
+    CREATE_BOARD_MEMBERS_MEETING(input: new_boardMembersMeeting): String
+    UPDATE_BOARD_MEMBERS_MEETING(input: update_boardMembersMeeting): String
+}

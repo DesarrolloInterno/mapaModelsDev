@@ -1,0 +1,48 @@
+type startingMeeting {
+    id: ID
+    idClient: Int
+    businessName: String
+    dateMeeting: String
+    hourDateMeeting: String
+    name: String
+    location: String
+    status: String
+}
+
+type Query {
+    GET_ALL_STARTING_MEETING(status: String!, date1: String!, date2: String!): [startingMeeting]
+    GET_STARTING_MEETING_BY_ID(idStartingMeeting: String!): [startingMeeting]
+}
+
+type return_new_startingMeeting {
+    idStartingMeeting: String
+    message: String
+}
+
+input new_startingMeeting {
+    idClient: String
+    dateMeeting: String
+    name: String
+    location: String
+    userLoggedIn: String
+}
+
+input update_startingMeeting {
+    idStartingMeeting: String
+    idClient: String
+    dateMeeting: String
+    name: String
+    location: String
+    userLoggedIn: String
+}
+
+input delete_startingMeeting {
+    idStartingMeeting: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_STARTING_MEETING(input: new_startingMeeting): [return_new_startingMeeting]
+    UPDATE_STARTING_MEETING(input: update_startingMeeting): String
+    DELETE_STARTING_MEETING(input: delete_startingMeeting): String
+}

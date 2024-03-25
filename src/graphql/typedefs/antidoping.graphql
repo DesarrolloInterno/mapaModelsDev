@@ -1,0 +1,86 @@
+type antidoping {
+    id: ID
+    comments: String
+    status: String
+    docLink: String
+    correctlyCompleted: String
+    result: String
+    antidopingDate: String
+}
+
+type candidates_antidoping {
+    candidates: String
+    docLink: String
+}
+
+type new_antidoping_employee {
+    idAntidoping: Int
+    employee: String
+}
+
+type new_antidoping_candidate {
+    idAntidoping: Int
+    message: String
+}
+
+type Query {
+    GET_ANTIDOPINGBYCANDIDATE(idCandidates: String!): [antidoping]
+    GET_CANDIDATE_ANTIDOPING(idAntidoping: String!): [candidates_antidoping]
+}
+
+input candidate_antidoping {
+    idCandidates: String
+    comments: String
+    userLoggedIn: String
+    correctlyCompleted: String
+    result: String
+    antidopingDate: String
+}
+
+input candidate_antidoping_doc {
+    idAntidoping: String
+    link: String
+    userLoggedIn: String
+}
+
+input create_antidoping_employee {
+    idEmployee: String
+    comments: String
+    result: String
+    antidopingDate: String
+    userLoggedIn: String
+}
+
+input doc_antidoping_employee {
+    idAntidoping: String
+    link: String
+    userLoggedIn: String
+}
+
+input edit_antidoping_employee {
+    idAntidoping: String
+    idEmployee: String
+    comments: String
+    result: String
+    antidopingDate: String
+    userLoggedIn: String
+    documentLink: String
+}
+
+input edit_antidoping_employee_without_document {
+    idAntidoping: String
+    idEmployee: String
+    comments: String
+    result: String
+    antidopingDate: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    SET_ANTIDOPING(input: candidate_antidoping): [new_antidoping_candidate]
+    SET_ANTIDOPING_DOCUMENTS(input: candidate_antidoping_doc): String
+    CREATE_ANTIDOPING_EMPLOYEE(input: create_antidoping_employee): [new_antidoping_employee]
+    SET_ANTIDOPING_EMPLOYEE_DOCUMENTS(input: doc_antidoping_employee): String
+    EDIT_ANTIDOPING_EMPLOYEE(input: edit_antidoping_employee): String
+    EDIT_ANTIDOPING_EMPLOYEE_WITHOUT_DOCUMENT(input: edit_antidoping_employee_without_document): String
+}

@@ -1,0 +1,83 @@
+type boothRoutes {
+  id:ID
+  name: String
+  idState: Int
+  state: String
+  idTown: Int
+  town: String
+  origin: String
+  idDestinationState: Int
+  destinationState: String
+  idDestinationTown: Int
+  destinationTown: String
+  destination: String
+  isReversible: Int
+  km: String
+  status: String
+}
+
+type boothRoutesList {
+  idReg: String
+  name: String
+  idState: Int
+  state: String
+  idTown: Int
+  town: String
+  origin: String
+  idDestinationState: Int
+  destinationState: String
+  idDestinationTown: Int
+  destinationTown: String
+  destination: String
+  isReversible: Int
+  km: String
+  status: String
+}
+
+type Query {
+  GET_BOOTHROUTES(status:String!): [boothRoutes]
+  GET_BOOTHROUTES_LIST(status:String!): [boothRoutesList]
+}
+
+type return_new_boothRoutes{
+  idBoothRoutes: String
+  message: String
+}
+
+input new_boothRoutes {
+  name: String,
+  idState: String,
+  idTown: String,
+  town: String,
+  km: String,
+  idDestinationState: String,
+  idDestinationTown: String,
+  destinationTown: String,
+  isReversible: String,
+  userLoggedIn: String
+}
+
+input edit_boothRoutes {
+  idBoothRoutes: String,
+  name: String,
+  idState: String,
+  idTown: String,
+  town: String,
+  km: String,
+  idDestinationState: String,
+  idDestinationTown: String,
+  destinationTown: String,
+  isReversible: String,
+  userLoggedIn: String
+}
+
+input delete_boothRoute {
+  idBoothRoute: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_BOOTHROUTE(input: new_boothRoutes): [return_new_boothRoutes]
+  UPDATE_BOOTHROUTE(input: edit_boothRoutes): [return_new_boothRoutes]
+  DELETE_BOOTHROUTE(input: delete_boothRoute): String
+}

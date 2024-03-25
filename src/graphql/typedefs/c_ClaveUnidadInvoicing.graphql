@@ -1,0 +1,12 @@
+type c_ClaveUnidadInvoicing {
+    id: ID
+    claveUnidad: String
+    name: String
+    description: String
+    note: String
+    status: String
+}
+
+type Query {
+    GET_C_CLAVEUNIDADINVOICING(clave:String!, description:String!, status:String!): [c_ClaveUnidadInvoicing]
+}

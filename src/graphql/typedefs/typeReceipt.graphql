@@ -1,0 +1,35 @@
+type typeReceipt{
+  id:ID
+  name: String
+  description: String
+  status: String
+}
+
+type Query {
+  GET_ALL_TYPE_RECEIPT(status:String!): [typeReceipt]
+}
+
+input create_typeReceipt {
+  name: String
+  description: String
+  userLoggedIn: String
+}
+
+input update_typeReceipt {
+    idTypeReceipt: String
+    name: String
+    description: String
+    userLoggedIn: String
+}
+
+input delete_enable_typeReceipt {
+    idTypeReceipt: String
+    userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_TYPE_RECEIPT(input: create_typeReceipt): String
+  EDIT_TYPE_RECEIPT(input: update_typeReceipt): String
+  DELETE_TYPE_RECEIPT(input: delete_enable_typeReceipt): String
+  ENABLE_TYPE_RECEIPT(input: delete_enable_typeReceipt): String
+}

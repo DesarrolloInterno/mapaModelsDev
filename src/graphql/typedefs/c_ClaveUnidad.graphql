@@ -1,0 +1,14 @@
+type c_ClaveUnidad {
+    id: ID
+    claveUnidad: String
+    name: String
+    description: String
+    note: String
+    symbol: String
+    flag: String
+    status: String
+}
+
+type Query {
+    GET_C_CLAVEUNIDAD(clave:String!, description:String!, status:String!): [c_ClaveUnidad]
+}

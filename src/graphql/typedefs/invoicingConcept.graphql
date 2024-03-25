@@ -1,0 +1,55 @@
+type invoicingConcept {
+    id:ID
+    name: String
+    SATcode: String
+    description: String
+    refrigeratedBox: Int
+    isTaxes: Int
+    taxRate: String
+    typeTrip: String
+    nameTripType: String
+    status: String
+}
+
+type Query {
+  GET_INVOICINGCONCEPT(status:String!): [invoicingConcept]
+}
+
+type return_new_invoicingConcept{
+  idInvoicingConcept: String
+  message: String
+}
+
+input new_invoicingConcept {
+  name: String,
+  SATcode: String,
+  description: String,
+  refrigeratedBox: String,
+  isTaxes: String,
+  taxRate: String,
+  typeTrip: String,
+  userLoggedIn: String
+}
+
+input update_invoicingConcept {
+  idInvoicingConcept: String,
+  name: String,
+  SATcode: String,
+  description: String,
+  refrigeratedBox: String,
+  isTaxes: String,
+  taxRate: String,
+  typeTrip: String,
+  userLoggedIn: String
+}
+
+input delete_invoicingConcept {
+  idInvoicingConcept: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_INVOICING_CONCEPT(input: new_invoicingConcept): [return_new_invoicingConcept]
+  UPDATE_INVOICING_CONCEPT(input: update_invoicingConcept): [return_new_invoicingConcept]
+  DELETE_INVOICING_CONCEPT(input: delete_invoicingConcept): String
+}

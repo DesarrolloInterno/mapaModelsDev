@@ -1,0 +1,70 @@
+type employeesDocuments {
+  name: String
+  idDocument: Int
+  documentLink: String
+  idEmployees: Int    
+  idEmployeesDocuments: Int
+}
+
+type candidatesDocuments {
+  name: String
+  idDocument: Int
+  documentLink: String
+  idCandidate: Int    
+  idEmployeesDocuments: Int
+}
+
+type candidatesDocumentName {
+  candidates: String
+  document: String   
+  idEmployeesDocuments: Int
+}
+
+type employeesDocumentName {
+  employee: String
+  document: String   
+  idEmployeesDocuments: Int
+}
+
+type nameDocuments {
+  name: String
+  idDocument: Int
+  documentLink: String
+  idEmployees: Int    
+  idEmployeesDocuments: Int
+}
+
+type Query {
+    GET_EMPLOYEES_DOCUMENTS(idEmployees: String!): [employeesDocuments]
+    GET_CANDIDATE_DOCUMENTS(idCandidate: String!): [candidatesDocuments]
+}
+
+input set_documentEmployees {
+  idEmployees: Int
+  idDocument: Int
+  userLoggedIn: String
+}
+
+input set_documentCandidates {
+  idCandidate: Int
+  idDocument: Int
+  userLoggedIn: String
+}
+
+input set_link_documentEmployees {
+  idEmployeesDocuments: Int
+  link: String
+  userLoggedIn: String
+}
+
+input set_delete_documentEmployees {
+  idEmployeesDocuments: Int
+  userLoggedIn: String
+}
+
+type Mutation {
+    SET_EMPLOYEE_DOCUMENTS(input: set_documentEmployees): [employeesDocumentName]
+    SET_CANDIDATE_DOCUMENTS(input: set_documentCandidates): [candidatesDocumentName]
+    SET_LINK_EMPLOYEE_DOCUMENTS(input: set_link_documentEmployees): String
+    DELETE_EMPLOYEE_DOCUMENTS(input: set_delete_documentEmployees): String
+}

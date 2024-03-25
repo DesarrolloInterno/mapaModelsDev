@@ -1,0 +1,30 @@
+type users {
+    id: ID
+    idUser: Int
+    staffPosition: String
+    staffName: String
+    staffPhone: String
+    staffEmail: String
+    status: String
+    daysValidityPassword: Int
+    alertValidityPassword: Int
+}
+
+input updateStaffReactivatePassword {
+    idStaff: String
+    idUser: String
+    staffName: String
+    staffPhone: String
+    staffEmail: String
+    daysValidityPassword: String
+    alertValidityPassword: String
+    userLoggedIn: String
+}
+
+type Query {
+    GET_STAFF_REACTIVATE_PASSWORD(typeStaff: String!): [users]
+}
+
+type Mutation {
+    UPDATE_STAFF_REACTIVATE_PASSWORD(input: updateStaffReactivatePassword): String
+}

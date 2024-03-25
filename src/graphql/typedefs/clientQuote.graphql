@@ -1,0 +1,216 @@
+type clientQuote {
+    id: ID
+    idEnterprise: Int
+    businessNameEnterprise: String
+    idUser: Int
+    idEmployee: Int
+    businessNameDestination: String
+    phoneDestination: String
+    contactPersonNameDestination: String
+    contactPersonMailNameDestination: String
+    date: String
+    effectiveStartDate: String
+    effectiveEndDate: String
+    status: String
+    name: String
+    nameUser: String
+    enterpriseName: String
+    contactPersonPhone: String
+}
+
+type clientQuotePDF {
+    id: ID
+    idEnterprise: Int
+    businessNameEnterprise: String
+    idUser: Int
+    idEmployee: Int
+    businessNameDestination: String
+    phoneDestination: String
+    contactPersonNameDestination: String
+    contactPersonMailNameDestination: String
+    date: String
+    effectiveStartDate: String
+    effectiveEndDate: String
+    status: String
+    name: String
+    nameUser: String
+    enterpriseName: String
+    contactPersonPhone: String
+    fullAddress: String
+    jobTitle: String
+    mailNotification: String
+    enterpriseLogo: String
+}
+
+type clientQuoteDetai {
+    id: ID
+    idClientQuote: Int
+    origin: String
+    loadType: String
+    stopOff1: String
+    stopOff2: String
+    truckCargoArea: String
+    destination: String
+    merchandiseType: String
+    tripType: String
+    truckCargoAreaType: String
+    currencyType: String
+    urgentCostAndTrack: Float
+    crossingCost: Float
+    freightCost: Float
+    totalCost: Float
+    status: String
+    emptyMileageCharge: Float
+}
+
+type clientQuoteLogos {
+    id: ID
+    idClientQuote: Int
+    link: String
+    status: String
+    number: String
+}
+
+type return_new_clientQuote {
+    idClientQuote: String
+    message: String
+}
+
+type Query {
+    GET_ALL_CLIENT_QUOTE(status: String!, date1: String!, date2: String!): [clientQuote]
+    GET_CLIENT_QUOTE_BY_ID(idClientQuote: String!): [clientQuote]
+    GET_CLIENT_QUOTE_BY_ID_PDF(idClientQuote: String!): [clientQuotePDF]
+    GET_CLIENT_QUOTE_DETAIL_BY_ID(idClientQuote: String!): [clientQuoteDetai]
+    GET_CLIENT_QUOTE_LOGOS(idClientQuote: String!): [clientQuoteLogos]
+}
+
+input new_clientQuote {
+    idEnterprise: String
+    idUser: String
+    idEmployee: String
+    businessNameDestination: String
+    phoneDestination: String
+    contactPersonNameDestination: String
+    contactPersonMailNameDestination: String
+    date: String
+    effectiveStartDate: String
+    effectiveEndDate: String
+    name: String
+    userLoggedIn: String
+    contactPersonPhone: String
+}
+
+input update_clientQuote {
+    idClientQuote: String
+    idEnterprise: String
+    idUser: String
+    idEmployee: String
+    businessNameDestination: String
+    phoneDestination: String
+    contactPersonNameDestination: String
+    contactPersonMailNameDestination: String
+    date: String
+    effectiveStartDate: String
+    effectiveEndDate: String
+    name: String
+    userLoggedIn: String
+    contactPersonPhone: String
+}
+
+input new_clientQuoteDetail {
+    idClientQuote: String
+    origin: String
+    loadType: String
+    stopOff1: String
+    stopOff2: String
+    truckCargoArea: String
+    destination: String
+    merchandiseType: String
+    tripType: String
+    currencyType: String
+    urgentCostAndTrack: String
+    crossingCost: String
+    freightCost: String
+    totalCost: String
+    truckCargoAreaType: String
+    userLoggedIn: String
+    emptyMileageCharge: String
+}
+
+input update_clientQuoteDetail {
+    idclientQuoteDetail: String
+    idClientQuote: String
+    origin: String
+    loadType: String
+    stopOff1: String
+    stopOff2: String
+    truckCargoArea: String
+    destination: String
+    merchandiseType: String
+    tripType: String
+    currencyType: String
+    urgentCostAndTrack: String
+    crossingCost: String
+    freightCost: String
+    totalCost: String
+    truckCargoAreaType: String
+    userLoggedIn: String
+    status: String
+    emptyMileageCharge: String
+}
+
+input new_clientQuoteTermsAndConditions {
+    idClientQuote: String
+    termsAndConditions: String
+    userLoggedIn: String
+}
+
+input update_clientQuoteTermsAndConditions {
+    idClientQuoteTermsAndConditions: String
+    termsAndConditions: String
+    userLoggedIn: String
+}
+
+input new_clientQuoteLogos {
+    idClientQuote: String
+    link: String
+    userLoggedIn: String
+    number: String
+}
+
+input edit_clientQuoteLogos {
+    idClientQuoteLogos: String
+    link: String
+    userLoggedIn: String
+}
+
+input clean_clientQuoteLogos {
+    idClientQuoteLogos: String
+    userLoggedIn: String
+}
+
+input delete_clientQuote {
+    idClientQuote: String
+    userLoggedIn: String
+}
+
+input duplicate_clientQuote {
+    idClientQuote: String
+    idUser: String
+    name: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_CLIENT_QUOTE(input: new_clientQuote): [return_new_clientQuote]
+    UPDATE_CLIENT_QUOTE(input: update_clientQuote): String
+    SET_CLIENT_QUOTE_DETAILS(input: new_clientQuoteDetail): String
+    UPDATE_CLIENT_QUOTE_DETAILS(input: update_clientQuoteDetail): String
+    SET_CLIENT_QUOTE_TERMS_AND_CONDITIONS(input: new_clientQuoteTermsAndConditions): String
+    UPDATE_CLIENT_QUOTE_TERMS_AND_CONDITIONS(input: update_clientQuoteTermsAndConditions): String
+    SET_CLIENT_QUOTE_LOGO(input: new_clientQuoteLogos): String
+    EDIT_CLIENT_QUOTE_LOGO(input: edit_clientQuoteLogos): String
+    CLEAN_CLIENT_QUOTE_LOGO(input: clean_clientQuoteLogos): String
+    DELETE_CLIENT_QUOTE(input: delete_clientQuote): String
+    DUPLICATE_CLIENT_QUOTE(input: duplicate_clientQuote): [return_new_clientQuote]
+}

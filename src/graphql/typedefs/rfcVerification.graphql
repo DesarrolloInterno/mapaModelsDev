@@ -1,0 +1,47 @@
+type rfcVerification {
+    id: ID
+    comments: String
+    status: String
+    docLink: String
+    correctlyCompleted: String
+    RFC: String
+}
+
+type name_rfcVerification {
+    id: ID
+    comments: String
+    status: String
+    docLink: String
+    correctlyCompleted: String
+    RFC: String
+    candidate: String
+}
+
+type new_candidate_rfcVerification {
+    idRfcVerification: Int
+    message: String
+}
+
+type Query {
+    GET_RFCVERIFICATION(idCandidate: String!): [rfcVerification]
+    GET_NAME_RFCVERIFICATION(idCandidate: String!): [name_rfcVerification]
+}
+
+input candidate_rfcVerification {
+    idCandidates: String
+    comments: String
+    userLoggedIn: String
+    correctlyCompleted: String
+    RFC: String
+}
+
+input candidate_rfcVerification_doc {
+    idRfcVerification: String
+    link: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    SET_RFCVERIFICATION(input: candidate_rfcVerification): [new_candidate_rfcVerification]
+    SET_RFCVERIFICATION_DOCUMENTS(input: candidate_rfcVerification_doc): String
+}

@@ -1,0 +1,11 @@
+type township {
+    id: ID
+    name: String
+    idState: Int
+    claveState: String
+    clave: String
+}
+
+type Query {
+    GET_ALL_TOWNSHIP: [township]
+}

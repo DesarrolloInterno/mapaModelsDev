@@ -1,0 +1,10 @@
+type c_CondicionesEspeciales {
+    id: ID
+    claveCondicionesEspeciales: String
+    description: String
+    status: String
+}
+
+type Query {
+    GET_ALL_C_CONDICIONESESPECIALES(clave:String!, description:String!, status:String!): [c_CondicionesEspeciales]
+}

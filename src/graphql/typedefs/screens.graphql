@@ -1,0 +1,65 @@
+type screens {
+    id: ID
+    name: String
+    description: String
+    idTopMenu: Int
+    location: String
+    status: String
+    order: String
+    menu: String
+}
+
+type screensTable {
+    id: ID
+    name: String
+    description: String
+    idTopMenu: Int
+    location: String
+    status: String
+    order: String
+    menu: String
+    topMenu: String
+}
+
+input create_screens {
+  name: String
+  description: String
+  idTopMenu: String
+  location: String
+  order: String
+  menu: String
+  userLoggedIn: String
+}
+
+type new_record {
+  id: Int
+  message: String
+}
+
+input edit_screens {
+  idScreen: String
+  name: String
+  description: String
+  idTopMenu: String
+  location: String
+  order: String
+  menu: String
+  userLoggedIn: String
+}
+
+input delete_enable_screens {
+  idScreen: String
+  userLoggedIn: String
+}
+
+type Query {
+  GET_ALL_SCREENS(status: String!): [screensTable]
+  GET_SCREEN_BY_IDTOPMENU(status: String!, idTopMenu: Int!): [screensTable]
+}
+
+type Mutation {
+  CREATE_SCREEN(input: create_screens): [new_record]
+  UPDATE_SCREEN(input: edit_screens): String
+  DELETE_SCREEN(input: delete_enable_screens): String
+  ENABLE_SCREEN(input: delete_enable_screens): String
+}

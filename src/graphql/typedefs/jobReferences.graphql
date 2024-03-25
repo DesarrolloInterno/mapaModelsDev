@@ -1,0 +1,45 @@
+type jobReferences {
+    id: ID
+    jobReferences: String
+    comments: String
+    status: String
+    docLink: String
+    correctlyCompleted: String
+    name: String
+}
+
+type candidates_jobReferences {
+    candidates: String
+    docLink: String
+}
+
+type new_jobReferences_candidates {
+    idJobReferences: Int
+    message: String
+}
+
+
+type Query {
+    GET_JOBREFERENCESBYCANDIDATE(idCandidates: String!): [jobReferences]
+    GET_CANDIDATE_JOBREFERENCES(idJobReferences: String!): [candidates_jobReferences]
+}
+
+input candidate_jobReferences {
+    idCandidates: String
+    jobReferences: String
+    comments: String
+    userLoggedIn: String
+    correctlyCompleted: String
+    name: String
+}
+
+input candidate_jobReferences_doc {
+    idJobReferences: String
+    link: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    SET_JOBREFERENCES(input: candidate_jobReferences): [new_jobReferences_candidates]
+    SET_JOBREFERENCES_DOCUMENTS(input: candidate_jobReferences_doc): String
+}

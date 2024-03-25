@@ -1,0 +1,10 @@
+type tripType {
+    id:ID
+    name: String
+    code: String
+    status: String
+}
+
+type Query {
+  GET_TRIPTYPE(status:String!): [tripType]
+}

@@ -1,0 +1,20 @@
+type generalTermsAndConditions {
+    id: ID
+    termsAndConditions: String
+    status: String
+}
+
+type Query {
+    GET_GENERAL_TERMS_AND_CONDITIONS: [generalTermsAndConditions]
+    GET_CLIENT_QUOTE_TERMS_AND_CONDITIONS_BY_ID(idClientQuote: String): [generalTermsAndConditions]
+}
+
+input setGeneralTermsAndConditions {
+    idGeneralTermsAndConditions: String
+    termsAndConditions: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    SET_GENERAL_TERMS_AND_CONDITIONS(input: setGeneralTermsAndConditions): String
+}

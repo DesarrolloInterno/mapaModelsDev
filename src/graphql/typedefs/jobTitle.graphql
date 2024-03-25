@@ -1,0 +1,65 @@
+type jobTitle {
+  id: ID
+  name: String
+  description: String
+  status: String
+  higherPosition: Int
+  higherPositionName: String
+  department: String
+}
+
+type jobTitle_typeReceipt {
+  id: ID
+  idJobTitle: String
+  idTypeReceipt: String
+  status: String
+  nameTypeReceipt: String
+  
+}
+
+type Query {
+  GET_ALL_JOBTITLE(status: String!): [jobTitle]
+  GET_TYPERECEIPT_BY_JOBTITLE(idJobTitle: String!):[jobTitle_typeReceipt]
+}
+
+input create_jobTitle {
+  name: String
+  description: String
+  higherPosition: String
+  userLoggedIn: String
+  idDepartment: String
+}
+
+input update_jobTitle {
+    idJobTitle: Int
+    name: String
+    description: String
+    higherPosition: String
+    userLoggedIn: String
+    idDepartment: String
+}
+
+input delete_jobTitle {
+    idJobTitle: Int
+    userLoggedIn: String
+}
+
+input serJobTitleTypeReceipt {
+    idJobTitle: String
+    idTypeReceipt: String
+    userLoggedIn: String
+}
+
+input deleteJobTitleTypeReceipt {
+  idJobTitleTypeReceipt: String
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_JOBTITLE(input: create_jobTitle): String
+  UPDATE_JOBTITLE(input: update_jobTitle): String
+  DELETE_JOBTITLE(input: delete_jobTitle): String
+  ENABLE_JOBTITLE(input: delete_jobTitle): String
+  SET_JOBTITLE_TYPERECEIPT(input: serJobTitleTypeReceipt): String
+  DELETE_JOBTITLE_TYPERECEIPT(input: deleteJobTitleTypeReceipt): String
+}

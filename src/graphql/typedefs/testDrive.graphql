@@ -1,0 +1,40 @@
+type testDrive {
+    id: ID
+    comments: String
+    status: String
+    docLink: String
+    correctlyCompleted: String
+}
+
+type candidates_testDrive {
+    candidates: String
+    docLink: String
+}
+
+type testDrive_candidate {
+    idTestDrive: Int
+    message: String
+}
+
+type Query {
+    GET_TESTDRIVEBYCANDIDATE(idCandidates: String!): [testDrive]
+    GET_CANDIDATE_TESTDRIVE(idTestDriveint: String!): [candidates_testDrive]
+}
+
+input candidate_testDrive {
+    idCandidates: String
+    comments: String
+    userLoggedIn: String,
+    correctlyCompleted: String
+}
+
+input candidate_testDrive_doc {
+    idTestDriveint: String
+    link: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    SET_TESTDRIVE(input: candidate_testDrive): [testDrive_candidate]
+    SET_TESTDRIVE_DOCUMENTS(input: candidate_testDrive_doc): String
+}

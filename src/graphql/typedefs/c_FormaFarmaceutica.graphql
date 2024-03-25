@@ -1,0 +1,10 @@
+type c_FormaFarmaceutica {
+    id: ID
+    claveFormaFarmaceutica: String
+    description: String
+    status: String
+}
+
+type Query {
+    GET_ALL_C_FORMAFARMACEUTICA(clave:String!, description:String!, status:String!): [c_FormaFarmaceutica]
+}

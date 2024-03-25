@@ -1,0 +1,12 @@
+type workerReferences {
+    id: ID
+    name: String
+    address: String
+    phone: String
+    relationship: String
+    status: String
+}
+
+type Query {
+    GET_ALL_WORKER_REFERENCES_BY_ID(idEmployee:String!): [workerReferences]
+}

@@ -1,0 +1,10 @@
+type c_TipoEmbalaje {
+    id: ID
+    claveTipoEmbalaje: String
+    description: String
+    status: String
+}
+
+type Query {
+    GET_C_TIPOEMBALAJE(clave:String!, description:String!, status:String!): [c_TipoEmbalaje]
+}

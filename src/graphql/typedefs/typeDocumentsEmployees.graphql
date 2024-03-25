@@ -1,0 +1,35 @@
+type typeDocumentsEmployees{
+    id:ID
+    name: String
+    description: String
+    status: String
+}
+
+input create_typeDocumentsEmployees {
+    name: String
+    description: String
+    userLoggedIn: String
+}
+
+input delete_enable_typeDocumentsEmployees {
+    idTypeDocumentsEmployees: String
+    userLoggedIn: String
+}
+
+input update_typeDocumentsEmployees {
+    idTypeDocumentsEmployees: String
+    name: String
+    description: String
+    userLoggedIn: String
+}
+
+type Query {
+  GET_ALL_TYPE_DOCUMENTS_EMPLOYEES(status:String!): [typeDocumentsEmployees]
+}
+
+type Mutation {
+    CREATE_TYPE_DOCUMENTS_EMPLOYEES(input: create_typeDocumentsEmployees): String
+    DELETE_TYPE_DOCUMENTS_EMPLOYEES(input: delete_enable_typeDocumentsEmployees): String
+    UPDATE_TYPE_DOCUMENTS_EMPLOYEES(input: update_typeDocumentsEmployees): String
+    ENABLE_TYPE_DOCUMENTS_EMPLOYEES(input: delete_enable_typeDocumentsEmployees): String
+}

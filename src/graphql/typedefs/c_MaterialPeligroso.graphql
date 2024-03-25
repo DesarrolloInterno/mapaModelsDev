@@ -1,0 +1,13 @@
+type c_MaterialPeligroso {
+    id: ID
+    claveMaterialPeligroso: String
+    description: String
+    classHazardousMaterial: String
+    secondaryDanger: String
+    technicalName: String
+    status: String
+}
+
+type Query {
+    GEL_C_MATERIALPELIGROSO(clave:String!, description:String!, status:String!): [c_MaterialPeligroso]
+}

@@ -1,0 +1,49 @@
+type taxes {
+    id:ID
+    name: String
+    SATcode: String
+    description: String
+    taxChargeType: String
+    percentage: String
+    taxFactor: String
+    status: String
+}
+
+type Query {
+  GET_TAXES(status:String!): [taxes]
+}
+
+type return_new_tax{
+  idTax: String
+  message: String
+}
+
+input new_tax {
+    SATcode: String,
+    description: String,
+    taxChargeType: String,
+    percentage: String,
+    taxFactor: String,
+    userLoggedIn: String
+}
+
+input update_tax {
+    idTax: String,
+    SATcode: String,
+    description: String,
+    taxChargeType: String,
+    percentage: String,
+    taxFactor: String,
+    userLoggedIn: String
+}
+
+input delete_tax {
+    idTax: String,
+    userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_TAX(input: new_tax): [return_new_tax]
+  UPDATE_TAX(input: update_tax): [return_new_tax]
+  DELETE_TAX(input: delete_tax): String
+}

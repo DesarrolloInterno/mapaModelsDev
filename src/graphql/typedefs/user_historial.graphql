@@ -1,0 +1,27 @@
+scalar Datetime
+
+type user_historial{
+    id:ID
+    idUser: Int
+    event: String
+    access_point: String
+    end_date_password: Datetime
+    userRecorded: String
+    dateRecorded: Datetime
+    status: String
+}
+
+input user_historial_input{
+    idUser: Int
+    event: String
+    access_point: String
+    userRecorded: String
+}
+
+type Query {
+    GET_USER_HISTORIAL_FOR_USER(idUser: Int!, showAccess: String): [user_historial]
+}
+
+type Mutation {
+    CREATE_USER_HISTORIAL(input: user_historial_input): String
+}

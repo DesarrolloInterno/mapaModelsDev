@@ -1,0 +1,8 @@
+type typeBlood {
+    id: ID
+    name: String
+}
+
+type Query {
+    GET_ALL_TYPE_BLOOD: [typeBlood]
+}

@@ -1,0 +1,40 @@
+type interview {
+    id: ID
+    comments: String
+    status: String
+    docLink: String
+    correctlyCompleted: String
+}
+
+type candidates_interview {
+    candidates: String
+    docLink: String
+}
+
+type interview_candidata {
+    idInterview: Int
+    message: String
+}
+
+type Query {
+    GET_INTERVIEWBYCANDIDATE(idCandidates: String!): [interview]
+    GET_CANDIDATE_INTERVIEW(idInterview: String!): [candidates_interview]
+}
+
+input candidate_interview {
+    idCandidates: String
+    comments: String
+    userLoggedIn: String
+    correctlyCompleted: String
+}
+
+input candidate_interview_doc {
+    idInterview: String
+    link: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    SET_INTERVIEW(input: candidate_interview): [interview_candidata]
+    SET_INTERVIEW_DOCUMENTS(input: candidate_interview_doc): String
+}

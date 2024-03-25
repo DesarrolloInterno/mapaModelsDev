@@ -1,0 +1,399 @@
+type salesFormat {
+  id:ID
+  name: String
+  idClient: Int
+  client: String
+  clientShortName: String
+  RFC: String
+  idOrigin: Int
+  origin: String
+  fullAddressOrigin: String
+  legendOriginCollection: String
+  idDestination: Int
+  destination: String
+  fullAddressDestination: String
+  legendDestinationCollection: String
+  originDestination: String
+  travelClassification: String
+  kilometres: String
+  travelTime: String
+  temperature: String
+  tripType: String
+  currency: String
+  taxes: String
+  isRefrigerated: Int
+  isDry: Int
+  isDoorDoor: Int
+  isCrossing: Int
+  isEmpty: Int
+  isEmptyPaid: Int
+  requestProofDelivery: String
+  idSalesFormatCrossing: Int
+  salesFormatCrossing: String
+  operatorComments: String
+  operationComments: String
+  observations: String
+  status: String
+  productDescription: String
+  crossingType: String
+  tripTypeName: String
+  americanPortion: String
+  crossingPortion: String
+  mexicanPortion: String
+  typeCrossing: String
+}
+
+type cross_salesFormat {
+  id:ID
+  name: String
+  idOrigin: Int
+  origin: String
+  fullAddressOrigin: String
+  legendOriginCollection: String
+  idDestination: Int
+  destination: String
+  fullAddressDestination: String
+  legendDestinationCollection: String
+  originDestination: String
+  travelClassification: String
+  kilometres: String
+  travelTime: String
+  temperature: String
+  tripType: String
+  currency: String
+  taxes: String
+  isRefrigerated: Int
+  isDry: Int
+  isDoorDoor: Int
+  isCrossing: Int
+  isEmpty: Int
+  isEmptyPaid: Int
+  requestProofDelivery: String
+  idSalesFormatCrossing: Int
+  salesFormatCrossing: String
+  operatorComments: String
+  operationComments: String
+  observations: String
+  status: String
+  productDescription: String
+}
+
+type salesFormat_by_triptype {
+  id:ID
+  name: String
+  idOrigin: Int
+  origin: String
+  fullAddressOrigin: String
+  legendOriginCollection: String
+  idDestination: Int
+  destination: String
+  fullAddressDestination: String
+  legendDestinationCollection: String
+  originDestination: String
+  travelClassification: String
+  kilometres: String
+  travelTime: String
+  temperature: String
+  tripType: String
+  currency: String
+  taxes: String
+  isRefrigerated: Int
+  isDry: Int
+  isDoorDoor: Int
+  isCrossing: Int
+  isEmpty: Int
+  isEmptyPaid: Int
+  requestProofDelivery: String
+  idSalesFormatCrossing: Int
+  salesFormatCrossing: String
+  operatorComments: String
+  operationComments: String
+  observations: String
+  status: String
+  productDescription: String
+}
+
+type salesFormat_by_client {
+  id:ID
+  name: String
+  idClient: Int
+  businessName: String
+  shortName: String
+  RFC: String
+  idOrigin: Int
+  origin: String
+  fullAddressOrigin: String
+  legendOriginCollection: String
+  idDestination: Int
+  destination: String
+  fullAddressDestination: String
+  legendDestinationCollection: String
+  originDestination: String
+  travelClassification: String
+  kilometres: String
+  travelTime: String
+  temperature: String
+  tripType: String
+  currency: String
+  taxes: String
+  isRefrigerated: Int
+  isDry: Int
+  isDoorDoor: Int
+  isCrossing: Int
+  isEmpty: Int
+  isEmptyPaid: Int
+  requestProofDelivery: String
+  idSalesFormatCrossing: Int
+  salesFormatCrossing: String
+  operatorComments: String
+  operationComments: String
+  observations: String
+  status: String
+  productDescription: String
+  crossingType: String
+  subtotal: String
+  IVA: String
+  RET: String
+  total: String
+  countryOrigin: String
+  countryDestination: String
+}
+
+type return_salesFormat {
+    idSalesFormat: String
+    message: String
+}
+
+type salesFormatBoothRoute {
+  id: ID
+  idBoothRoute: Int
+  name: String
+  routeOrder: String
+  origin: String
+  destination: String
+  type: String
+  idSalesFormat: Int
+  status: String
+  isReversible: String
+}
+
+type salesFormatAmounts {
+  id: ID
+  idSalesFormat: Int
+  idInvoicingConcept: Int
+  invoicingConcept: String
+  subtotal: String
+  idIVApercentage : Int
+  IVApercentage: String
+  IVA: String
+  idRETpercentage: Int
+  RETpercentage: String
+  RET: String
+  totalAmount: String
+  taxRate: String
+  measuringUnit: String
+  codeMeasuringUnit: String
+  status: String
+}
+
+type documentsProofDeliverySalesFormat {
+  id: ID
+  idSalesFormat: Int
+  name: String
+  status: String
+}
+
+type safetyEquipmentSalesFormat {
+  id: ID
+  idSalesFormat: Int
+  name: String
+  description: String
+  status: String
+}
+
+type Query {
+  GET_SALES_FORMAT(status:String!, tripType: String!): [salesFormat]
+  GET_SALES_FORMAT_BY_ID(idSalesFormat: String!): [salesFormat]
+  GET_SALES_FORMAT_BY_TRIPTYPE(tripType: String!): [salesFormat_by_triptype]
+  GET_SALES_FORMAT_BY_CLIENT(idClient: String!): [salesFormat_by_client]
+  GET_SALES_FORMAT_BY_CLIENT_AND_TRIP_TYPE(idClient: String!, tripType: String!): [salesFormat_by_client]
+  GET_BOOTHROUTES_BY_ID_SALESFORMAT(idSalesFormat: String!): [salesFormatBoothRoute]
+  GET_BOOTHROUTES_BY_ID_AMOUNTS(idSalesFormat: String!): [salesFormatAmounts]
+  GET_DOCUMENTPROOFDELIVERY_BY_ID_SALESFORMAT(idSalesFormat: String!): [documentsProofDeliverySalesFormat]
+  GET_SAFETYEQUIPMENT_BY_ID_SALESFORMAT(idSalesFormat: String!): [safetyEquipmentSalesFormat]
+  GET_CROSS_SALES_FORMAT: [cross_salesFormat]
+}
+
+input new_salesFormat {
+  name: String
+  idClient: String
+  idOrigin: String
+  idDestination: String
+  legendOriginCollection: String
+  legendDestinationCollection: String
+  travelClassification: String
+  kilometres: String
+  travelTime: String
+  temperature: String
+  tripType: String
+  currency: String
+  taxes: String
+  isRefrigerated: String
+  isDry: String
+  isDoorDoor: String
+  isCrossing: String
+  isEmpty: String
+  isEmptyPaid: String
+  idSalesFormatCrossing: String
+  salesFormatCrossing: String
+  operatorComments: String
+  operationComments: String
+  observations: String
+  americanPortion: String
+  crossingPortion: String
+  mexicanPortion: String
+  requestProofDelivery: String
+  userLoggedIn: String
+  productDescription: String
+  crossingType: String  
+  typeCrossing: String
+}
+
+input update_salesFormat {
+  idSalesFormat: String
+  name: String
+  idClient: String
+  idOrigin: String
+  idDestination: String
+  legendOriginCollection: String
+  legendDestinationCollection: String
+  travelClassification: String
+  kilometres: String
+  travelTime: String
+  temperature: String
+  tripType: String
+  currency: String
+  taxes: String
+  isRefrigerated: String
+  isDry: String
+  isDoorDoor: String
+  isCrossing: String
+  isEmpty: String
+  isEmptyPaid: String
+  idSalesFormatCrossing: String
+  salesFormatCrossing: String
+  operatorComments: String
+  operationComments: String
+  observations: String
+  americanPortion: String
+  crossingPortion: String
+  mexicanPortion: String
+  requestProofDelivery: String
+  userLoggedIn: String
+  productDescription: String
+  crossingType: String  
+  typeCrossing: String
+}
+
+input new_salesFormatBoothRoute {
+  idSalesFormat: String
+  idBoothRoute: String
+  type: String
+  routeOrder: String
+  userLoggedIn: String
+  isReversible: String
+}
+
+input update_salesFormatBoothRoute {
+  idSalesFormatBoothRoute: String
+  idSalesFormat: String
+  idBoothRoute: String
+  type: String
+  routeOrder: String
+  userLoggedIn: String
+  status: String
+  isReversible: String
+}
+
+input new_salesFormatAmounts {
+  idInvoicingConcept: String
+  subtotal: String
+  idIVApercentage: String
+  IVApercentage: String
+  IVA: String
+  idRETpercentage: String
+  RETpercentage: String
+  RET: String
+  totalAmount: String
+  idSalesFormat: String
+  codeMeasuringUnit: String
+  measuringUnit: String
+  userLoggedIn: String
+}
+
+input update_salesFormatAmounts {
+  idSalesFormatAmounts: String
+  idInvoicingConcept: String
+  subtotal: String
+  idIVApercentage: String
+  IVApercentage: String
+  IVA: String
+  idRETpercentage: String
+  RETpercentage: String
+  RET: String
+  totalAmount: String
+  idSalesFormat: String
+  codeMeasuringUnit: String
+  measuringUnit: String
+  userLoggedIn: String
+  status: String
+}
+
+input new_salesFormatDocumentsProofDelivery {
+  idSalesFormat: String
+  name: String
+  userLoggedIn: String
+}
+
+input update_salesFormatDocumentsProofDelivery {
+  idSalesFormatDocumentsProofDelivery: String
+  idSalesFormat: String
+  name: String
+  userLoggedIn: String
+  status: String
+}
+
+input new_salesFormatSafetyEquipment {
+  idSalesFormat: String
+  name: String
+  description: String
+  userLoggedIn: String
+}
+
+input update_salesFormatSafetyEquipment {
+  idSalesFormatSafetyEquipment: String
+  idSalesFormat: String
+  name: String
+  description: String
+  userLoggedIn: String
+  status: String
+}
+
+input delete_salesFormat {
+  idSalesFormat: String
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_SALESFORMAT(input: new_salesFormat): [return_salesFormat]
+  UPDATE_SALESFORMAT(input: update_salesFormat): [return_salesFormat]
+  SET_SALESFORMAT_BOOTHROUTE(input: new_salesFormatBoothRoute): String
+  UPDATE_SALESFORMAT_BOOTHROUTE(input: update_salesFormatBoothRoute): String
+  SET_SALESFORMAT_AMOUNTS(input: new_salesFormatAmounts): String
+  UPDATE_SALESFORMAT_AMOUNTS(input: update_salesFormatAmounts): String
+  SET_SALESFORMAT_DOCUMENTSPROOFDELIVERY(input: new_salesFormatDocumentsProofDelivery): String
+  UPDATE_SALESFORMAT_DOCUMENTSPROOFDELIVERY(input: update_salesFormatDocumentsProofDelivery): String
+  SET_SALESFORMAT_SAFTYEQUIPMENT(input: new_salesFormatSafetyEquipment): String
+  UPDATE_SALESFORMAT_SAFTYEQUIPMENT(input: update_salesFormatSafetyEquipment): String
+  DELETE_SALESFORMAT(input: delete_salesFormat): String
+}

@@ -1,0 +1,96 @@
+scalar Datetime
+type users {
+  id: ID
+  user: String
+  email: String
+  name: String
+  idEmployee: Int
+  status: String
+  end_date_password: String
+  employee: String
+  idEnterprise: String
+  enterprise: String
+}
+
+type users_login {
+  id: ID
+  user: String
+  email: String
+  name: String
+  idEmployee: Int
+  status: String
+  end_date_password: String
+  password_status: String
+  firstAccess: Boolean
+  daysExpire: Int
+  imageLink: String
+  idEnterprise: Int
+  enterprise: String
+}
+
+type new_users_id {
+    idUser: Int
+    message: String
+}
+
+input token_change_password {
+  idUser: Int
+  token: String
+}
+
+input change_password {
+  idUser: Int
+  password: String
+  user: String
+}
+
+input new_user {
+  user: String
+  name: String
+  email: String
+  password: String
+  userLoggedIn: String
+  idEmployee: String
+  idEnterprise: String
+}
+
+input edit_user {
+  idUser: Int
+  user: String
+  name: String
+  email: String
+  userModified: String
+  idEmployee: String
+  idEnterprise: String
+}
+
+input change_status {
+  idUser: Int
+  userLoggedIn: String
+}
+
+input date_password {
+  idUser: Int
+  endDatePassword: String
+  userModified: String
+}
+
+type Query {
+  GET_USER_LOGIN(user:String!, password:String!): [users_login]
+  GET_USER_BY_ID(id:Int!): [users_login]
+  GET_USER_BY_ID_LOGIN(id:Int!): [users_login]
+  GET_USER_BY_USER(user:String!): [users_login]
+  GET_USER_BY_TOKEN(token:String!): [users_login]
+  GET_ALL_USER(passwordValidity:String!, status:String!): [users]
+}
+
+type Mutation {
+    SET_TOKEN_CHANGE_PASSWORD(input: token_change_password): String
+    SET_NEW_PASSWORD(input: change_password): String
+    DISABLE_FIRST_ACCESS(input: change_password): String
+    CREATE_USER(input: new_user): [new_users_id]
+    DELETE_USER(input: change_status): String
+    ENABLE_USER(input: change_status): String
+    UPDATE_USER(input: edit_user): String
+    UPDATE_END_DATE_PASSWORD(input: date_password): String
+}

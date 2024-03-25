@@ -1,0 +1,63 @@
+type clientDocuments {
+  idClientDocuments: String
+  name: String
+  idDocument: Int
+  documentLink: String
+  idClient: Int    
+  idPotentialClient: Int
+  typeClient: String
+}
+
+type Query {
+  GET_POTENTIAL_CLIENT_DOCUMENTS(idPotentialClient: String!): [clientDocuments]
+  GET_CLIENT_DOCUMENTS_BY_IDCLIENT(idClient: String!): [clientDocuments]
+}
+
+type documentPotentialClient {
+  businessName: String
+  document: String   
+  idPotentialClientDocument: Int
+}
+
+type documentClient {
+  businessName: String
+  document: String   
+  idClientDocument: Int
+}
+
+input set_documentPotentialClient {
+  idPotentialClient: String
+  idDocument: String
+}
+
+input set_documentClient {
+  idClient: String
+  idDocument: String
+}
+
+input set_linkDocumentPotentialClient {
+  idPotentialClientDocument: String
+  link: String
+}
+
+input set_linkDocumentClient {
+  idClientDocument: String
+  link: String
+}
+
+input delete_linkDocumentPotentialClient {
+  idPotentialClientDocument: String
+}
+
+input delete_linkDocumentClient {
+  idClientDocument: String
+}
+
+type Mutation {
+  SET_POTENTIAL_CLIENT_DOCUMENTS(input: set_documentPotentialClient): [documentPotentialClient]
+  SET_CLIENT_DOCUMENTS(input: set_documentClient): [documentClient]
+  SET_LINK_POTENTIAL_CLIENT_DOCUMENTS(input: set_linkDocumentPotentialClient): String
+  SET_LINK_CLIENT_DOCUMENTS(input: set_linkDocumentClient): String
+  DELETE_POTENTIAL_CLIENT_DOCUMENTS(input: delete_linkDocumentPotentialClient): String
+  DELETE_CLIENT_DOCUMENTS(input: delete_linkDocumentClient): String
+}

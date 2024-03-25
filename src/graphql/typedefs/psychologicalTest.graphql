@@ -1,0 +1,40 @@
+type psychologicalTest {
+    id: ID
+    comments: String
+    status: String
+    docLink: String
+    correctlyCompleted: String
+}
+
+type candidates_psychologicalTest {
+    candidates: String
+    docLink: String
+}
+
+type new_psychologicalTest_candidates {
+    idPsychologicalTest: Int
+    message: String
+}
+
+type Query {
+    GET_PSYCHOLOGICALTESTBYCANDIDATE(idCandidates: String!): [psychologicalTest]
+    GET_CANDIDATE_PSYCHOLOGICALTEST(idPsychologicalTest: String!): [candidates_psychologicalTest]
+}
+
+input candidate_psychologicalTest {
+    idCandidates: String
+    comments: String
+    userLoggedIn: String
+    correctlyCompleted: String
+}
+
+input candidate_psychologicalTest_doc {
+    idPsychologicalTest: String
+    link: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    SET_PSYCHOLOGICALTEST(input: candidate_psychologicalTest): [new_psychologicalTest_candidates]
+    SET_PSYCHOLOGICALTEST_DOCUMENTS(input: candidate_psychologicalTest_doc): String
+}

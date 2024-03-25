@@ -1,0 +1,38 @@
+type typeDocumentsClients{
+    id:ID
+    name: String
+    description: String
+    status: String
+    typeClient: String
+}
+
+type Query {
+  GET_ALL_TYPE_DOCUMENTS_CLIENTS(status:String!, typeClient: String!): [typeDocumentsClients]
+}
+
+input create_typeDocumentsClients {
+    name: String
+    description: String
+    typeClient: String
+    userLoggedIn: String
+}
+
+input update_typeDocumentClient {
+    idTypeDocumentClient: String
+    name: String
+    description: String
+    typeClient: String
+    userLoggedIn: String
+}
+
+input delete_enable_typeDocumentClient {
+    idTypeDocumentClient: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_TYPE_DOCUMENTS_CLIENTS(input: create_typeDocumentsClients): String
+    UPDATE_TYPE_DOCUMENT_CLIENT(input: update_typeDocumentClient): String
+    DELETE_TYPE_DOCUMENT_CLIENT(input: delete_enable_typeDocumentClient): String
+    ENABLE_TYPE_DOCUMENT_CLIENT(input: delete_enable_typeDocumentClient): String
+}

@@ -1,0 +1,1 @@
+export {default as c_RegimenAduaneroQueries} from './queries'

@@ -1,0 +1,11 @@
+type useOfCFDI {
+    id: ID
+    codeUseOfCFDI: String
+    description: String
+    status: String
+    name: String
+}
+
+type Query {
+    GET_ALL_USE_OF_CFDI: [useOfCFDI]
+}

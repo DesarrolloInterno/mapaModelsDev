@@ -1,0 +1,32 @@
+type tollRates {
+    id:ID
+    name: String
+    idTollBooths: String
+    rate: String
+    status: String
+}
+
+type Query {
+    GET_TOLLRATES_BY_IDTOLLBOOTH(idTollBooth:String!): [tollRates]
+}
+
+input new_tollRate {
+    name: String,
+    idTollBooth: String,
+    rate: String,
+    userLoggedIn: String
+}
+
+input update_tollRate {
+    idTollRate: String,
+    name: String,
+    idTollBooth: String,
+    rate: String,
+    userLoggedIn: String,
+    status: String
+}
+
+type Mutation {
+    CREATE_TOLLRATE(input: new_tollRate): String
+    UPDATE_TOLLRATE(input: update_tollRate): String
+}

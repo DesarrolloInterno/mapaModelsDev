@@ -1,0 +1,11 @@
+type paymentMethod {
+    id: ID
+    code: String
+    description: String
+    status: String
+    name: String
+}
+
+type Query {
+    GET_ALL_PAYMENT_METHOD: [paymentMethod]
+}

@@ -1,0 +1,413 @@
+type potentialClient {
+    id: ID
+    idClient: Int
+    name: String
+    mail: String
+    phone: String
+    trackingEmail: String
+    user: String
+    status: String
+    formatClient: String
+    password: String
+    idEnterprise: String
+    EnterpriseName: String
+    enterpriseLogo: String
+    finishedForm: String
+    confirmGeneralData: Int
+    confirmInvoiceData: Int
+    confirmDirectories: Int
+    confirmLoadingReferences: Int
+    confirmBillingPortal: Int
+    confirmCredit: Int
+}
+
+type potentialClientForm {
+    id: ID
+    businessName: String
+    shortName: String
+    RFC: String
+    address: String
+    outsideAddressNumber: String
+    insideAddressNumber: String
+    neighborhood: String
+    zipCode: String
+    idCountry: Int
+    country: String
+    idTown: Int
+    town: String
+    idState: Int
+    state: String
+    fullAddress: String
+    billingReceptionPerson: String
+    billingReceptionPersonPhone: String
+    billingReceptionPersonMail: String
+    billingReceptionPersonStaffPosition: String
+    paymentReceptionPerson: String
+    paymentReceptionPersonPhone: String
+    paymentReceptionPersonMail: String
+    paymentReceptionPersonStaffPosition: String
+    chiefExecutiveOfficer: String
+    chiefExecutiveOfficerPhone: String
+    chiefExecutiveOfficerMail: String
+    chiefExecutiveOfficerStaffPosition: String
+    logisticsContactPerson: String
+    logisticsContactPersonPhone: String
+    logisticsContactPersonMail: String
+    logisticsContactPersonStaffPosition: String
+    mailReceiptInvoices: String
+    invoiceReceptionDays: String
+    sealedOrSignedWaybill: Int
+    instructionLetter: Int
+    importRequest: Int
+    paymentMethod: String
+    idPaymentMethod: Int
+    codePaymentMethod: String
+    useOfCFDI: String
+    idUseOfCFDI: Int
+    codeUseOfCFDI: String
+    currency: String
+    payment: String
+    idPayment: Int
+    codePayment: String
+    idFiscalSystem: Int
+    codeFiscalSystem: String
+    fiscalSystem: String
+    creditDays: Int
+    requestedCreditLimit: String
+    paymentSchedule: String
+    weeklyLoadVolume: String
+    monthlyLoadVolume: String
+    references1Name: String
+    references1Phone: String
+    references1Mail: String
+    references1CorporateNumber: String
+    references1CorporateName: String
+    references2Name: String
+    references2Phone: String
+    references2Mail: String
+    references2CorporateNumber: String
+    references2CorporateName: String
+    references3Name: String
+    references3Phone: String
+    references3Mail: String
+    references3CorporateNumber: String
+    references3CorporateName: String
+    httpAddress: String
+    userWebPageClient: String
+    passwordWebPageClient: String
+    status: String
+    TAXID: String
+    requestTaxpayerIdentification: Int
+    bankStatement: Int
+    articlesOfIncorporation: Int
+    enterpriseLogo: String
+    remission: Int
+    confirmGeneralData: Int
+    confirmDirectories: Int
+    confirmInvoiceData: Int
+    confirmLoadingReferences: Int
+    confirmBillingPortal: Int
+    confirmCredit: Int
+    formatClient: String
+    authorizedCreditLimit: String
+    confirmClient: Int
+    authorizedCreditDays: Int
+}
+
+type login_user_potentialClient {
+    id: ID
+    user: String
+    email: String
+    name: String
+    status: String
+    formatClient: String
+    enterpriseLogo: String
+    finishedForm: String
+}
+
+type return_new_potentialClient {
+    idPotentialClient: String
+    message: String
+}
+
+type potentialClientToClient {
+    idClient: String
+    message: String
+}
+
+type Query {
+    GET_ALL_POTENTIAL_CLIENT(status: String!): [potentialClient]
+    GET_POTENTIAL_CLIENT_BY_ID(idPotentialClient: String!): [potentialClient]
+    GET_POTENTIAL_CLIENT_FORM_BY_ID(idPotentialClient: String!): [potentialClientForm]
+    GET_USER_POTENTIAL_CLIENT_LOGIN(user: String!, password: String!): [login_user_potentialClient]
+}
+
+input new_potentialClient {
+    name: String
+    mail: String
+    phone: String
+    trackingEmail: String
+    user: String
+    password: String
+    userLoggedIn: String
+    formatClient: String
+    idEnterprise: String
+}
+
+input update_potentialClient {
+    idPotentialClient: String,
+    name: String
+    mail: String
+    phone: String
+    trackingEmail: String
+    user: String
+    password: String
+    userLoggedIn: String
+    formatClient: String
+    idEnterprise: String
+}
+
+input update_potentialClient_form {
+    idPotentialClient: String
+    businessName: String
+    RFC: String
+    address: String
+    outsideAddressNumber: String
+    insideAddressNumber: String
+    neighborhood: String
+    zipCode: String
+    idCountry: String
+    idTown: String
+    idState: String
+    billingReceptionPerson: String
+    billingReceptionPersonPhone: String
+    billingReceptionPersonMail: String
+    billingReceptionPersonStaffPosition: String
+    paymentReceptionPerson: String
+    paymentReceptionPersonPhone: String
+    paymentReceptionPersonMail: String
+    paymentReceptionPersonStaffPosition: String
+    chiefExecutiveOfficer: String
+    chiefExecutiveOfficerPhone: String
+    chiefExecutiveOfficerMail: String
+    chiefExecutiveOfficerStaffPosition: String
+    logisticsContactPerson: String
+    logisticsContactPersonPhone: String
+    logisticsContactPersonMail: String
+    logisticsContactPersonStaffPosition: String
+    mailReceiptInvoices: String
+    invoiceReceptionDays: String
+    sealedOrSignedWaybill: Int
+    instructionLetter: Int
+    importRequest: Int
+    remission: Int
+    idPaymentMethod: String
+    idUseOfCFDI: String
+    currency: String
+    idPayment: String
+    idFiscalSystem: String
+    creditDays: String
+    requestedCreditLimit: String
+    paymentSchedule: String
+    weeklyLoadVolume: String
+    monthlyLoadVolume: String
+    references1Name: String
+    references1Phone: String
+    references1CorporateName: String
+    references1CorporateNumber: String
+    references2Name: String
+    references2Phone: String
+    references2CorporateName: String
+    references2CorporateNumber: String
+    references3Name: String
+    references3Phone: String
+    references3CorporateName: String
+    references3CorporateNumber: String
+    httpAddress: String
+    userWebPageClient: String
+    passwordWebPageClient: String
+    finishedForm: Int
+    town: String
+}
+
+input update_potentialClient_form_international {
+    idPotentialClient: String
+    businessName: String
+    TAXID: String
+    address: String
+    outsideAddressNumber: String
+    neighborhood: String
+    zipCode: String
+    idCountry: String
+    idTown: String
+    idState: String
+    billingReceptionPerson: String
+    billingReceptionPersonPhone: String
+    billingReceptionPersonMail: String
+    billingReceptionPersonStaffPosition: String
+    paymentReceptionPerson: String
+    paymentReceptionPersonPhone: String
+    paymentReceptionPersonMail: String
+    paymentReceptionPersonStaffPosition: String
+    chiefExecutiveOfficer: String
+    chiefExecutiveOfficerPhone: String
+    chiefExecutiveOfficerMail: String
+    chiefExecutiveOfficerStaffPosition: String
+    logisticsContactPerson: String
+    logisticsContactPersonPhone: String
+    logisticsContactPersonMail: String
+    logisticsContactPersonStaffPosition: String
+    mailReceiptInvoices: String
+    invoiceReceptionDays: String
+    requestTaxpayerIdentification: Int
+    bankStatement: Int
+    articlesOfIncorporation: Int
+    currency: String
+    creditDays: String
+    requestedCreditLimit: String
+    paymentSchedule: String
+    weeklyLoadVolume: String
+    monthlyLoadVolume: String
+    references1Name: String
+    references1Phone: String
+    references1CorporateName: String
+    references1CorporateNumber: String
+    references2Name: String
+    references2Phone: String
+    references2CorporateName: String
+    references2CorporateNumber: String
+    references3Name: String
+    references3Phone: String
+    references3CorporateName: String
+    references3CorporateNumber: String
+    httpAddress: String
+    userWebPageClient: String
+    passwordWebPageClient: String
+    finishedForm: Int
+    town: String
+}
+
+input update_potentialClientGeneralData {
+    idPotentialClient: String
+    businessName: String
+    shortName: String
+    RFC: String
+    TAXID: String
+    address: String
+    outsideAddressNumber: String
+    insideAddressNumber: String
+    neighborhood: String
+    zipCode: String
+    idCountry: String
+    idTown: String
+    idState: String
+    userLoggedIn: String
+    town: String
+}
+
+input update_potentialClientDirectories {
+    idPotentialClient: String
+    billingReceptionPerson: String
+    billingReceptionPersonPhone: String
+    billingReceptionPersonMail: String
+    billingReceptionPersonStaffPosition: String
+    paymentReceptionPerson: String
+    paymentReceptionPersonPhone: String
+    paymentReceptionPersonMail: String
+    paymentReceptionPersonStaffPosition: String
+    chiefExecutiveOfficer: String
+    chiefExecutiveOfficerPhone: String
+    chiefExecutiveOfficerMail: String
+    chiefExecutiveOfficerStaffPosition: String
+    logisticsContactPerson: String
+    logisticsContactPersonPhone: String
+    logisticsContactPersonMail: String
+    logisticsContactPersonStaffPosition: String
+    userLoggedIn: String
+}
+
+input update_potentialClientInvoiceData {
+    idPotentialClient: String
+    mailReceiptInvoices: String
+    invoiceReceptionDays: String
+    sealedOrSignedWaybill: Int
+    instructionLetter: Int
+    importRequest: Int
+    remission: Int
+    requestTaxpayerIdentification: Int
+    bankStatement: Int
+    articlesOfIncorporation: Int
+    idPaymentMethod: String
+    idUseOfCFDI: String
+    currency: String
+    idPayment: String
+    idFiscalSystem: String
+    userLoggedIn: String
+}
+
+input update_potentialClientLoadingReferences {
+    idPotentialClient: String
+    weeklyLoadVolume: String
+    monthlyLoadVolume: String
+    references1Name: String
+    references1Phone: String
+    references1Mail: String
+    references1CorporateNumber: String
+    references1CorporateName: String
+    references2Name: String
+    references2Phone: String
+    references2Mail: String
+    references2CorporateNumber: String
+    references2CorporateName: String
+    references3Name: String
+    references3Phone: String
+    references3Mail: String
+    references3CorporateNumber: String
+    references3CorporateName: String
+    userLoggedIn: String
+}
+
+input update_potentialClientBillingPortal {
+    idPotentialClient: String
+    httpAddress: String
+    userWebPageClient: String
+    passwordWebPageClient: String
+    userLoggedIn: String
+}
+
+input update_potentialClientCredit {
+    idPotentialClient: String
+    creditDays: String
+    paymentSchedule: String
+    requestedCreditLimit: String
+    authorizedCreditLimit: String
+    userLoggedIn: String
+    authorizedCreditDays: String
+}
+
+input set_mail {
+    idPotentialClient: String,
+    userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_POTENTIAL_CLIENT(input: new_potentialClient): [return_new_potentialClient]
+    UPEDATE_POTENTIAL_CLIENT(input: update_potentialClient): [return_new_potentialClient]
+    UPDATE_POTENTIAL_CLIENT_FORM(input: update_potentialClient_form): String
+    UPDATE_POTENTIAL_CLIENT_FORM_INTERNATIONAL(input: update_potentialClient_form_international): String
+    SET_MAIL_POTENTIAL_CLIENT(input: set_mail): String
+    UPDATE_POTENTIAL_CLIENT_GENERALDATA(input: update_potentialClientGeneralData): String
+    CONFIRM_POTENTIAL_CLIENT_GENERALDATA(input: set_mail): String
+    UPDATE_POTENTIAL_CLIENT_DIRECTORIES(input: update_potentialClientDirectories): String
+    CONFIRM_POTENTIAL_CLIENT_DIRECTORIES(input: set_mail): String
+    UPDATE_POTENTIAL_CLIENT_INVOICEDATA(input: update_potentialClientInvoiceData): String
+    CONFIRM_POTENTIAL_CLIENT_INVOICEDATA(input: set_mail): String
+    UPDATE_POTENTIAL_CLIENT_LOADINGREFERENCES(input: update_potentialClientLoadingReferences): String
+    CONFIRM_POTENTIAL_CLIENT_LOADINGREFERENCES(input: set_mail): String
+    UPDATE_POTENTIAL_CLIENT_BILLINGPORTAL(input: update_potentialClientBillingPortal): String
+    UPDATE_POTENTIAL_CLIENT_CREDIT(input: update_potentialClientCredit): String
+    CONFIRM_POTENTIAL_CLIENT_BILLINGPORTAL(input: set_mail): String
+    CONFIRM_POTENTIAL_CLIENT_CREDIT(input: set_mail): String
+    CONVERT_POTENTIAL_CLIENT_CLIENT(input: set_mail): [potentialClientToClient]
+    DELETE_POTENTIAL_CLIENT(input: set_mail): String
+}

@@ -1,0 +1,83 @@
+type clientLocations {
+  id:ID
+  idClient: Int
+  client: String
+  name: String
+  address: String
+  outsideAddressNumber: String
+  insideAddressNumber: String
+  neighborhood: String
+  zipCode: String
+  idCountry: Int
+  country: String
+  idState: Int
+  state: String
+  idTown: Int
+  town: String
+  latitude: String
+  longitude: String
+  status: String
+  fullAddress: String
+  RFC: String
+  TAXID: String
+}
+
+type return_new_clientLocations{
+  idClientLocation: String
+  message: String
+}
+
+type Query {
+  GET_CLIENT_LOCATION(status:String!, idClient:String!): [clientLocations]
+  GET_LIST_CLIENT_LOCATION(status:String!): [clientLocations]
+}
+
+input new_clientLocations {
+  RFC: String,
+  TAXID: String,
+  name: String,
+  address: String,
+  outsideAddressNumber: String,
+  insideAddressNumber: String,
+  neighborhood: String,
+  zipCode: String,
+  idCountry: String,
+  idState: String,
+  idTown: String,
+  town: String,
+  latitude: String,
+  longitude: String,
+  userLoggedIn: String
+  confirm: String
+}
+
+input edit_clientLocations {
+  idClientLocation: String,
+  RFC: String,
+  TAXID: String,
+  name: String,
+  address: String,
+  outsideAddressNumber: String,
+  insideAddressNumber: String,
+  neighborhood: String,
+  zipCode: String,
+  idCountry: String,
+  idState: String,
+  idTown: String,
+  town: String,
+  latitude: String,
+  longitude: String,
+  userLoggedIn: String
+  confirm: String
+}
+
+input delete_clientLocation {
+  idClientLocation: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_CLIENT_LOCATION(input: new_clientLocations): [return_new_clientLocations]
+  EDIT_CLIENT_LOCATION(input: edit_clientLocations): [return_new_clientLocations]
+  DELETE_CLIENT_LOCATION(input: delete_clientLocation): String
+}

@@ -1,0 +1,39 @@
+type departments{
+  id:ID
+  name: String
+  description: String
+  status: String
+}
+
+type Query {
+  GET_ALL_DEPARTMENTS(status:String!): [departments]
+}
+
+type return_new_department{
+  idDepartment: String
+  message: String
+}
+
+input new_department {
+  name: String
+  description: String
+  userLoggedIn: String
+}
+
+input edit_department {
+  idDepartment: String
+  name: String
+  description: String
+  userLoggedIn: String
+}
+
+input delete_department {
+  idDepartment: String
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_DEPARTMENT(input: new_department): [return_new_department]
+  EDIT_DEPARTMENT(input: edit_department): [return_new_department]
+  DELETE_DEPARTMENT(input: delete_department): String
+}

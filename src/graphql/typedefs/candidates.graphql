@@ -1,0 +1,103 @@
+type candidates {
+  id: ID
+  contact: String
+  firstName: String
+  paternalLastName: String
+  maternalLastName: String
+  driverLicenseIsActive: String
+  APTOIsActive: String
+  currentlyLabaorando: String
+  age: String
+  experience: String
+  locatedAt: String
+  phone: String
+  comments: String
+  status: String
+  userRecorded: String
+  dateCandidateAdded: String
+  dateReject: String
+  userReject: String
+  antiquity: String
+  rejectionComment: String
+  readyToAccept: Int
+  candidateType: String
+  currentJob: String
+  inProgress: Int
+  idJobTitle: Int
+  jobTitle: String
+  idDepartment: Int
+  department: String
+  idOrder: String
+}
+
+input create_candidates {
+    contact: String
+    firstName: String
+    paternalLastName: String
+    maternalLastName: String
+    driverLicenseIsActive: String
+    APTOIsActive: String
+    currentlyLabaorando: String
+    age: String
+    experience: String
+    locatedAt: String
+    phone: String
+    comments: String
+    userLoggedIn: String
+    dateCandidateAdded: String
+    antiquity: String
+    idJobTitle: String
+    currentJob: String
+}
+
+input update_candidates {
+    id: String
+    contact: String
+    firstName: String
+    paternalLastName: String
+    maternalLastName: String
+    driverLicenseIsActive: String
+    APTOIsActive: String
+    currentlyLabaorando: String
+    age: String
+    experience: String
+    locatedAt: String
+    phone: String
+    comments: String
+    userLoggedIn: String
+    dateCandidateAdded: String
+    antiquity: String
+    idJobTitle: String
+    currentJob: String
+}
+
+input reject_candidate {
+  idCandidate: Int
+  userLoggedIn: String
+  dateRejected: String
+  rejectionComment: String
+}
+
+input accept_candidate {
+  idCandidate: Int
+  startDate: String
+  userLoggedIn: String
+}
+
+input set_reentry {
+  idCandidate: String
+  dateReentry: String
+  userLoggedIn: String
+}
+
+type Query {
+    GET_ALL_CANDIDATES(status: String!, date1: String!, date2: String!): [candidates]
+}
+
+type Mutation {
+    CREATE_CANDIDATE(input: create_candidates): String
+    UPDATE_CANDIDATE(input: update_candidates): String
+    REJECT_CANDIDATE(input: reject_candidate): String
+    SET_ACCEPTED_CANDIDATE(input: accept_candidate): String
+    SET_REENTRY_CANDIDATE(input: set_reentry): String
+}

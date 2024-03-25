@@ -1,0 +1,11 @@
+type c_RegimenAduaneroQueries {
+    id: ID
+    claveRegimenAduanero: String
+    description: String
+    status: String
+    ImpoExpo: String
+}
+
+type Query {
+    GET_ALL_C_REGIMEN_ADUANERO(clave:String!, description:String!, status:String!): [c_RegimenAduaneroQueries]
+}

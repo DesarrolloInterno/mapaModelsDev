@@ -1,0 +1,24 @@
+type laborTrajectory {
+    id: ID
+    laborTrajectory: String
+    comments: String
+    status: String
+    correctlyCompleted: String
+}
+
+type Query {
+    GET_LABORTRAJECTORYBYCANDIDATE(idCandidates: String!): [laborTrajectory]
+}
+
+input candidate_laborTrajectory {
+    idCandidates: String
+    laborTrajectory: String
+    comments: String
+    userLoggedIn: String
+    set_laborTrajectory: String
+    correctlyCompleted: String
+}
+
+type Mutation {
+    SET_LABOR_TRAJECTORY(input: candidate_laborTrajectory): String
+}

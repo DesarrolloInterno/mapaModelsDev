@@ -1,0 +1,13 @@
+type fiscalSystem {
+    id: ID
+    code: String
+    description: String
+    isFisica: String
+    isMoral: String
+    status: String
+    name: String
+}
+
+type Query {
+    GET_ALL_FISCAL_SYSTEM: [fiscalSystem]
+}

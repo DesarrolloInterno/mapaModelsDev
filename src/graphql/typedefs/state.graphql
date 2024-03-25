@@ -1,0 +1,10 @@
+type state {
+    id: ID
+    name: String
+    idCountry: Int
+    clave: String
+}
+
+type Query {
+    GET_ALL_STATES: [state]
+}

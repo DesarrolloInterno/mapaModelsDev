@@ -1,0 +1,8 @@
+type typeLicense {
+    id: ID
+    name: String
+}
+
+type Query {
+    GET_ALL_TYPE_LICENSE: [typeLicense]
+}

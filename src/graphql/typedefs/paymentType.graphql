@@ -1,0 +1,11 @@
+type paymentType {
+    id: ID
+    codePayment: String
+    description: String
+    status: String
+    name: String
+}
+
+type Query {
+    GET_ALL_PAYMENT_TYPE: [paymentType]
+}

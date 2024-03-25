@@ -1,0 +1,47 @@
+type employeeEmergencyContact {
+    id: ID
+    idEmployee: String
+    name: String
+    address: String
+    phone: String
+    status: String
+    mail: String
+    comment: String
+    relationship: String
+}
+
+type Query {
+    GET_EMPLOYEE_EMERGENCY_CONTACT(idEmployee: String!): [employeeEmergencyContact]
+}
+
+input createEmployeeEmergencyContact {
+    idEmployee: String
+    name: String
+    address: String
+    phone: String
+    mail: String
+    relationship: String
+    userLoggedIn: String
+}
+
+input editEmployeeEmergencyContact {
+    idEmployeeEmergencyContact: String
+    idEmployee: String
+    name: String
+    address: String
+    phone: String
+    mail: String
+    relationship: String
+    userLoggedIn: String
+}
+
+input deleteEmployeeEmergencyContact {
+    idEmployeeEmergencyContact: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_EMPLOYEE_EMERGENCY_CONTACT(input: createEmployeeEmergencyContact): String
+    EDIT_EMPLOYEE_EMERGENCY_CONTACT(input: editEmployeeEmergencyContact): String
+    DELETE_EMPLOYEE_EMERGENCY_CONTACT(input: deleteEmployeeEmergencyContact): String
+}

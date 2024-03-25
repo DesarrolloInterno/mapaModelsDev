@@ -1,0 +1,38 @@
+type startingMeetingDocuments {
+    id: ID
+    idStartingMeeting: Int
+    nameDocument: String
+    documentLink: String
+    status: String
+}
+
+type Query {
+    GET_STARTING_MEETING_DOCUMENTS_BY_ID_STARTING_MEETING(idStartingMeeting: String!): [startingMeetingDocuments]
+}
+
+type return_new_startingMeetingDocuments {
+    nameMeeting: String
+    document: String
+    idStartingMeetingDocuments: String
+}
+
+input new_startingMeetingDocuments {
+    idStartingMeeting: String
+    nameDocument: String
+}
+
+input set_link_startingMeetingDocuments {
+    idStartingMeetingDocuments: String
+    link: String
+}
+
+input delete_startingMeetingDocuments {
+  idStartingMeetingDocuments: String
+  userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_STARTING_MEETING_DOCUMENTS(input: new_startingMeetingDocuments): [return_new_startingMeetingDocuments]
+    SET_LINK_STARTING_MEETING_DOCUMENTS(input: set_link_startingMeetingDocuments): String
+    DELETE_STARTING_MEETING_DOCUMENTS(input: delete_startingMeetingDocuments): String
+}

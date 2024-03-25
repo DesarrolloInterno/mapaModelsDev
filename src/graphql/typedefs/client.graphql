@@ -1,0 +1,243 @@
+type client {
+    id: ID
+    name: String
+    businessName: String
+    shortName: String
+    RFC: String
+    address: String
+    outsideAddressNumber: String
+    insideAddressNumber: String
+    neighborhood: String
+    zipCode: String
+    idCountry: Int
+    country: String
+    idTown: Int
+    town: String
+    idState: Int
+    state: String
+    billingReceptionPerson: String
+    billingReceptionPersonPhone: String
+    billingReceptionPersonMail: String
+    billingReceptionPersonStaffPosition: String
+    paymentReceptionPerson: String
+    paymentReceptionPersonPhone: String
+    paymentReceptionPersonMail: String
+    paymentReceptionPersonStaffPosition: String
+    chiefExecutiveOfficer: String
+    chiefExecutiveOfficerPhone: String
+    chiefExecutiveOfficerMail: String
+    chiefExecutiveOfficerStaffPosition: String
+    logisticsContactPerson: String
+    logisticsContactPersonPhone: String
+    logisticsContactPersonMail: String
+    logisticsContactPersonStaffPosition: String
+    mailReceiptInvoices: String
+    invoiceReceptionDays: String
+    sealedOrSignedWaybill: Int
+    importRequest: Int
+    remission: Int
+    instructionLetter: Int
+    paymentMethod: String
+    idPaymentMethod: Int
+    useOfCFDI: String
+    idUseOfCFDI: Int
+    currency: String
+    payment: String
+    idPayment: Int
+    fiscalSystem: String
+    idFiscalSystem: Int
+    creditDays: String
+    authorizedCreditDays: String
+    requestedCreditLimit: Float
+    paymentSchedule: String
+    weeklyLoadVolume: String   
+    monthlyLoadVolume: String
+    references1Name: String
+    references1Phone: String
+    references1Mail: String
+    references1CorporateNumber: String
+    references1CorporateName: String
+    references2Name: String
+    references2Phone: String
+    references2Mail: String
+    references2CorporateNumber: String
+    references2CorporateName: String
+    references3Name: String
+    references3Phone: String
+    references3Mail: String
+    references3CorporateNumber: String
+    references3CorporateName: String
+    httpAddress: String
+    userWebPageClient: String
+    passwordWebPageClient: String
+    status: String
+    TAXID: String
+    requestTaxpayerIdentification: Int
+    bankStatement: Int  
+    articlesOfIncorporation: Int
+    formatClient: String
+    authorizedCreditLimit: Float
+    fullAddress: String
+}
+
+type clientList {
+    id: ID
+    name: String
+    businessName: String
+    RFC: String
+    shortName: String
+}
+
+type clientListTableSelector {
+    id: ID
+    name: String
+    businessName: String
+    RFC: String
+    TAXID: String
+    shortName: String
+}
+
+type newClient {
+    idClient: String
+    message: String
+}
+
+type Query {
+    GET_ALL_CLIENT(status: String!): [client]
+    GET_ALL_CLIENTS_LIST(status: String!): [clientList]
+    GET_ALL_CLIENTS_TABLE_SELECTOR(status: String!): [clientListTableSelector]
+    GET_CLIENT_BYID(idClient: Int!): [client]
+}
+
+input delete_client {
+    idClient: String,
+    userLoggedIn: String
+}
+
+input update_clientGeneralData {
+    idClient: String
+    businessName: String
+    shortName: String
+    RFC: String
+    TAXID: String
+    address: String
+    outsideAddressNumber: String
+    insideAddressNumber: String
+    neighborhood: String
+    zipCode: String
+    idCountry: String
+    idTown: String
+    idState: String
+    userLoggedIn: String
+    town: String
+    formatClient: String
+}
+
+input create_clientGeneralData {
+    businessName: String
+    shortName: String
+    RFC: String
+    TAXID: String
+    address: String
+    outsideAddressNumber: String
+    insideAddressNumber: String
+    neighborhood: String
+    zipCode: String
+    idCountry: String
+    idTown: String
+    idState: String
+    userLoggedIn: String
+    town: String
+    formatClient: String
+}
+
+input update_clientDirectories {
+    idClient: String
+    billingReceptionPerson: String
+    billingReceptionPersonPhone: String
+    billingReceptionPersonMail: String
+    billingReceptionPersonStaffPosition: String
+    paymentReceptionPerson: String
+    paymentReceptionPersonPhone: String
+    paymentReceptionPersonMail: String
+    paymentReceptionPersonStaffPosition: String
+    chiefExecutiveOfficer: String
+    chiefExecutiveOfficerPhone: String
+    chiefExecutiveOfficerMail: String
+    chiefExecutiveOfficerStaffPosition: String
+    logisticsContactPerson: String
+    logisticsContactPersonPhone: String
+    logisticsContactPersonMail: String
+    logisticsContactPersonStaffPosition: String
+    userLoggedIn: String
+}
+
+input update_clientInvoiceData {
+    idClient: String
+    mailReceiptInvoices: String
+    invoiceReceptionDays: String
+    sealedOrSignedWaybill: Int
+    instructionLetter: Int
+    importRequest: Int
+    remission: Int
+    requestTaxpayerIdentification: Int
+    bankStatement: Int
+    articlesOfIncorporation: Int
+    idPaymentMethod: String
+    idUseOfCFDI: String
+    currency: String
+    idPayment: String
+    idFiscalSystem: String
+    userLoggedIn: String
+}
+
+input update_clientLoadingReferences {
+    idClient: String
+    weeklyLoadVolume: String
+    monthlyLoadVolume: String
+    references1Name: String
+    references1Phone: String
+    references1Mail: String
+    references1CorporateNumber: String
+    references1CorporateName: String
+    references2Name: String
+    references2Phone: String
+    references2Mail: String
+    references2CorporateNumber: String
+    references2CorporateName: String
+    references3Name: String
+    references3Phone: String
+    references3Mail: String
+    references3CorporateNumber: String
+    references3CorporateName: String
+    userLoggedIn: String
+}
+
+input update_clientBillingPortal {
+    idClient: String
+    httpAddress: String
+    userWebPageClient: String
+    passwordWebPageClient: String
+    userLoggedIn: String
+}
+
+input update_clientCredit {
+    idClient: String
+    creditDays: String
+    paymentSchedule: String
+    requestedCreditLimit: String
+    authorizedCreditLimit: String
+    userLoggedIn: String
+    authorizedCreditDays: String
+}
+
+type Mutation {
+    CREATE_CLIENT_GENERALDATA(input: create_clientGeneralData): [newClient]
+    UPDATE_CLIENT_GENERALDATA(input: update_clientGeneralData): String
+    UPDATE_CLIENT_DIRECTORIES(input: update_clientDirectories): String
+    UPDATE_CLIENT_INVOICEDATA(input: update_clientInvoiceData): String
+    UPDATE_CLIENT_LOADINGREFERENCES(input: update_clientLoadingReferences): String
+    UPDATE_CLIENT_BILLINGPORTAL(input: update_clientBillingPortal): String
+    UPDATE_CLIENT_CREDIT(input: update_clientCredit): String
+    DELETE_CLIENT(input: delete_client): String
+}

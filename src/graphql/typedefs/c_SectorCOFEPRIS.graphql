@@ -1,0 +1,10 @@
+type c_SectorCOFEPRIS {
+    id: ID
+    claveSectorCOFEPRIS: String
+    description: String
+    status: String
+}
+
+type Query {
+    GET_ALL_C_SECTOR_COFEPRIS(clave:String!, description:String!, status:String!): [c_SectorCOFEPRIS]
+}

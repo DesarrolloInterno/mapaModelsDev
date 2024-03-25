@@ -1,0 +1,37 @@
+
+type boothRoutesTollBooths {
+  id:ID
+  idBoothRoute: String
+  idTollBooth: String
+  name: String
+  threeAxisFee: String
+  fiveAxisFee: String
+  sevenAxisFee: String
+  orderTollBooths: String
+  status: String
+}
+
+type Query {
+  GET_BOOTHROUTES_TOLLBOOTHS_BY_ID(idBoothRoute:String!): [boothRoutesTollBooths]
+}
+
+input new_boothRoutes_tollBooths {
+    idBoothRoute: String
+    idTollBooth: String
+    orderTollBooths: String
+    userLoggedIn: String
+}
+
+input update_boothRoutes_tollBooths {
+    idBoothRoutesTollBooths: String
+    idBoothRoute: String
+    idTollBooth: String
+    orderTollBooths: String
+    userLoggedIn: String
+    status: String
+}
+
+type Mutation {
+  CREATE_BOOTHROUTE_TOLLBOOTH(input: new_boothRoutes_tollBooths): String
+  UPDATE_BOOTHROUTE_TOLLBOOTH(input: update_boothRoutes_tollBooths): String
+}

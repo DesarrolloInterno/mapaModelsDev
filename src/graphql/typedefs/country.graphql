@@ -1,0 +1,10 @@
+type country {
+    id: ID
+    name: String
+    code: String
+}
+
+type Query {
+    GET_ALL_COUNTRIES: [country]
+    GET_COUNTRY(countryCode: String!): [country]
+}

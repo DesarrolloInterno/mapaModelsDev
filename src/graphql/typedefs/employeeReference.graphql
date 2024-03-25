@@ -1,0 +1,73 @@
+type employeeReference {
+    id: ID
+    idEmployee: String
+    name: String
+    address: String
+    phone: String
+    status: String
+    mail: String
+    comment: String
+    docLink: String
+}
+
+type new_employee_reference {
+    idEmployeeReference: Int
+    employee: String
+}
+
+type employee_by_reference {
+    idEmployeeReference: Int
+    idEmployee: Int
+    employee: String
+    docLink: String
+}
+
+type create_result_employee_reference {
+    idEmployeeReference: Int
+    employee: String
+    message: String
+}
+
+type Query {
+    GET_REFERENCES_BY_ID_EMPLOYEE(idEmployee: String!): [employeeReference]
+    GET_EMPLOYEE_BY_REFERENCES(idEmployeeReference: String!): [employee_by_reference]
+}
+
+input create_employee_reference {
+    idEmployee: String
+    name: String
+    address: String
+    phone: String
+    mail: String
+    comment: String
+    userLoggedIn: String
+}
+
+input edit_employee_reference {
+    idEmployeeReference: String
+    idEmployee: String
+    name: String
+    address: String
+    phone: String
+    mail: String
+    comment: String
+    userLoggedIn: String
+}
+
+input set_file_employee_reference {
+    idEmployeeReference: String
+    docLink: String
+    userLoggedIn: String
+}
+
+input delete_employee_reference {
+    idEmployeeReference: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_EMPLOYEE_REFERENCE(input: create_employee_reference): [create_result_employee_reference]
+    EDIT_EMPLOYEE_REFERENCE(input: edit_employee_reference): String
+    SET_FILE_EMPLOYEE_REFERENCE(input: set_file_employee_reference): String
+    DELETE_EMPLOYEE_REFERENCE(input: delete_employee_reference): String
+}

@@ -1,0 +1,114 @@
+type enterprises {
+    id: ID
+    name: String
+    mailNotification: String
+    phone: String
+    legalForm: String
+    RFC: String
+    address: String
+    outsideAddressNumber: String
+    insideAddressNumber: String
+    neighborhood: String
+    idCountry: Int
+    country: String
+    idState: Int
+    state: String
+    idTown: Int
+    town: String
+    zipCode: String
+    digitalStampCertificate: String
+    certificateKey: String
+    passwordDigitalStampCertificate: String
+    certificateNumber: String
+    enterpriseLogo: String
+    businessName: String
+    fullAddress: String
+    idFiscalSystem: Int
+    fiscalSystem: String
+    codeFiscalSystem: String
+    status: String
+}
+
+type return_new_enterprises {
+    idEnterprise: String
+    message: String
+}
+
+type name_enterprises {
+    idEnterprise: String
+    name: String
+    digitalStampCertificate: String
+    certificateKey: String
+    enterpriseLogo: String
+}
+
+type Query {
+    GET_ALL_ENTERPRISES(status: String!): [enterprises]
+    GET_ENTERPRISE_BY_ID(idEnterprise: String!): [enterprises]
+    GET_NAME_ENTERPRISE(idEnterprise: String!): [name_enterprises]
+}
+
+input new_enterprise {
+    name: String
+    phone: String
+    legalForm: String
+    RFC: String
+    address: String
+    outsideAddressNumber: String
+    insideAddressNumber: String
+    neighborhood: String
+    idCountry: String
+    idState: String
+    idTown: String
+    town: String
+    zipCode: String
+    passwordDigitalStampCertificate: String
+    certificateNumber: String
+    mailNotification: String
+    businessName: String
+    idFiscalSystem: String
+    userLoggedIn: String
+}
+
+input edit_enterprise {
+    idEnterprise: String
+    name: String
+    phone: String
+    legalForm: String
+    RFC: String
+    address: String
+    outsideAddressNumber: String
+    insideAddressNumber: String
+    neighborhood: String
+    idCountry: String
+    idState: String
+    idTown: String
+    town: String
+    zipCode: String
+    passwordDigitalStampCertificate: String
+    certificateNumber: String
+    mailNotification: String
+    businessName: String
+    idFiscalSystem: String
+    userLoggedIn: String
+}
+
+input doc_enterprise {
+    idEnterprise: String
+    link: String
+    userLoggedIn: String
+}
+
+input delete_enterprise {
+    idEnterprise: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_ENTERPRISE(input: new_enterprise): [return_new_enterprises]
+    EDIT_ENTERPRISE(input: edit_enterprise): [return_new_enterprises]
+    SET_DIGITAL_STAMP_CERTIFICATE_ENTERPRISE(input: doc_enterprise): String
+    SET_DIGIRAL_CERTIFICATEKEY_ENTERPRISE(input: doc_enterprise): String
+    SET_LOGO_ENTERPRISE(input: doc_enterprise): String
+    DELETE_ENTERPRISE(input: delete_enterprise): String
+}

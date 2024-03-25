@@ -1,0 +1,38 @@
+type new_medicalValidity {
+    idMedicalValidity: Int
+    employee: String
+}
+
+input create_medicalValidity {
+    idEmployee: String
+    medicalEffectiveDate: String
+    userLoggedIn: String
+}
+
+input doc_medicalValidity {
+    idMedicalValidity: String
+    link: String
+    userLoggedIn: String
+}
+
+input edit_medicalValidity {
+    idMedicalValidity: String
+    idEmployee: String
+    medicalEffectiveDate: String
+    userLoggedIn: String
+    documentLink: String
+}
+
+input edit_medicalValidity_without_document {
+    idMedicalValidity: String
+    idEmployee: String
+    medicalEffectiveDate: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_MEDICAL_VALIDITY(input: create_medicalValidity): [new_medicalValidity]
+    SET_MEDICAL_VALIDITY_DOCUMENTS(input: doc_medicalValidity): String
+    EDIT_MEDICAL_VALIDITY(input: edit_medicalValidity): String
+    EDIT_MEDICAL_VALIDITY_WITHOUT_DOCUMENT(input: edit_medicalValidity_without_document): String
+}

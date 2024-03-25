@@ -1,0 +1,59 @@
+type permissions_users {
+    id: ID
+    idUser: Int
+    idScreen: Int
+    edit: Boolean
+    show: Boolean
+    remove: Boolean
+    status: String
+}
+
+type permissions_for_users {
+  id: ID
+  idUser: Int
+  idScreen: Int
+  edit: Boolean
+  show: Boolean
+  delete: Boolean
+  status: String
+  nameScreens: String
+  location: String
+  order: String
+  idTopMenu: Int
+  menu: String
+}
+
+type active_permissions {
+  id: ID
+  name: String
+  idTopMenu: Int
+  location: String
+  status: String
+  show: String
+  edit: String
+  delete: String
+}
+
+input update_permissions {
+  idUser: String
+  idScreen: String
+  status: String
+  TypePermits: String
+  userLoggedIn: String
+}
+
+input giveTheSamePermissions {
+  idUser: String
+  idSecondUser: String
+  userLoggedIn: String
+}
+
+type Query {
+  GET_PERMISSIONS_FOR_USER(idUser:Int!): [permissions_for_users]
+  GET_ACTIVE_PERMISSIONS(idUser:Int!): [active_permissions]
+}
+
+type Mutation {
+  UPDATE_PERMISSIONS(input: update_permissions): String
+  GAVE_THE_SAME_PERMISSIONS(input: giveTheSamePermissions): String
+}

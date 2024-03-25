@@ -1,0 +1,39 @@
+type dispatchDocuments {
+    id: ID
+    idTripOrder: Int
+    nameDocument: String
+    documentLink: String
+    status: String
+}
+
+type new_dispatchDocuments {
+    idDocument: String
+}
+
+type Query {
+  GET_DISPATCH_DOCUMENTS_BY_TRIPORDER(idTripOrder: String!): [dispatchDocuments]
+  GET_DISPATCH_DOCUMENTS_BY_ID(idDispatchDocument: String!): [dispatchDocuments]
+}
+
+input set_dispatchDocuments {
+  idTripOrder: String,
+  userLoggedIn: String
+}
+
+input set_link_dispatchDocuments {
+  idDocument: String,
+  link: String,
+  document: String,
+  userLoggedIn: String
+}
+
+input delete_dispatchDocuments {
+  idDocument: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  SET_DISPATCH_DOCUMENTS(input: set_dispatchDocuments): [new_dispatchDocuments]
+  SET_LINK_DISPATCH_DOCUMENTS(input: set_link_dispatchDocuments): String
+  DELETE_DISPATCH_DOCUMENTS(input: delete_dispatchDocuments): String
+}

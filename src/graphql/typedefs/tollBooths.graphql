@@ -1,0 +1,76 @@
+type tollBooths {
+  id:ID
+  name: String
+  idCountry: Int
+  country: String
+  idState: Int
+  state: String
+  idTown: Int
+  town: String
+  latitude: String
+  longitude: String
+  status: String
+  fullAddress: String
+}
+
+type tollBoothsList {
+  id:ID
+  name: String
+  idCountry: Int
+  country: String
+  idState: Int
+  state: String
+  idTown: Int
+  town: String
+  latitude: String
+  longitude: String
+  status: String
+  fullAddress: String
+  threeAxisFee: String
+  fiveAxisFee: String
+  sevenAxisFee: String
+}
+
+type return_new_tollBooth{
+  idTollBooth: String
+  message: String
+}
+
+type Query {
+  GET_TOLLBOOTHS(status:String!): [tollBooths]
+  GET_LIST_TOLLBOOTHS(status:String!): [tollBoothsList]
+}
+
+input new_tollBooth {
+  name: String,
+  idCountry: String,
+  idState: String,
+  idTown: String,
+  town: String,
+  latitude: String,
+  longitude: String,
+  userLoggedIn: String
+}
+
+input update_tollBooth {
+  idTollBooth: String,
+  name: String,
+  idCountry: String,
+  idState: String,
+  idTown: String,
+  town: String,
+  latitude: String,
+  longitude: String,
+  userLoggedIn: String
+}
+
+input delete_tollBooth {
+  idTollBooth: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_TOLLBOOTH(input: new_tollBooth): [return_new_tollBooth]
+  UPDATE_TOLLBOOTH(input: update_tollBooth): [return_new_tollBooth]
+  DELETE_TOLLBOOTH(input: delete_tollBooth): String
+}

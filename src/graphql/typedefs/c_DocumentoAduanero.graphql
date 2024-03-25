@@ -1,0 +1,10 @@
+type c_DocumentoAduanero {
+    id: ID
+    claveDocumentoAduanero: String
+    description: String
+    status: String
+}
+
+type Query {
+    GET_ALL_C_DOCUMENTOADUANERO(clave:String!, description:String!, status:String!): [c_DocumentoAduanero]
+}

@@ -1,0 +1,1 @@
+export {default as countryQueries} from './queries'
