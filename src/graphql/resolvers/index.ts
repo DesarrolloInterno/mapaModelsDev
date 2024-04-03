@@ -65,6 +65,7 @@ import {c_SectorCOFEPRISQueries} from './c_SectorCOFEPRIS'
 import {c_FormaFarmaceuticaQueries} from './c_FormaFarmaceutica'
 import {c_CondicionesEspecialesQueries} from './c_CondicionesEspeciales'
 import {c_RegimenAduaneroQueries} from './c_RegimenAduanero'
+import {clientUsersQueries, clientUserMutations} from './clientUsers'
 
 const resolvers = {
     Query: {
@@ -132,7 +133,8 @@ const resolvers = {
         ...c_SectorCOFEPRISQueries,
         ...c_FormaFarmaceuticaQueries,
         ...c_CondicionesEspecialesQueries,
-        ...c_RegimenAduaneroQueries
+        ...c_RegimenAduaneroQueries,
+        ...clientUsersQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -179,7 +181,8 @@ const resolvers = {
         ...dispatchDocumentsMutations,
         ...rfcVerificationMutation,
         ...tripOrderProductsMutations,
-        ...tripOrderTravelPickupsMutations
+        ...tripOrderTravelPickupsMutations,
+        ...clientUserMutations
     }
 }
 

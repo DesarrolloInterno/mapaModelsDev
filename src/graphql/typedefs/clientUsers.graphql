@@ -1,0 +1,43 @@
+type clientUsers {
+    id: ID
+    userName: String
+    companyArea: String
+    description: String
+    status: String
+    idClient: String
+    password: String
+    typeUser: String
+}
+
+type Query {
+    GET_CLIENTUSERS_BY_IDCLIENT(idClient: String!): [clientUsers]
+}
+
+type newClientUsers {
+    idClientUsers: String
+    userName: String
+    message: String
+}
+
+
+input set_clientUsers {
+    idClientUsers: String
+    userName: String
+    companyArea: String
+    description: String
+    password: String
+    idClient: String
+    userLoggedIn: String
+    typeUser: String
+    status: String
+}
+
+input delete_clientUser {
+    idClientUsers: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    SET_CLIENTUSER(input: set_clientUsers): [newClientUsers]
+    DELETE_CLIENTUSER(input: delete_clientUser): String
+}
