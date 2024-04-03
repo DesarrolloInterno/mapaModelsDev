@@ -68,6 +68,9 @@ import {c_FormaFarmaceutica} from "./Entities/c_FormaFarmaceutica"
 import {c_CondicionesEspeciales} from "./Entities/c_CondicionesEspeciales"
 import {c_RegimenAduanero} from "./Entities/c_RegimenAduanero"
 import {clientUsers} from "./Entities/clientUsers"
+import { unit } from "./Entities/unit"
+import { unitDocuments } from "./Entities/unitDocuments"
+import { insurer } from "./Entities/insurer"
 
 export const  dbConection = async () =>{
   let PORT: string = process.env.DATABASE_PORT!
@@ -149,7 +152,10 @@ export const  dbConection = async () =>{
       c_FormaFarmaceutica,
       c_CondicionesEspeciales,
       c_RegimenAduanero,
-      clientUsers
+      clientUsers,
+      unit,
+      unitDocuments,
+      insurer
     ],
     options: {
       encrypt: true,//true para Windows Azure

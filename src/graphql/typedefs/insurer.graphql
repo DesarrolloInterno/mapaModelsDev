@@ -1,0 +1,78 @@
+type insurer {
+  id: ID
+  name: String
+  street: String
+  streetNumber: String
+  unitNumber: String
+  locality: String
+  CP: String
+  idCountry: Int
+  idState: Int
+  idTown: Int
+  country: String
+  state: String
+  town: String
+  contactName: String
+  phone: String
+  email: String
+  status: String
+}
+
+type Query {
+  GET_INSURER(status:String!): [insurer]
+}
+
+type return_new_insurer{
+  idInsurer: String
+  message: String
+}
+
+input new_insurer {
+  name: String,
+  street: String,
+  streetNumber: String,
+  unitNumber: String,
+  locality: String,
+  CP: String,
+  idCountry: String,
+  idState: String,
+  idTown: String,
+  country: String,
+  state: String,
+  town: String,
+  contactName: String,
+  phone: String,
+  email: String,
+  userLoggedIn: String
+}
+
+input update_insurer {
+  idInsurer: String,
+  name: String,
+  street: String,
+  streetNumber: String,
+  unitNumber: String,
+  locality: String,
+  CP: String,
+  idCountry: String,
+  idState: String,
+  idTown: String,
+  country: String,
+  state: String,
+  town: String,
+  contactName: String,
+  phone: String,
+  email: String,
+  userLoggedIn: String
+}
+
+input delete_insurer {
+  idInsurer: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_INSURER(input: new_insurer): [return_new_insurer]
+  UPDATE_INSURER(input: update_insurer): [return_new_insurer]
+  DELETE_INSURER(input: delete_insurer): String
+}

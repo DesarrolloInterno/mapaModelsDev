@@ -66,6 +66,7 @@ import {c_FormaFarmaceuticaQueries} from './c_FormaFarmaceutica'
 import {c_CondicionesEspecialesQueries} from './c_CondicionesEspeciales'
 import {c_RegimenAduaneroQueries} from './c_RegimenAduanero'
 import {clientUsersQueries, clientUserMutations} from './clientUsers'
+import { insurerQueries, insurerMutations } from './insurer'
 
 const resolvers = {
     Query: {
@@ -134,7 +135,8 @@ const resolvers = {
         ...c_FormaFarmaceuticaQueries,
         ...c_CondicionesEspecialesQueries,
         ...c_RegimenAduaneroQueries,
-        ...clientUsersQueries
+        ...clientUsersQueries,
+        ...insurerQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -182,7 +184,8 @@ const resolvers = {
         ...rfcVerificationMutation,
         ...tripOrderProductsMutations,
         ...tripOrderTravelPickupsMutations,
-        ...clientUserMutations
+        ...clientUserMutations,
+        ...insurerMutations
     }
 }
 
