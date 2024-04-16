@@ -78,6 +78,9 @@ type client {
     formatClient: String
     authorizedCreditLimit: Float
     fullAddress: String
+    idAccountingAccount: Int
+    nameAccountingAccount: String
+    accountingAccount: String
 }
 
 type clientList {
@@ -131,6 +134,8 @@ input update_clientGeneralData {
     userLoggedIn: String
     town: String
     formatClient: String
+    country: String
+    state: String
 }
 
 input create_clientGeneralData {
@@ -149,6 +154,8 @@ input create_clientGeneralData {
     userLoggedIn: String
     town: String
     formatClient: String
+    country: String
+    state: String
 }
 
 input update_clientDirectories {
@@ -231,6 +238,14 @@ input update_clientCredit {
     authorizedCreditDays: String
 }
 
+input update_clientAccountingAccounts {
+    idClient: String
+    idAccountingAccount: String
+    nameAccountingAccount: String
+    accountingAccount: String
+    userLoggedIn: String
+}
+
 type Mutation {
     CREATE_CLIENT_GENERALDATA(input: create_clientGeneralData): [newClient]
     UPDATE_CLIENT_GENERALDATA(input: update_clientGeneralData): String
@@ -239,5 +254,6 @@ type Mutation {
     UPDATE_CLIENT_LOADINGREFERENCES(input: update_clientLoadingReferences): String
     UPDATE_CLIENT_BILLINGPORTAL(input: update_clientBillingPortal): String
     UPDATE_CLIENT_CREDIT(input: update_clientCredit): String
+    UPDATE_CLIENT_ACCOUNTINGACCOUNT(input: update_clientAccountingAccounts): String
     DELETE_CLIENT(input: delete_client): String
 }
