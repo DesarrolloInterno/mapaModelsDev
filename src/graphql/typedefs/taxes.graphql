@@ -1,12 +1,18 @@
 type taxes {
-    id:ID
-    name: String
-    SATcode: String
-    description: String
-    taxChargeType: String
-    percentage: String
-    taxFactor: String
-    status: String
+  id:ID
+  name: String
+  SATcode: String
+  description: String
+  taxChargeType: String
+  percentage: String
+  taxFactor: String
+  status: String
+  idAccountingAccountInvoices: String
+  accountingAccountInvoices: String
+  nameAccountingAccountInvoices: String
+  idAccountingAccountPayment: String
+  accountingAccountPayment: String
+  nameAccountingAccountPayment: String
 }
 
 type Query {
@@ -19,22 +25,34 @@ type return_new_tax{
 }
 
 input new_tax {
-    SATcode: String,
-    description: String,
-    taxChargeType: String,
-    percentage: String,
-    taxFactor: String,
-    userLoggedIn: String
+  SATcode: String,
+  description: String,
+  taxChargeType: String,
+  percentage: String,
+  taxFactor: String,
+  userLoggedIn: String
+  idAccountingAccountInvoices: String
+  accountingAccountInvoices: String
+  nameAccountingAccountInvoices: String
+  idAccountingAccountPayments: String
+  accountingAccountPayments: String
+  nameAccountingAccountPayments: String
 }
 
 input update_tax {
-    idTax: String,
-    SATcode: String,
-    description: String,
-    taxChargeType: String,
-    percentage: String,
-    taxFactor: String,
-    userLoggedIn: String
+  idTax: String,
+  SATcode: String,
+  description: String,
+  taxChargeType: String,
+  percentage: String,
+  taxFactor: String,
+  userLoggedIn: String
+  idAccountingAccountInvoices: String
+  accountingAccountInvoices: String
+  nameAccountingAccountInvoices: String
+  idAccountingAccountPayments: String
+  accountingAccountPayments: String
+  nameAccountingAccountPayments: String
 }
 
 input delete_tax {
