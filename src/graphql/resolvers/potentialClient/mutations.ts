@@ -101,10 +101,12 @@ const potentialClientMutations = {
             userWebPageClient,
             passwordWebPageClient,
             finishedForm,
-            town
+            town,
+            country,
+            state
         } = input;
         try {
-            await potentialClient.query("exec update_potentialClientForm " +
+            const message = await potentialClient.query("exec update_potentialClientForm " +
             "@idPotentialClient = '"+idPotentialClient+"', " +
             "@businessName = '"+businessName+"', " +
             "@RFC = '"+RFC+"', " +
@@ -165,8 +167,10 @@ const potentialClientMutations = {
             "@passwordWebPageClient = '"+passwordWebPageClient+"', " +
             "@encrypt = '"+process.env.ENCRYPT+"'," +
             "@finishedForm = '"+finishedForm+"', "+
-            "@town = '"+town+"' ");
-            return 'Datos actualizados correctamente'
+            "@town = '"+town+"', " +
+            "@country = '"+country+"', " +
+            "@state = '"+state+"' ");
+            return message
         } catch (error) {
             console.log(error);
         }
@@ -226,10 +230,12 @@ const potentialClientMutations = {
             userWebPageClient,
             passwordWebPageClient,
             finishedForm,
-            town
+            town,
+            country,
+            state
         } = input;
         try {
-            await potentialClient.query("exec update_potentialClientForm_international " +
+            const message = await potentialClient.query("exec update_potentialClientForm_international " +
             "@idPotentialClient = '"+idPotentialClient+"', " +
             "@businessName = '"+businessName+"', " +
             "@TAXID = '"+TAXID+"', " +
@@ -284,8 +290,10 @@ const potentialClientMutations = {
             "@passwordWebPageClient = '"+passwordWebPageClient+"', " +
             "@encrypt = '"+process.env.ENCRYPT+"'," +
             "@finishedForm = '"+finishedForm+"', "+
-            "@town = '"+town+"' ");
-            return 'Information updated successfully'
+            "@town = '"+town+"', " +
+            "@country = '"+country+"', " +
+            "@state = '"+state+"' ");
+            return message
         } catch (error) {
             console.log(error);
         }
@@ -315,7 +323,9 @@ const potentialClientMutations = {
             idTown,
             idState,
             userLoggedIn,
-            town
+            town,
+            country,
+            state
         } = input;
         try {
             await potentialClient.query("exec update_potentialClientGeneralData " +
@@ -330,10 +340,12 @@ const potentialClientMutations = {
             "@neighborhood = '"+neighborhood+"', " +
             "@zipCode = '"+zipCode+"', " +
             "@idCountry = '"+idCountry+"', " +
+            "@country = '"+country+"', " +
             "@idTown = '"+idTown+"', " +
+            "@town = '"+town+"', " +
             "@idState = '"+idState+"', " +
-            "@userLoggedIn = '"+userLoggedIn+"', " +
-            "@town = '"+town+"' ");
+            "@state = '"+state+"', " +
+            "@userLoggedIn = '"+userLoggedIn+"' ");
             return 'Datos actualizados correctamente'
         } catch (error) {
             console.log(error);

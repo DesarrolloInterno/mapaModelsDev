@@ -9,8 +9,29 @@ type clientUsers {
     typeUser: String
 }
 
+type login_clientUsers {
+    id: ID
+    user: String
+    email: String
+    name: String
+    status: String
+    formatClient: String
+    enterpriseLogo: String
+    finishedForm: String
+    typeUser: String
+    idClient: Int
+    idPotentialClient: Int
+    password: String
+    idEnterprise: String
+    EnterpriseName: String
+    trackingEmail: String
+    phone: String
+}
+
 type Query {
     GET_CLIENTUSERS_BY_IDCLIENT(idClient: String!): [clientUsers]
+    GET_CLIENTUSERS_LOGIN(user: String!, password: String!): [login_clientUsers]
+    GET_CLIENTUSERS_BY_ID(idClientUser: String!): [login_clientUsers]
 }
 
 type newClientUsers {
