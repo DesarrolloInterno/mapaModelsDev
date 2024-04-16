@@ -1,0 +1,24 @@
+type accountingAccounts {
+    id: ID,
+	accountingAccount: String,
+	nameAccountingAccount: String,
+	idParentAccountingAccount: String,
+	parentAccountingAccount: String,
+	nameParentAccountingAccount: String,
+	idCodeNameGrouper: String,
+	codeNameGrouper: String,
+	codeGrouper: String,
+	accountLevel: String,
+	accountType: String,
+	currency: String,
+	costs: String,
+	accountSubtype: String,
+	accountNature: String,
+	isAffectable: String,
+	showOnCancellation: String,
+	status: String,
+}
+
+type Query {
+    GET_ALL_ACCOUNTINGACCOUNTS(status: String!, isAffectable: String!): [accountingAccounts]
+}

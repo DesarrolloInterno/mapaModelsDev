@@ -1,0 +1,1 @@
+export {default as special_permissionsQueries} from './queries'

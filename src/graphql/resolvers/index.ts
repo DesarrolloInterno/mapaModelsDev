@@ -67,6 +67,8 @@ import {c_CondicionesEspecialesQueries} from './c_CondicionesEspeciales'
 import {c_RegimenAduaneroQueries} from './c_RegimenAduanero'
 import {clientUsersQueries, clientUserMutations} from './clientUsers'
 import { insurerQueries, insurerMutations } from './insurer'
+import { accountingAccountsQueries } from './accountingAccounts'
+import { special_permissionsQueries } from './special_permissions'
 
 const resolvers = {
     Query: {
@@ -136,7 +138,9 @@ const resolvers = {
         ...c_CondicionesEspecialesQueries,
         ...c_RegimenAduaneroQueries,
         ...clientUsersQueries,
-        ...insurerQueries
+        ...insurerQueries,
+        ...accountingAccountsQueries,
+        ...special_permissionsQueries
     },
     Mutation: {
         ...user_historialMutations,

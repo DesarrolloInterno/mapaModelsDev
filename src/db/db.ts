@@ -71,6 +71,8 @@ import {clientUsers} from "./Entities/clientUsers"
 import { unit } from "./Entities/unit"
 import { unitDocuments } from "./Entities/unitDocuments"
 import { insurer } from "./Entities/insurer"
+import {accountingAccounts} from "./Entities/accountingAccounts"
+import {special_permissions} from "./Entities/special_permissions"
 
 export const  dbConection = async () =>{
   let PORT: string = process.env.DATABASE_PORT!
@@ -155,7 +157,9 @@ export const  dbConection = async () =>{
       clientUsers,
       unit,
       unitDocuments,
-      insurer
+      insurer,
+      accountingAccounts,
+      special_permissions
     ],
     options: {
       encrypt: true,//true para Windows Azure
