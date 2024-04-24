@@ -1,0 +1,48 @@
+type unitDocuments {
+  id: ID,
+  idUnit: Int,
+  idDocument: Int,
+  nameDocument: String,
+  documentLink: String,
+  status: String,
+  typeDocument: String
+}
+
+type Query {
+  GET_ALL_UNIT_DOCUMENTS(status:String!): [unitDocuments]
+}
+
+input new_unitDocuments {
+    idUnit: String,
+    idDocument: String,
+    nameDocument: String,
+    documentLink: String,
+    userLoggedIn: String,
+    typeDocument: String
+}
+
+type return_new_unitDocuments {
+    nameUnit: String
+    document: String
+    idDocument: String
+}
+
+input set_link_unitDocuments {
+    idUnit: String,
+    id: String,
+    documentLink: String
+}
+
+input create_new_unitDocument {
+    idUnit: String,
+    nameDocument: String,
+    userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_UNIT_IMAGES(input: new_unitDocuments): String
+    CREATE_UNIT_DOCUMENTS(input: create_new_unitDocument): [return_new_unitDocuments]
+    SET_LINK_UNIT_DOCUMENTS(input: set_link_unitDocuments): String
+}
+
+

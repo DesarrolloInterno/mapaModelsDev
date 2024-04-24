@@ -6,11 +6,13 @@ export class unitDocuments extends BaseEntity{
     @Column()
     idUnit! : number
     @Column()
-    nameDocument! : string
-    @Column()
     idDocument! : number
+    @Column()
+    nameDocument! : string
     @Column()
     documentLink! : string
     @Column()
     status! : string
+    @Column()
+    typeDocument! : string
 }

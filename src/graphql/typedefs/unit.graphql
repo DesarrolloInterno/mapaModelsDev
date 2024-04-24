@@ -1,0 +1,158 @@
+type unit {
+  id: ID
+  economicNumber: String,
+  idOperator: Int,
+  idEnterprise: Int,
+  status: String,
+  unitBrand: String,
+  unitModel: String,
+  typeUnit: String,
+  unitLong: String,
+  unitBroad: String,
+  unitWeight: String,
+  licensePlates: String,
+  unitYear: String,
+  numberAxles: String,
+  numberTires: String,
+  color: String,
+  operativeClasification: String,
+  serialNumber: String,
+  insurancePolicy: String,
+  engineBrand: String,
+  engineModel: String,
+  horsePower: String,
+  engineSerialNumber: String,
+  unitFrontView: String,
+  unitRightView: String,
+  unitBackView: String,
+  unitLeftView: String,
+  unitExtraView: String,
+  carrierKey: String,
+  permissionType: String,
+  permissionNumber: String,
+  environmentalInsurerPolicy: String,
+  observations: String,
+  idInsurer: Int,
+  idEnvironmentalInsurer: Int,
+  employee: String,
+  enterprise: String,
+  insurer: String,
+  environmentalInsurer: String,
+  operativeClasificationName: String, 
+  typeUnitName: String
+}
+
+type unitDocuments {
+    id: ID,
+    idUnit: Int,
+    documentLink: String,
+    status: String,
+    idDocument: Int,
+    nameDocument: String,
+}
+
+type Query {
+  GET_UNIT(status:String!): [unit]
+  GET_UNIT_DOCUMENTS(idUnit: String!): [unitDocuments]
+}
+
+type return_new_unit{
+  idUnit: String
+  message: String
+}
+
+input new_unit {
+  economicNumber: String,
+  idOperator: String,
+  idEnterprise: String,
+  status: String,
+  unitBrand: String,
+  unitModel: String,
+  typeUnit: String,
+  unitLong: String,
+  unitBroad: String,
+  unitWeight: String,
+  licensePlates: String,
+  unitYear: String,
+  numberAxles: String,
+  numberTires: String,
+  color: String,
+  operativeClasification: String,
+  serialNumber: String,
+  insurancePolicy: String,
+  engineBrand: String,
+  engineModel: String,
+  horsePower: String,
+  engineSerialNumber: String,
+  carrierKey: String,
+  permissionType: String,
+  permissionNumber: String,
+  environmentalInsurerPolicy: String,
+  observations: String,
+  idInsurer: String,
+  idEnvironmentalInsurer: String,
+  userLoggedIn: String
+}
+
+input delete_unit {
+  idUnit: String,
+  userLoggedIn: String
+}
+
+input update_unit {
+  idUnit: String,
+  economicNumber: String,
+  idOperator: String,
+  idEnterprise: String,
+  status: String,
+  unitBrand: String,
+  unitModel: String,
+  typeUnit: String,
+  unitLong: String,
+  unitBroad: String,
+  unitWeight: String,
+  licensePlates: String,
+  unitYear: String,
+  numberAxles: String,
+  numberTires: String,
+  color: String,
+  operativeClasification: String,
+  serialNumber: String,
+  insurancePolicy: String,
+  engineBrand: String,
+  engineModel: String,
+  horsePower: String,
+  engineSerialNumber: String,
+  carrierKey: String,
+  permissionType: String,
+  permissionNumber: String,
+  environmentalInsurerPolicy: String,
+  observations: String,
+  idInsurer: String,
+  idEnvironmentalInsurer: String,
+  userLoggedIn: String
+}
+
+input edit_unitDocuments {
+    idDocument: String,
+    idUnit: String,
+    documentLink: String,
+    userLoggedIn: String
+}
+
+input delete_unitDocuments {
+    id: String
+    userLoggedIn: String
+}
+
+type return_new_document{
+  documentLink: String
+}
+
+type Mutation {
+  CREATE_UNIT(input: new_unit): [return_new_unit]
+  DELETE_UNIT(input: delete_unit): String
+  UPDATE_UNIT(input: update_unit): [return_new_unit]
+  EDIT_UNIT_IMAGES(input: edit_unitDocuments): String
+  DELETE_UNIT_DOCUMENTS(input: delete_unitDocuments): [return_new_document]
+}

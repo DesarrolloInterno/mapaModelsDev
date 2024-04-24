@@ -70,6 +70,11 @@ import {c_RegimenAduanero} from "./Entities/c_RegimenAduanero"
 import { unit } from "./Entities/unit"
 import { unitDocuments } from "./Entities/unitDocuments"
 import { insurer } from "./Entities/insurer"
+import { unitStatus } from "./Entities/unitStatus"
+import { unitType } from "./Entities/unitType"
+import { operativeClasification } from "./Entities/operativeClasification"
+import { c_ConfigAutotransporte } from "./Entities/c_ConfigAutotransporte"
+import { c_TipoPermiso } from "./Entities/c_TipoPermiso"
 
 
 export const  dbConection = async () =>{
@@ -154,7 +159,12 @@ export const  dbConection = async () =>{
       c_RegimenAduanero,
       unit,
       unitDocuments,
-      insurer
+      insurer,
+      unitStatus,
+      unitType,
+      operativeClasification,
+      c_ConfigAutotransporte,
+      c_TipoPermiso
     ],
     options: {
       encrypt: true,//true para Windows Azure

@@ -1,0 +1,11 @@
+type c_TipoPermiso {
+    id: ID
+    claveTipoPermiso: String
+    description: String
+    claveTransporte: String
+    status: String
+}
+
+type Query {
+    GET_ALL_C_TIPO_PERMISO(filter:String!, status:String!): [c_TipoPermiso]
+}

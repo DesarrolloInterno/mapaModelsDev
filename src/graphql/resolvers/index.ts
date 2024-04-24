@@ -66,7 +66,13 @@ import {c_FormaFarmaceuticaQueries} from './c_FormaFarmaceutica'
 import {c_CondicionesEspecialesQueries} from './c_CondicionesEspeciales'
 import {c_RegimenAduaneroQueries} from './c_RegimenAduanero'
 import { insurerQueries, insurerMutations } from './insurer'
-
+import { unitQueries, unitMutations } from './unit'
+import { unitStatusQueries } from './unitStatus'
+import { unitTypeQueries } from './unitType'
+import { operativeClasificationQueries } from './operativeClasification'
+import { c_ConfigAutotransporteQueries } from './c_ConfigAutotransporte'
+import { c_TipoPermisoQueries } from './c_TipoPermiso'
+import { unitDocumentsMutations, unitDocumentsQueries } from './unitDocuments'
 
 const resolvers = {
     Query: {
@@ -135,7 +141,15 @@ const resolvers = {
         ...c_FormaFarmaceuticaQueries,
         ...c_CondicionesEspecialesQueries,
         ...c_RegimenAduaneroQueries,
-        ...insurerQueries
+        ...insurerQueries,
+        ...unitQueries,
+        ...unitStatusQueries,
+        ...unitTypeQueries,
+        ...operativeClasificationQueries,
+        ...c_TipoPermisoQueries,
+        ...c_ConfigAutotransporteQueries,
+        ...unitDocumentsQueries
+        
     },
     Mutation: {
         ...user_historialMutations,
@@ -183,7 +197,9 @@ const resolvers = {
         ...rfcVerificationMutation,
         ...tripOrderProductsMutations,
         ...tripOrderTravelPickupsMutations,
-        ...insurerMutations
+        ...insurerMutations,
+        ...unitMutations,
+        ...unitDocumentsMutations,
     }
 }
 

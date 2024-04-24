@@ -114,6 +114,15 @@ const employeesQueries = {
             console.log(error);
         }
     },
+    GET_ALL_OPERATOR_EMPLOYEES: async (_: any, {status}: any) => {
+        try{
+            const result = await employees.query("exec get_all_operator_employees @status = '"+ status +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default employeesQueries;

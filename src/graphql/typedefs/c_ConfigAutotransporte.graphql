@@ -1,0 +1,13 @@
+type c_ConfigAutotransporte {
+    id: ID
+    claveConfigAutotransporte: String
+    description: String
+    axlesNumber: String
+    tireNumber: String
+    remolque: String
+    status: String
+}
+
+type Query {
+    GET_ALL_C_CONFIG_AUTOTRANSPORTE(filter:String!, status:String!): [c_ConfigAutotransporte]
+}
