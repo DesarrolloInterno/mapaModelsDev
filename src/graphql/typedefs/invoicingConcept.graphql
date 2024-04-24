@@ -1,14 +1,17 @@
 type invoicingConcept {
-    id:ID
-    name: String
-    SATcode: String
-    description: String
-    refrigeratedBox: Int
-    isTaxes: Int
-    taxRate: String
-    typeTrip: String
-    nameTripType: String
-    status: String
+  id:ID
+  name: String
+  SATcode: String
+  description: String
+  refrigeratedBox: Int
+  isTaxes: Int
+  taxRate: String
+  typeTrip: String
+  nameTripType: String
+  status: String
+  idAccountingAccount: String
+  accountingAccount: String
+  nameAccountingAccount: String
 }
 
 type Query {
@@ -29,6 +32,9 @@ input new_invoicingConcept {
   taxRate: String,
   typeTrip: String,
   userLoggedIn: String
+  idAccountingAccount: String
+  accountingAccount: String
+  nameAccountingAccount: String
 }
 
 input update_invoicingConcept {
@@ -41,6 +47,9 @@ input update_invoicingConcept {
   taxRate: String,
   typeTrip: String,
   userLoggedIn: String
+  idAccountingAccount: String
+  accountingAccount: String
+  nameAccountingAccount: String
 }
 
 input delete_invoicingConcept {

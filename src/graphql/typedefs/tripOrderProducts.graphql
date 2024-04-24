@@ -79,6 +79,7 @@ type return_new_tripOrderProduct_excel{
 type return_new_tripOrderProduct_excel_v2{
 	idTripOrderProduct: String
 	productNameMessage: String
+	productCodeMessage: String
 	codeUnitMessage: String
 	cargoQuantityMessage: String
 	cargoWeightMessage: String

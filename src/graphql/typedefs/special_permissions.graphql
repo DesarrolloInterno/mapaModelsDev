@@ -1,0 +1,10 @@
+type special_permissions {
+    id: ID
+    idUser: Int
+    permissionName: String
+    isAuthorized: Boolean
+}
+
+type Query {
+  GET_SPECIAL_PERMISSIONS_FOR_USER(idUser:Int!): [special_permissions]
+}

@@ -130,6 +130,10 @@ type return_new_potentialClient {
     message: String
 }
 
+type return_message_potentialClient {
+    message: String
+}
+
 type potentialClientToClient {
     idClient: String
     message: String
@@ -228,6 +232,8 @@ input update_potentialClient_form {
     passwordWebPageClient: String
     finishedForm: Int
     town: String
+    country: String
+    state: String
 }
 
 input update_potentialClient_form_international {
@@ -285,6 +291,8 @@ input update_potentialClient_form_international {
     passwordWebPageClient: String
     finishedForm: Int
     town: String
+    country: String
+    state: String
 }
 
 input update_potentialClientGeneralData {
@@ -299,10 +307,12 @@ input update_potentialClientGeneralData {
     neighborhood: String
     zipCode: String
     idCountry: String
+    country: String
     idTown: String
-    idState: String
-    userLoggedIn: String
     town: String
+    idState: String
+    state: String
+    userLoggedIn: String
 }
 
 input update_potentialClientDirectories {
@@ -393,8 +403,8 @@ input set_mail {
 type Mutation {
     CREATE_POTENTIAL_CLIENT(input: new_potentialClient): [return_new_potentialClient]
     UPEDATE_POTENTIAL_CLIENT(input: update_potentialClient): [return_new_potentialClient]
-    UPDATE_POTENTIAL_CLIENT_FORM(input: update_potentialClient_form): String
-    UPDATE_POTENTIAL_CLIENT_FORM_INTERNATIONAL(input: update_potentialClient_form_international): String
+    UPDATE_POTENTIAL_CLIENT_FORM(input: update_potentialClient_form): [return_message_potentialClient]
+    UPDATE_POTENTIAL_CLIENT_FORM_INTERNATIONAL(input: update_potentialClient_form_international): [return_message_potentialClient]
     SET_MAIL_POTENTIAL_CLIENT(input: set_mail): String
     UPDATE_POTENTIAL_CLIENT_GENERALDATA(input: update_potentialClientGeneralData): String
     CONFIRM_POTENTIAL_CLIENT_GENERALDATA(input: set_mail): String

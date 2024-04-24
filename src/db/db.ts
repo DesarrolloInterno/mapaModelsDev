@@ -67,6 +67,7 @@ import {c_SectorCOFEPRIS} from "./Entities/c_SectorCOFEPRIS"
 import {c_FormaFarmaceutica} from "./Entities/c_FormaFarmaceutica"
 import {c_CondicionesEspeciales} from "./Entities/c_CondicionesEspeciales"
 import {c_RegimenAduanero} from "./Entities/c_RegimenAduanero"
+import {clientUsers} from "./Entities/clientUsers"
 import { unit } from "./Entities/unit"
 import { unitDocuments } from "./Entities/unitDocuments"
 import { insurer } from "./Entities/insurer"
@@ -75,6 +76,8 @@ import { unitType } from "./Entities/unitType"
 import { operativeClasification } from "./Entities/operativeClasification"
 import { c_ConfigAutotransporte } from "./Entities/c_ConfigAutotransporte"
 import { c_TipoPermiso } from "./Entities/c_TipoPermiso"
+import {accountingAccounts} from "./Entities/accountingAccounts"
+import {special_permissions} from "./Entities/special_permissions"
 
 
 export const  dbConection = async () =>{
@@ -157,6 +160,7 @@ export const  dbConection = async () =>{
       c_FormaFarmaceutica,
       c_CondicionesEspeciales,
       c_RegimenAduanero,
+      clientUsers,
       unit,
       unitDocuments,
       insurer,
@@ -164,7 +168,10 @@ export const  dbConection = async () =>{
       unitType,
       operativeClasification,
       c_ConfigAutotransporte,
-      c_TipoPermiso
+      c_TipoPermiso,
+      accountingAccounts,
+      special_permissions
+
     ],
     options: {
       encrypt: true,//true para Windows Azure

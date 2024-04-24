@@ -1,0 +1,64 @@
+type clientUsers {
+    id: ID
+    userName: String
+    companyArea: String
+    description: String
+    status: String
+    idClient: String
+    password: String
+    typeUser: String
+}
+
+type login_clientUsers {
+    id: ID
+    user: String
+    email: String
+    name: String
+    status: String
+    formatClient: String
+    enterpriseLogo: String
+    finishedForm: String
+    typeUser: String
+    idClient: Int
+    idPotentialClient: Int
+    password: String
+    idEnterprise: String
+    EnterpriseName: String
+    trackingEmail: String
+    phone: String
+}
+
+type Query {
+    GET_CLIENTUSERS_BY_IDCLIENT(idClient: String!): [clientUsers]
+    GET_CLIENTUSERS_LOGIN(user: String!, password: String!): [login_clientUsers]
+    GET_CLIENTUSERS_BY_ID(idClientUser: String!): [login_clientUsers]
+}
+
+type newClientUsers {
+    idClientUsers: String
+    userName: String
+    message: String
+}
+
+
+input set_clientUsers {
+    idClientUsers: String
+    userName: String
+    companyArea: String
+    description: String
+    password: String
+    idClient: String
+    userLoggedIn: String
+    typeUser: String
+    status: String
+}
+
+input delete_clientUser {
+    idClientUsers: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    SET_CLIENTUSER(input: set_clientUsers): [newClientUsers]
+    DELETE_CLIENTUSER(input: delete_clientUser): String
+}

@@ -27,7 +27,9 @@ const clientsMutations = {
             idState,
             userLoggedIn,
             town,
-            formatClient
+            formatClient,
+            country,
+            state
         } = input;
         try {
             await client.query("exec update_clientGeneralData " +
@@ -46,7 +48,9 @@ const clientsMutations = {
             "@idState = '"+idState+"', " +
             "@userLoggedIn = '"+userLoggedIn+"', " +
             "@town = '"+town+"', " +
-            "@formatClient = '"+formatClient+"' ");
+            "@formatClient = '"+formatClient+"', " +
+            "@country = '"+country+"', " +
+            "@state = '"+state+"' ");
             return 'Datos actualizados correctamente'
         } catch (error) {
             console.log(error);
@@ -243,7 +247,9 @@ const clientsMutations = {
             idState,
             userLoggedIn,
             town,
-            formatClient
+            formatClient,
+            country,
+            state
         } = input;
         try {
             const newData = await client.query("exec create_clientGeneralData " +
@@ -261,8 +267,25 @@ const clientsMutations = {
             "@idState = '"+idState+"', " +
             "@userLoggedIn = '"+userLoggedIn+"', " +
             "@town = '"+town+"', "+
-            "@formatClient = '"+formatClient+"' ");
+            "@formatClient = '"+formatClient+"', "+
+            "@country = '"+country+"', "+
+            "@state = '"+state+"' ");
             return newData
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_CLIENT_ACCOUNTINGACCOUNT: async (_: any, {input}: any) => {
+        const { 
+            idClient,
+            idAccountingAccount,
+            nameAccountingAccount,
+            accountingAccount,
+            userLoggedIn
+        } = input;
+        try {
+            await client.query("exec update_clientAccountingAccount @idClient = '"+idClient+"', @idAccountingAccount = '"+idAccountingAccount+"', @nameAccountingAccount = '"+nameAccountingAccount+"', @accountingAccount = '"+accountingAccount+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Datos actualizados correctamente'
         } catch (error) {
             console.log(error);
         }

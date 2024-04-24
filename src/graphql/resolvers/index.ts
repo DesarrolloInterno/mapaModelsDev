@@ -65,6 +65,7 @@ import {c_SectorCOFEPRISQueries} from './c_SectorCOFEPRIS'
 import {c_FormaFarmaceuticaQueries} from './c_FormaFarmaceutica'
 import {c_CondicionesEspecialesQueries} from './c_CondicionesEspeciales'
 import {c_RegimenAduaneroQueries} from './c_RegimenAduanero'
+import {clientUsersQueries, clientUserMutations} from './clientUsers'
 import { insurerQueries, insurerMutations } from './insurer'
 import { unitQueries, unitMutations } from './unit'
 import { unitStatusQueries } from './unitStatus'
@@ -73,6 +74,9 @@ import { operativeClasificationQueries } from './operativeClasification'
 import { c_ConfigAutotransporteQueries } from './c_ConfigAutotransporte'
 import { c_TipoPermisoQueries } from './c_TipoPermiso'
 import { unitDocumentsMutations, unitDocumentsQueries } from './unitDocuments'
+import { accountingAccountsQueries } from './accountingAccounts'
+import { special_permissionsQueries } from './special_permissions'
+
 
 const resolvers = {
     Query: {
@@ -148,8 +152,12 @@ const resolvers = {
         ...operativeClasificationQueries,
         ...c_TipoPermisoQueries,
         ...c_ConfigAutotransporteQueries,
-        ...unitDocumentsQueries
-        
+        ...unitDocumentsQueries,
+        ...clientUsersQueries,
+        ...insurerQueries,
+        ...accountingAccountsQueries,
+        ...special_permissionsQueries
+
     },
     Mutation: {
         ...user_historialMutations,
@@ -200,6 +208,8 @@ const resolvers = {
         ...insurerMutations,
         ...unitMutations,
         ...unitDocumentsMutations,
+        ...clientUserMutations,
+        ...insurerMutations
     }
 }
 
