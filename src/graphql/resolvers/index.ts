@@ -76,7 +76,13 @@ import { c_TipoPermisoQueries } from './c_TipoPermiso'
 import { unitDocumentsMutations, unitDocumentsQueries } from './unitDocuments'
 import { accountingAccountsQueries } from './accountingAccounts'
 import { special_permissionsQueries } from './special_permissions'
-
+import { linesMutations, linesQueries } from './lines'
+import { truckBoxesMutations, truckBoxesQueries } from './truckBoxes'
+import { truckBoxLocationQueries } from './truckBoxLocation'
+import { truckBoxStatusQueries } from './truckBoxStatus'
+import { truckBoxTypeQueries } from './truckBoxType'
+import { c_SubTipoRemQueries } from './c_SubTipoRem'
+import { truckBoxDocumentsMutations, truckBoxDocumentsQueries } from './truckBoxDocuments'
 
 const resolvers = {
     Query: {
@@ -156,7 +162,14 @@ const resolvers = {
         ...clientUsersQueries,
         ...insurerQueries,
         ...accountingAccountsQueries,
-        ...special_permissionsQueries
+        ...special_permissionsQueries,
+        ...linesQueries,
+        ...truckBoxesQueries,
+        ...truckBoxLocationQueries,
+        ...truckBoxStatusQueries,
+        ...truckBoxTypeQueries,
+        ...c_SubTipoRemQueries,
+        ...truckBoxDocumentsQueries
 
     },
     Mutation: {
@@ -209,7 +222,10 @@ const resolvers = {
         ...unitMutations,
         ...unitDocumentsMutations,
         ...clientUserMutations,
-        ...insurerMutations
+        ...insurerMutations,
+        ...linesMutations,
+        ...truckBoxesMutations,
+        ...truckBoxDocumentsMutations
     }
 }
 

@@ -1,0 +1,37 @@
+type truckBoxDocuments {
+  id: ID,
+  idTruckBox: Int,
+  idDocument: Int,
+  nameDocument: String,
+  documentLink: String,
+  status: String,
+  typeDocument: String
+}
+
+type Query {
+  GET_ALL_TRUCKBOX_DOCUMENTS(idTruckBox: String!): [truckBoxDocuments]
+}
+
+input new_truckBoxDocuments{
+    idTruckBox: String,
+    idDocument: String,
+    nameDocument: String,
+    documentLink: String,
+    userLoggedIn: String,
+    typeDocument: String
+}
+
+input delete_truckBoxDocuments {
+    id: String
+    userLoggedIn: String
+}
+
+
+type return_new_document{
+  documentLink: String
+}
+
+type Mutation {
+    UPLOAD_TRUCKBOX_IMAGES(input: new_truckBoxDocuments): String
+    DELETE_TRUCKBOX_IMAGES(input: delete_truckBoxDocuments): [return_new_document]
+}

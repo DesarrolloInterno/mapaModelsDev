@@ -1,0 +1,93 @@
+type truckBox {
+  id: ID,
+  idEnterprise: Int,
+  idLine: Int,
+  economicNumber: String,
+  status: String,
+  location: String,
+  serialNumber: String,
+  unitType: String,
+  brand: String,
+  model: String,
+  licensePlates: String,
+  year: String,
+  measurement: String,
+  odometer: String,
+  idCountry: Int,
+  country: String,
+  idState: Int,
+  state: String,
+  trailerTypes: String,
+  enterprise: String,
+  line: String
+}
+
+type Query {
+  GET_TRUCKBOXES(status:String!): [truckBox]
+}
+
+input new_truckBox {
+  idEnterprise: String,
+  idLine: String,
+  economicNumber: String,
+  status: String,
+  location: String,
+  serialNumber: String,
+  unitType: String,
+  brand: String,
+  model: String,
+  licensePlates: String,
+  year: String,
+  measurement: String,
+  odometer: String,
+  idCountry: String,
+  country: String,
+  idState: String,
+  state: String,
+  trailerTypes: String,
+  userLoggedIn: String
+}
+
+input delete_truckBox {
+  idTruckBox: String,
+  userLoggedIn: String
+}
+
+input update_truckBox {
+  idTruckBox: String,
+  idEnterprise: String,
+  idLine: String,
+  economicNumber: String,
+  status: String,
+  location: String,
+  serialNumber: String,
+  unitType: String,
+  brand: String,
+  model: String,
+  licensePlates: String,
+  year: String,
+  measurement: String,
+  odometer: String,
+  idCountry: String,
+  country: String,
+  idState: String,
+  state: String,
+  trailerTypes: String,
+  userLoggedIn: String
+}
+
+type return_new_truckBox{
+  idTruckBox: String
+  message: String
+}
+
+type return_new_truckBox{
+  idTruckBox: String
+  message: String
+}
+
+type Mutation {
+  CREATE_TRUCKBOX(input: new_truckBox): [return_new_truckBox]
+  DELETE_TRUCKBOX(input: delete_truckBox): String
+  UPDATE_TRUCKBOX(input: update_truckBox): [return_new_truckBox]
+}

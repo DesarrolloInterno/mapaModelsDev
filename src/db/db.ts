@@ -78,7 +78,13 @@ import { c_ConfigAutotransporte } from "./Entities/c_ConfigAutotransporte"
 import { c_TipoPermiso } from "./Entities/c_TipoPermiso"
 import {accountingAccounts} from "./Entities/accountingAccounts"
 import {special_permissions} from "./Entities/special_permissions"
-
+import {lines} from "./Entities/lines"
+import { truckBoxes } from "./Entities/truckBoxes"
+import { truckBoxLocation } from "./Entities/truckBoxLocation"
+import { truckBoxStatus } from "./Entities/truckBoxStatus"
+import { truckBoxType } from "./Entities/truckBoxType"
+import { c_SubTipoRem } from "./Entities/c_SubTipoRem"
+import { truckBoxDocuments } from "./Entities/truckBoxDocuments"
 
 export const  dbConection = async () =>{
   let PORT: string = process.env.DATABASE_PORT!
@@ -170,7 +176,14 @@ export const  dbConection = async () =>{
       c_ConfigAutotransporte,
       c_TipoPermiso,
       accountingAccounts,
-      special_permissions
+      special_permissions,
+      lines,
+      truckBoxes,
+      truckBoxLocation,
+      truckBoxStatus,
+      truckBoxType,
+      c_SubTipoRem,
+      truckBoxDocuments
 
     ],
     options: {
