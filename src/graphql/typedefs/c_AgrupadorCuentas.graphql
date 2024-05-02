@@ -1,0 +1,21 @@
+type c_AgrupadorCuentas {
+    id: ID
+    level: String
+    claveAgrupador: String
+    name: String
+    status: String
+}
+
+type accountingAccountType {
+    name: String
+    status: String
+}
+
+type Query {
+    GET_C_AGRUPADORCUENTAS(clave:String!, description:String!, status:String!): [c_AgrupadorCuentas]
+    GET_ACCOUNTINGACCOUNTTYPE(status:String!): [accountingAccountType]
+    GET_ACCOUNTINGACCOUNLEVEL(status:String!): [accountingAccountType]
+    GET_ACCOUNTINGACCOUNTCOST(status:String!): [accountingAccountType]
+    GET_ACCOUNTINGACCOUNTSUBTYPE(status:String!): [accountingAccountType]
+    GET_ACCOUNTINGACCOUNTNATURE(status:String!): [accountingAccountType]
+}

@@ -73,6 +73,7 @@ import { unitDocuments } from "./Entities/unitDocuments"
 import { insurer } from "./Entities/insurer"
 import {accountingAccounts} from "./Entities/accountingAccounts"
 import {special_permissions} from "./Entities/special_permissions"
+import {c_AgrupadorCuentas} from "./Entities/c_AgrupadorCuentas"
 
 export const  dbConection = async () =>{
   let PORT: string = process.env.DATABASE_PORT!
@@ -159,7 +160,8 @@ export const  dbConection = async () =>{
       unitDocuments,
       insurer,
       accountingAccounts,
-      special_permissions
+      special_permissions,
+      c_AgrupadorCuentas
     ],
     options: {
       encrypt: true,//true para Windows Azure

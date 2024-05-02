@@ -19,6 +19,75 @@ type accountingAccounts {
 	status: String,
 }
 
+type new_accountingAccount {
+    message: String
+}
+
+
 type Query {
     GET_ALL_ACCOUNTINGACCOUNTS(status: String!, isAffectable: String!): [accountingAccounts]
+}
+
+input accountingAccount {
+    accountingAccount: String,
+	nameAccountingAccount: String,
+	idParentAccountingAccount: String,
+	parentAccountingAccount: String,
+	nameParentAccountingAccount: String,
+	idCodeNameGrouper: String,
+	codeNameGrouper: String,
+	codeGrouper: String,
+	accountLevel: String,
+	accountType: String,
+	currency: String,
+	costs: String,
+	accountSubtype: String,
+	accountNature: String,
+	isAffectable: String,
+	showOnCancellation: String,
+	userLoggedIn: String
+}
+
+input accountingAccountEdit {
+	idAccountingAccount: String,
+    accountingAccount: String,
+	nameAccountingAccount: String,
+	idParentAccountingAccount: String,
+	parentAccountingAccount: String,
+	nameParentAccountingAccount: String,
+	idCodeNameGrouper: String,
+	codeNameGrouper: String,
+	codeGrouper: String,
+	accountLevel: String,
+	accountType: String,
+	currency: String,
+	costs: String,
+	accountSubtype: String,
+	accountNature: String,
+	isAffectable: String,
+	showOnCancellation: String,
+	userLoggedIn: String
+}
+
+input accountingAccountDelete {
+	idAccountingAccount: String,
+	userLoggedIn: String
+}
+
+input accountingAccountClient {
+	idClient: String
+	userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_ACCOUNTING_ACCOUNT(input: accountingAccount): [new_accountingAccount]
+	UPDATE_ACCOUNTING_ACCOUNT(input: accountingAccountEdit): [new_accountingAccount]
+}
+
+type Mutation {
+    CREATE_ACCOUNTING_ACCOUNT(input: accountingAccount): [new_accountingAccount]
+	UPDATE_ACCOUNTING_ACCOUNT(input: accountingAccountEdit): [new_accountingAccount]
+	DELETE_ACCOUNTING_ACCOUNT(input: accountingAccountDelete): String
+	ENABLE_ACCOUNTING_ACCOUNT(input: accountingAccountDelete): String
+	SET_ACCOUNTING_ACCOUNT_CLIENT(input: accountingAccountClient): String
 }

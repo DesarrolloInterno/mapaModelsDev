@@ -1,0 +1,1 @@
+export {default as c_AgrupadorCuentasQueries} from './queries'
