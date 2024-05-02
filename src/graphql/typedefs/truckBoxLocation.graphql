@@ -1,0 +1,8 @@
+type truckBoxLocation {
+  id: ID
+  name: String
+}
+
+type Query {
+  GET_TRUCKBOXLOCATION: [truckBoxLocation]
+}

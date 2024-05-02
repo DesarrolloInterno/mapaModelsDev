@@ -71,9 +71,21 @@ import {clientUsers} from "./Entities/clientUsers"
 import { unit } from "./Entities/unit"
 import { unitDocuments } from "./Entities/unitDocuments"
 import { insurer } from "./Entities/insurer"
+import { unitStatus } from "./Entities/unitStatus"
+import { unitType } from "./Entities/unitType"
+import { operativeClasification } from "./Entities/operativeClasification"
+import { c_ConfigAutotransporte } from "./Entities/c_ConfigAutotransporte"
+import { c_TipoPermiso } from "./Entities/c_TipoPermiso"
 import {accountingAccounts} from "./Entities/accountingAccounts"
 import {special_permissions} from "./Entities/special_permissions"
 import {c_AgrupadorCuentas} from "./Entities/c_AgrupadorCuentas"
+import {lines} from "./Entities/lines"
+import { truckBoxes } from "./Entities/truckBoxes"
+import { truckBoxLocation } from "./Entities/truckBoxLocation"
+import { truckBoxStatus } from "./Entities/truckBoxStatus"
+import { truckBoxType } from "./Entities/truckBoxType"
+import { c_SubTipoRem } from "./Entities/c_SubTipoRem"
+import { truckBoxDocuments } from "./Entities/truckBoxDocuments"
 
 export const  dbConection = async () =>{
   let PORT: string = process.env.DATABASE_PORT!
@@ -159,9 +171,21 @@ export const  dbConection = async () =>{
       unit,
       unitDocuments,
       insurer,
+      unitStatus,
+      unitType,
+      operativeClasification,
+      c_ConfigAutotransporte,
+      c_TipoPermiso,
       accountingAccounts,
       special_permissions,
-      c_AgrupadorCuentas
+      c_AgrupadorCuentas,
+      lines,
+      truckBoxes,
+      truckBoxLocation,
+      truckBoxStatus,
+      truckBoxType,
+      c_SubTipoRem,
+      truckBoxDocuments
     ],
     options: {
       encrypt: true,//true para Windows Azure

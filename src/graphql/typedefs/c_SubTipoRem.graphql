@@ -1,0 +1,10 @@
+type c_SubTipoRem {
+  id: ID
+  claveSubTipoRem: String
+  name: String
+  status: String
+}
+
+type Query {
+  GET_ALL_C_SUBTIPOREM(filter:String!, status:String!): [c_SubTipoRem]
+}

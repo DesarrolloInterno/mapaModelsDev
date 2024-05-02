@@ -1,0 +1,8 @@
+type operativeClasification {
+  id: ID
+  name: String
+}
+
+type Query {
+  GET_OPERATIVE_CLASIFICATION: [operativeClasification]
+}

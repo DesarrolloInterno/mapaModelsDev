@@ -70,6 +70,20 @@ import { insurerQueries, insurerMutations } from './insurer'
 import { accountingAccountsQueries, accountingAccountsMutations } from './accountingAccounts'
 import { special_permissionsQueries } from './special_permissions'
 import {c_AgrupadorCuentasQueries} from './c_AgrupadorCuentas'
+import { unitQueries, unitMutations } from './unit'
+import { unitStatusQueries } from './unitStatus'
+import { unitTypeQueries } from './unitType'
+import { operativeClasificationQueries } from './operativeClasification'
+import { c_ConfigAutotransporteQueries } from './c_ConfigAutotransporte'
+import { c_TipoPermisoQueries } from './c_TipoPermiso'
+import { unitDocumentsMutations, unitDocumentsQueries } from './unitDocuments'
+import { linesMutations, linesQueries } from './lines'
+import { truckBoxesMutations, truckBoxesQueries } from './truckBoxes'
+import { truckBoxLocationQueries } from './truckBoxLocation'
+import { truckBoxStatusQueries } from './truckBoxStatus'
+import { truckBoxTypeQueries } from './truckBoxType'
+import { c_SubTipoRemQueries } from './c_SubTipoRem'
+import { truckBoxDocumentsMutations, truckBoxDocumentsQueries } from './truckBoxDocuments'
 
 const resolvers = {
     Query: {
@@ -138,11 +152,26 @@ const resolvers = {
         ...c_FormaFarmaceuticaQueries,
         ...c_CondicionesEspecialesQueries,
         ...c_RegimenAduaneroQueries,
+        ...insurerQueries,
+        ...unitQueries,
+        ...unitStatusQueries,
+        ...unitTypeQueries,
+        ...operativeClasificationQueries,
+        ...c_TipoPermisoQueries,
+        ...c_ConfigAutotransporteQueries,
+        ...unitDocumentsQueries,
         ...clientUsersQueries,
         ...insurerQueries,
         ...accountingAccountsQueries,
         ...special_permissionsQueries,
-        ...c_AgrupadorCuentasQueries
+        ...c_AgrupadorCuentasQueries,
+        ...linesQueries,
+        ...truckBoxesQueries,
+        ...truckBoxLocationQueries,
+        ...truckBoxStatusQueries,
+        ...truckBoxTypeQueries,
+        ...c_SubTipoRemQueries,
+        ...truckBoxDocumentsQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -190,9 +219,15 @@ const resolvers = {
         ...rfcVerificationMutation,
         ...tripOrderProductsMutations,
         ...tripOrderTravelPickupsMutations,
+        ...insurerMutations,
+        ...unitMutations,
+        ...unitDocumentsMutations,
         ...clientUserMutations,
         ...insurerMutations,
-        ...accountingAccountsMutations
+        ...accountingAccountsMutations,
+        ...linesMutations,
+        ...truckBoxesMutations,
+        ...truckBoxDocumentsMutations
     }
 }
 

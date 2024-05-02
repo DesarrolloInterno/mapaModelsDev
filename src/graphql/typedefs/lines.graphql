@@ -1,0 +1,39 @@
+type lines {
+  id: ID
+  name: String
+  description: String
+  status: String
+}
+
+type Query {
+  GET_LINES(status:String!): [lines]
+}
+
+type return_new_line{
+  idLine: String
+  message: String
+}
+
+input new_line{
+  name: String,
+  description: String,
+  userLoggedIn: String
+}
+
+input update_line {
+  idLine: String,
+  name: String,
+  description: String,
+  userLoggedIn: String
+}
+
+input delete_line {
+  idLine: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_LINE(input: new_line): [return_new_line]
+  UPDATE_LINE(input: update_line): [return_new_line]
+  DELETE_LINE(input: delete_line): String
+}

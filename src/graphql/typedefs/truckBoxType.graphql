@@ -1,0 +1,8 @@
+type truckBoxType {
+  id: ID
+  name: String
+}
+
+type Query {
+  GET_TRUCKBOXTYPE: [truckBoxType]
+}

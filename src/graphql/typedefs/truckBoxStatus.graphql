@@ -1,0 +1,8 @@
+type truckBoxStatus {
+  id: ID
+  name: String
+}
+
+type Query {
+  GET_TRUCKBOXSTATUS: [truckBoxStatus]
+}

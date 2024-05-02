@@ -1,0 +1,8 @@
+type unitStatus {
+  id: ID
+  name: String
+}
+
+type Query {
+  GET_UNIT_STATUS: [unitStatus]
+}

@@ -1,10 +1,10 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 @Entity()
-export class unitDocuments extends BaseEntity{
+export class truckBoxDocuments extends BaseEntity{
     @PrimaryGeneratedColumn()
     id! : number
     @Column()
-    idUnit! : number
+    idTruckBox! : number
     @Column()
     idDocument! : number
     @Column()
