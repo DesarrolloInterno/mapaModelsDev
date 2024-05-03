@@ -9,5 +9,5 @@ type c_ConfigAutotransporte {
 }
 
 type Query {
-    GET_ALL_C_CONFIG_AUTOTRANSPORTE(filter:String!, status:String!): [c_ConfigAutotransporte]
+    GET_ALL_C_CONFIG_AUTOTRANSPORTE(filter:String!, filterDesc:String!, status:String!): [c_ConfigAutotransporte]
 }

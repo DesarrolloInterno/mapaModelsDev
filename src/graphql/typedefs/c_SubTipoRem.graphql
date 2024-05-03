@@ -6,5 +6,5 @@ type c_SubTipoRem {
 }
 
 type Query {
-  GET_ALL_C_SUBTIPOREM(filter:String!, status:String!): [c_SubTipoRem]
+  GET_ALL_C_SUBTIPOREM(filter:String!, filterDesc:String!, status:String!): [c_SubTipoRem]
 }
