@@ -49,6 +49,7 @@ input new_clientLocations {
   longitude: String,
   userLoggedIn: String
   confirm: String
+  additionalInformation: String
 }
 
 input edit_clientLocations {
@@ -69,6 +70,7 @@ input edit_clientLocations {
   longitude: String,
   userLoggedIn: String
   confirm: String
+  additionalInformation: String
 }
 
 input delete_clientLocation {
