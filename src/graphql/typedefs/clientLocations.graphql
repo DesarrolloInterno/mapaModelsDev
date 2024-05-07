@@ -20,6 +20,7 @@ type clientLocations {
   fullAddress: String
   RFC: String
   TAXID: String
+  additionalInformation: String
 }
 
 type return_new_clientLocations{
