@@ -177,7 +177,7 @@ const unitMutations = {
         } = input;
         try {
             await unit.query("exec edit_unitDocuments @idDocument = '"+idDocument+"', @idUnit = '"+idUnit+"', @documentLink = '"+documentLink+"', @userLoggedIn = '"+userLoggedIn+"' ");
-            return 'Se ha actualizado el registro';
+            return 'Documento actualizado correctamente';
         } catch (error) {
             console.log(error);
         }

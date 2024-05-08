@@ -51,9 +51,19 @@ type unitDocuments {
     nameDocument: String,
 }
 
+type unit_noRetired{
+  id: ID,
+  economicNumber: String,
+  unitModel: String, 
+  licensePlates: String, 
+  idOperator: Int,
+  employee: String
+}
+
 type Query {
   GET_UNIT(status:String!): [unit]
   GET_UNIT_DOCUMENTS(idUnit: String!): [unitDocuments]
+  GET_UNIT_NO_RETIRED: [unit_noRetired]
 }
 
 type return_new_unit{

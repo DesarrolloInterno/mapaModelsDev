@@ -13,7 +13,7 @@ const unitDocumentsMutations = {
         } = input;
         try {
             await unitDocuments.query("exec set_unitDocuments @idUnit = '"+idUnit+"', @idDocument = '"+idDocument+"', @nameDocument = '"+nameDocument+"', @documentLink = '"+documentLink+"', @userLoggedIn ='"+userLoggedIn+"', @typeDocument = '"+typeDocument+"'");
-            return 'Se ha actualizado el registro';
+            return 'Documento guardado correctamente';
         } catch (error) {
             console.log(error);
         }

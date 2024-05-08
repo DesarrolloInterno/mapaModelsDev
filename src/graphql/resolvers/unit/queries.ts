@@ -19,6 +19,15 @@ const unitQueries = {
             console.log(error);
         }
     },
+    GET_UNIT_NO_RETIRED: async (_: any) => {
+        try{
+            const result = await unit.query("exec get_all_unit_with_out_retired");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default unitQueries;

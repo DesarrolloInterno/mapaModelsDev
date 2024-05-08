@@ -81,11 +81,6 @@ type return_new_truckBox{
   message: String
 }
 
-type return_new_truckBox{
-  idTruckBox: String
-  message: String
-}
-
 type Mutation {
   CREATE_TRUCKBOX(input: new_truckBox): [return_new_truckBox]
   DELETE_TRUCKBOX(input: delete_truckBox): String

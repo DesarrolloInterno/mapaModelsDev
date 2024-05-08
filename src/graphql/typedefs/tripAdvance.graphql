@@ -1,0 +1,78 @@
+type tripAdvance {
+    id: ID,
+    date: String,
+    importAdvance: Float,
+    idTrip: Int,
+    tripOrderNumber: Int,
+    idUnit: Int,
+    unit: String,
+	  idEmployee: Int,
+    employee: String,
+	  comments: String,
+	  status: String,
+    userLoggedIn: String
+}
+
+type getTripAdvance {
+    id: ID,
+    date: String,
+    importAdvance: Float,
+    idTrip: String,
+    tripOrderNumber: String,
+    idUnit: Int,
+    unit: String,
+	  idEmployee: Int,
+    employee: String,
+	  comments: String,
+	  status: String,
+    userLoggedIn: String,
+    reference: String,
+    relationTrip: String
+}
+
+type Query {
+  GET_TRIPADVANCE(status: String!, date1: String!, date2: String!): [getTripAdvance]
+}
+
+input new_tripAdvance {
+  date: String,
+  importAdvance: String,
+  idTrip: String,
+  tripOrderNumber: String,
+  idUnit: String,
+  idEmployee: String,
+  comments: String,
+  reference: String,
+  relationTrip: String,
+  userLoggedIn: String
+}
+
+type return_new_tripAdvance{
+  idTripAdvance: String
+  message: String
+}
+
+input update_tripAdvance {
+  idTripAdvance: String,
+  date: String,
+  importAdvance: String,
+  idTrip: String,
+  tripOrderNumber: String,
+  idUnit: String,
+  idEmployee: String,
+  comments: String,
+  reference: String,
+  relationTrip: String,
+  userLoggedIn: String
+}
+
+input delete_tripAdvance {
+  idTripAdvance: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_TRIPADVANCE(input: new_tripAdvance): [return_new_tripAdvance]
+  UPDATE_TRIPADVANCE(input: update_tripAdvance): [return_new_tripAdvance]
+  DELETE_TRIPADVANCE(input: delete_tripAdvance): String
+}

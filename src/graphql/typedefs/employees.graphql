@@ -167,6 +167,8 @@ type operator_employees {
     nickname: String
     mailNotification: String
     phone: String
+    idUnit: Int
+    economicNumber: String
 
 }
 
