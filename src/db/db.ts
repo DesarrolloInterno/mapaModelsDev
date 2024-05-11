@@ -86,6 +86,7 @@ import { truckBoxType } from "./Entities/truckBoxType"
 import { c_SubTipoRem } from "./Entities/c_SubTipoRem"
 import { truckBoxDocuments } from "./Entities/truckBoxDocuments"
 import { tripAdvance } from "./Entities/tripAdvance"
+import { owners } from "./Entities/owners"
 
 export const  dbConection = async () =>{
   let PORT: string = process.env.DATABASE_PORT!
@@ -185,7 +186,8 @@ export const  dbConection = async () =>{
       truckBoxType,
       c_SubTipoRem,
       truckBoxDocuments,
-      tripAdvance
+      tripAdvance,
+      owners
 
     ],
     options: {

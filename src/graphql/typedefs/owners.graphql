@@ -1,0 +1,48 @@
+type owners {
+  id: ID,
+  name: String,
+  observations: String,
+  idCountry: Int,
+  country: String,
+  code: String,
+  status: String
+}
+
+type Query {
+  GET_OWNERS(status:String!): [owners]
+}
+
+input new_owner{
+  name: String,
+  observations: String,
+  idCountry: String,
+  country: String,
+  code: String,
+  userLoggedIn: String
+}
+
+type return_new_owner{
+  idOwner: String
+  message: String
+}
+
+input update_owner {
+  idOwner: String,
+  name: String,
+  observations: String,
+  idCountry: String,
+  country: String,
+  code: String,
+  userLoggedIn: String
+}
+
+input delete_owner {
+  idOwner: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_OWNER(input: new_owner): [return_new_owner]
+  UPDATE_OWNER(input: update_owner): [return_new_owner]
+  DELETE_OWNER(input: delete_owner): String
+}
