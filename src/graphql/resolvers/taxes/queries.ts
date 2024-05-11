@@ -10,7 +10,15 @@ const taxesQueries = {
             console.log(error);
         }
     },
+    GET_TAXRATE_INVOICINGCONCEPT: async (_: any, {}: any) => {
+        try{
+            const result = await taxes.query("exec get_taxRate_invoicingConcept ");
+            return result;
 
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default taxesQueries;
