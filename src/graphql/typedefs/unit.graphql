@@ -2,7 +2,7 @@ type unit {
   id: ID
   economicNumber: String,
   idOperator: Int,
-  idEnterprise: Int,
+  idOwner: Int,
   status: String,
   unitBrand: String,
   unitModel: String,
@@ -35,7 +35,7 @@ type unit {
   idInsurer: Int,
   idEnvironmentalInsurer: Int,
   employee: String,
-  enterprise: String,
+  owner: String,
   insurer: String,
   environmentalInsurer: String,
   operativeClasificationName: String, 
@@ -57,7 +57,9 @@ type unit_noRetired{
   unitModel: String, 
   licensePlates: String, 
   idOperator: Int,
-  employee: String
+  employee: String,
+  idOwner: Int,
+  owner: String,
 }
 
 type Query {
@@ -74,7 +76,7 @@ type return_new_unit{
 input new_unit {
   economicNumber: String,
   idOperator: String,
-  idEnterprise: String,
+  idOwner: String,
   status: String,
   unitBrand: String,
   unitModel: String,
@@ -113,7 +115,7 @@ input update_unit {
   idUnit: String,
   economicNumber: String,
   idOperator: String,
-  idEnterprise: String,
+  idOwner: String,
   status: String,
   unitBrand: String,
   unitModel: String,

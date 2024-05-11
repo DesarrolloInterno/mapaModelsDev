@@ -6,7 +6,7 @@ const unitMutations = {
         const {
             economicNumber,
             idOperator,
-            idEnterprise,
+            idOwner,
             status,
             unitBrand,
             unitModel,
@@ -41,7 +41,7 @@ const unitMutations = {
 
                 "@economicNumber = '"+ economicNumber + "',"+
                 "@idOperator = '" + idOperator + "',"+
-                "@idEnterprise = '" + idEnterprise + "',"+
+                "@idOwner = '" + idOwner + "',"+
                 "@status = '" + status + "',"+
                 "@unitBrand = '" + unitBrand + "',"+
                 "@unitModel = '" + unitModel + "',"+
@@ -98,7 +98,7 @@ const unitMutations = {
             idUnit,
             economicNumber,
             idOperator,
-            idEnterprise,
+            idOwner,
             status,
             unitBrand,
             unitModel,
@@ -133,7 +133,7 @@ const unitMutations = {
                 "@idUnit = '" + idUnit + "', " +
                 "@economicNumber = '" + economicNumber + "', " +
                 "@idOperator = '" + idOperator + "', " +
-                "@idEnterprise = '" + idEnterprise + "', " +
+                "@idOwner = '" + idOwner + "', " +
                 "@status = '" + status + "', " +
                 "@unitBrand = '" + unitBrand + "', " +
                 "@unitModel = '" + unitModel + "', " +
