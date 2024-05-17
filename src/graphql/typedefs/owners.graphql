@@ -2,9 +2,7 @@ type owners {
   id: ID,
   name: String,
   observations: String,
-  idCountry: Int,
-  country: String,
-  code: String,
+  permitHolder: String,
   status: String
 }
 
@@ -15,9 +13,7 @@ type Query {
 input new_owner{
   name: String,
   observations: String,
-  idCountry: String,
-  country: String,
-  code: String,
+  permitHolder: String,
   userLoggedIn: String
 }
 
@@ -30,9 +26,7 @@ input update_owner {
   idOwner: String,
   name: String,
   observations: String,
-  idCountry: String,
-  country: String,
-  code: String,
+  permitHolder: String,
   userLoggedIn: String
 }
 
