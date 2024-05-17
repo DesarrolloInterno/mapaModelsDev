@@ -4,7 +4,7 @@ export class truckBoxes extends BaseEntity{
     @PrimaryGeneratedColumn()
     id! : number
     @Column()
-    idEnterprise! : number
+    idOwner! : number
     @Column()
     idLine! : number
     @Column()

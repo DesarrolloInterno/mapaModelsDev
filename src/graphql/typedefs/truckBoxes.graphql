@@ -1,6 +1,6 @@
 type truckBox {
   id: ID,
-  idEnterprise: Int,
+  idOwner: Int,
   idLine: Int,
   economicNumber: String,
   status: String,
@@ -18,7 +18,7 @@ type truckBox {
   idState: Int,
   state: String,
   trailerTypes: String,
-  enterprise: String,
+  owner: String,
   line: String
 }
 
@@ -27,7 +27,7 @@ type Query {
 }
 
 input new_truckBox {
-  idEnterprise: String,
+  idOwner: String,
   idLine: String,
   economicNumber: String,
   status: String,
@@ -55,7 +55,7 @@ input delete_truckBox {
 
 input update_truckBox {
   idTruckBox: String,
-  idEnterprise: String,
+  idOwner: String,
   idLine: String,
   economicNumber: String,
   status: String,
@@ -74,11 +74,6 @@ input update_truckBox {
   state: String,
   trailerTypes: String,
   userLoggedIn: String
-}
-
-type return_new_truckBox{
-  idTruckBox: String
-  message: String
 }
 
 type return_new_truckBox{

@@ -2,9 +2,9 @@ import {c_ConfigAutotransporte} from "../../../db/Entities/c_ConfigAutotransport
 
 const c_ConfigAutotransporteQueries = {
 
-    GET_ALL_C_CONFIG_AUTOTRANSPORTE: async (_: any, {filter, status}: any) => {
+    GET_ALL_C_CONFIG_AUTOTRANSPORTE: async (_: any, {filter, filterDesc, status}: any) => {
         try{
-            const result = await c_ConfigAutotransporte.query("exec get_all_c_ConfigAutotransporte @filter = '"+ filter +"', @status = '"+ status +"' ");
+            const result = await c_ConfigAutotransporte.query("exec get_all_c_ConfigAutotransporte @filter = '"+ filter +"', @filterDesc = '"+ filterDesc + "', @status = '"+ status +"' ");
             return result;
 
         } catch (error) {

@@ -8,7 +8,7 @@ export class unit extends BaseEntity{
     @Column()
     idOperator! : number
     @Column()
-    idEnterprise! : number
+    idOwner! : number
     @Column()
     status! : string
     @Column()

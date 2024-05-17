@@ -84,6 +84,8 @@ import { truckBoxStatusQueries } from './truckBoxStatus'
 import { truckBoxTypeQueries } from './truckBoxType'
 import { c_SubTipoRemQueries } from './c_SubTipoRem'
 import { truckBoxDocumentsMutations, truckBoxDocumentsQueries } from './truckBoxDocuments'
+import { tripAdvanceMutations, tripAdvanceQueries } from './tripAdvance'
+import { ownersMutations, ownersQueries } from './owners'
 
 const resolvers = {
     Query: {
@@ -171,7 +173,10 @@ const resolvers = {
         ...truckBoxStatusQueries,
         ...truckBoxTypeQueries,
         ...c_SubTipoRemQueries,
-        ...truckBoxDocumentsQueries
+        ...truckBoxDocumentsQueries,
+        ...truckBoxDocumentsQueries,
+        ...tripAdvanceQueries,
+        ...ownersQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -227,7 +232,9 @@ const resolvers = {
         ...accountingAccountsMutations,
         ...linesMutations,
         ...truckBoxesMutations,
-        ...truckBoxDocumentsMutations
+        ...truckBoxDocumentsMutations,
+        ...tripAdvanceMutations,
+        ...ownersMutations
     }
 }
 

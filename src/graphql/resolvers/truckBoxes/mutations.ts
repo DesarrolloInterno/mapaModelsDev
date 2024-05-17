@@ -4,7 +4,7 @@ const truckBoxesMutations = {
 
     CREATE_TRUCKBOX: async (_: any, {input}: any) => {
         const {
-			idEnterprise,
+			idOwner,
             idLine,
             economicNumber,
             status,
@@ -27,7 +27,7 @@ const truckBoxesMutations = {
 
         try {
             const newRecord = await truckBoxes.query("exec create_truckBox " +
-                "@idEnterprise = '" + idEnterprise + "', "+
+                "@idOwner = '" + idOwner + "', "+
                 "@idLine = '" + idLine + "', "+
                 "@economicNumber = '" + economicNumber + "', "+
                 "@status = '" + status + "', "+
@@ -56,7 +56,7 @@ const truckBoxesMutations = {
     UPDATE_TRUCKBOX: async (_: any, {input}: any) => {
         const {
             idTruckBox,
-            idEnterprise,
+            idOwner,
             idLine,
             economicNumber,
             status,
@@ -80,7 +80,7 @@ const truckBoxesMutations = {
         try {
             const newRecord = await truckBoxes.query("exec update_truckBox " +
                 "@idTruckBox = '" + idTruckBox + "', " +
-                "@idEnterprise = '" + idEnterprise + "', " +
+                "@idOwner = '" + idOwner + "', " +
                 "@idLine = '" + idLine + "', " +
                 "@economicNumber = '" + economicNumber + "', " +
                 "@status = '" + status + "', " +

@@ -2,7 +2,7 @@ type unit {
   id: ID
   economicNumber: String,
   idOperator: Int,
-  idEnterprise: Int,
+  idOwner: Int,
   status: String,
   unitBrand: String,
   unitModel: String,
@@ -35,7 +35,7 @@ type unit {
   idInsurer: Int,
   idEnvironmentalInsurer: Int,
   employee: String,
-  enterprise: String,
+  owner: String,
   insurer: String,
   environmentalInsurer: String,
   operativeClasificationName: String, 
@@ -51,9 +51,21 @@ type unitDocuments {
     nameDocument: String,
 }
 
+type unit_noRetired{
+  id: ID,
+  economicNumber: String,
+  unitModel: String, 
+  licensePlates: String, 
+  idOperator: Int,
+  employee: String,
+  idOwner: Int,
+  owner: String,
+}
+
 type Query {
   GET_UNIT(status:String!): [unit]
   GET_UNIT_DOCUMENTS(idUnit: String!): [unitDocuments]
+  GET_UNIT_NO_RETIRED: [unit_noRetired]
 }
 
 type return_new_unit{
@@ -64,7 +76,7 @@ type return_new_unit{
 input new_unit {
   economicNumber: String,
   idOperator: String,
-  idEnterprise: String,
+  idOwner: String,
   status: String,
   unitBrand: String,
   unitModel: String,
@@ -103,7 +115,7 @@ input update_unit {
   idUnit: String,
   economicNumber: String,
   idOperator: String,
-  idEnterprise: String,
+  idOwner: String,
   status: String,
   unitBrand: String,
   unitModel: String,

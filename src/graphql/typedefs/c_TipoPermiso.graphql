@@ -7,5 +7,5 @@ type c_TipoPermiso {
 }
 
 type Query {
-    GET_ALL_C_TIPO_PERMISO(filter:String!, status:String!): [c_TipoPermiso]
+    GET_ALL_C_TIPO_PERMISO(filter:String!, filterDesc:String!, status:String!): [c_TipoPermiso]
 }

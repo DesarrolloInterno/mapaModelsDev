@@ -6,7 +6,7 @@ const unitMutations = {
         const {
             economicNumber,
             idOperator,
-            idEnterprise,
+            idOwner,
             status,
             unitBrand,
             unitModel,
@@ -41,7 +41,7 @@ const unitMutations = {
 
                 "@economicNumber = '"+ economicNumber + "',"+
                 "@idOperator = '" + idOperator + "',"+
-                "@idEnterprise = '" + idEnterprise + "',"+
+                "@idOwner = '" + idOwner + "',"+
                 "@status = '" + status + "',"+
                 "@unitBrand = '" + unitBrand + "',"+
                 "@unitModel = '" + unitModel + "',"+
@@ -98,7 +98,7 @@ const unitMutations = {
             idUnit,
             economicNumber,
             idOperator,
-            idEnterprise,
+            idOwner,
             status,
             unitBrand,
             unitModel,
@@ -133,7 +133,7 @@ const unitMutations = {
                 "@idUnit = '" + idUnit + "', " +
                 "@economicNumber = '" + economicNumber + "', " +
                 "@idOperator = '" + idOperator + "', " +
-                "@idEnterprise = '" + idEnterprise + "', " +
+                "@idOwner = '" + idOwner + "', " +
                 "@status = '" + status + "', " +
                 "@unitBrand = '" + unitBrand + "', " +
                 "@unitModel = '" + unitModel + "', " +
@@ -177,7 +177,7 @@ const unitMutations = {
         } = input;
         try {
             await unit.query("exec edit_unitDocuments @idDocument = '"+idDocument+"', @idUnit = '"+idUnit+"', @documentLink = '"+documentLink+"', @userLoggedIn = '"+userLoggedIn+"' ");
-            return 'Se ha actualizado el registro';
+            return 'Documento actualizado correctamente';
         } catch (error) {
             console.log(error);
         }
