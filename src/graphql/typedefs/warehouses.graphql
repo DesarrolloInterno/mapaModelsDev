@@ -1,0 +1,48 @@
+type warehouses {
+  id: ID,
+  name: String,
+  observations: String,
+  idCountry: Int,
+  country: String,
+  code: String,
+  status: String
+}
+
+type Query {
+  GET_WAREHOUSES(status:String!): [warehouses]
+}
+
+input new_warehouse{
+  name: String,
+  observations: String,
+  idCountry: String,
+  country: String,
+  code: String,
+  userLoggedIn: String
+}
+
+type return_new_warehouse{
+  idWarehouse: String
+  message: String
+}
+
+input update_warehouse {
+  idWarehouse: String,
+  name: String,
+  observations: String,
+  idCountry: String,
+  country: String,
+  code: String,
+  userLoggedIn: String
+}
+
+input delete_warehouse {
+  idWarehouse: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_WAREHOUSE(input: new_warehouse): [return_new_warehouse]
+  UPDATE_WAREHOUSE(input: update_warehouse): [return_new_warehouse]
+  DELETE_WAREHOUSE(input: delete_warehouse): String
+}

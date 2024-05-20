@@ -1,0 +1,54 @@
+type truckBoxInventory {
+  id: ID,
+  idTruckBox: Int,
+  economicNumber: String,
+  idLine: Int,
+  line: String,
+  issueDate: String,
+  idWarehouse: Int,
+  warehouse: String,
+  positioner: String,
+  observations: String,
+  truckBoxStatus: String,
+  status: String,
+  dwellTime: String
+}
+
+type Query {
+  GET_TRUCKBOXINVENTORY(warehouse: String!): [truckBoxInventory]
+}
+
+input new_truckBoxInventory{
+  idTruckBox: String,
+  issueDate: String,
+  idWarehouse: String,
+  positioner: String,
+  observations: String,
+  userLoggedIn: String
+}
+
+type return_new_truckBoxInventory{
+  idTruckBoxInventory: String
+  message: String
+}
+
+input update_truckBoxInventory {
+  idTruckBoxInventory: String,
+  idTruckBox: String,
+  issueDate: String,
+  idWarehouse: String,
+  positioner: String,
+  observations: String,
+  userLoggedIn: String
+}
+
+input delete_truckBoxInventory {
+  idTruckBoxInventory: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_TRUCKBOXINVENTORY(input: new_truckBoxInventory): [return_new_truckBoxInventory]
+  UPDATE_TRUCKBOXINVENTORY(input: update_truckBoxInventory): [return_new_truckBoxInventory]
+  DELETE_TRUCKBOXINVENTORY(input: delete_truckBoxInventory): String
+}
