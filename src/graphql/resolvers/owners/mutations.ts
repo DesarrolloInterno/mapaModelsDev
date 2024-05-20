@@ -6,9 +6,7 @@ const ownersMutations = {
         const {
 			name,
             observations,
-            idCountry,
-            country,
-            code,
+            permitHolder,
 	        userLoggedIn
         } = input;
 
@@ -16,9 +14,7 @@ const ownersMutations = {
             const newRecord = await owners.query("exec create_owner " +
                 "@name = '" + name + "', " +
                 "@observations = '" + observations + "', " +
-                "@idCountry = '" + idCountry + "', " +
-                "@country = '" + country + "', " +
-                "@code = '" + code + "', " +
+                "@permitHolder = '" + permitHolder + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "' "
             );
             return newRecord;
@@ -32,9 +28,7 @@ const ownersMutations = {
             idOwner,
 			name,
             observations,
-            idCountry,
-            country,
-            code,
+            permitHolder,
             userLoggedIn
         } = input;
 
@@ -43,9 +37,7 @@ const ownersMutations = {
                 "@idOwner = '" + idOwner + "', " +
                 "@name = '" + name + "', " +
                 "@observations = '" + observations + "', " +
-                "@idCountry = '" + idCountry + "', " +
-                "@country = '" + country + "', " +
-                "@code = '" + code + "', " +
+                "@permitHolder = '" + permitHolder + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "' "
             );
             return newRecord;
