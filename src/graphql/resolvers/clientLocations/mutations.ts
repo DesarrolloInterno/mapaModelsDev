@@ -19,7 +19,8 @@ const clientLocationsMutations = {
 			latitude,
 			longitude,
             userLoggedIn,
-            confirm
+            confirm,
+            additionalInformation
         } = input;
 
         try {
@@ -39,7 +40,8 @@ const clientLocationsMutations = {
                 "@latitude = '" + latitude + "', " +
                 "@longitude = '" + longitude + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@confirm = '" + confirm + "' "
+                "@confirm = '" + confirm + "', " +
+                "@additionalInformation = '" + additionalInformation + "' "
             );
             return newRecord;
         } catch (error) {
@@ -65,7 +67,8 @@ const clientLocationsMutations = {
 			latitude,
 			longitude,
             userLoggedIn,
-            confirm
+            confirm,
+            additionalInformation
         } = input;
 
         try {
@@ -86,7 +89,8 @@ const clientLocationsMutations = {
                 "@latitude = '" + latitude + "', " +
                 "@longitude = '" + longitude + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@confirm = '" + confirm + "' "
+                "@confirm = '" + confirm + "', " +
+                "@additionalInformation = '" + additionalInformation + "' "
 
             );
             return newRecord;

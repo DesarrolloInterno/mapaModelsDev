@@ -78,6 +78,7 @@ import { c_ConfigAutotransporte } from "./Entities/c_ConfigAutotransporte"
 import { c_TipoPermiso } from "./Entities/c_TipoPermiso"
 import {accountingAccounts} from "./Entities/accountingAccounts"
 import {special_permissions} from "./Entities/special_permissions"
+import {c_AgrupadorCuentas} from "./Entities/c_AgrupadorCuentas"
 import {lines} from "./Entities/lines"
 import { truckBoxes } from "./Entities/truckBoxes"
 import { truckBoxLocation } from "./Entities/truckBoxLocation"
@@ -181,6 +182,7 @@ export const  dbConection = async () =>{
       c_TipoPermiso,
       accountingAccounts,
       special_permissions,
+      c_AgrupadorCuentas,
       lines,
       truckBoxes,
       truckBoxLocation,
@@ -192,7 +194,6 @@ export const  dbConection = async () =>{
       owners,
       warehouses,
       truckBoxInventory
-
     ],
     options: {
       encrypt: true,//true para Windows Azure

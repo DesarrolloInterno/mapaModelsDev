@@ -15,8 +15,14 @@ type taxes {
   nameAccountingAccountPayment: String
 }
 
+type taxRate {
+  id:ID
+  percentage: String
+}
+
 type Query {
   GET_TAXES(status:String!): [taxes]
+  GET_TAXRATE_INVOICINGCONCEPT: [taxRate]
 }
 
 type return_new_tax{

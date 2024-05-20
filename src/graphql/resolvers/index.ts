@@ -67,6 +67,9 @@ import {c_CondicionesEspecialesQueries} from './c_CondicionesEspeciales'
 import {c_RegimenAduaneroQueries} from './c_RegimenAduanero'
 import {clientUsersQueries, clientUserMutations} from './clientUsers'
 import { insurerQueries, insurerMutations } from './insurer'
+import { accountingAccountsQueries, accountingAccountsMutations } from './accountingAccounts'
+import { special_permissionsQueries } from './special_permissions'
+import {c_AgrupadorCuentasQueries} from './c_AgrupadorCuentas'
 import { unitQueries, unitMutations } from './unit'
 import { unitStatusQueries } from './unitStatus'
 import { unitTypeQueries } from './unitType'
@@ -74,8 +77,6 @@ import { operativeClasificationQueries } from './operativeClasification'
 import { c_ConfigAutotransporteQueries } from './c_ConfigAutotransporte'
 import { c_TipoPermisoQueries } from './c_TipoPermiso'
 import { unitDocumentsMutations, unitDocumentsQueries } from './unitDocuments'
-import { accountingAccountsQueries } from './accountingAccounts'
-import { special_permissionsQueries } from './special_permissions'
 import { linesMutations, linesQueries } from './lines'
 import { truckBoxesMutations, truckBoxesQueries } from './truckBoxes'
 import { truckBoxLocationQueries } from './truckBoxLocation'
@@ -167,6 +168,7 @@ const resolvers = {
         ...insurerQueries,
         ...accountingAccountsQueries,
         ...special_permissionsQueries,
+        ...c_AgrupadorCuentasQueries,
         ...linesQueries,
         ...truckBoxesQueries,
         ...truckBoxLocationQueries,
@@ -178,7 +180,6 @@ const resolvers = {
         ...ownersQueries,
         ...warehousesQueries,
         ...truckBoxInventoryQueries
-
     },
     Mutation: {
         ...user_historialMutations,
@@ -231,6 +232,7 @@ const resolvers = {
         ...unitDocumentsMutations,
         ...clientUserMutations,
         ...insurerMutations,
+        ...accountingAccountsMutations,
         ...linesMutations,
         ...truckBoxesMutations,
         ...truckBoxDocumentsMutations,
