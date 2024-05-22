@@ -123,6 +123,22 @@ const employeesQueries = {
             console.log(error);
         }
     },
+    GET_ALL_DRIVERLICENSES_QUANTITY: async (_: any) => {
+        try{
+            const result = await employees.query("exec get_all_driverLicensesQuantity");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_MEDICALVALIDITY_QUANTITY: async (_: any) => {
+        try{
+            const result = await employees.query("exec get_all_medicalValidityQuantity");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default employeesQueries;

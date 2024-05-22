@@ -172,6 +172,14 @@ type operator_employees {
 
 }
 
+type driverLicensesQuantity {
+    driverLicensesQuantity: Int
+}
+
+type medicalValidityQuantity {
+    medicalValidityQuantity: Int
+}
+
 type Query {
     GET_ALL_EMPLOYEES(status: String!): [employees]
     GET_EMPLOYEE_BY_ID(idEmployee: Int!): [employees]
@@ -187,6 +195,8 @@ type Query {
     GET_ALL_MEDICAL_VALIDITY_EMPLOYEE(date1: String!, date2: String!, typeReport: String!, status: String!, idDepartment: String!): [registration_medicalValidity_employees]
     GET_WORKER_ROTATION(date: String!, idDepartment: String!): [worker_rotation]
     GET_ALL_OPERATOR_EMPLOYEES(status: String!): [operator_employees]
+    GET_ALL_DRIVERLICENSES_QUANTITY:[driverLicensesQuantity]
+    GET_ALL_MEDICALVALIDITY_QUANTITY:[medicalValidityQuantity]
 }
 
 input update_employees {
