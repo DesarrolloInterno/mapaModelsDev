@@ -92,6 +92,15 @@ const salesFormatQueries = {
             console.log(error);
         }
     },
+    GET_CROSSING_SALES_FORMAT_BY_CLIENT_AND_TRIP_TYPE: async (_: any, {idClient, tripType}: any) => {
+        try{
+            const result = await salesFormat.query("exec get_crossing_salesFormats_by_client_and_tripType @idClient = '"+ idClient +"', @tripType = '"+ tripType +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default salesFormatQueries;

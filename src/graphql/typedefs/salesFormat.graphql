@@ -157,6 +157,7 @@ type salesFormat_by_client {
   total: String
   countryOrigin: String
   countryDestination: String
+  typeCrossing: String
 }
 
 type return_salesFormat {
@@ -217,6 +218,7 @@ type Query {
   GET_SALES_FORMAT_BY_TRIPTYPE(tripType: String!): [salesFormat_by_triptype]
   GET_SALES_FORMAT_BY_CLIENT(idClient: String!): [salesFormat_by_client]
   GET_SALES_FORMAT_BY_CLIENT_AND_TRIP_TYPE(idClient: String!, tripType: String!): [salesFormat_by_client]
+  GET_CROSSING_SALES_FORMAT_BY_CLIENT_AND_TRIP_TYPE(idClient: String!, tripType: String!): [salesFormat_by_client]
   GET_BOOTHROUTES_BY_ID_SALESFORMAT(idSalesFormat: String!): [salesFormatBoothRoute]
   GET_BOOTHROUTES_BY_ID_AMOUNTS(idSalesFormat: String!): [salesFormatAmounts]
   GET_DOCUMENTPROOFDELIVERY_BY_ID_SALESFORMAT(idSalesFormat: String!): [documentsProofDeliverySalesFormat]
