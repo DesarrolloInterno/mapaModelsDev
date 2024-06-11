@@ -91,6 +91,7 @@ import { truckBoxInventoryQueries, truckBoxInventoryMutations } from './truckBox
 import { ClientTravelOrderMutations, clientTravelOrderQueries } from './clientTravelOrder'
 import { clientTravelOrderSafetyEquipmentQueries, clientTravelOrderSafetyEquipmentMutations } from './clientTravelOrderSafetyEquipment'
 import { clientTravelOrderDocumentsMutations, clientTravelOrderDocumentsQueries } from './clientTravelOrderDocuments'
+import {tripQueries} from './trip'
 
 const resolvers = {
     Query: {
@@ -185,7 +186,8 @@ const resolvers = {
         ...truckBoxInventoryQueries,
         ...clientTravelOrderQueries,
         ...clientTravelOrderSafetyEquipmentQueries,
-        ...clientTravelOrderDocumentsQueries
+        ...clientTravelOrderDocumentsQueries,
+        ...tripQueries
     },
     Mutation: {
         ...user_historialMutations,

@@ -1,0 +1,24 @@
+type tripsForCrossings {
+  id:ID
+  numTrip: Int
+  idClient: Int
+  client: String
+  idOrigin: Int
+  Origin: String
+  idDestination: Int
+  Destination: String
+  deliveryDate: String
+  loadingDate: String
+  idEmployee: Int
+  Employee: String
+  nickname: String
+  idTruckBox: Int
+  truckBox: String
+  idUnit: Int
+  unit: String
+  status: String
+}
+
+type Query {
+  GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!): [tripsForCrossings]
+}
