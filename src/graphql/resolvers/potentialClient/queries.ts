@@ -38,6 +38,15 @@ const potentialClientQueries = {
             console.log(error);
         }
     },
+    GET_POTENTIAL_CLIENT_FORM_BY_ID_CLIENT: async (_: any, {idClient}: any) => {
+        try{
+            const result = await potentialClient.query("exec get_potentialClient_form_by_idClient @idClient = '"+ idClient +"', @encrypt = '"+process.env.ENCRYPT+"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default potentialClientQueries;

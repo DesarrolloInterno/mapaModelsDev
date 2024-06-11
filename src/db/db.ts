@@ -90,6 +90,9 @@ import { tripAdvance } from "./Entities/tripAdvance"
 import { owners } from "./Entities/owners"
 import { warehouses } from "./Entities/warehouses"
 import { truckBoxInventory } from "./Entities/truckBoxInventory"
+import { clientTravelOrder } from "./Entities/clientTravelOrder"
+import { clientTravelOrderSafetyEquipment } from "./Entities/clientTravelOrderSafetyEquipment"
+import { clientTravelOrderDocuments } from "./Entities/clientTravelOrderDocuments"
 
 export const  dbConection = async () =>{
   let PORT: string = process.env.DATABASE_PORT!
@@ -193,7 +196,10 @@ export const  dbConection = async () =>{
       tripAdvance,
       owners,
       warehouses,
-      truckBoxInventory
+      truckBoxInventory,
+      clientTravelOrder,
+      clientTravelOrderSafetyEquipment,
+      clientTravelOrderDocuments
     ],
     options: {
       encrypt: true,//true para Windows Azure

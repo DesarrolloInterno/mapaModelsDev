@@ -1,0 +1,42 @@
+type clientTravelOrderSafetyEquipment {
+    id:ID
+    idClientTravelOrder: Int
+    name: String
+    description: String
+    status: String
+}
+
+type Query {
+  GET_ALL_CLIENTTRAVELORDER_SAFETY_EQUIPMENT(idClientTravelOrder: String!, status: String!): [clientTravelOrderSafetyEquipment]
+}
+
+input new_clientTravelOrderSafetyEquipment {
+    idClientTravelOrder: String
+    name: String
+    description: String
+    userLoggedIn: String
+}
+
+type return_new_clientTravelOrderSafetyEquipment {
+	idClientTravelOrderSafetyEquipment: String,
+	message: String
+}
+
+input update_clientTravelOrderSafetyEquipment {
+    idClientTravelOrderSafetyEquipment: String
+    idClientTravelOrder: String
+    name: String
+    description: String
+    userLoggedIn: String
+}
+
+input delete_clientTravelOrderSafetyEquipment {
+  idClientTravelOrderSafetyEquipment: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+	CREATE_CLIENTTRAVELORDER_SAFETY_EQUIPMENT(input: new_clientTravelOrderSafetyEquipment): [return_new_clientTravelOrderSafetyEquipment]
+  UPDATE_CLIENTTRAVELORDER_SAFETY_EQUIPMENT(input: update_clientTravelOrderSafetyEquipment): [return_new_clientTravelOrderSafetyEquipment]
+  DELETE_CLIENTTRAVELORDER_SAFETY_EQUIPMENT(input: delete_clientTravelOrderSafetyEquipment): String
+}

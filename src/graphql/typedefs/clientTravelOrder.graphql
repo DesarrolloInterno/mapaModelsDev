@@ -1,0 +1,206 @@
+type clientTravelOrder {
+    id:ID
+    idClient: Int
+    name: String
+    shipmentDate: String
+    bussinesName: String
+    fullAddress: String
+    RFC: String
+	TAXID: String
+	idOriginAddres: Int
+	addressOrigin: String
+	outsideAddressNumberOrigin: String
+	insideAddressNumberOrigin: String
+	neighborhoodOrigin: String
+	zipCodeOrigin: String
+	idCountryOrigin: Int
+	countryOrigin: String
+	idStateOrigin: Int
+	idTownOrigin: Int
+	townOrigin: String
+	idDestinationAddres: Int
+	addressDestination: String
+	outsideAddressNumberDestination: String
+	insideAddressNumberDestination: String
+	neighborhoodDestination: String
+	zipCodeDestination: String
+	idCountryDestination: Int
+	countryDestination: String
+	idStateDestination: Int
+	idTownDestination: Int
+	townDestination: String
+	subtotal: Float
+	IVA: Float
+	RET: Float
+	total: Float
+	loadingInstructions: String
+	unloadingInstructions: String
+	status: String
+	stateOrigin: String
+	stateDestination: String
+	fullAddressOrigin: String
+	fullAddressDestination: String
+}
+
+input clientTravelOrder_form {
+    idClientTravelOrder:String
+    idClient: String
+    name: String
+    shipmentDate: String
+    bussinesName: String
+    fullAddress: String
+    RFC: String
+	TAXID: String
+	idOriginAddres: String
+	addressOrigin: String
+	outsideAddressNumberOrigin: String
+	insideAddressNumberOrigin: String
+	neighborhoodOrigin: String
+	zipCodeOrigin: String
+	idCountryOrigin: String
+	countryOrigin: String
+	idStateOrigin: String
+	idTownOrigin: String
+	townOrigin: String
+	idDestinationAddres: String
+	addressDestination: String
+	outsideAddressNumberDestination: String
+	insideAddressNumberDestination: String
+	neighborhoodDestination: String
+	zipCodeDestination: String
+	idCountryDestination: String
+	countryDestination: String
+	idStateDestination: String
+	idTownDestination: String
+	townDestination: String
+	subtotal: String
+	IVA: String
+	RET: String
+	total: String
+	loadingInstructions: String
+	unloadingInstructions: String
+	status: String
+	stateOrigin: String
+	stateDestination: String
+}
+
+type return_message_clientTravelOrder {
+	idClientTravelOrder: String,
+	idClient: String
+    message: String
+}
+
+input new_clientTravelOrder {
+    idClient: String
+    name: String
+    shipmentDate: String
+    bussinesName: String
+    fullAddress: String
+    RFC: String
+	TAXID: String
+	idOriginAddres: String
+	addressOrigin: String
+	outsideAddressNumberOrigin: String
+	insideAddressNumberOrigin: String
+	neighborhoodOrigin: String
+	zipCodeOrigin: String
+	idCountryOrigin: String
+	countryOrigin: String
+	idStateOrigin: String
+	idTownOrigin: String
+	townOrigin: String
+	idDestinationAddres: String
+	addressDestination: String
+	outsideAddressNumberDestination: String
+	insideAddressNumberDestination: String
+	neighborhoodDestination: String
+	zipCodeDestination: String
+	idCountryDestination: String
+	countryDestination: String
+	idStateDestination: String
+	idTownDestination: String
+	townDestination: String
+	subtotal: String
+	IVA: String
+	RET: String
+	total: String
+	loadingInstructions: String
+	unloadingInstructions: String
+	status: String
+	stateOrigin: String
+	stateDestination: String
+	userLoggedIn: String
+}
+
+type return_new_clientTravelOrder {
+	idClientTravelOrder: String,
+	message: String
+}
+
+type clientSalesFormatAmounts {
+	id: ID, 
+	idClient: Int, 
+	name: String, 
+	address: String, 
+	outsideAddressNumber: String, 
+	insideAddressNumber: String, 
+	neighborhood: String, 
+	zipCode: String, 
+	idCountry: Int, 
+	idState: Int, 
+	idTown: Int, 
+	country: String, 
+	state: String, 
+	town: String, 
+	fullAddress: String,
+	idSalesFormat: Int,
+	idOrigin: Int, 
+	idDestination: Int, 
+	subtotal: Float, 
+	IVA: Float, 
+	RET: Float, 
+	totalAmount: Float
+}
+
+type return_new_clientDocuments {
+    nameClient: String
+    idDocument: String
+}
+
+input set_link_clientDocuments {
+    idClient: String,
+    id: String,
+    documentLink: String
+}
+
+input create_new_clientDocument {
+    idClient: String,
+    userLoggedIn: String
+}
+
+type clientAdresses {
+	id: ID,
+	idClient: Int,
+	name: String,
+	address: String,
+	outsideAddressNumber: String,
+	insideAddressNumber: String,
+	neighborhood: String,
+	zipCode: String,
+	country: String,
+	state: String,
+	town: String
+}
+
+type Query {
+  GET_CLIENT_TRAVEL_ORDERS(date1: String!, date2: String!, idClient: String!): [clientTravelOrder]
+  GET_CLIENT_SALES_FORMAT_AMOUNTS(idClient: String!): [clientSalesFormatAmounts]
+  GET_CLIENT_ADDRESSES: [clientAdresses]
+}
+
+type Mutation {
+	CREATE_CLIENT_TRAVEL_ORDER(input: new_clientTravelOrder): [return_new_clientTravelOrder]
+	UPDATE_CLIENT_TRAVEL_ORDER_FORM(input: clientTravelOrder_form): [return_message_clientTravelOrder]
+	CREATE_CLIENT_DOCUMENTS(input: create_new_clientDocument): [return_new_clientDocuments]
+    SET_LINK_CLIENT_DOCUMENTS(input: set_link_clientDocuments): String
+}

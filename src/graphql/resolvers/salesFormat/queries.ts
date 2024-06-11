@@ -92,6 +92,24 @@ const salesFormatQueries = {
             console.log(error);
         }
     },
+    GET_SALES_FORMAT_CLIENTS: async (_: any) => {
+        try{
+            const result = await salesFormat.query("exec get_all_salesFormatClients");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_SALES_FORMAT_AMOUNT_CLIENTS: async (_: any) => {
+        try{
+            const result = await salesFormat.query("exec get_all_salesFormatAmountClients");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default salesFormatQueries;

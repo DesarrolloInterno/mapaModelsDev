@@ -211,6 +211,19 @@ type safetyEquipmentSalesFormat {
   status: String
 }
 
+type salesFormatClients {
+  id: ID,
+  idClient: Int
+}
+
+type salesFormatAmountClients {
+  idSalesFormat: Int,
+  subtotal: Float,
+  IVA: Float,
+  RET: Float,
+  totalAmount: Float
+}
+
 type Query {
   GET_SALES_FORMAT(status:String!, tripType: String!): [salesFormat]
   GET_SALES_FORMAT_BY_ID(idSalesFormat: String!): [salesFormat]
@@ -222,6 +235,8 @@ type Query {
   GET_DOCUMENTPROOFDELIVERY_BY_ID_SALESFORMAT(idSalesFormat: String!): [documentsProofDeliverySalesFormat]
   GET_SAFETYEQUIPMENT_BY_ID_SALESFORMAT(idSalesFormat: String!): [safetyEquipmentSalesFormat]
   GET_CROSS_SALES_FORMAT: [cross_salesFormat]
+  GET_SALES_FORMAT_CLIENTS: [salesFormatClients]
+  GET_SALES_FORMAT_AMOUNT_CLIENTS: [salesFormatAmountClients]
 }
 
 input new_salesFormat {
