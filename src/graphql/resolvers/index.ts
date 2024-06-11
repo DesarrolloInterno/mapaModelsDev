@@ -88,6 +88,7 @@ import { tripAdvanceMutations, tripAdvanceQueries } from './tripAdvance'
 import { ownersMutations, ownersQueries } from './owners'
 import { warehousesMutations, warehousesQueries } from './warehouses'
 import { truckBoxInventoryQueries, truckBoxInventoryMutations } from './truckBoxInventory'
+import {tripQueries} from './trip'
 
 const resolvers = {
     Query: {
@@ -179,7 +180,8 @@ const resolvers = {
         ...tripAdvanceQueries,
         ...ownersQueries,
         ...warehousesQueries,
-        ...truckBoxInventoryQueries
+        ...truckBoxInventoryQueries,
+        ...tripQueries
     },
     Mutation: {
         ...user_historialMutations,

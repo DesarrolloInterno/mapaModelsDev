@@ -49,6 +49,9 @@ type tripOrder {
   customsClearance: String
   countryOrigin: String
   countryDestination: String
+  typeCrossing: String
+  idTripOrigin: Int
+  numTripOrigin: String
 }
 
 type tripOrderSafetyEquipment {
@@ -61,8 +64,22 @@ type tripOrderSafetyEquipment {
   numTripOrder: Int
 }
 
+type responseConfirmTripOrder {
+  message: String
+  messageproducts: String
+  messageClient: String
+  messageSalesFormat: String
+  messageLoadingDate: String
+  messageDeliveryDate: String
+  messageTemperature: String
+  messageProNumber: String
+  messageReference: String
+  messageSalesFormatCrossing: String
+}
+
 type Query {
   GET_ALL_TRIP_ORDER(typeFilter:String!, date: String!, date1: String!, date2: String!): [tripOrder]
+  GET_ALL_CROSSING_TRIP_ORDER(typeFilter:String!, date: String!, date1: String!, date2: String!): [tripOrder]
   GET_SAFETY_EQUIPMENT_TRIP_ORDER(idTripOrder: String!): [tripOrderSafetyEquipment]
 }
 
@@ -89,9 +106,54 @@ input update_customsClearance_tripOrder {
   userLoggedIn: String
 }
 
+input set_client_tripOrder {
+  idClient: String,
+  idTripOrder: String,
+  userLoggedIn: String
+}
+
+input set_salesFormat_tripOrder {
+  idSalesFormat: String,
+  idTripOrder: String,
+  userLoggedIn: String
+}
+
+input update_tripOrder_mooringGear {
+  idTripOrder: String,
+  wheelChocks: String,
+  straps: String,
+  userLoggedIn: String
+}
+
+input update_tripOrder_mooringGear {
+  idTripOrder: String,
+  loadingDate: String,
+  deliveryDate: String,
+  sealNumber: String,
+  temperature: String,
+  proNumber: String,
+  reference: String,
+  isCrossing: String,
+  idSalesFormatCrossing: String,
+  containers: String,
+  shippingLines: String,
+  userLoggedIn: String
+}
+
+input confirm_tripOrder {
+  idTripOrder: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_TRIPORDER(input: new_tripOrder): String
+  CREATE_TRIPORDER_CROSSING(input: new_tripOrder): String
   UPDATE_ORDER_PRIORITY(input: new_orderPriority): String
   DELETE_ORDER_PRIORITY(input: delete_tripOrder): String
   UPDATE_CUSTOMSCLEARNCE(input: update_customsClearance_tripOrder): String
+  SET_CLIENT_TRIPORDER(input: set_client_tripOrder): String
+  SET_SALEFORMAT_TRIPORDER(input: set_salesFormat_tripOrder): String
+  UPDATE_TRIPORDER_MOORINGGEAR(input: update_tripOrder_mooringGear): String
+  UPDATE_DYNAMIC_TRIPORDER(input: update_tripOrder_mooringGear): String
+  CONFIRM_TRIPORDER(input: confirm_tripOrder): [responseConfirmTripOrder]
 }
