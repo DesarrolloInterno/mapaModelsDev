@@ -42,10 +42,48 @@ type tripOrderProducts {
 	formulatorData: String
 	maquiladoraData: String
 	authorizedUse: String
+	customsDocumentIdentifier: String
 }
 
 type return_new_tripOrderProduct{
-  idTripOrderProduct: String
+  	idTripOrderProduct: String
+  	productNameMessage: String
+	productCodeMessage: String
+	codeUnitMessage: String
+	cargoQuantityMessage: String
+	cargoWeightMessage: String
+	weightUnitMessage: String
+	codeHazardousMaterialMessage: String
+	codePackagingMessage: String
+	declarationNumberMessage: String
+	tariffCodeMessage: String
+	foeringTradeUUIDMessage: String
+	documentTypeCodeMessage: String
+	materialTypeCodeMessage: String
+	materialDescriptionMessage: String
+	cofeprisSectorMessage: String
+	rfcImporterMessage: String
+	activeIngredientNameMessage: String
+	chemicalNameMessage: String
+	genericProductNameMessage: String
+	distinctiveProductNameMessage: String
+	companyNameMakerMessage: String
+	expirationDateMessage: String
+	medicationPackageMessage: String
+	pharmaceuticalFormMessage: String
+	specialConditionsTransportMessage: String
+	healthRegistryAuthorizationFolioMessage: String
+	importPermitFolioMessage: String
+	vucemImportFolioMessage: String
+	chemicalAbstractsServiceNumberMessage: String
+	importCompanyNameMessage: String
+	healthRegistrationNumberPesticidesFertilizersMessage: String
+	manufacturerInformationMessage: String
+	formulatorDataMessage: String
+	maquiladoraDataMessage: String
+	authorizedUseMessage: String
+	customsDocumentIdentifier: String	
+	customsDocumentIdentifierMessage: String
 }
 
 type return_new_tripOrderProduct_excel{
@@ -114,6 +152,7 @@ type return_new_tripOrderProduct_excel_v2{
 	maquiladoraDataMessage: String
 	authorizedUseMessage: String
 	customsClearanceMessage: String
+	customsDocumentIdentifierMessage: String
 }
 
 type Query {
@@ -123,45 +162,82 @@ type Query {
 input new_tripOrderProduct {
   	idTripOrder: String
 	productName: String
+	productNameMessage: String
 	productCode: String
+	productCodeMessage: String
 	codeUnit: String
+	codeUnitMessage: String
 	cargoQuantity: String
+	cargoQuantityMessage: String
 	cargoWeight: String
+	cargoWeightMessage: String	
 	weightUnit: String
+	weightUnitMessage: String
 	hazardousMaterial: Int
 	codeHazardousMaterial: String
+	codeHazardousMaterialMessage: String
 	codePackaging: String
+	codePackagingMessage: String
 	declarationNumberPart1: String
 	declarationNumberPart2: String
 	declarationNumberPart3: String
 	declarationNumberPart4: String
+	declarationNumberMessage: String
 	tariffCode: String
+	tariffCodeMessage: String
 	foeringTradeUUID: String
+	foeringTradeUUIDMessage: String
 	userLoggedIn: String
 	documentTypeCode: String
+	documentTypeCodeMessage: String
 	materialTypeCode: String
+	materialTypeCodeMessage: String
 	materialDescription: String
+	materialDescriptionMessage: String
 	rfcImporter: String
+	rfcImporterMessage: String
 	cofeprisSector: String
+	cofeprisSectorMessage: String
 	activeIngredientName: String
+	activeIngredientNameMessage: String
 	chemicalName: String
+	chemicalNameMessage: String
 	genericProductName: String
+	genericProductNameMessage: String
 	distinctiveProductName: String
+	distinctiveProductNameMessage: String
 	companyNameMaker: String
+	companyNameMakerMessage: String
 	expirationDate: String
+	expirationDateMessage: String
 	medicationPackage: String
+	medicationPackageMessage: String
 	pharmaceuticalForm: String
+	pharmaceuticalFormMessage: String
 	specialConditionsTransport: String
+	specialConditionsTransportMessage: String
 	healthRegistryAuthorizationFolio: String
+	healthRegistryAuthorizationFolioMessage: String
 	importPermitFolio: String
+	importPermitFolioMessage: String
 	vucemImportFolio: String
+	vucemImportFolioMessage: String
 	chemicalAbstractsServiceNumber: String
+	chemicalAbstractsServiceNumberMessage: String
 	importCompanyName: String
+	importCompanyNameMessage: String
 	healthRegistrationNumberPesticidesFertilizers: String
+	healthRegistrationNumberPesticidesFertilizersMessage: String
 	manufacturerInformation: String
+	manufacturerInformationMessage: String
 	formulatorData: String
+	formulatorDataMessage: String
 	maquiladoraData: String
+	maquiladoraDataMessage: String
 	authorizedUse: String
+	authorizedUseMessage: String
+	customsDocumentIdentifier: String
+	customsDocumentIdentifierMessage: String
 }
 
 input new_tripOrderProduct_excel {
@@ -287,52 +363,91 @@ input new_tripOrderProduct_excel_v2 {
 	excelRow: String
 	customsClearance: String
 	customsClearanceMessage: String
+	customsDocumentIdentifier: String
+	customsDocumentIdentifierMessage: String
 }
 
 input update_tripOrderProduct {
 	idTripOrderProduct: String
   	idTripOrder: String
 	productName: String
+	productNameMessage: String
 	productCode: String
+	productCodeMessage: String
 	codeUnit: String
+	codeUnitMessage: String
 	cargoQuantity: String
+	cargoQuantityMessage: String
 	cargoWeight: String
+	cargoWeightMessage: String
 	weightUnit: String
+	weightUnitMessage: String
 	hazardousMaterial: Int
 	codeHazardousMaterial: String
+	codeHazardousMaterialMessage: String
 	codePackaging: String
+	codePackagingMessage: String
 	declarationNumberPart1: String
 	declarationNumberPart2: String
 	declarationNumberPart3: String
 	declarationNumberPart4: String
+	declarationNumberMessage: String
 	tariffCode: String
+	tariffCodeMessage: String
 	foeringTradeUUID: String
+	foeringTradeUUIDMessage: String
 	userLoggedIn: String
 	status: String
 	documentTypeCode: String
+	documentTypeCodeMessage: String
 	materialTypeCode: String
+	materialTypeCodeMessage: String
 	materialDescription: String
+	materialDescriptionMessage: String
 	rfcImporter: String
+	rfcImporterMessage: String
 	cofeprisSector: String
+	cofeprisSectorMessage: String
 	activeIngredientName: String
+	activeIngredientNameMessage: String
 	chemicalName: String
+	chemicalNameMessage: String
 	genericProductName: String
+	genericProductNameMessage: String
 	distinctiveProductName: String
+	distinctiveProductNameMessage: String
 	companyNameMaker: String
+	companyNameMakerMessage: String
 	expirationDate: String
+	expirationDateMessage: String
 	medicationPackage: String
+	medicationPackageMessage: String
 	pharmaceuticalForm: String
+	pharmaceuticalFormMessage: String
 	specialConditionsTransport: String
+	specialConditionsTransportMessage: String
 	healthRegistryAuthorizationFolio: String
+	healthRegistryAuthorizationFolioMessage: String
 	importPermitFolio: String
+	importPermitFolioMessage: String
 	vucemImportFolio: String
+	vucemImportFolioMessage: String
 	chemicalAbstractsServiceNumber: String
+	chemicalAbstractsServiceNumberMessage: String
 	importCompanyName: String
+	importCompanyNameMessage: String
 	healthRegistrationNumberPesticidesFertilizers: String
+	healthRegistrationNumberPesticidesFertilizersMessage: String
 	manufacturerInformation: String
+	manufacturerInformationMessage: String
 	formulatorData: String
+	formulatorDataMessage: String
 	maquiladoraData: String
+	maquiladoraDataMessage: String
 	authorizedUse: String
+	authorizedUseMessage: String
+	customsDocumentIdentifier: String
+	customsDocumentIdentifierMessage: String
 }
 
 input delete_all_tripOrderProduct {
@@ -344,6 +459,6 @@ type Mutation {
   CREATE_TRIP_ORDER_PRODUCTS(input: new_tripOrderProduct): [return_new_tripOrderProduct]
   CREATE_TRIP_ORDER_PRODUCTS_EXCEL(input: new_tripOrderProduct_excel): [return_new_tripOrderProduct_excel]
   CREATE_TRIP_ORDER_PRODUCTS_EXCEL_V2(input: new_tripOrderProduct_excel_v2): [return_new_tripOrderProduct_excel_v2]
-  UPDATE_TRIP_ORDER_PRODUCTS(input: update_tripOrderProduct): String
+  UPDATE_TRIP_ORDER_PRODUCTS(input: update_tripOrderProduct): [return_new_tripOrderProduct]
   DELETE_ALL_TRIP_ORDER_PRODUCTS(input: delete_all_tripOrderProduct): String
 }

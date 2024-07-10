@@ -89,6 +89,10 @@ import { ownersMutations, ownersQueries } from './owners'
 import { warehousesMutations, warehousesQueries } from './warehouses'
 import { truckBoxInventoryQueries, truckBoxInventoryMutations } from './truckBoxInventory'
 import {tripQueries} from './trip'
+import {travelAssignmentQueries, travelAssignmentMutations} from './travelAssignment'
+import {tripDispatchDocumentsQueries, tripDispatchDocumentsMutations} from './tripDispatchDocuments'
+import {tripProductsQueries, tripProductsMutations} from './tripProducts'
+import {tripTravelPickupsQueries, tripTravelPickupsMutations} from './tripTravelPickups'
 
 const resolvers = {
     Query: {
@@ -181,7 +185,11 @@ const resolvers = {
         ...ownersQueries,
         ...warehousesQueries,
         ...truckBoxInventoryQueries,
-        ...tripQueries
+        ...tripQueries,
+        ...travelAssignmentQueries,
+        ...tripDispatchDocumentsQueries,
+        ...tripProductsQueries,
+        ...tripTravelPickupsQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -241,8 +249,11 @@ const resolvers = {
         ...tripAdvanceMutations,
         ...ownersMutations,
         ...warehousesMutations,
-        ...truckBoxInventoryMutations
-        
+        ...truckBoxInventoryMutations,
+        ...travelAssignmentMutations,
+        ...tripDispatchDocumentsMutations,
+        ...tripProductsMutations,
+        ...tripTravelPickupsMutations
     }
 }
 
