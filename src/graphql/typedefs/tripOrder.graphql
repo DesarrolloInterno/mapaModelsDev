@@ -51,7 +51,8 @@ type tripOrder {
   countryDestination: String
   typeCrossing: String
   idTripOrigin: Int
-  numTripOrigin: String
+  numTripOrigin: String,
+  orderDate: String
 }
 
 type tripOrderSafetyEquipment {
@@ -75,6 +76,10 @@ type responseConfirmTripOrder {
   messageProNumber: String
   messageReference: String
   messageSalesFormatCrossing: String
+}
+
+type customsClearanceMessage {
+  customsClearanceMessage: String
 }
 
 type Query {
@@ -101,9 +106,10 @@ input delete_tripOrder {
 }
 
 input update_customsClearance_tripOrder {
-  idTripOrder: String,
-  customsClearance: String,
+  idTripOrder: String
+  customsClearance: String
   userLoggedIn: String
+  customsClearanceMessage: String
 }
 
 input set_client_tripOrder {
@@ -125,7 +131,7 @@ input update_tripOrder_mooringGear {
   userLoggedIn: String
 }
 
-input update_tripOrder_mooringGear {
+input update_dynamic_tripOrder {
   idTripOrder: String,
   loadingDate: String,
   deliveryDate: String,
@@ -145,15 +151,29 @@ input confirm_tripOrder {
   userLoggedIn: String
 }
 
+input update_tripOrder_SalesFormatCrossing {
+  idTripOrder: String,
+  idSalesFormatCrossing: String,
+  userLoggedIn: String
+
+}
+
+input delete_tripOrder_product {
+  idTripOrderProduct: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_TRIPORDER(input: new_tripOrder): String
   CREATE_TRIPORDER_CROSSING(input: new_tripOrder): String
   UPDATE_ORDER_PRIORITY(input: new_orderPriority): String
+  UPDATE_TRIPORDER_SALESFORMATCROSSING(input: update_tripOrder_SalesFormatCrossing): String
   DELETE_ORDER_PRIORITY(input: delete_tripOrder): String
-  UPDATE_CUSTOMSCLEARNCE(input: update_customsClearance_tripOrder): String
+  UPDATE_CUSTOMSCLEARNCE(input: update_customsClearance_tripOrder): [customsClearanceMessage]
   SET_CLIENT_TRIPORDER(input: set_client_tripOrder): String
   SET_SALEFORMAT_TRIPORDER(input: set_salesFormat_tripOrder): String
   UPDATE_TRIPORDER_MOORINGGEAR(input: update_tripOrder_mooringGear): String
-  UPDATE_DYNAMIC_TRIPORDER(input: update_tripOrder_mooringGear): String
+  UPDATE_DYNAMIC_TRIPORDER(input: update_dynamic_tripOrder): String
   CONFIRM_TRIPORDER(input: confirm_tripOrder): [responseConfirmTripOrder]
+  DELETE_TRIPORDER_PRODUCT(input: delete_tripOrder_product): String
 }

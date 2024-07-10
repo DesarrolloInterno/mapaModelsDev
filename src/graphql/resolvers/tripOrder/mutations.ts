@@ -61,16 +61,18 @@ const tripOrderMutations = {
         const {
             idTripOrder,
 			customsClearance,
-            userLoggedIn
+            userLoggedIn,
+            customsClearanceMessage
         } = input;
 
         try {
-            await tripOrder.query("exec update_customsClearance_tripOrder " +
+            const newid = await tripOrder.query("exec update_customsClearance_tripOrder " +
                 "@idTripOrder = '" + idTripOrder + "', " +
                 "@customsClearance = '" + customsClearance + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@customsClearanceMessage = '" + customsClearanceMessage + "' "
             );
-            return 'Regimen aduanero actualizado correctamente'
+            return newid;
         } catch (error) {
             console.log(error);
         }
@@ -201,6 +203,42 @@ const tripOrderMutations = {
                 "@userLoggedIn = '" + userLoggedIn + "' "
             );
             return 'Orden de viaje creada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    UPDATE_TRIPORDER_SALESFORMATCROSSING: async (_: any, {input}: any) => {
+        const {
+            idTripOrder,
+			idSalesFormatCrossing,
+            userLoggedIn
+        } = input;
+
+        try {
+            await tripOrder.query("exec update_tripOrder_SalesFormatCrossing " +
+                "@idTripOrder = '" + idTripOrder + "', " +
+                "@idSalesFormatCrossing = '" + idSalesFormatCrossing + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Formato de venta de cruce actualizado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    DELETE_TRIPORDER_PRODUCT: async (_: any, {input}: any) => {
+        const {
+            idTripOrderProduct,
+            userLoggedIn
+        } = input;
+
+        try {
+            await tripOrder.query("exec delete_tripOrder_product " +
+                "@idTripOrderProduct = '" + idTripOrderProduct + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Producto de orden de viaje eliminado correctamente'
         } catch (error) {
             console.log(error);
         }

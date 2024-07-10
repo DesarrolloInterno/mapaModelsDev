@@ -1,0 +1,53 @@
+type tripTravelPickups {
+  id:ID
+  idClientLocation: Int
+  clientLocation: String
+  fullAddress: String
+  idTripOrder: Int
+  idTrip: Int
+  idRowProduct: Int
+  kilometres: String
+  productQuantity: String
+  productWeight: String
+  measuringUnit: String
+  appointmentDate: String
+  status: String
+  typeLoad: String
+}
+
+type Query {
+  GET_TRIP_TRAVEL_PICKUPS(idTrip:String!): [tripTravelPickups]
+}
+
+input new_tripTravelPickups {
+  idClientLocation: String
+  idTrip: String
+	idRowProduct: String
+	kilometres: String
+	productQuantity: String
+	productWeight: String
+	measuringUnit: String
+	appointmentDate: String
+	typeLoad: String
+	userLoggedIn: String
+}
+
+input update_tripTravelPickups {
+  idTripTravelPickup: String
+	idClientLocation: String
+  idTrip: String
+	idRowProduct: String
+	kilometres: String
+	productQuantity: String
+	productWeight: String
+	measuringUnit: String
+	appointmentDate: String
+	typeLoad: String
+	userLoggedIn: String
+	status: String
+}
+
+type Mutation {
+  CREATE_TRIP_TRAVEL_PICKUPS(input: new_tripTravelPickups): String
+  UPDATE_TRIP_TRAVEL_PICKUPS(input: update_tripTravelPickups): String
+}
