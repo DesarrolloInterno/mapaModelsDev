@@ -24,6 +24,14 @@ const clientTravelOrderQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_CLIENTS_CLIENT_TRAVEL_ORDERS: async (_: any, {date1, date2, status}: any) => {
+        try{
+            const result = await clientTravelOrder.query("exec get_all_clients_clientTravelOrders @date1 = '"+date1+"', @date2 = '"+date2+"', @status = '"+status+"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

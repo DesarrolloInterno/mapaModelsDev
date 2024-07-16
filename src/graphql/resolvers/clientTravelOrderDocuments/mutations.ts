@@ -54,6 +54,15 @@ const clientTravelOrderDocumentsMutations = {
             console.log(error);
         }
 
+    },
+    SET_LINK_CLIENTTRAVELORDER_DOCUMENTS: async (_: any, {input}: any) => {
+        const { idClientTravelOrder, documentLink, nameDocument} = input;
+        try {
+            await clientTravelOrderDocuments.query("exec set_link_document_clientTravelOrder @idClientTravelOrder = '"+idClientTravelOrder+"', @documentLink = '"+documentLink+"', @nameDocument = '"+nameDocument+"'");
+            return 'Documento actualizado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

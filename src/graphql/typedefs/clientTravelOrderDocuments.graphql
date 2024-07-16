@@ -36,6 +36,12 @@ input delete_clientTravelOrderDocuments {
   userLoggedIn: String
 }
 
+input setLink_clientTravelOrderDocument {
+  idClientTravelOrder: String
+  documentLink: String
+  nameDocument: String
+}
+
 type Query {
   GET_CLIENTTRAVELORDER_DOCUMENTS(idClientTravelOrder: String!, status: String!): [clientTravelOrderDocuments]
 }
@@ -44,5 +50,6 @@ type Mutation {
   CREATE_CLIENTTRAVELORDER_DOCUMENTS(input: new_clientTravelOrderDocuments): [return_new_clientTravelOrderDocuments]
   UPDATE_CLIENTTRAVELORDER_DOCUMENTS(input: update_clientTravelOrderDocuments): [return_new_clientTravelOrderDocuments]
   DELETE_CLIENTTRAVELORDER_DOCUMENTS(input: delete_clientTravelOrderDocuments): String
+  SET_LINK_CLIENTTRAVELORDER_DOCUMENTS(input: setLink_clientTravelOrderDocument): String
 }
 

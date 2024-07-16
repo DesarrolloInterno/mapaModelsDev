@@ -1,0 +1,280 @@
+type clientTravelOrderProducts {
+    id: ID
+	idClientTravelOrder: Int
+	productName: String
+	productCode: String
+	codeUnit: String
+	cargoQuantity: String
+	cargoWeight: String
+	weightUnit: String
+	hazardousMaterial: Int
+	codeHazardousMaterial: String
+	codePackaging: String
+	declarationNumberPart1: String
+	declarationNumberPart2: String
+	declarationNumberPart3: String
+	declarationNumberPart4: String
+	declarationNumber: String
+	tariffCode: String
+	foeringTradeUUID: String
+	status: String
+	documentTypeCode: String
+	materialTypeCode: String
+	materialDescription: String
+	rfcImporter: String
+	cofeprisSector: String
+	activeIngredientName: String
+	chemicalName: String
+	genericProductName: String
+	distinctiveProductName: String
+	companyNameMaker: String
+	expirationDate: String
+	medicationPackage: String
+	pharmaceuticalForm: String
+	specialConditionsTransport: String
+	healthRegistryAuthorizationFolio: String
+	importPermitFolio: String
+	vucemImportFolio: String
+	chemicalAbstractsServiceNumber: String
+	importCompanyName: String
+	healthRegistrationNumberPesticidesFertilizers: String
+	manufacturerInformation: String
+	formulatorData: String
+	maquiladoraData: String
+	authorizedUse: String
+}
+
+type return_new_clientTravelOrderProduct{
+  idClientTravelOrderProduct: String
+}
+
+type Query {
+  GET_ALL_CLIENT_TRAVEL_ORDER_PRODUCTS(idClientTravelOrder: String!): [clientTravelOrderProducts]
+}
+
+input new_clientTravelOrderProduct {
+  	idClientTravelOrder: String
+	productName: String
+	productCode: String
+	codeUnit: String
+	cargoQuantity: String
+	cargoWeight: String
+	weightUnit: String
+	hazardousMaterial: Int
+	codeHazardousMaterial: String
+	codePackaging: String
+	declarationNumberPart1: String
+	declarationNumberPart2: String
+	declarationNumberPart3: String
+	declarationNumberPart4: String
+	tariffCode: String
+	foeringTradeUUID: String
+	userLoggedIn: String
+	documentTypeCode: String
+	materialTypeCode: String
+	materialDescription: String
+	rfcImporter: String
+	cofeprisSector: String
+	activeIngredientName: String
+	chemicalName: String
+	genericProductName: String
+	distinctiveProductName: String
+	companyNameMaker: String
+	expirationDate: String
+	medicationPackage: String
+	pharmaceuticalForm: String
+	specialConditionsTransport: String
+	healthRegistryAuthorizationFolio: String
+	importPermitFolio: String
+	vucemImportFolio: String
+	chemicalAbstractsServiceNumber: String
+	importCompanyName: String
+	healthRegistrationNumberPesticidesFertilizers: String
+	manufacturerInformation: String
+	formulatorData: String
+	maquiladoraData: String
+	authorizedUse: String
+}
+
+input update_clientTravelOrderProduct {
+	idClientTravelOrderProduct: String
+  	idClientTravelOrder: String
+	productName: String
+	productCode: String
+	codeUnit: String
+	cargoQuantity: String
+	cargoWeight: String
+	weightUnit: String
+	hazardousMaterial: Int
+	codeHazardousMaterial: String
+	codePackaging: String
+	declarationNumberPart1: String
+	declarationNumberPart2: String
+	declarationNumberPart3: String
+	declarationNumberPart4: String
+	tariffCode: String
+	foeringTradeUUID: String
+	userLoggedIn: String
+	status: String
+	documentTypeCode: String
+	materialTypeCode: String
+	materialDescription: String
+	rfcImporter: String
+	cofeprisSector: String
+	activeIngredientName: String
+	chemicalName: String
+	genericProductName: String
+	distinctiveProductName: String
+	companyNameMaker: String
+	expirationDate: String
+	medicationPackage: String
+	pharmaceuticalForm: String
+	specialConditionsTransport: String
+	healthRegistryAuthorizationFolio: String
+	importPermitFolio: String
+	vucemImportFolio: String
+	chemicalAbstractsServiceNumber: String
+	importCompanyName: String
+	healthRegistrationNumberPesticidesFertilizers: String
+	manufacturerInformation: String
+	formulatorData: String
+	maquiladoraData: String
+	authorizedUse: String
+}
+
+input delete_all_clientTravelOrderProduct {
+  	idClientTravelOrder: String
+	userLoggedIn: String
+}
+
+input set_id_clientTravelOrderProducts {
+  	id: String
+	idClientTravelOrder: String
+}
+
+input new_clientTravelOrderProduct_excel_v2 {
+	idClientTravelOrder: String
+	productName: String
+	productNameMessage: String
+	productCode: String
+	productCodeMessage: String
+	codeUnit: String
+	codeUnitMessage: String
+	cargoQuantity: String
+	cargoQuantityMessage: String
+	cargoWeight: String
+	cargoWeightMessage: String
+	weightUnit: String
+	hazardousMaterial: String
+	codeHazardousMaterial: String
+	codeHazardousMaterialMessage: String
+	codePackaging: String
+	codePackagingMessage: String
+	declarationNumber: String
+	declarationNumberMessage: String
+	tariffCode: String
+	tariffCodeMessage: String
+	foeringTradeUUID: String
+	foeringTradeUUIDMessage: String
+	userLoggedIn: String
+	documentTypeCode: String
+	documentTypeCodeMessage: String
+	materialTypeCode: String
+	materialTypeCodeMessage: String
+	materialDescription: String
+	materialDescriptionMessage: String
+	rfcImporter: String
+	rfcImporterMessage: String
+	cofeprisSector: String
+	cofeprisSectorMessage: String
+	activeIngredientName: String
+	activeIngredientNameMessage: String
+	chemicalName: String
+	chemicalNameMessage: String
+	genericProductName: String
+	genericProductNameMessage: String
+	distinctiveProductName: String
+	distinctiveProductNameMessage: String
+	companyNameMaker: String
+	companyNameMakerMessage: String
+	expirationDate: String
+	expirationDateMessage: String
+	medicationPackage: String
+	medicationPackageMessage: String
+	pharmaceuticalForm: String
+	pharmaceuticalFormMessage: String
+	specialConditionsTransport: String
+	specialConditionsTransportMessage: String
+	healthRegistryAuthorizationFolio: String
+	healthRegistryAuthorizationFolioMessage: String
+	importPermitFolio: String
+	importPermitFolioMessage: String
+	vucemImportFolio: String
+	vucemImportFolioMessage: String
+	chemicalAbstractsServiceNumber: String
+	chemicalAbstractsServiceNumberMessage: String
+	importCompanyName: String
+	importCompanyNameMessage: String
+	healthRegistrationNumberPesticidesFertilizers: String
+	healthRegistrationNumberPesticidesFertilizersMessage: String
+	manufacturerInformation: String
+	manufacturerInformationMessage: String
+	formulatorData: String
+	formulatorDataMessage: String
+	maquiladoraData: String
+	maquiladoraDataMessage: String
+	authorizedUse: String
+	authorizedUseMessage: String
+	excelRow: String
+	customsClearance: String
+	customsClearanceMessage: String
+}
+
+type return_new_clientTravelOrderProduct_excel_v2{
+	idClientTravelOrderProduct: String
+	productNameMessage: String
+	productCodeMessage: String
+	codeUnitMessage: String
+	cargoQuantityMessage: String
+	cargoWeightMessage: String
+	weightUnitMessage: String
+	codeHazardousMaterialMessage: String
+	codePackagingMessage: String
+	declarationNumberMessage: String
+	tariffCodeMessage: String
+	foeringTradeUUIDMessage: String
+	documentTypeCodeMessage: String
+	materialTypeCodeMessage: String
+	materialDescriptionMessage: String
+	cofeprisSectorMessage: String
+	rfcImporterMessage: String
+	activeIngredientNameMessage: String
+	chemicalNameMessage: String
+	genericProductNameMessage: String
+	distinctiveProductNameMessage: String
+	companyNameMakerMessage: String
+	expirationDateMessage: String
+	medicationPackageMessage: String
+	pharmaceuticalFormMessage: String
+	specialConditionsTransportMessage: String
+	healthRegistryAuthorizationFolioMessage: String
+	importPermitFolioMessage: String
+	vucemImportFolioMessage: String
+	chemicalAbstractsServiceNumberMessage: String
+	importCompanyNameMessage: String
+	healthRegistrationNumberPesticidesFertilizersMessage: String
+	manufacturerInformationMessage: String
+	formulatorDataMessage: String
+	maquiladoraDataMessage: String
+	authorizedUseMessage: String
+	customsClearanceMessage: String
+}
+
+type Mutation {
+  CREATE_CLIENT_TRAVEL_ORDER_PRODUCTS(input: new_clientTravelOrderProduct): [return_new_clientTravelOrderProduct]
+  UPDATE_CLIENT_TRAVEL_ORDER_PRODUCTS(input: update_clientTravelOrderProduct): String
+  DELETE_CLIENT_TRAVEL_ORDER_PRODUCTS(input: delete_all_clientTravelOrderProduct): String
+  SET_ID_CLIENT_TRAVEL_ORDER_PRODUCTS(input: set_id_clientTravelOrderProducts): String
+  DELETE_ALL_CLIENT_TRAVEL_ORDER_PRODUCTS(input: delete_all_clientTravelOrderProduct): String
+  CREATE_CLIENT_TRAVEL_ORDER_PRODUCTS_EXCEL_V2(input: new_clientTravelOrderProduct_excel_v2): [return_new_clientTravelOrderProduct_excel_v2]
+}

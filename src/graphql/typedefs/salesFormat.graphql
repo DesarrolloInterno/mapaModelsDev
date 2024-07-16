@@ -214,7 +214,9 @@ type safetyEquipmentSalesFormat {
 
 type salesFormatClients {
   id: ID,
-  idClient: Int
+  idClient: Int,
+  idOrigin: Int,
+  idDestination: Int
 }
 
 type salesFormatAmountClients {
@@ -223,6 +225,26 @@ type salesFormatAmountClients {
   IVA: Float,
   RET: Float,
   totalAmount: Float
+}
+
+type salesFormat_addresses_by_idClient{
+  id: ID,
+  name: String,
+  idClient: Int,
+  idOrigin: Int,
+  idCountryOrigin: Int,
+  countryOrigin: String,
+  idStateOrigin: Int,
+  stateOrigin: String,
+  idTownOrigin: Int,
+  townOrigin: String,
+  idDestination: Int,
+  idCountryDestination: Int,
+  countryDestination: String,
+  idStateDestination: Int,
+  stateDestination: String,
+  idTownDestination: Int,
+  townDestination: String
 }
 
 type Query {
@@ -239,6 +261,7 @@ type Query {
   GET_CROSS_SALES_FORMAT: [cross_salesFormat]
   GET_SALES_FORMAT_CLIENTS: [salesFormatClients]
   GET_SALES_FORMAT_AMOUNT_CLIENTS: [salesFormatAmountClients]
+  GET_SALES_FORMAT_ADDRESSES_BY_ID_CLIENT(idClient: String!): [salesFormat_addresses_by_idClient]
 }
 
 input new_salesFormat {

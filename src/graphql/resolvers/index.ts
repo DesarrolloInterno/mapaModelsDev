@@ -92,6 +92,8 @@ import { ClientTravelOrderMutations, clientTravelOrderQueries } from './clientTr
 import { clientTravelOrderSafetyEquipmentQueries, clientTravelOrderSafetyEquipmentMutations } from './clientTravelOrderSafetyEquipment'
 import { clientTravelOrderDocumentsMutations, clientTravelOrderDocumentsQueries } from './clientTravelOrderDocuments'
 import {tripQueries} from './trip'
+import { clientTravelOrderProductsMutations, clientTravelOrderProductsQueries } from './clientTravelOrderProducts'
+import { clientTravelOrderTravelPickupsMutations, clientTravelOrderTravelPickupsQueries } from './clientTravelOrderTravelPickups'
 
 const resolvers = {
     Query: {
@@ -187,7 +189,9 @@ const resolvers = {
         ...clientTravelOrderQueries,
         ...clientTravelOrderSafetyEquipmentQueries,
         ...clientTravelOrderDocumentsQueries,
-        ...tripQueries
+        ...tripQueries,
+        ...clientTravelOrderProductsQueries,
+        ...clientTravelOrderTravelPickupsQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -250,7 +254,9 @@ const resolvers = {
         ...truckBoxInventoryMutations,
         ...ClientTravelOrderMutations,
         ...clientTravelOrderSafetyEquipmentMutations,
-        ...clientTravelOrderDocumentsMutations
+        ...clientTravelOrderDocumentsMutations,
+        ...clientTravelOrderProductsMutations,
+        ...clientTravelOrderTravelPickupsMutations
     }
 }
 

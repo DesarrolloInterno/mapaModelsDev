@@ -40,6 +40,8 @@ type clientTravelOrder {
 	stateDestination: String
 	fullAddressOrigin: String
 	fullAddressDestination: String
+	customsClearance: String
+	numClientTravelOrder: String
 }
 
 input clientTravelOrder_form {
@@ -82,6 +84,7 @@ input clientTravelOrder_form {
 	status: String
 	stateOrigin: String
 	stateDestination: String
+	idSalesFormat: String
 }
 
 type return_message_clientTravelOrder {
@@ -130,11 +133,7 @@ input new_clientTravelOrder {
 	stateOrigin: String
 	stateDestination: String
 	userLoggedIn: String
-}
-
-type return_new_clientTravelOrder {
-	idClientTravelOrder: String,
-	message: String
+	idSalesFormat: String
 }
 
 type clientSalesFormatAmounts {
@@ -162,11 +161,6 @@ type clientSalesFormatAmounts {
 	totalAmount: Float
 }
 
-type return_new_clientDocuments {
-    nameClient: String
-    idDocument: String
-}
-
 input set_link_clientDocuments {
     idClient: String,
     id: String,
@@ -192,15 +186,263 @@ type clientAdresses {
 	town: String
 }
 
+input update_customsClearance_clientTravelOrder {
+  idClientTravelOrder: String,
+  customsClearance: String,
+  userLoggedIn: String
+}
+
+type clientsClientTravelOrder {
+    id:ID
+    idClient: Int
+    name: String
+    shipmentDate: String
+    bussinesName: String
+    fullAddress: String
+    RFC: String
+	TAXID: String
+	idOriginAddres: Int
+	addressOrigin: String
+	outsideAddressNumberOrigin: String
+	insideAddressNumberOrigin: String
+	neighborhoodOrigin: String
+	zipCodeOrigin: String
+	idCountryOrigin: Int
+	countryOrigin: String
+	idStateOrigin: Int
+	idTownOrigin: Int
+	townOrigin: String
+	idDestinationAddres: Int
+	addressDestination: String
+	outsideAddressNumberDestination: String
+	insideAddressNumberDestination: String
+	neighborhoodDestination: String
+	zipCodeDestination: String
+	idCountryDestination: Int
+	countryDestination: String
+	idStateDestination: Int
+	idTownDestination: Int
+	townDestination: String
+	subtotal: Float
+	IVA: Float
+	RET: Float
+	total: Float
+	loadingInstructions: String
+	unloadingInstructions: String
+	status: String
+	stateOrigin: String
+	stateDestination: String
+	fullAddressOrigin: String
+	fullAddressDestination: String
+	customsClearance: String
+	numClientTravelOrder: String
+	userRecorded: String
+	dateRecorded: String
+	mail: String
+	nameDocument: String
+	documentLink: String
+	idSalesFormat: String
+}
+
+type return_autorize_message_clientTravelOrder {
+	idClientTravelOrder: String,
+    message: String
+}
+
+input clientTravelOrder_autorize {
+	idClientTravelOrder: String,
+    status: String
+	userLoggedIn: String
+	rejectReason: String
+	idSalesFormat: String
+}
+
+input clientTravelOrder_reject {
+	idClientTravelOrder: String,
+    status: String,
+	userLoggedIn: String,
+	rejectReason: String
+}
+
+input create_tripOrder_from_clientTravelOrder {
+	name: String,
+	idClient: String,
+	idOrigin: String,
+	idDestination: String,
+	userLoggedIn: String,
+	fullAddressOrigin: String,
+	fullAddressDestination: String,
+	idSalesFormat: String,
+	subtotal: String,
+	IVA: String,
+	RET: String,
+	total: String,
+	countryOrigin: String,
+	countryDestination: String,
+	tripType: String,
+	customsClearance: String
+}
+
+type return_new_tripOrder_clientTravelOrder {
+	idTripOrder: String,
+    message: String
+}
+
+input set_data_from_salesFormat {
+	idTripOrder: String,
+	name: String,
+	legendOriginCollection: String,
+	legendDestinationCollection: String,
+	travelClassification: String,
+	kilometres: String,
+	travelTime: String,
+	temperature: String,
+	currencye: String,
+	taxes: String,
+	isRefrigerated: String,
+	isDry: String,
+	isDoorDoor: String,
+	isCrossing: String,
+	isEmpty: String,
+	isEmptyPaid: String,
+	idSalesFormat: String,
+	operatorComments: String,
+	operationComments: String,
+	observations: String,
+	americanPortion: String,
+	crossingPortion: String,
+	mexicanPortion: String,
+	requestProofDelivery: String,
+	crossingType: String,
+	productDescription: String,
+	currency: String,
+	typeCrossing: String
+}
+
+input set_documents_from_clientTravelOrder {
+	idTripOrder: String,
+	nameDocument: String,
+	userLoggedIn: String
+}
+
+input set_safetyEquipments_from_clientTravelOrder {
+	idTripOrder: String,
+	name: String,
+	description: String,
+	userLoggedIn: String
+}
+
+input set_products_from_clientTravelOrder {
+	idTripOrder: String,
+	productName: String,
+	productCode: String,
+	codeUnit: String,
+	cargoQuantity: String,
+	cargoWeight: String,
+	weightUnit: String,
+	hazardousMaterial: String,
+	codeHazardousMaterial: String,
+	codePackaging: String,
+	declarationNumberPart1: String,
+	declarationNumberPart2: String,
+	declarationNumberPart3: String,
+	declarationNumberPart4: String,
+	tariffCode: String,
+	foeringTradeUUID: String,
+	userLoggedIn: String,
+	documentTypeCode: String,
+	materialTypeCode: String,
+	materialDescription: String,
+	rfcImporter: String,
+	cofeprisSector: String,
+	activeIngredientName: String,
+	chemicalName: String,
+	genericProductName: String,
+	distinctiveProductName: String,
+	companyNameMaker: String,
+	expirationDate: String,
+	medicationPackage: String,
+	pharmaceuticalForm: String,
+	specialConditionsTransport: String,
+	healthRegistryAuthorizationFolio: String,
+	importPermitFolio: String,
+	vucemImportFolio: String,
+	chemicalAbstractsServiceNumber: String,
+	importCompanyName: String,
+	healthRegistrationNumberPesticidesFertilizers: String,
+	manufacturerInformation: String,
+	formulatorData: String,
+	maquiladoraData: String,
+	authorizedUse: String,
+}
+
+type return_set_products_clientTravelOrder {
+	idProduct: String,
+	message: String,
+	idTripOrder: String
+}
+
+input set_travelPickups_from_clientTravelOrder{
+	idClientLocation: String,
+	idTripOrder: String,
+	idRowProduct: String,
+	kilometres: String,
+	productQuantity: String,
+	productWeight: String,
+	measuringUnit: String,
+	appointmentDate: String,
+	userLoggedIn: String,
+	typeLoad: String
+}
+
+type return_set_travelPickups_clientTravelOrder {
+	idTravelPickups: String,
+	message: String,
+	idRowProduct: String,
+	idClientLocation: String,
+	idTripOrder: String,
+	kilometres: String,
+	productQuantity: String,
+	productWeight: String,
+	measuringUnit: String,
+	appointmentDate: String,
+	typeLoad: String,
+}
+
+input new_clientTravelOrder_request {
+	idClient: String,
+	userLoggedIn: String
+}
+
+type return_clientTravelOrder_request {
+	idClientTravelOrder: String,
+	message: String
+}
+
+input delete_clientTravelOrder {
+  idClientTravelOrder: String,
+  userLoggedIn: String
+}
+
 type Query {
   GET_CLIENT_TRAVEL_ORDERS(date1: String!, date2: String!, idClient: String!): [clientTravelOrder]
   GET_CLIENT_SALES_FORMAT_AMOUNTS(idClient: String!): [clientSalesFormatAmounts]
   GET_CLIENT_ADDRESSES: [clientAdresses]
+  GET_CLIENTS_CLIENT_TRAVEL_ORDERS(date1: String!, date2: String!, status: String!): [clientsClientTravelOrder]
 }
 
 type Mutation {
-	CREATE_CLIENT_TRAVEL_ORDER(input: new_clientTravelOrder): [return_new_clientTravelOrder]
 	UPDATE_CLIENT_TRAVEL_ORDER_FORM(input: clientTravelOrder_form): [return_message_clientTravelOrder]
-	CREATE_CLIENT_DOCUMENTS(input: create_new_clientDocument): [return_new_clientDocuments]
     SET_LINK_CLIENT_DOCUMENTS(input: set_link_clientDocuments): String
+	UPDATE_CUSTOMSCLEARNCE_CLIENT(input: update_customsClearance_clientTravelOrder): String
+	AUTORIZE_CLIENT_TRAVEL_ORDER(input: clientTravelOrder_autorize): [return_autorize_message_clientTravelOrder]
+	CREATE_TRIP_ORDER_FROM_CLIENT_TRAVEL_ORDER(input: create_tripOrder_from_clientTravelOrder): [return_new_tripOrder_clientTravelOrder]
+	SET_DATA_FROM_SALES_FORMAT(input: set_data_from_salesFormat): [return_new_tripOrder_clientTravelOrder]
+	SET_DOCUMENTS_FROM_CLIENT_TRAVEL_ORDER(input: set_documents_from_clientTravelOrder): [return_new_tripOrder_clientTravelOrder]
+	SET_SAFETY_EQUIPMENTS_FROM_CLIENT_TRAVEL_ORDER(input: set_safetyEquipments_from_clientTravelOrder): [return_new_tripOrder_clientTravelOrder]
+	SET_PRODUCTS_FROM_CLIENT_TRAVEL_ORDER(input: set_products_from_clientTravelOrder): [return_set_products_clientTravelOrder]
+	SET_TRAVEL_PICKUPS_FROM_CLIENT_TRAVEL_ORDER(input: set_travelPickups_from_clientTravelOrder): [return_set_travelPickups_clientTravelOrder]
+	REJECT_CLIENT_TRAVEL_ORDER(input: clientTravelOrder_reject): [return_autorize_message_clientTravelOrder]
+	CREATE_CLIENT_TRAVEL_ORDER_REQUEST(input: new_clientTravelOrder_request):[return_clientTravelOrder_request]
+	DELETE_CLIENT_TRAVEL_ORDER(input: delete_clientTravelOrder):String
 }
