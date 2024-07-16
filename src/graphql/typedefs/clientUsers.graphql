@@ -28,10 +28,24 @@ type login_clientUsers {
     phone: String
 }
 
+type clientUsers_enterprise {
+    id: ID,
+    name: String,
+    status: String,
+    typeUser: String,
+    idClient: Int,
+    idEnterprise: String,
+    EnterpriseName: String,
+    enterpriseLogo: String,
+    logisticsContactPerson: String,
+    logisticsContactPersonMail: String
+}
+
 type Query {
     GET_CLIENTUSERS_BY_IDCLIENT(idClient: String!): [clientUsers]
     GET_CLIENTUSERS_LOGIN(user: String!, password: String!): [login_clientUsers]
     GET_CLIENTUSERS_BY_ID(idClientUser: String!): [login_clientUsers]
+    GET_CLIENTUSER_BY_IDCLIENT(idClient: String!): [clientUsers_enterprise]
 }
 
 type newClientUsers {

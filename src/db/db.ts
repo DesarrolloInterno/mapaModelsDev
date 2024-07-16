@@ -97,6 +97,9 @@ import {trip} from "./Entities/trip"
 import {tripDispatchDocuments} from "./Entities/tripDispatchDocuments"
 import {tripProducts} from "./Entities/tripProducts"
 import {tripTravelPickups} from "./Entities/tripTravelPickups"
+import { clientTravelOrderProducts } from "./Entities/clientTravelOrderProducts"
+import { clientTravelOrderTravelPickups } from "./Entities/clientTravelOrderTravelPickups"
+
 
 export const  dbConection = async () =>{
   let PORT: string = process.env.DATABASE_PORT!
@@ -207,7 +210,9 @@ export const  dbConection = async () =>{
       trip,
       tripDispatchDocuments,
       tripProducts,
-      tripTravelPickups
+      tripTravelPickups,
+      clientTravelOrderProducts,
+      clientTravelOrderTravelPickups
     ],
     options: {
       encrypt: true,//true para Windows Azure

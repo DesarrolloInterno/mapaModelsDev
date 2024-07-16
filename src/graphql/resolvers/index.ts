@@ -96,6 +96,8 @@ import {travelAssignmentQueries, travelAssignmentMutations} from './travelAssign
 import {tripDispatchDocumentsQueries, tripDispatchDocumentsMutations} from './tripDispatchDocuments'
 import {tripProductsQueries, tripProductsMutations} from './tripProducts'
 import {tripTravelPickupsQueries, tripTravelPickupsMutations} from './tripTravelPickups'
+import { clientTravelOrderProductsMutations, clientTravelOrderProductsQueries } from './clientTravelOrderProducts'
+import { clientTravelOrderTravelPickupsMutations, clientTravelOrderTravelPickupsQueries } from './clientTravelOrderTravelPickups'
 
 const resolvers = {
     Query: {
@@ -195,7 +197,9 @@ const resolvers = {
         ...travelAssignmentQueries,
         ...tripDispatchDocumentsQueries,
         ...tripProductsQueries,
-        ...tripTravelPickupsQueries
+        ...tripTravelPickupsQueries,
+        ...clientTravelOrderProductsQueries,
+        ...clientTravelOrderTravelPickupsQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -262,7 +266,9 @@ const resolvers = {
         ...travelAssignmentMutations,
         ...tripDispatchDocumentsMutations,
         ...tripProductsMutations,
-        ...tripTravelPickupsMutations
+        ...tripTravelPickupsMutations,
+        ...clientTravelOrderProductsMutations,
+        ...clientTravelOrderTravelPickupsMutations
     }
 }
 

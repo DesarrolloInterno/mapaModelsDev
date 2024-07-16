@@ -118,6 +118,15 @@ const salesFormatQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_SALES_FORMAT_ADDRESSES_BY_ID_CLIENT: async (_: any, {idClient}: any) => {
+        try{
+            const result = await salesFormat.query("exec get_salesFormats_addresses_by_idClient @idClient = '"+ idClient +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
