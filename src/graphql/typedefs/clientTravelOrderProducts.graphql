@@ -42,10 +42,48 @@ type clientTravelOrderProducts {
 	formulatorData: String
 	maquiladoraData: String
 	authorizedUse: String
+	customsDocumentIdentifier: String
 }
 
 type return_new_clientTravelOrderProduct{
   idClientTravelOrderProduct: String
+  productNameMessage: String
+	productCodeMessage: String
+	codeUnitMessage: String
+	cargoQuantityMessage: String
+	cargoWeightMessage: String
+	weightUnitMessage: String
+	codeHazardousMaterialMessage: String
+	codePackagingMessage: String
+	declarationNumberMessage: String
+	tariffCodeMessage: String
+	foeringTradeUUIDMessage: String
+	documentTypeCodeMessage: String
+	materialTypeCodeMessage: String
+	materialDescriptionMessage: String
+	cofeprisSectorMessage: String
+	rfcImporterMessage: String
+	activeIngredientNameMessage: String
+	chemicalNameMessage: String
+	genericProductNameMessage: String
+	distinctiveProductNameMessage: String
+	companyNameMakerMessage: String
+	expirationDateMessage: String
+	medicationPackageMessage: String
+	pharmaceuticalFormMessage: String
+	specialConditionsTransportMessage: String
+	healthRegistryAuthorizationFolioMessage: String
+	importPermitFolioMessage: String
+	vucemImportFolioMessage: String
+	chemicalAbstractsServiceNumberMessage: String
+	importCompanyNameMessage: String
+	healthRegistrationNumberPesticidesFertilizersMessage: String
+	manufacturerInformationMessage: String
+	formulatorDataMessage: String
+	maquiladoraDataMessage: String
+	authorizedUseMessage: String
+	customsDocumentIdentifier: String	
+	customsDocumentIdentifierMessage: String
 }
 
 type Query {
@@ -55,91 +93,165 @@ type Query {
 input new_clientTravelOrderProduct {
   	idClientTravelOrder: String
 	productName: String
+	productNameMessage: String
 	productCode: String
+	productCodeMessage: String
 	codeUnit: String
+	codeUnitMessage: String
 	cargoQuantity: String
+	cargoQuantityMessage: String
 	cargoWeight: String
+	cargoWeightMessage: String	
 	weightUnit: String
+	weightUnitMessage: String
 	hazardousMaterial: Int
 	codeHazardousMaterial: String
+	codeHazardousMaterialMessage: String
 	codePackaging: String
+	codePackagingMessage: String
 	declarationNumberPart1: String
 	declarationNumberPart2: String
 	declarationNumberPart3: String
 	declarationNumberPart4: String
+	declarationNumberMessage: String
 	tariffCode: String
+	tariffCodeMessage: String
 	foeringTradeUUID: String
+	foeringTradeUUIDMessage: String
 	userLoggedIn: String
 	documentTypeCode: String
+	documentTypeCodeMessage: String
 	materialTypeCode: String
+	materialTypeCodeMessage: String
 	materialDescription: String
+	materialDescriptionMessage: String
 	rfcImporter: String
+	rfcImporterMessage: String
 	cofeprisSector: String
+	cofeprisSectorMessage: String
 	activeIngredientName: String
+	activeIngredientNameMessage: String
 	chemicalName: String
+	chemicalNameMessage: String
 	genericProductName: String
+	genericProductNameMessage: String
 	distinctiveProductName: String
+	distinctiveProductNameMessage: String
 	companyNameMaker: String
+	companyNameMakerMessage: String
 	expirationDate: String
+	expirationDateMessage: String
 	medicationPackage: String
+	medicationPackageMessage: String
 	pharmaceuticalForm: String
+	pharmaceuticalFormMessage: String
 	specialConditionsTransport: String
+	specialConditionsTransportMessage: String
 	healthRegistryAuthorizationFolio: String
+	healthRegistryAuthorizationFolioMessage: String
 	importPermitFolio: String
+	importPermitFolioMessage: String
 	vucemImportFolio: String
+	vucemImportFolioMessage: String
 	chemicalAbstractsServiceNumber: String
+	chemicalAbstractsServiceNumberMessage: String
 	importCompanyName: String
+	importCompanyNameMessage: String
 	healthRegistrationNumberPesticidesFertilizers: String
+	healthRegistrationNumberPesticidesFertilizersMessage: String
 	manufacturerInformation: String
+	manufacturerInformationMessage: String
 	formulatorData: String
+	formulatorDataMessage: String
 	maquiladoraData: String
+	maquiladoraDataMessage: String
 	authorizedUse: String
+	authorizedUseMessage: String
+	customsDocumentIdentifier: String
+	customsDocumentIdentifierMessage: String
 }
 
 input update_clientTravelOrderProduct {
 	idClientTravelOrderProduct: String
   	idClientTravelOrder: String
 	productName: String
+	productNameMessage: String
 	productCode: String
+	productCodeMessage: String
 	codeUnit: String
+	codeUnitMessage: String
 	cargoQuantity: String
+	cargoQuantityMessage: String
 	cargoWeight: String
+	cargoWeightMessage: String
 	weightUnit: String
+	weightUnitMessage: String
 	hazardousMaterial: Int
 	codeHazardousMaterial: String
+	codeHazardousMaterialMessage: String
 	codePackaging: String
+	codePackagingMessage: String
 	declarationNumberPart1: String
 	declarationNumberPart2: String
 	declarationNumberPart3: String
 	declarationNumberPart4: String
+	declarationNumberMessage: String
 	tariffCode: String
+	tariffCodeMessage: String
 	foeringTradeUUID: String
+	foeringTradeUUIDMessage: String
 	userLoggedIn: String
 	status: String
 	documentTypeCode: String
+	documentTypeCodeMessage: String
 	materialTypeCode: String
+	materialTypeCodeMessage: String
 	materialDescription: String
+	materialDescriptionMessage: String
 	rfcImporter: String
+	rfcImporterMessage: String
 	cofeprisSector: String
+	cofeprisSectorMessage: String
 	activeIngredientName: String
+	activeIngredientNameMessage: String
 	chemicalName: String
+	chemicalNameMessage: String
 	genericProductName: String
+	genericProductNameMessage: String
 	distinctiveProductName: String
+	distinctiveProductNameMessage: String
 	companyNameMaker: String
+	companyNameMakerMessage: String
 	expirationDate: String
+	expirationDateMessage: String
 	medicationPackage: String
+	medicationPackageMessage: String
 	pharmaceuticalForm: String
+	pharmaceuticalFormMessage: String
 	specialConditionsTransport: String
+	specialConditionsTransportMessage: String
 	healthRegistryAuthorizationFolio: String
+	healthRegistryAuthorizationFolioMessage: String
 	importPermitFolio: String
+	importPermitFolioMessage: String
 	vucemImportFolio: String
+	vucemImportFolioMessage: String
 	chemicalAbstractsServiceNumber: String
+	chemicalAbstractsServiceNumberMessage: String
 	importCompanyName: String
+	importCompanyNameMessage: String
 	healthRegistrationNumberPesticidesFertilizers: String
+	healthRegistrationNumberPesticidesFertilizersMessage: String
 	manufacturerInformation: String
+	manufacturerInformationMessage: String
 	formulatorData: String
+	formulatorDataMessage: String
 	maquiladoraData: String
+	maquiladoraDataMessage: String
 	authorizedUse: String
+	authorizedUseMessage: String
+	customsDocumentIdentifier: String
+	customsDocumentIdentifierMessage: String
 }
 
 input delete_all_clientTravelOrderProduct {
@@ -270,9 +382,50 @@ type return_new_clientTravelOrderProduct_excel_v2{
 	customsClearanceMessage: String
 }
 
+type return_new_tripOrderProduct{
+  	idClientTravelOrderProduct: String
+  	productNameMessage: String
+	productCodeMessage: String
+	codeUnitMessage: String
+	cargoQuantityMessage: String
+	cargoWeightMessage: String
+	weightUnitMessage: String
+	codeHazardousMaterialMessage: String
+	codePackagingMessage: String
+	declarationNumberMessage: String
+	tariffCodeMessage: String
+	foeringTradeUUIDMessage: String
+	documentTypeCodeMessage: String
+	materialTypeCodeMessage: String
+	materialDescriptionMessage: String
+	cofeprisSectorMessage: String
+	rfcImporterMessage: String
+	activeIngredientNameMessage: String
+	chemicalNameMessage: String
+	genericProductNameMessage: String
+	distinctiveProductNameMessage: String
+	companyNameMakerMessage: String
+	expirationDateMessage: String
+	medicationPackageMessage: String
+	pharmaceuticalFormMessage: String
+	specialConditionsTransportMessage: String
+	healthRegistryAuthorizationFolioMessage: String
+	importPermitFolioMessage: String
+	vucemImportFolioMessage: String
+	chemicalAbstractsServiceNumberMessage: String
+	importCompanyNameMessage: String
+	healthRegistrationNumberPesticidesFertilizersMessage: String
+	manufacturerInformationMessage: String
+	formulatorDataMessage: String
+	maquiladoraDataMessage: String
+	authorizedUseMessage: String
+	customsDocumentIdentifier: String	
+	customsDocumentIdentifierMessage: String
+}
+
 type Mutation {
   CREATE_CLIENT_TRAVEL_ORDER_PRODUCTS(input: new_clientTravelOrderProduct): [return_new_clientTravelOrderProduct]
-  UPDATE_CLIENT_TRAVEL_ORDER_PRODUCTS(input: update_clientTravelOrderProduct): String
+  UPDATE_CLIENT_TRAVEL_ORDER_PRODUCTS(input: update_clientTravelOrderProduct): [return_new_tripOrderProduct]
   DELETE_CLIENT_TRAVEL_ORDER_PRODUCTS(input: delete_all_clientTravelOrderProduct): String
   SET_ID_CLIENT_TRAVEL_ORDER_PRODUCTS(input: set_id_clientTravelOrderProducts): String
   DELETE_ALL_CLIENT_TRAVEL_ORDER_PRODUCTS(input: delete_all_clientTravelOrderProduct): String

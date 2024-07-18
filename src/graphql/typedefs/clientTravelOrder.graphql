@@ -189,6 +189,7 @@ type clientAdresses {
 input update_customsClearance_clientTravelOrder {
   idClientTravelOrder: String,
   customsClearance: String,
+  customsClearanceMessage: String,
   userLoggedIn: String
 }
 
@@ -424,6 +425,10 @@ input delete_clientTravelOrder {
   userLoggedIn: String
 }
 
+type customsClearanceMessage {
+  customsClearanceMessage: String
+}
+
 type Query {
   GET_CLIENT_TRAVEL_ORDERS(date1: String!, date2: String!, idClient: String!): [clientTravelOrder]
   GET_CLIENT_SALES_FORMAT_AMOUNTS(idClient: String!): [clientSalesFormatAmounts]
@@ -434,7 +439,7 @@ type Query {
 type Mutation {
 	UPDATE_CLIENT_TRAVEL_ORDER_FORM(input: clientTravelOrder_form): [return_message_clientTravelOrder]
     SET_LINK_CLIENT_DOCUMENTS(input: set_link_clientDocuments): String
-	UPDATE_CUSTOMSCLEARNCE_CLIENT(input: update_customsClearance_clientTravelOrder): String
+	UPDATE_CUSTOMSCLEARNCE_CLIENT(input: update_customsClearance_clientTravelOrder): [customsClearanceMessage]
 	AUTORIZE_CLIENT_TRAVEL_ORDER(input: clientTravelOrder_autorize): [return_autorize_message_clientTravelOrder]
 	CREATE_TRIP_ORDER_FROM_CLIENT_TRAVEL_ORDER(input: create_tripOrder_from_clientTravelOrder): [return_new_tripOrder_clientTravelOrder]
 	SET_DATA_FROM_SALES_FORMAT(input: set_data_from_salesFormat): [return_new_tripOrder_clientTravelOrder]

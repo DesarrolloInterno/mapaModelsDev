@@ -104,16 +104,18 @@ const ClientTravelOrderMutations = {
         const {
             idClientTravelOrder,
 			customsClearance,
-            userLoggedIn
+            userLoggedIn,
+            customsClearanceMessage
         } = input;
 
         try {
-            await clientTravelOrder.query("exec update_customsClearance_clientTravelOrder " +
+            const newid = await clientTravelOrder.query("exec update_customsClearance_clientTravelOrder " +
                 "@idClientTravelOrder = '" + idClientTravelOrder + "', " +
                 "@customsClearance = '" + customsClearance + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@customsClearanceMessage = '" + customsClearanceMessage + "' "
             );
-            return 'Regimen aduanero actualizado correctamente'
+            return newid
         } catch (error) {
             console.log(error);
         }
