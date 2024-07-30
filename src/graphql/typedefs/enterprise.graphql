@@ -27,6 +27,7 @@ type enterprises {
     fiscalSystem: String
     codeFiscalSystem: String
     status: String
+    taxpayerIdentificationCard: String
 }
 
 type return_new_enterprises {
@@ -42,10 +43,17 @@ type name_enterprises {
     enterpriseLogo: String
 }
 
+type enterpriseLogo {
+    id: ID
+    enterpriseLogo: String
+    taxpayerIdentificationCard: String
+}
+
 type Query {
     GET_ALL_ENTERPRISES(status: String!): [enterprises]
     GET_ENTERPRISE_BY_ID(idEnterprise: String!): [enterprises]
     GET_NAME_ENTERPRISE(idEnterprise: String!): [name_enterprises]
+    GET_ALL_ENTERPRISE_LOGO(idEnterprise: String!): [enterpriseLogo]
 }
 
 input new_enterprise {
@@ -110,5 +118,6 @@ type Mutation {
     SET_DIGITAL_STAMP_CERTIFICATE_ENTERPRISE(input: doc_enterprise): String
     SET_DIGIRAL_CERTIFICATEKEY_ENTERPRISE(input: doc_enterprise): String
     SET_LOGO_ENTERPRISE(input: doc_enterprise): String
+    SET_TAXPAYERIDENTIFICATIONCARD_ENTERPRISE(input: doc_enterprise): String
     DELETE_ENTERPRISE(input: delete_enterprise): String
 }

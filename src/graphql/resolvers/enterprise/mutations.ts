@@ -135,6 +135,15 @@ const enterpriseMutations = {
             console.log(error);
         }
     },
+    SET_TAXPAYERIDENTIFICATIONCARD_ENTERPRISE: async (_: any, {input}: any) => {
+        const { idEnterprise, link, userLoggedIn } = input;
+        try {
+            await enterprise.query("exec set_document_taxpayerIdentificationCard_enterprise @idEnterprise = '"+idEnterprise+"', @link = '"+link+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Documento agregado correctamente';
+        } catch (error) {
+            console.log(error);
+        }
+    },
     DELETE_ENTERPRISE: async (_: any, {input}: any) => {
         const { idEnterprise, userLoggedIn } = input;
         try {

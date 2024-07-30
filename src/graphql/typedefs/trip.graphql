@@ -17,8 +17,128 @@ type tripsForCrossings {
   idUnit: Int
   unit: String
   status: String
+  tripType: String
+}
+
+type instructionLetter {
+  id: ID
+  dateRecorded: String
+  idClient: String
+  client: String
+  clientShortName: String
+  RFC: String
+  idDestination: String
+  destination: String
+  fullAddressDestination: String
+  legendDestinationCollection: String
+  temperature: String
+  temperatureCelsius: String
+  status: String
+  loadingDate: String
+  deliveryDate: String
+  wheelChocks: String
+  straps: String
+  containers: String
+  countryDestination: String
+  idTrip: String
+  numTrip: String
+  idOperator: String
+  operator: String
+  idUnit: String
+  unit: String
+  idTruckBox: String
+  truckBox: String
+  orderDate: String
+  idEnterprise: String
+}
+
+type tripBoothRoute {
+  id: ID
+  name: String
+  status: String
+  idTrip: String
+}
+
+type tripSafetyEquipment {
+  id: ID
+  name: String
+  status: String
+  idTrip: String
+  description: String
+}
+
+type transportDocument {
+  id: ID
+  dateRecorded: String
+  numTrip: String
+  proNumber: String
+  kilometres: String
+  loadingDate: String
+  deliveryDate: String
+  tripType: String
+  grossWeights: String
+  client: String
+  idClient: String
+  clientShortName: String
+  RFC: String
+  clientFullAddress: String
+  reference: String
+  clientRFC: String
+  clientTAXID: String
+  origin: String
+  originRFC: String
+  originTAXID: String
+  originFullAddress: String
+  destination: String
+  destinationRFC: String
+  destinationTAXID: String
+  destinationFullAddress: String
+  unit: String
+  licensePlatesUnit: String
+  insurer: String
+  insurancePolicy: String
+  carrierKey: String
+  permissionType: String
+  permissionNumber: String
+  truckBox: String
+  trailerTypes: String
+  licensePlatesTruckBox: String
+  stateTruckBox: String
+  operator: String
+  driverLicense: String
+  operatorRFC: String
+  countryOperator: String
+  subtotal: String
+  IVA: String
+  RET: String
+  total: String
+  IVApercentage: String
+  RETpercentage: String
+  observations: String
+  customsClearance: String
+  idEnterprise: String
+}
+
+type tripAmounts {
+  id: ID
+  quantity: String
+  codeMeasuringUnit: String
+  measuringUnit: String
+  invoicingConcept: String
+  codeInvoicingConcept: String
+  subtotal: String
+  IVA: String
+  RET: String
+  IVApercentage: String
+  RETpercentage: String
+  totalAmount: String
 }
 
 type Query {
   GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!): [tripsForCrossings]
+  GET_INSTRUCTION_LETTER_BY_IDTRIP(idTrip: String!): [instructionLetter]
+  GET_BOOTHROUTE_BY_IDTRIP(idTrip: String!): [tripBoothRoute]
+  GET_TRIPSAFETYEQUIPMENT_BY_IDTRIP(idTrip: String!): [tripSafetyEquipment]
+  GET_TRANSPORTDOCUMENT(idTrip: String!): [transportDocument]
+  GET_TRIPAMOUNTS(idTrip: String!): [tripAmounts]
 }
