@@ -92,6 +92,15 @@ const salesFormatQueries = {
             console.log(error);
         }
     },
+    GET_SALES_FORMAT_CLIENTS: async (_: any) => {
+        try{
+            const result = await salesFormat.query("exec get_all_salesFormatClients");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
     GET_CROSSING_SALES_FORMAT_BY_CLIENT_AND_TRIP_TYPE: async (_: any, {idClient, tripType}: any) => {
         try{
             const result = await salesFormat.query("exec get_crossing_salesFormats_by_client_and_tripType @idClient = '"+ idClient +"', @tripType = '"+ tripType +"' ");
@@ -101,6 +110,24 @@ const salesFormatQueries = {
             console.log(error);
         }
     },
+    GET_SALES_FORMAT_AMOUNT_CLIENTS: async (_: any) => {
+        try{
+            const result = await salesFormat.query("exec get_all_salesFormatAmountClients");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_SALES_FORMAT_ADDRESSES_BY_ID_CLIENT: async (_: any, {idClient}: any) => {
+        try{
+            const result = await salesFormat.query("exec get_salesFormats_addresses_by_idClient @idClient = '"+ idClient +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default salesFormatQueries;

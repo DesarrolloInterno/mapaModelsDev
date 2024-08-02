@@ -29,6 +29,15 @@ const clientUsersQueries = {
             console.log(error);
         }
     },
+    GET_CLIENTUSER_BY_IDCLIENT: async (_: any, {idClient}: any) => {
+        try{
+            const result = await clientUsers.query("exec get_clientUser_by_idClient @idClient = '"+ idClient +"', @encrypt = '"+process.env.ENCRYPT+"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default clientUsersQueries;

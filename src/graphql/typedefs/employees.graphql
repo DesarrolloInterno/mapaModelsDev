@@ -180,6 +180,21 @@ type medicalValidityQuantity {
     medicalValidityQuantity: Int
 }
 
+type employeesBirthDay {
+    name: String, 
+    nickname: String, 
+    DateOfBirth: String,
+    yearOfBirth: String, 
+    monthOfBirth: String
+}
+
+type employeesAniversary {
+    name: String, 
+    nickname: String, 
+    startDate: String,
+    seniority: String
+}
+
 type Query {
     GET_ALL_EMPLOYEES(status: String!): [employees]
     GET_EMPLOYEE_BY_ID(idEmployee: Int!): [employees]
@@ -197,6 +212,8 @@ type Query {
     GET_ALL_OPERATOR_EMPLOYEES(status: String!): [operator_employees]
     GET_ALL_DRIVERLICENSES_QUANTITY:[driverLicensesQuantity]
     GET_ALL_MEDICALVALIDITY_QUANTITY:[medicalValidityQuantity]
+    GET_ALL_EMPLOYEES_BIRTHDAY(monthOfBirth: String!):[employeesBirthDay]
+    GET_ALL_EMPLOYEES_ANIVERSARY(monthOfBirth: String!):[employeesAniversary]
 }
 
 input update_employees {

@@ -88,12 +88,17 @@ import { tripAdvanceMutations, tripAdvanceQueries } from './tripAdvance'
 import { ownersMutations, ownersQueries } from './owners'
 import { warehousesMutations, warehousesQueries } from './warehouses'
 import { truckBoxInventoryQueries, truckBoxInventoryMutations } from './truckBoxInventory'
+import { ClientTravelOrderMutations, clientTravelOrderQueries } from './clientTravelOrder'
+import { clientTravelOrderSafetyEquipmentQueries, clientTravelOrderSafetyEquipmentMutations } from './clientTravelOrderSafetyEquipment'
+import { clientTravelOrderDocumentsMutations, clientTravelOrderDocumentsQueries } from './clientTravelOrderDocuments'
 import {tripQueries} from './trip'
 import {travelAssignmentQueries, travelAssignmentMutations} from './travelAssignment'
 import {tripDispatchDocumentsQueries, tripDispatchDocumentsMutations} from './tripDispatchDocuments'
 import {tripProductsQueries, tripProductsMutations} from './tripProducts'
 import {tripTravelPickupsQueries, tripTravelPickupsMutations} from './tripTravelPickups'
 import {invoicesMutations} from './invoices'
+import { clientTravelOrderProductsMutations, clientTravelOrderProductsQueries } from './clientTravelOrderProducts'
+import { clientTravelOrderTravelPickupsMutations, clientTravelOrderTravelPickupsQueries } from './clientTravelOrderTravelPickups'
 
 const resolvers = {
     Query: {
@@ -186,11 +191,16 @@ const resolvers = {
         ...ownersQueries,
         ...warehousesQueries,
         ...truckBoxInventoryQueries,
+        ...clientTravelOrderQueries,
+        ...clientTravelOrderSafetyEquipmentQueries,
+        ...clientTravelOrderDocumentsQueries,
         ...tripQueries,
         ...travelAssignmentQueries,
         ...tripDispatchDocumentsQueries,
         ...tripProductsQueries,
-        ...tripTravelPickupsQueries
+        ...tripTravelPickupsQueries,
+        ...clientTravelOrderProductsQueries,
+        ...clientTravelOrderTravelPickupsQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -251,11 +261,16 @@ const resolvers = {
         ...ownersMutations,
         ...warehousesMutations,
         ...truckBoxInventoryMutations,
+        ...ClientTravelOrderMutations,
+        ...clientTravelOrderSafetyEquipmentMutations,
+        ...clientTravelOrderDocumentsMutations,
         ...travelAssignmentMutations,
         ...tripDispatchDocumentsMutations,
         ...tripProductsMutations,
         ...tripTravelPickupsMutations,
-        ...invoicesMutations
+        ...invoicesMutations,
+        ...clientTravelOrderProductsMutations,
+        ...clientTravelOrderTravelPickupsMutations
     }
 }
 

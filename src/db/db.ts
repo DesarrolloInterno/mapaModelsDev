@@ -90,11 +90,16 @@ import { tripAdvance } from "./Entities/tripAdvance"
 import { owners } from "./Entities/owners"
 import { warehouses } from "./Entities/warehouses"
 import { truckBoxInventory } from "./Entities/truckBoxInventory"
+import { clientTravelOrder } from "./Entities/clientTravelOrder"
+import { clientTravelOrderSafetyEquipment } from "./Entities/clientTravelOrderSafetyEquipment"
+import { clientTravelOrderDocuments } from "./Entities/clientTravelOrderDocuments"
 import {trip} from "./Entities/trip"
 import {tripDispatchDocuments} from "./Entities/tripDispatchDocuments"
 import {tripProducts} from "./Entities/tripProducts"
 import {tripTravelPickups} from "./Entities/tripTravelPickups"
 import {invoices} from "./Entities/invoices"
+import { clientTravelOrderProducts } from "./Entities/clientTravelOrderProducts"
+import { clientTravelOrderTravelPickups } from "./Entities/clientTravelOrderTravelPickups"
 
 export const  dbConection = async () =>{
   let PORT: string = process.env.DATABASE_PORT!
@@ -199,11 +204,16 @@ export const  dbConection = async () =>{
       owners,
       warehouses,
       truckBoxInventory,
+      clientTravelOrder,
+      clientTravelOrderSafetyEquipment,
+      clientTravelOrderDocuments,
       trip,
       tripDispatchDocuments,
       tripProducts,
       tripTravelPickups,
-      invoices
+      invoices,
+      clientTravelOrderProducts,
+      clientTravelOrderTravelPickups
     ],
     options: {
       encrypt: true,//true para Windows Azure

@@ -1,0 +1,55 @@
+type clientTravelOrderDocuments {
+    id: ID,
+    name: String,
+    description: String,
+    status: String,
+    idClientTravelOrder: Int,
+    idDocument: Int,
+    documentLink: String
+}
+
+input new_clientTravelOrderDocuments {
+    name: String,
+    idClientTravelOrder: String,
+    userLoggedIn: String
+}
+
+type return_new_clientTravelOrderDocuments {
+    nameClientTravelOrder: String,
+    document: String,
+    idDocument: String
+}
+
+input update_clientTravelOrderDocuments {
+    idClientTravelOrderDocument: String
+    name: String
+    userLoggedIn: String
+}
+
+type return_new_clientTravelOrderDocuments {
+	idClientTravelOrderDocument: String,
+	message: String
+}
+
+input delete_clientTravelOrderDocuments {
+  idClientTravelOrderDocument: String,
+  userLoggedIn: String
+}
+
+input setLink_clientTravelOrderDocument {
+  idClientTravelOrder: String
+  documentLink: String
+  nameDocument: String
+}
+
+type Query {
+  GET_CLIENTTRAVELORDER_DOCUMENTS(idClientTravelOrder: String!, status: String!): [clientTravelOrderDocuments]
+}
+
+type Mutation {
+  CREATE_CLIENTTRAVELORDER_DOCUMENTS(input: new_clientTravelOrderDocuments): [return_new_clientTravelOrderDocuments]
+  UPDATE_CLIENTTRAVELORDER_DOCUMENTS(input: update_clientTravelOrderDocuments): [return_new_clientTravelOrderDocuments]
+  DELETE_CLIENTTRAVELORDER_DOCUMENTS(input: delete_clientTravelOrderDocuments): String
+  SET_LINK_CLIENTTRAVELORDER_DOCUMENTS(input: setLink_clientTravelOrderDocument): String
+}
+

@@ -27,7 +27,8 @@ type getTripAdvance {
 	  status: String,
     userLoggedIn: String,
     reference: String,
-    relationTrip: String
+    relationTrip: String,
+    name: String
 }
 
 type Query {

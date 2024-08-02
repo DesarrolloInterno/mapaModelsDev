@@ -138,6 +138,24 @@ const employeesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_EMPLOYEES_BIRTHDAY: async (_: any, {monthOfBirth}: any) => {
+        try{
+            const result = await employees.query("exec get_all_employees_birthDay @monthOfBirth = '" + monthOfBirth + "'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_EMPLOYEES_ANIVERSARY: async (_: any, {monthOfBirth}: any) => {
+        try{
+            const result = await employees.query("exec get_all_employees_aniversary @monthOfBirth = '" + monthOfBirth + "'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

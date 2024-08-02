@@ -105,11 +105,25 @@ type newClient {
     message: String
 }
 
+type clientUser {
+    id: Int
+    userName: String,
+    status: String,
+    idClient: Int
+    typeUser: String,
+    formatClient: String,
+    businessName: String,
+    RFC: String,
+    TAXID: String,
+    fullAddress: String,
+}
+
 type Query {
     GET_ALL_CLIENT(status: String!): [client]
     GET_ALL_CLIENTS_LIST(status: String!): [clientList]
     GET_ALL_CLIENTS_TABLE_SELECTOR(status: String!): [clientListTableSelector]
     GET_CLIENT_BYID(idClient: Int!): [client]
+    GET_CLIENT_USERS_BY_POTENTIAL_CLIENT(idClient: String!): [clientUser]
 }
 
 input delete_client {

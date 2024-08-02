@@ -37,6 +37,15 @@ const clientQueries = {
             console.log(error);
         }
     },
+    GET_CLIENT_USERS_BY_POTENTIAL_CLIENT: async (_: any, {idClient}: any) => {
+        try{
+            const result = await client.query("exec get_clientUsersByPotentialClient @idClient = '"+ idClient +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default clientQueries;

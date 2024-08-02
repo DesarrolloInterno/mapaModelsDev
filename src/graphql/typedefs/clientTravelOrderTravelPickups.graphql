@@ -1,0 +1,62 @@
+type clientTravelOrderTravelPickups {
+    id:ID
+    idClientLocation: Int
+    clientLocation: String
+    fullAddress: String
+    idClientTravelOrder: Int
+    idRowProduct: Int
+    kilometres: String
+    productQuantity: String
+    productWeight: String
+    measuringUnit: String
+    appointmentDate: String
+    status: String
+    typeLoad: String
+}
+
+type return_new_clientTravelOrderTravelPickups{
+    idClientTravelOrderTravelPickup: String
+}
+
+type Query {
+    GET_CLIENT_TRAVEL_ORDER_TRAVEL_PICKUPS(idClientTravelOrder: String!): [clientTravelOrderTravelPickups]
+}
+
+input new_clientTravelOrderTravelPickups {
+    idClientLocation: String
+    idClientTravelOrder: String
+    idRowProduct: String
+    kilometres: String
+    productQuantity: String
+    productWeight: String
+    measuringUnit: String
+    appointmentDate: String
+    typeLoad: String
+    userLoggedIn: String
+}
+
+input update_clientTravelOrderTravelPickups {
+    idClientTravelOrderTravelPickup: String
+	idClientLocation: String
+    idClientTravelOrder: String
+	idRowProduct: String
+	kilometres: String
+	productQuantity: String
+	productWeight: String
+	measuringUnit: String
+	appointmentDate: String
+	typeLoad: String
+	userLoggedIn: String
+	status: String
+}
+
+input set_id_clientTravelOrderTravelPickups {
+  	id: String
+	idClientTravelOrder: String
+}
+
+type Mutation {
+    CREATE_CLIENT_TRAVEL_ORDER_TRAVEL_PICKUPS(input: new_clientTravelOrderTravelPickups): String
+    UPDATE_CLIENT_TRAVEL_ORDER_TRAVEL_PICKUPS(input: update_clientTravelOrderTravelPickups): String
+    SET_ID_CLIENT_TRAVEL_ORDER_TRAVEL_PICKUPS(input: set_id_clientTravelOrderTravelPickups): String
+}
