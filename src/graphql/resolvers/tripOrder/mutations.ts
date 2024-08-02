@@ -6,14 +6,16 @@ const tripOrderMutations = {
         const {
             orderDate,
 			tripType,
-            userLoggedIn
+            userLoggedIn,
+            idLoggedIn
         } = input;
 
         try {
             await tripOrder.query("exec create_tripOrder " +
                 "@orderDate = '" + orderDate + "', " +
                 "@tripType = '" + tripType + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idLoggedIn = '" + idLoggedIn + "' "
             );
             return 'Orden de viaje creada correctamente'
         } catch (error) {
@@ -193,14 +195,16 @@ const tripOrderMutations = {
         const {
             orderDate,
 			tripType,
-            userLoggedIn
+            userLoggedIn,
+            idLoggedIn
         } = input;
 
         try {
             await tripOrder.query("exec create_tripOrderCrossing " +
                 "@orderDate = '" + orderDate + "', " +
                 "@tripType = '" + tripType + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idLoggedIn = '" + idLoggedIn + "' "
             );
             return 'Orden de viaje creada correctamente'
         } catch (error) {
