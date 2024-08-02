@@ -93,6 +93,7 @@ import {travelAssignmentQueries, travelAssignmentMutations} from './travelAssign
 import {tripDispatchDocumentsQueries, tripDispatchDocumentsMutations} from './tripDispatchDocuments'
 import {tripProductsQueries, tripProductsMutations} from './tripProducts'
 import {tripTravelPickupsQueries, tripTravelPickupsMutations} from './tripTravelPickups'
+import {invoicesMutations} from './invoices'
 
 const resolvers = {
     Query: {
@@ -253,7 +254,8 @@ const resolvers = {
         ...travelAssignmentMutations,
         ...tripDispatchDocumentsMutations,
         ...tripProductsMutations,
-        ...tripTravelPickupsMutations
+        ...tripTravelPickupsMutations,
+        ...invoicesMutations
     }
 }
 

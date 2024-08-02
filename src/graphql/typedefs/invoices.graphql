@@ -1,0 +1,23 @@
+type newInvoices {
+    idInvoice: ID
+    message: String
+    messageproducts: String
+    messageClient: String
+    messageSalesFormat: String
+    messageLoadingDate: String
+    messageDeliveryDate: String 
+    messageTemperature: String
+    messageProNumber: String
+    messageReference: String
+    messageSalesFormatCrossing: String
+}
+
+input setNewInvoices {
+    idTrip: String
+    userLoggedIn: String
+    exchangeRate: String
+}
+
+type Mutation {
+  CREATE_INVOICE_FROM_TRIP(input: setNewInvoices): [newInvoices]
+}

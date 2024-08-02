@@ -140,6 +140,9 @@ type responseCreateTrip {
   messageProNumber: String
   messageReference: String
   messageSalesFormatCrossing: String
+  messageUnit: String
+  messageTruckBox: String
+  messageOperator: String
 }
 
 type tripSafetyEquipment {

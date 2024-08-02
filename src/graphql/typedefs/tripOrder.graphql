@@ -92,6 +92,7 @@ input new_tripOrder {
   orderDate: String,
   tripType: String,
   userLoggedIn: String
+  idLoggedIn: String
 }
 
 input new_orderPriority {
