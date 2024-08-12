@@ -61,6 +61,7 @@ type travelAssignment {
   idTruckBox: Int
   truckBox: String
   orderDate: String
+  subtotal: String
 }
 
 type travelAssignmentTrip {
@@ -127,6 +128,7 @@ type travelAssignmentTrip {
   truckBox: String
   idTripOrder: Int
   orderDate: String
+  subtotal: String
 }
 
 type responseCreateTrip {

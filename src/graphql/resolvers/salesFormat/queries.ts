@@ -11,6 +11,15 @@ const salesFormatQueries = {
             console.log(error);
         }
     },
+    GET_SALES_FORMAT_BY_IDCLIENT: async (_: any, {idClient}: any) => {
+        try{
+            const result = await salesFormat.query("exec get_salesFormat_by_idClient @idClient = '"+ idClient +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
     GET_SALES_FORMAT_BY_ID: async (_: any, {idSalesFormat}: any) => {
         try{
             const result = await salesFormat.query("exec get_salesFormat_by_id @idSalesFormat = '"+ idSalesFormat +"' ");

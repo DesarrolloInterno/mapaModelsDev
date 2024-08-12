@@ -53,6 +53,7 @@ type tripOrder {
   idTripOrigin: Int
   numTripOrigin: String,
   orderDate: String
+  subtotal: String
 }
 
 type tripOrderSafetyEquipment {
