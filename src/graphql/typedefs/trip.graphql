@@ -19,6 +19,172 @@ type tripsForCrossings {
   status: String
 }
 
+type trips {
+  id: ID,
+  idClient: Int,
+  client: String,
+  clientShortName: String,
+  RFC: String,
+  TAXID: String,
+  idOrigin: Int,
+  origin: String,
+  fullAddressOrigin: String,
+  legendOriginCollection: String,
+  idDestination: Int,
+  destination: String,
+  fullAddressDestination: String,
+  legendDestinationCollection: String,
+  travelClassification: String,
+  kilometres: String,
+  travelTime: String,
+  temperature: String,
+  tripType: String,
+  currency: String,
+  taxes: String,
+  isCrossing: String,
+  idSalesFormatCrossing: Int,
+  salesFormatCrossing: String,
+  operatorComments: String,
+  operationComments: String,
+  observations: String,
+  status: String,
+  productDescription: String,
+  crossingType: String,
+  tripTypeName: String,
+  americanPortion: String,
+  crossingPortion: String,
+  mexicanPortion: String,
+  loadingDate: String,
+  orderDate: String,
+  deliveryDate: String,
+  sealNumber: String,
+  proNumber: String,
+  wheelChocks: String,
+  straps: String,
+  reference: String,
+  orderPriority: String,
+  idSalesFormat: Int,
+  saleFormat: String,
+  containers: String,
+  shippingLines: String,
+  numTripOrder: String,
+  customsClearance: String,
+  countryOrigin: String,
+  countryDestination: String,
+  typeCrossing: String,
+  idTripOrigin: Int,
+  numTripOrigin: String,
+  numTrip: String,
+  idOperator: Int,
+  operator: String,
+  idUnit: Int,
+  unit: String,
+  idTruckBox: Int,
+  truckBox: String,
+  idTripOrder: Int,
+  total: Float
+}
+
+input update_trip_tripAssignment{
+  idTripOrder : String,
+	idUnit: String,
+	idEmployee: String,
+	idTruckBox: String,
+	userLoggedIn: String
+}
+
+input update_trip{
+  idTrip: String,
+	idTripOrder: String,
+	name: String,
+	idClient: String,
+	idOrigin: String,
+	idDestination: String,
+	legendOriginCollection: String,
+	legendDestinationCollection: String,
+	travelClassification: String,
+	kilometres: String,
+	travelTime: String,
+	temperature: String,
+	tripType: String,
+	currencye: String,
+	observations: String,
+	fullAddressOrigin: String,
+	fullAddressDestination: String,
+	americanPortion: String,
+	crossingPortion: String,
+	mexicanPortion: String,
+	currency: String,
+	loadingDate: String,
+	deliveryDate: String,
+	sealNumber: String,
+	proNumber: String,
+	wheelChocks: String,
+	straps: String,
+	reference: String,
+	orderDate: String,
+	idSalesFormat: String,
+	numTripOrder: String,
+	customsClearance: String,
+	countryOrigin: String,
+	countryDestination: String,
+	idTripOrigin: String,
+	numTrip: String,
+	idEmployee: String,
+	idTruckBox: String,
+	idUnit: String,
+	numTripOrigin: String,
+	userLoggedIn: String
+}
+
+type return_new_trip{
+  idTripOrder: String
+  message: String
+}
+
+type return_update_trip{
+  idTrip: String
+  message: String
+}
+
+input update_tripBoothRoute {
+  idTripBoothRoute: String
+  idSalesFormat: String
+  idBoothRoute: String
+  type: String
+  routeOrder: String
+  userLoggedIn: String
+  status: String
+  isReversible: String
+}
+
+input update_tripAmounts {
+  idTripAmounts: String
+  idInvoicingConcept: String
+  subtotal: String
+  idIVApercentage: String
+  IVApercentage: String
+  IVA: String
+  idRETpercentage: String
+  RETpercentage: String
+  RET: String
+  totalAmount: String
+  idSalesFormat: String
+  codeMeasuringUnit: String
+  measuringUnit: String
+  userLoggedIn: String
+  status: String
+}
+
 type Query {
   GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!): [tripsForCrossings]
+  GET_ALL_TRIPS(status: String!, date1: String!, date2: String!): [trips]
+  GET_ALL_TRIP_BY_ID_TRIP(idTrip: String!): [trips]
+}
+
+type Mutation {
+  UPDATE_TRIP_TRIPASSIGNMENT(input: update_trip_tripAssignment): [return_new_trip]
+  UPDATE_TRIP(input: update_trip): [return_update_trip]
+  UPDATE_TRIP_BOOTHROUTE(input: update_tripBoothRoute): String
+  UPDATE_TRIP_AMOUNTS(input: update_tripAmounts): String
 }

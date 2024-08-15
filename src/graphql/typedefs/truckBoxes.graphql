@@ -19,7 +19,8 @@ type truckBox {
   state: String,
   trailerTypes: String,
   owner: String,
-  line: String
+  line: String,
+  name: String
 }
 
 type Query {

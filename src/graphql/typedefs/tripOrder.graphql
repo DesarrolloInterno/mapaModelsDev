@@ -52,7 +52,8 @@ type tripOrder {
   typeCrossing: String
   idTripOrigin: Int
   numTripOrigin: String,
-  orderDate: String
+  orderDate: String,
+  total: String
 }
 
 type tripOrderSafetyEquipment {

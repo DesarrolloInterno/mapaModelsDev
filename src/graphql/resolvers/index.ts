@@ -91,7 +91,7 @@ import { truckBoxInventoryQueries, truckBoxInventoryMutations } from './truckBox
 import { ClientTravelOrderMutations, clientTravelOrderQueries } from './clientTravelOrder'
 import { clientTravelOrderSafetyEquipmentQueries, clientTravelOrderSafetyEquipmentMutations } from './clientTravelOrderSafetyEquipment'
 import { clientTravelOrderDocumentsMutations, clientTravelOrderDocumentsQueries } from './clientTravelOrderDocuments'
-import {tripQueries} from './trip'
+import {tripQueries, tripMutations} from './trip'
 import {travelAssignmentQueries, travelAssignmentMutations} from './travelAssignment'
 import {tripDispatchDocumentsQueries, tripDispatchDocumentsMutations} from './tripDispatchDocuments'
 import {tripProductsQueries, tripProductsMutations} from './tripProducts'
@@ -268,7 +268,8 @@ const resolvers = {
         ...tripProductsMutations,
         ...tripTravelPickupsMutations,
         ...clientTravelOrderProductsMutations,
-        ...clientTravelOrderTravelPickupsMutations
+        ...clientTravelOrderTravelPickupsMutations,
+        ...tripMutations
     }
 }
 
