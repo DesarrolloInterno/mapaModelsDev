@@ -10,9 +10,27 @@ const travelAssignmentQueries = {
             console.log(error);
         }
     },
+    GET_ALL_TRAVEL_ASSIGNMENT_CROSSING: async (_: any, {typeFilter, date, date1, date2, tripFilter, dateTypeFilter}: any) => {
+        try{
+            const result = await tripOrder.query("exec get_all_travelAssignment_crossing @typeFilter = '"+ typeFilter +"', @date = '"+ date +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @tripFilter = '"+ tripFilter +"', @dateTypeFilter = '"+ dateTypeFilter +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
     GET_ALL_TRAVEL_ASSIGNMENT_TRIP: async (_: any, {typeFilter, date, date1, date2, dateTypeFilter}: any) => {
         try{
             const result = await tripOrder.query("exec get_all_travelAssignment_trip @typeFilter = '"+ typeFilter +"', @date = '"+ date +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @dateTypeFilter = '"+ dateTypeFilter +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_TRAVEL_ASSIGNMENT_TRIP_CROSSING: async (_: any, {typeFilter, date, date1, date2, dateTypeFilter}: any) => {
+        try{
+            const result = await tripOrder.query("exec get_all_travelAssignment_trip_crossing @typeFilter = '"+ typeFilter +"', @date = '"+ date +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @dateTypeFilter = '"+ dateTypeFilter +"' ");
             return result;
 
         } catch (error) {

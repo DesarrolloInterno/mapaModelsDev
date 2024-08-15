@@ -10,6 +10,15 @@ const enterpriseQueries = {
             console.log(error);
         }
     },
+    GET_ALL_ENTERPRISE_LOGO: async (_: any, {idEnterprise}: any) => {
+        try{
+            const result = await enterprise.query("exec get_clientLogo_byidEnterprise @idEnterprise = '"+ idEnterprise +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
     GET_ENTERPRISE_BY_ID: async (_: any, {idEnterprise}: any) => {
         try{
             const result = await enterprise.query("exec get_enterprise_by_id @idEnterprise = '"+ idEnterprise +"', @encrypt = '" + process.env.ENCRYPT + "' ");

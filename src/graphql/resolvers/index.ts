@@ -96,6 +96,7 @@ import {travelAssignmentQueries, travelAssignmentMutations} from './travelAssign
 import {tripDispatchDocumentsQueries, tripDispatchDocumentsMutations} from './tripDispatchDocuments'
 import {tripProductsQueries, tripProductsMutations} from './tripProducts'
 import {tripTravelPickupsQueries, tripTravelPickupsMutations} from './tripTravelPickups'
+import {invoicesMutations} from './invoices'
 import { clientTravelOrderProductsMutations, clientTravelOrderProductsQueries } from './clientTravelOrderProducts'
 import { clientTravelOrderTravelPickupsMutations, clientTravelOrderTravelPickupsQueries } from './clientTravelOrderTravelPickups'
 
@@ -267,6 +268,7 @@ const resolvers = {
         ...tripDispatchDocumentsMutations,
         ...tripProductsMutations,
         ...tripTravelPickupsMutations,
+        ...invoicesMutations,
         ...clientTravelOrderProductsMutations,
         ...clientTravelOrderTravelPickupsMutations,
         ...tripMutations

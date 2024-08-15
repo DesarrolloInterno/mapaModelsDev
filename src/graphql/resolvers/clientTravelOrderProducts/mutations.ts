@@ -382,7 +382,9 @@ const clientTravelOrderProductsMutations = {
             authorizedUseMessage,
             excelRow,
             customsClearance,
-            customsClearanceMessage
+            customsClearanceMessage,
+            customsDocumentIdentifier,
+            customsDocumentIdentifierMessage
         } = input;
         try {
             const newid = await clientTravelOrderProducts.query("exec create_clientTravelOrderProducts_excel_v2 " +
@@ -422,7 +424,8 @@ const clientTravelOrderProductsMutations = {
             "@maquiladoraData = '"+ maquiladoraData +"', @maquiladoraDataMessage = '"+ maquiladoraDataMessage +"', " +
             "@authorizedUse = '"+ authorizedUse +"', @authorizedUseMessage = '"+ authorizedUseMessage +"', " +
             "@excelRow = '"+ excelRow +"', @customsClearance = '"+ customsClearance +"', " +
-            "@customsClearanceMessage = '"+ customsClearanceMessage +"'");
+            "@customsClearanceMessage = '"+ customsClearanceMessage +"', " +
+            "@customsDocumentIdentifier = '"+ customsDocumentIdentifier +"', @customsDocumentIdentifierMessage = '"+ customsDocumentIdentifierMessage +"'");
             
             return newid;
         } catch (error) {

@@ -61,6 +61,7 @@ type travelAssignment {
   idTruckBox: Int
   truckBox: String
   orderDate: String
+  subtotal: String
 }
 
 type travelAssignmentTrip {
@@ -127,6 +128,7 @@ type travelAssignmentTrip {
   truckBox: String
   idTripOrder: Int
   orderDate: String
+  subtotal: String
 }
 
 type responseCreateTrip {
@@ -140,6 +142,9 @@ type responseCreateTrip {
   messageProNumber: String
   messageReference: String
   messageSalesFormatCrossing: String
+  messageUnit: String
+  messageTruckBox: String
+  messageOperator: String
 }
 
 type tripSafetyEquipment {
@@ -159,7 +164,9 @@ type customsClearanceMessageTrip {
 
 type Query {
   GET_ALL_TRAVEL_ASSIGNMENT(typeFilter:String!, date: String!, date1: String!, date2: String!, tripFilter: String!, dateTypeFilter: String!): [travelAssignment]
+  GET_ALL_TRAVEL_ASSIGNMENT_CROSSING(typeFilter:String!, date: String!, date1: String!, date2: String!, tripFilter: String!, dateTypeFilter: String!): [travelAssignment]
   GET_ALL_TRAVEL_ASSIGNMENT_TRIP(typeFilter:String!, date: String!, date1: String!, date2: String!, dateTypeFilter: String!): [travelAssignmentTrip]
+  GET_ALL_TRAVEL_ASSIGNMENT_TRIP_CROSSING(typeFilter:String!, date: String!, date1: String!, date2: String!, dateTypeFilter: String!): [travelAssignmentTrip]
   GET_SAFETY_EQUIPMENT_TRIP(idTrip: String!): [tripSafetyEquipment]
   GET_ALL_TRIP_PRODUCTS_BY_IDTRIP(idTrip: String!): [tripProducts]
 }
@@ -269,6 +276,13 @@ input update_dynamic_trip {
   userLoggedIn: String
 }
 
+input update_travelAssignment_trip_tripCrossing {
+  idTrip: String,
+  idTripCrossing: String,
+  numTripOrigin: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   UPDATE_TRAVEL_ASSIGNMENT_UNIT(input: travelAssignment_unit): String
   UPDATE_TRAVEL_ASSIGNMENT_UNIT_TRIP(input: travelAssignment_unit_trip): String
@@ -286,4 +300,5 @@ type Mutation {
   DELETE_TRIP_PRODUCT(input: delete_trip_product): String
   DELETE_TRIP(input: delete_trip): String
   UPDATE_DYNAMIC_TRIP(input: update_dynamic_trip): String
+  UPDATE_TRAVEL_ASSIGNMENT_TRIP_TRIPCROSSING(input: update_travelAssignment_trip_tripCrossing): String
 }

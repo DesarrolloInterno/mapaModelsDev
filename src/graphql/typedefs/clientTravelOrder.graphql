@@ -243,6 +243,12 @@ type clientsClientTravelOrder {
 	nameDocument: String
 	documentLink: String
 	idSalesFormat: String
+	logisticsContactPerson: String
+	logisticsContactPersonMail: String
+	country: String
+	state: String
+	town: String
+	idTripOrder: Int
 }
 
 type return_autorize_message_clientTravelOrder {
@@ -434,6 +440,7 @@ type Query {
   GET_CLIENT_SALES_FORMAT_AMOUNTS(idClient: String!): [clientSalesFormatAmounts]
   GET_CLIENT_ADDRESSES: [clientAdresses]
   GET_CLIENTS_CLIENT_TRAVEL_ORDERS(date1: String!, date2: String!, status: String!): [clientsClientTravelOrder]
+  GET_CLIENTTRAVELORDER_BY_ID(idClientTravelOrder: String!): [clientsClientTravelOrder]
 }
 
 type Mutation {

@@ -296,6 +296,27 @@ const travelAssignmentMutations = {
             console.log(error);
         }
     },
+    UPDATE_TRAVEL_ASSIGNMENT_TRIP_TRIPCROSSING: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+			idTripCrossing,
+            numTripOrigin,
+            userLoggedIn
+        } = input;
+
+        try {
+            await tripOrder.query("exec update_travelAssignment_trip_tripCrossin " +
+                "@idTrip = '" + idTrip + "', " +
+                "@idTripCrossing = '" + idTripCrossing + "', " +
+                "@numTripOrigin = '" + numTripOrigin + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Asignación de viaje actualizada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
 };
 
 export default travelAssignmentMutations;

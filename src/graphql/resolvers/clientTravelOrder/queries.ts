@@ -32,6 +32,15 @@ const clientTravelOrderQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_CLIENTTRAVELORDER_BY_ID: async (_: any, {idClientTravelOrder}: any) => {
+        try{
+            const result = await clientTravelOrder.query("exec get_all_clients_clientTravelOrders_by_id @idClientTravelOrder = '"+ idClientTravelOrder +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

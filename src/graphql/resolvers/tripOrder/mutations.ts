@@ -6,14 +6,16 @@ const tripOrderMutations = {
         const {
             orderDate,
 			tripType,
-            userLoggedIn
+            userLoggedIn,
+            idLoggedIn
         } = input;
 
         try {
             await tripOrder.query("exec create_tripOrder " +
                 "@orderDate = '" + orderDate + "', " +
                 "@tripType = '" + tripType + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idLoggedIn = '" + idLoggedIn + "' "
             );
             return 'Orden de viaje creada correctamente'
         } catch (error) {
@@ -193,14 +195,16 @@ const tripOrderMutations = {
         const {
             orderDate,
 			tripType,
-            userLoggedIn
+            userLoggedIn,
+            idLoggedIn
         } = input;
 
         try {
             await tripOrder.query("exec create_tripOrderCrossing " +
                 "@orderDate = '" + orderDate + "', " +
                 "@tripType = '" + tripType + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idLoggedIn = '" + idLoggedIn + "' "
             );
             return 'Orden de viaje creada correctamente'
         } catch (error) {
@@ -239,6 +243,27 @@ const tripOrderMutations = {
                 "@userLoggedIn = '" + userLoggedIn + "' "
             );
             return 'Producto de orden de viaje eliminado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    UPDATE_TRAVEL_ASSIGNMENT_TRIPCROSSING: async (_: any, {input}: any) => {
+        const {
+            idTripOrder,
+			idTripCrossing,
+            numTripOrigin,
+            userLoggedIn
+        } = input;
+
+        try {
+            await tripOrder.query("exec update_travelAssignment_tripCrossin " +
+                "@idTripOrder = '" + idTripOrder + "', " +
+                "@idTripCrossing = '" + idTripCrossing + "', " +
+                "@numTripOrigin = '" + numTripOrigin + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Asignación de viaje actualizada correctamente'
         } catch (error) {
             console.log(error);
         }

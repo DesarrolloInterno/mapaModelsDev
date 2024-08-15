@@ -52,8 +52,9 @@ type tripOrder {
   typeCrossing: String
   idTripOrigin: Int
   numTripOrigin: String,
-  orderDate: String,
   total: String
+  orderDate: String
+  subtotal: String
 }
 
 type tripOrderSafetyEquipment {
@@ -93,6 +94,7 @@ input new_tripOrder {
   orderDate: String,
   tripType: String,
   userLoggedIn: String
+  idLoggedIn: String
 }
 
 input new_orderPriority {
@@ -164,6 +166,13 @@ input delete_tripOrder_product {
   userLoggedIn: String
 }
 
+input update_travelAssignment_tripCrossing {
+  idTripOrder: String,
+  idTripCrossing: String,
+  numTripOrigin: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_TRIPORDER(input: new_tripOrder): String
   CREATE_TRIPORDER_CROSSING(input: new_tripOrder): String
@@ -177,4 +186,5 @@ type Mutation {
   UPDATE_DYNAMIC_TRIPORDER(input: update_dynamic_tripOrder): String
   CONFIRM_TRIPORDER(input: confirm_tripOrder): [responseConfirmTripOrder]
   DELETE_TRIPORDER_PRODUCT(input: delete_tripOrder_product): String
+  UPDATE_TRAVEL_ASSIGNMENT_TRIPCROSSING(input: update_travelAssignment_tripCrossing): String
 }

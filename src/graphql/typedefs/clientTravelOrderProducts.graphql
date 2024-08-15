@@ -340,6 +340,8 @@ input new_clientTravelOrderProduct_excel_v2 {
 	excelRow: String
 	customsClearance: String
 	customsClearanceMessage: String
+	customsDocumentIdentifier: String
+	customsDocumentIdentifierMessage: String
 }
 
 type return_new_clientTravelOrderProduct_excel_v2{
@@ -380,6 +382,7 @@ type return_new_clientTravelOrderProduct_excel_v2{
 	maquiladoraDataMessage: String
 	authorizedUseMessage: String
 	customsClearanceMessage: String
+	customsDocumentIdentifierMessage: String
 }
 
 type return_new_tripOrderProduct{
