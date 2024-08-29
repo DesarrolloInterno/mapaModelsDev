@@ -39,7 +39,8 @@ type unit {
   insurer: String,
   environmentalInsurer: String,
   operativeClasificationName: String, 
-  typeUnitName: String
+  typeUnitName: String,
+  name: String
 }
 
 type unitDocuments {
@@ -60,12 +61,15 @@ type unit_noRetired{
   employee: String,
   idOwner: Int,
   owner: String,
+  name: String,
+  status: String
 }
 
 type Query {
   GET_UNIT(status:String!): [unit]
   GET_UNIT_DOCUMENTS(idUnit: String!): [unitDocuments]
   GET_UNIT_NO_RETIRED: [unit_noRetired]
+  GET_ACTIVE_UNITS_WITH_ACTIVE_OPERATORS:[unit]
 }
 
 type return_new_unit{

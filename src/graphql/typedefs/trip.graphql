@@ -210,19 +210,15 @@ input update_trip_tripAssignment{
 
 input update_trip{
   idTrip: String,
-	idTripOrder: String,
 	name: String,
 	idClient: String,
 	idOrigin: String,
 	idDestination: String,
 	legendOriginCollection: String,
 	legendDestinationCollection: String,
-	travelClassification: String,
 	kilometres: String,
-	travelTime: String,
 	temperature: String,
 	tripType: String,
-	currencye: String,
 	observations: String,
 	fullAddressOrigin: String,
 	fullAddressDestination: String,
@@ -237,24 +233,25 @@ input update_trip{
 	wheelChocks: String,
 	straps: String,
 	reference: String,
-	orderDate: String,
 	idSalesFormat: String,
-	numTripOrder: String,
 	customsClearance: String,
 	countryOrigin: String,
 	countryDestination: String,
-	idTripOrigin: String,
 	numTrip: String,
 	idEmployee: String,
 	idTruckBox: String,
 	idUnit: String,
-	numTripOrigin: String,
 	userLoggedIn: String
 }
 
 type return_new_trip{
   idTripOrder: String
   message: String
+}
+
+type return_newTrip{
+  message: String,
+  idTrip: String
 }
 
 type return_update_trip{
@@ -271,6 +268,7 @@ input update_tripBoothRoute {
   userLoggedIn: String
   status: String
   isReversible: String
+  idTrip: String
 }
 
 input update_tripAmounts {
@@ -289,6 +287,89 @@ input update_tripAmounts {
   measuringUnit: String
   userLoggedIn: String
   status: String
+  idTrip : String
+}
+
+type tripBoothRoute {
+  id: ID
+  idBoothRoute: Int
+  name: String
+  routeOrder: String
+  origin: String
+  destination: String
+  type: String
+  idSalesFormat: Int
+  status: String
+  isReversible: String
+}
+
+type tripAmounts {
+  id: ID
+  idSalesFormat: Int
+  idInvoicingConcept: Int
+  invoicingConcept: String
+  subtotal: String
+  idIVApercentage : Int
+  IVApercentage: String
+  IVA: String
+  idRETpercentage: Int
+  RETpercentage: String
+  RET: String
+  totalAmount: String
+  taxRate: String
+  measuringUnit: String
+  codeMeasuringUnit: String
+  status: String
+}
+
+input delete_tripAmounts{
+  idTripAmounts: String,
+  userLoggedIn: String,
+  idTrip: String
+}
+
+input delete_tripBoothRoute{
+  idTripBoothRoute: String,
+  userLoggedIn: String,
+  idTrip: String
+}
+
+input create_trip{
+name: String,
+idClient: String,
+idOrigin: String,
+idDestination: String,
+legendOriginCollection: String,
+legendDestinationCollection: String,
+travelClassification: String,
+kilometres: String,
+travelTime: String,
+temperature: String,
+tripType: String,
+observations: String,
+fullAddressOrigin: String,
+fullAddressDestination: String,
+americanPortion: String,
+crossingPortion: String,
+mexicanPortion: String,
+currency: String,
+loadingDate: String,
+deliveryDate: String,
+sealNumber: String,
+proNumber: String,
+wheelChocks: String,
+straps: String,
+reference: String,
+idSalesFormat: String,
+customsClearance: String,
+countryOrigin: String,
+countryDestination: String,
+idEmployee: String,
+idTruckBox: String,
+idUnit: String,
+taxes: String,
+userLoggedIn: String,
+idLoggedIn: String
 }
 
 type Query {
@@ -300,11 +381,16 @@ type Query {
   GET_TRIPSAFETYEQUIPMENT_BY_IDTRIP(idTrip: String!): [tripSafetyEquipment]
   GET_TRANSPORTDOCUMENT(idTrip: String!): [transportDocument]
   GET_TRIPAMOUNTS(idTrip: String!): [tripAmounts]
+  GET_TRIPBOOTHROUTE_BY_IDTRIP(idTrip: String!): [tripBoothRoute]
+  GET_TRIPAMOUNTS_BY_IDTRIP(idTrip: String!): [tripAmounts]
 }
 
 type Mutation {
+  CREATE_TRIP_FROM_TRIPS(input: create_trip): [return_newTrip]
   UPDATE_TRIP_TRIPASSIGNMENT(input: update_trip_tripAssignment): [return_new_trip]
   UPDATE_TRIP(input: update_trip): [return_update_trip]
   UPDATE_TRIP_BOOTHROUTE(input: update_tripBoothRoute): String
   UPDATE_TRIP_AMOUNTS(input: update_tripAmounts): String
+  DELETE_TRIP_AMOUNTS(input: delete_tripAmounts): String
+  DELETE_TRIP_BOOTHROUTE(input: delete_tripBoothRoute): String
 }

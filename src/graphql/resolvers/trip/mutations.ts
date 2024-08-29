@@ -1,6 +1,88 @@
 import { trip } from "../../../db/Entities/trip";
 
 const tripMutations = {
+    CREATE_TRIP_FROM_TRIPS: async (_: any, {input}: any) => {
+        const {
+            name,
+            idClient,
+            idOrigin,
+            idDestination,
+            legendOriginCollection,
+            legendDestinationCollection,
+            travelClassification,
+            kilometres,
+            travelTime,
+            temperature,
+            tripType,
+            observations,
+            fullAddressOrigin,
+            fullAddressDestination,
+            americanPortion,
+            crossingPortion,
+            mexicanPortion,
+            currency,
+            loadingDate,
+            deliveryDate,
+            sealNumber,
+            proNumber,
+            wheelChocks,
+            straps,
+            reference,
+            idSalesFormat,
+            customsClearance,
+            countryOrigin,
+            countryDestination,
+            idEmployee,
+            idTruckBox,
+            idUnit,
+            taxes,
+            userLoggedIn,
+            idLoggedIn
+        } = input;
+
+        try {
+            const newRecord = await trip.query("exec create_trip " +
+                "@name = '" + name + "', " +
+                "@idClient = '" + idClient + "', " +
+                "@idOrigin = '" + idOrigin + "', " +
+                "@idDestination = '" + idDestination + "', " +
+                "@legendOriginCollection = '" + legendOriginCollection + "', " +
+                "@legendDestinationCollection = '" + legendDestinationCollection + "', " +
+                "@travelClassification = '" + travelClassification + "', " +
+                "@kilometres = '" + kilometres + "', " +
+                "@travelTime = '" + travelTime + "', " +
+                "@temperature = '" + temperature + "', " +
+                "@tripType = '" + tripType + "', " +
+                "@observations = '" + observations + "', " +
+                "@fullAddressOrigin = '" + fullAddressOrigin + "', " +
+                "@fullAddressDestination = '" + fullAddressDestination + "', " +
+                "@americanPortion = '" + americanPortion + "', " +
+                "@crossingPortion = '" + crossingPortion + "', " +
+                "@mexicanPortion = '" + mexicanPortion + "', " +
+                "@currency = '" + currency + "', " +
+                "@loadingDate = '" + loadingDate + "', " +
+                "@deliveryDate = '" + deliveryDate + "', " +
+                "@sealNumber = '" + sealNumber + "', " +
+                "@proNumber = '" + proNumber + "', " +
+                "@wheelChocks = '" + wheelChocks + "', " +
+                "@straps = '" + straps + "', " +
+                "@reference = '" + reference + "', " +
+                "@idSalesFormat = '" + idSalesFormat + "', " +
+                "@customsClearance = '" + customsClearance + "', " +
+                "@countryOrigin = '" + countryOrigin + "', " +
+                "@countryDestination = '" + countryDestination + "', " +
+                "@idEmployee = '" + idEmployee + "', " +
+                "@idTruckBox = '" + idTruckBox + "', " +
+                "@idUnit = '" + idUnit + "', " +
+                "@taxes = '" + taxes + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' " +
+                "@idLoggedIn = '" + idLoggedIn + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
     UPDATE_TRIP_TRIPASSIGNMENT: async (_: any, {input}: any) => {
         const {
             idTripOrder ,
@@ -26,19 +108,15 @@ const tripMutations = {
     UPDATE_TRIP: async (_: any, {input}: any) => {
         const {
             idTrip,
-            idTripOrder,
             name,
             idClient,
             idOrigin,
             idDestination,
             legendOriginCollection,
             legendDestinationCollection,
-            travelClassification,
             kilometres,
-            travelTime,
             temperature,
             tripType,
-            currencye,
             observations,
             fullAddressOrigin,
             fullAddressDestination,
@@ -53,37 +131,29 @@ const tripMutations = {
             wheelChocks,
             straps,
             reference,
-            orderDate,
             idSalesFormat,
-            numTripOrder,
             customsClearance,
             countryOrigin,
             countryDestination,
-            idTripOrigin,
             numTrip,
             idEmployee,
             idTruckBox,
             idUnit,
-            numTripOrigin,
             userLoggedIn
         } = input;
 
         try {
             const newRecord = await trip.query("exec update_trip " +
                 "@idTrip = '" + idTrip + "', " +
-                "@idTripOrder = '" + idTripOrder + "', " +
                 "@name = '" + name + "', " +
                 "@idClient = '" + idClient + "', " +
                 "@idOrigin = '" + idOrigin + "', " +
                 "@idDestination = '" + idDestination + "', " +
                 "@legendOriginCollection = '" + legendOriginCollection + "', " +
                 "@legendDestinationCollection = '" + legendDestinationCollection + "', " +
-                "@travelClassification = '" + travelClassification + "', " +
                 "@kilometres = '" + kilometres + "', " +
-                "@travelTime = '" + travelTime + "', " +
                 "@temperature = '" + temperature + "', " +
                 "@tripType = '" + tripType + "', " +
-                "@currencye = '" + currencye + "', " +
                 "@observations = '" + observations + "', " +
                 "@fullAddressOrigin = '" + fullAddressOrigin + "', " +
                 "@fullAddressDestination = '" + fullAddressDestination + "', " +
@@ -98,18 +168,14 @@ const tripMutations = {
                 "@wheelChocks = '" + wheelChocks + "', " +
                 "@straps = '" + straps + "', " +
                 "@reference = '" + reference + "', " +
-                "@orderDate = '" + orderDate + "', " +
                 "@idSalesFormat = '" + idSalesFormat + "', " +
-                "@numTripOrder = '" + numTripOrder + "', " +
                 "@customsClearance = '" + customsClearance + "', " +
                 "@countryOrigin = '" + countryOrigin + "', " +
                 "@countryDestination = '" + countryDestination + "', " +
-                "@idTripOrigin = '" + idTripOrigin + "', " +
                 "@numTrip = '" + numTrip + "', " +
                 "@idEmployee = '" + idEmployee + "', " +
                 "@idTruckBox = '" + idTruckBox + "', " +
                 "@idUnit = '" + idUnit + "', " +
-                "@numTripOrigin = '" + numTripOrigin + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "' "
             );
             return newRecord;
@@ -126,10 +192,11 @@ const tripMutations = {
             routeOrder,
             userLoggedIn,
             status,
-            isReversible
+            isReversible,
+            idTrip
         } = input;
         try {
-            await trip.query("exec update_salesFormatBoothRoute " +
+            await trip.query("exec update_tripBoothRoute " +
                 "@idTripBoothRoute = '"+idTripBoothRoute+
                 "', @idSalesFormat = '"+idSalesFormat+
                 "', @idBoothRoute = '"+idBoothRoute+
@@ -137,7 +204,8 @@ const tripMutations = {
                 "', @routeOrder = '"+routeOrder+
                 "', @userLoggedIn = '"+userLoggedIn+
                 "', @status = '"+status+
-                "', @isReversible = '"+isReversible+"'"
+                "', @isReversible = '"+isReversible+
+                "', @idTrip = '"+idTrip+"'"
             );
             return 'Se ha actualizado el registro';
         } catch (error) {
@@ -160,7 +228,8 @@ const tripMutations = {
             codeMeasuringUnit,
             measuringUnit,
             userLoggedIn,
-            status
+            status,
+            idTrip
         } = input;
         try {
             await trip.query("exec update_tripAmounts " + 
@@ -178,7 +247,42 @@ const tripMutations = {
                 "', @codeMeasuringUnit = '"+codeMeasuringUnit+
                 "', @measuringUnit = '"+measuringUnit+
                 "', @userLoggedIn = '"+userLoggedIn+
-                "', @status = '"+status+"' "
+                "', @status = '"+status+
+                "', @idTrip = '"+idTrip+"'"
+            );
+            return 'Se ha actualizado el registro';
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    DELETE_TRIP_AMOUNTS: async (_: any, {input}: any) => {
+        const { 
+            idTripAmounts,
+            userLoggedIn,
+            idTrip
+        } = input;
+        try {
+            await trip.query("exec delete_tripAmounts_by_trip " + 
+                "@idTripAmounts = '"+idTripAmounts+
+                "', @userLoggedIn = '"+userLoggedIn+
+                "', @idTrip = '"+idTrip+"'"
+            );
+            return 'Se ha actualizado el registro';
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    DELETE_TRIP_BOOTHROUTE: async (_: any, {input}: any) => {
+        const { 
+            idTripBoothRoute,
+            userLoggedIn,
+            idTrip
+        } = input;
+        try {
+            await trip.query("exec delete_tripBoothRoute_by_trip " + 
+                "@idTripBoothRoute = '"+idTripBoothRoute+
+                "', @userLoggedIn = '"+userLoggedIn+
+                "', @idTrip = '"+idTrip+"'"
             );
             return 'Se ha actualizado el registro';
         } catch (error) {
