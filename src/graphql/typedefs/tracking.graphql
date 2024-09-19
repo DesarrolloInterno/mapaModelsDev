@@ -1,0 +1,50 @@
+type tracking {
+    id: ID,
+    idTrip: Int,
+    idClient: Int,
+    client: String,
+    clientShortName: String,
+    idOrigin: Int,
+    origin: String,
+    idDestination: Int,
+    destination: String,
+    idUnit: Int,
+    unit: String,
+    idTruckBox: Int,
+    truckBox: String,
+    idOperator: Int,
+    operator: String,
+    dateType: String,
+    observations: String
+    trackingDate: String
+    status: String
+}
+
+input new_tracking {
+    idTrip: String,
+	idClient: String,
+	idOrigin: String,
+	idDestination: String,
+	idUnit: String,
+	idTruckBox: String,
+	idOperator: String,
+	dateType: String,
+	observations: String,
+	trackingDate: String,
+	status: String,
+	userLoggedIn: String
+}
+
+type return_newTracking {
+    idTracking: String,
+    message: String
+}
+
+type Query {
+    GET_ALL_TRACKING_BY_IDTRIP(idTrip: String!, dateType: String!): [tracking]
+}
+
+type Mutation {
+  CREATE_TRACKING(input: new_tracking): [return_newTracking]
+  CREATE_CROSSING_TRACKING(input: new_tracking): [return_newTracking]
+}

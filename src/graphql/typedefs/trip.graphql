@@ -197,7 +197,8 @@ type trips {
   idTruckBox: Int,
   truckBox: String,
   idTripOrder: Int,
-  total: Float
+  total: Float,
+  loadingDateTime: String
 }
 
 input update_trip_tripAssignment{
@@ -372,6 +373,208 @@ userLoggedIn: String,
 idLoggedIn: String
 }
 
+type tripsForTracking {
+  id: ID,
+  idClient: Int,
+  client: String,
+  clientShortName: String,
+  RFC: String,
+  TAXID: String,
+  idOrigin: Int,
+  origin: String,
+  fullAddressOrigin: String,
+  legendOriginCollection: String,
+  idDestination: Int,
+  destination: String,
+  fullAddressDestination: String,
+  legendDestinationCollection: String,
+  travelClassification: String,
+  kilometres: String,
+  travelTime: String,
+  temperature: String,
+  tripType: String,
+  currency: String,
+  taxes: String,
+  isCrossing: String,
+  idSalesFormatCrossing: Int,
+  salesFormatCrossing: String,
+  operatorComments: String,
+  operationComments: String,
+  observations: String,
+  status: String,
+  productDescription: String,
+  crossingType: String,
+  tripTypeName: String,
+  americanPortion: String,
+  crossingPortion: String,
+  mexicanPortion: String,
+  loadingDate: String,
+  orderDate: String,
+  deliveryDate: String,
+  sealNumber: String,
+  proNumber: String,
+  wheelChocks: String,
+  straps: String,
+  reference: String,
+  orderPriority: String,
+  idSalesFormat: Int,
+  saleFormat: String,
+  containers: String,
+  shippingLines: String,
+  numTripOrder: String,
+  customsClearance: String,
+  countryOrigin: String,
+  countryDestination: String,
+  typeCrossing: String,
+  idTripOrigin: Int,
+  numTripOrigin: String,
+  numTrip: String,
+  idOperator: Int,
+  operator: String,
+  idUnit: Int,
+  unit: String,
+  idTruckBox: Int,
+  truckBox: String,
+  idTripOrder: Int,
+  total: Float,
+  loadingDateTime: String,
+  inGateDate: String,
+  documentDeliveryDate: String,
+  startTripDate: String,
+  departureDate: String,
+  deliveryDateTime: String
+  currentTemperature: String
+}
+
+type tripTracking_observations {
+  id: ID
+  idTrip: String
+  numTrip: String
+  dateObservations: String
+  observations: String
+  userLoggedIn: String
+}
+
+input new_tripTracking_observations {
+  idTrip: String
+  observations: String
+  userLoggedIn: String
+}
+
+input update_tripTracking_observations {
+  idTripTrackingObservations: String
+  observations: String
+  userLoggedIn: String
+}
+
+input delete_tripTracking_observations {
+  idTripTrackingObservations: String
+  userLoggedIn: String
+}
+
+type return_new_tripTracking_observations {
+  idTripTrackingObservations: String
+  message: String
+}
+
+type return_observations_message {
+  message: String
+}
+
+input update_trip_observations {
+  idTrip: String,
+  observations: String,
+  userLoggedIn: String
+}
+
+input set_tripDocument {
+  idTrip: String,
+  userLoggedIn: String,
+  comments: String
+}
+
+type new_Document_trip {
+  idDocument: String
+}
+
+input set_link_tripDocument {
+  idDocument: String,
+  link: String,
+  document: String,
+  userLoggedIn: String
+}
+
+type tripDocuments {
+    id: ID
+    idTrip: Int
+    nameDocument: String
+    documentLink: String
+    status: String
+    comments: String
+}
+
+input update_tripDocuments {
+  idTripDocument: String,
+  idTrip: String,
+  documentLink: String,
+  nameDocument: String,
+  userLoggedIn: String,
+  comments: String
+}
+
+input update_tripTracking_dynamic {
+  idTrip: String,
+  loadingDate: String,
+  orderDate: String,
+  inGateDate: String,
+  documentDeliveryDate: String,
+  startTripDate: String,
+  deliveryDate: String,
+  departureDate: String,
+  observations: String,
+  userLoggedIn: String
+}
+
+type tripTrackingPickups {
+  id:ID
+  idClientLocation: Int
+  clientLocation: String
+  fullAddress: String
+  idTripOrder: Int
+  idTrip: Int
+  idRowProduct: Int
+  kilometres: String
+  productQuantity: String
+  productWeight: String
+  measuringUnit: String
+  appointmentDate: String
+  status: String
+  typeLoad: String
+  arrivalDate: String
+  productName: String
+}
+
+input new_tripTracking_Pickups {
+  idClientLocation: String,
+  idTrip: String,
+  idRowProduct: String,
+  kilometres: String,
+  productQuantity: String,
+  productWeight: String,
+  measuringUnit: String,
+  appointmentDate: String,
+  typeLoad: String,
+  userLoggedIn: String,
+  arrivalDate: String
+}
+
+input update_tripTracking_Pickups {
+  idTripTravelPickup: String,
+  appointmentDate: String,
+  arrivalDate: String,
+  userLoggedIn: String
+}
+
 type Query {
   GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!): [tripsForCrossings]
   GET_ALL_TRIPS(status: String!, date1: String!, date2: String!): [trips]
@@ -383,6 +586,11 @@ type Query {
   GET_TRIPAMOUNTS(idTrip: String!): [tripAmounts]
   GET_TRIPBOOTHROUTE_BY_IDTRIP(idTrip: String!): [tripBoothRoute]
   GET_TRIPAMOUNTS_BY_IDTRIP(idTrip: String!): [tripAmounts]
+  GET_ALL_TRIPS_FOR_TRIPS_TRACKING(status: String!, date1: String!, date2: String!): [tripsForTracking]
+  GET_ALL_TRIPTRACKING_OBSERVATIONS(idTrip: String!): [tripTracking_observations]
+  GET_ALL_TRIPTRACKING_DOCUMENTS_BY_ID_TRIP(idTrip: String!): [tripDocuments]
+  GET_TRIP_TRACKING_PICKUPS(idTrip:String!): [tripTrackingPickups]
+  GET_ALL_CROSSING_TRIP_TRACKING(status: String!, date1: String!, date2: String!): [tripsForTracking]
 }
 
 type Mutation {
@@ -393,4 +601,14 @@ type Mutation {
   UPDATE_TRIP_AMOUNTS(input: update_tripAmounts): String
   DELETE_TRIP_AMOUNTS(input: delete_tripAmounts): String
   DELETE_TRIP_BOOTHROUTE(input: delete_tripBoothRoute): String
+  CREATE_TRIPTRACKING_OBSERVATIONS(input: new_tripTracking_observations): [return_new_tripTracking_observations]
+  UPDATE_TRIPTRACKING_OBSERVATIONS(input: update_tripTracking_observations): [return_observations_message]
+  DELETE_TRIPTRACKING_OBSERVATIONS(input: delete_tripTracking_observations): [return_observations_message]
+  UPDATE_TRIP_OBSERVATIONS(input: update_trip_observations): String
+  SET_TRIP_DOCUMENT(input: set_tripDocument): [new_Document_trip]
+  SET_LINK_TRIP_DOCUMENT(input: set_link_tripDocument): String
+  UPDATE_TRIP_DOCUMENT(input: update_tripDocuments): String
+  UPDATE_TRIP_TRACKING_DYNAMIC(input: update_tripTracking_dynamic): String
+  CREATE_TRIP_TRACKING_TRAVEL_PICKUPS(input: new_tripTracking_Pickups): String
+  UPDATE_TRIP_TRACKING_TRAVEL_PICKUPS(input: update_tripTracking_Pickups): String
 }

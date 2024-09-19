@@ -288,6 +288,188 @@ const tripMutations = {
         } catch (error) {
             console.log(error);
         }
+    },
+    CREATE_TRIPTRACKING_OBSERVATIONS: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            observations,
+            userLoggedIn
+        } = input;
+
+        try {
+            const newRecord = await trip.query("exec create_tripTracking_observations " +
+                "@idTrip = '" + idTrip + "', " +
+                "@observations = '" + observations + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_TRIPTRACKING_OBSERVATIONS: async (_: any, {input}: any) => {
+        const {
+            idTripTrackingObservations,
+            observations,
+            userLoggedIn
+        } = input;
+
+        try {
+            const newRecord = await trip.query("exec update_tripTracking_observations " +
+                "@idTripTrackingObservations = '" + idTripTrackingObservations + "', " +
+                "@observations = '" + observations + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    DELETE_TRIPTRACKING_OBSERVATIONS: async (_: any, {input}: any) => {
+        const {
+            idTripTrackingObservations,
+            userLoggedIn
+        } = input;
+
+        try {
+            const newRecord = await trip.query("exec delete_tripTracking_observations " +
+                "@idTripTrackingObservations = '" + idTripTrackingObservations + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_TRIP_OBSERVATIONS: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+			observations,
+            userLoggedIn
+        } = input;
+
+        try {
+            await trip.query("exec update_trip_observations " +
+                "@idTrip = '" + idTrip + "', " +
+                "@observations = '" + observations + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Observaciones de viaje actualizadas correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    SET_TRIP_DOCUMENT: async (_: any, {input}: any) => {
+        const { idTrip, userLoggedIn, comments } = input;
+        try {
+            const newRecord = await trip.query("exec set_tripDocument @idTrip = '"+idTrip+"', @userLoggedIn = '"+userLoggedIn+"', @comments = '"+comments+"' ");
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_LINK_TRIP_DOCUMENT: async (_: any, {input}: any) => {
+        const { idDocument, link, document, userLoggedIn } = input;
+        try {
+            await trip.query("exec set_linkTripDocument @idDocument = '"+idDocument+"', @link = '"+link+"', @document = '"+document+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Documento agregado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_TRIP_DOCUMENT: async (_: any, {input}: any) => {
+        const { idTripDocument, idTrip, documentLink, userLoggedIn, comments, nameDocument } = input;
+        try {
+            await trip.query("exec update_tripDocuments @idTripDocument = '"+idTripDocument+"', @idTrip = '"+idTrip+"', @documentLink = '"+documentLink+"', @userLoggedIn = '"+userLoggedIn+"', @comments = '"+comments+"', @nameDocument = '"+nameDocument+"' ");
+            return 'Documento actualizado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_TRIP_TRACKING_DYNAMIC: async (_: any, {input}: any) => {
+        const { 
+            idTrip, 
+            loadingDate,
+            orderDate,
+            inGateDate,
+            documentDeliveryDate,
+            startTripDate,
+            deliveryDate,
+            departureDate,
+            observations,
+            userLoggedIn
+        } = input;
+        try {
+            await trip.query("exec update_tripTracking_dynamic @idTrip = '"+idTrip+
+                "', @loadingDate = '"+loadingDate+
+                "', @orderDate = '"+orderDate+
+                "', @inGateDate = '"+inGateDate+
+                "', @documentDeliveryDate = '"+documentDeliveryDate+
+                "', @startTripDate = '"+startTripDate+
+                "', @deliveryDate = '"+deliveryDate+
+                "', @departureDate = '"+departureDate+
+                "', @observations = '"+observations+
+                "', @userLoggedIn = '"+userLoggedIn+
+                "' ");
+            return 'Se actualizó correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    CREATE_TRIP_TRACKING_TRAVEL_PICKUPS: async (_: any, {input}: any) => {
+        const {
+            idClientLocation,
+            idTrip,
+            idRowProduct,
+            kilometres,
+            productQuantity,
+            productWeight,
+            measuringUnit,
+            appointmentDate,
+            typeLoad,
+            arrivalDate,
+            userLoggedIn
+        } = input;
+
+        try {
+            await trip.query("exec create_tripTrackingPickups " +
+                "@idClientLocation = '" + idClientLocation + "', " +
+                "@idTrip = '" + idTrip + "', " +
+                "@idRowProduct = '" + idRowProduct + "', " +
+                "@kilometres = '" + kilometres + "', " +
+                "@productQuantity = '" + productQuantity + "', " +
+                "@productWeight = '" + productWeight + "', " +
+                "@measuringUnit = '" + measuringUnit + "', " +
+                "@appointmentDate = '" + appointmentDate + "', " +
+                "@typeLoad = '" + typeLoad + "', " +
+                "@arrivalDate = '" + arrivalDate + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Recolección agregada correctamente';
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_TRIP_TRACKING_TRAVEL_PICKUPS: async (_: any, {input}: any) => {
+        const {
+            idTripTravelPickup,
+            appointmentDate,
+            arrivalDate,
+            userLoggedIn
+        } = input;
+
+        try {
+            await trip.query("exec update_tripTrackingPickups " +
+                "@idTripTravelPickup = '" + idTripTravelPickup + "', " +
+                "@appointmentDate = '" + appointmentDate + "', " +
+                "@arrivalDate = '" + arrivalDate + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Recolección actualizada correctamente';
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

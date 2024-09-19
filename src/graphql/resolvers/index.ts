@@ -99,6 +99,7 @@ import {tripTravelPickupsQueries, tripTravelPickupsMutations} from './tripTravel
 import {invoicesMutations} from './invoices'
 import { clientTravelOrderProductsMutations, clientTravelOrderProductsQueries } from './clientTravelOrderProducts'
 import { clientTravelOrderTravelPickupsMutations, clientTravelOrderTravelPickupsQueries } from './clientTravelOrderTravelPickups'
+import { trackingMutations, trackingQueries } from './tracking'
 
 const resolvers = {
     Query: {
@@ -200,7 +201,8 @@ const resolvers = {
         ...tripProductsQueries,
         ...tripTravelPickupsQueries,
         ...clientTravelOrderProductsQueries,
-        ...clientTravelOrderTravelPickupsQueries
+        ...clientTravelOrderTravelPickupsQueries,
+        ...trackingQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -271,7 +273,8 @@ const resolvers = {
         ...invoicesMutations,
         ...clientTravelOrderProductsMutations,
         ...clientTravelOrderTravelPickupsMutations,
-        ...tripMutations
+        ...tripMutations,
+        ...trackingMutations
     }
 }
 

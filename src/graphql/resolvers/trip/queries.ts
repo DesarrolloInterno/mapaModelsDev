@@ -95,6 +95,51 @@ GET_TRANSPORTDOCUMENT: async (_: any, {idTrip}: any) => {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_TRIPS_FOR_TRIPS_TRACKING: async (_: any, {status, date1, date2}: any) => {
+        try{
+            const result = await trip.query("exec get_all_trips_for_tripsTracking @status = '" + status + "', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_TRIPTRACKING_OBSERVATIONS: async (_: any, {idTrip}: any) => {
+        try{
+            const result = await trip.query("exec get_all_tripTracking_observations @idTrip = '" + idTrip + "' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_TRIPTRACKING_DOCUMENTS_BY_ID_TRIP: async (_: any, {idTrip}: any) => {
+        try{
+            const result = await trip.query("exec get_trip_Documents_by_idTrip @idTrip = '" + idTrip + "'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_TRIP_TRACKING_PICKUPS: async (_: any, {idTrip}: any) => {
+        try{
+            const result = await trip.query("exec get_tripTrackingPickups_by_idTrip @idTrip = '"+ idTrip +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_CROSSING_TRIP_TRACKING: async (_: any, {status, date1, date2}: any) => {
+        try{
+            const result = await trip.query("exec get_all_trips_for_crossingTripsTracking @status = '"+ status +"', @date1 = '"+ date1 + "', @date2= '"+date2+"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
