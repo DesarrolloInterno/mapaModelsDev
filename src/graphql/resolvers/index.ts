@@ -91,14 +91,15 @@ import { truckBoxInventoryQueries, truckBoxInventoryMutations } from './truckBox
 import { ClientTravelOrderMutations, clientTravelOrderQueries } from './clientTravelOrder'
 import { clientTravelOrderSafetyEquipmentQueries, clientTravelOrderSafetyEquipmentMutations } from './clientTravelOrderSafetyEquipment'
 import { clientTravelOrderDocumentsMutations, clientTravelOrderDocumentsQueries } from './clientTravelOrderDocuments'
-import {tripQueries} from './trip'
+import {tripQueries, tripMutations} from './trip'
 import {travelAssignmentQueries, travelAssignmentMutations} from './travelAssignment'
 import {tripDispatchDocumentsQueries, tripDispatchDocumentsMutations} from './tripDispatchDocuments'
 import {tripProductsQueries, tripProductsMutations} from './tripProducts'
 import {tripTravelPickupsQueries, tripTravelPickupsMutations} from './tripTravelPickups'
-import {invoicesMutations} from './invoices'
+import {invoicesQueries, invoicesMutations} from './invoices'
 import { clientTravelOrderProductsMutations, clientTravelOrderProductsQueries } from './clientTravelOrderProducts'
 import { clientTravelOrderTravelPickupsMutations, clientTravelOrderTravelPickupsQueries } from './clientTravelOrderTravelPickups'
+import { exchangeRateRecordsQueries, exchangeRateRecordsMutations} from './exchangeRateRecords'
 
 const resolvers = {
     Query: {
@@ -200,7 +201,9 @@ const resolvers = {
         ...tripProductsQueries,
         ...tripTravelPickupsQueries,
         ...clientTravelOrderProductsQueries,
-        ...clientTravelOrderTravelPickupsQueries
+        ...clientTravelOrderTravelPickupsQueries,
+        ...exchangeRateRecordsQueries,
+        ...invoicesQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -270,7 +273,10 @@ const resolvers = {
         ...tripTravelPickupsMutations,
         ...invoicesMutations,
         ...clientTravelOrderProductsMutations,
-        ...clientTravelOrderTravelPickupsMutations
+        ...clientTravelOrderTravelPickupsMutations,
+        ...exchangeRateRecordsMutations,
+        ...tripMutations
+        
     }
 }
 

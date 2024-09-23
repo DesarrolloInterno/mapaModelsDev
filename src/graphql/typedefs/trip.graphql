@@ -117,6 +117,14 @@ type transportDocument {
   observations: String
   customsClearance: String
   idEnterprise: String
+  UUID: String
+  SATcertificateNumber: String
+  dateCFDI: String
+  originalChain: String
+  CFDIstamp: String
+  SATStamp: String
+  LinkQR: String
+  idCCP: String
 }
 
 type tripAmounts {
@@ -141,4 +149,13 @@ type Query {
   GET_TRIPSAFETYEQUIPMENT_BY_IDTRIP(idTrip: String!): [tripSafetyEquipment]
   GET_TRANSPORTDOCUMENT(idTrip: String!): [transportDocument]
   GET_TRIPAMOUNTS(idTrip: String!): [tripAmounts]
+}
+
+input tripTotalWeight {
+  idTrip: String
+  userLoggedIn: String
+}
+
+type Mutation {
+  UPDATE_TOTALWEIGHT_TRIP(input: tripTotalWeight): String
 }

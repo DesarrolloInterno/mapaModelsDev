@@ -1,0 +1,37 @@
+type exchangeRateRecords {
+    id: ID
+    exchangeRateDOF: String
+    exchangeRateSystem: String
+    status: String
+    userModified: String
+    dateRate: String
+}
+
+type Query {
+    GET_ALL_EXCHANGE_RATE_RECORDS(typeUser: String!, date1: String!, date2: String!): [exchangeRateRecords]
+}
+
+input new_exchangeRateRecords {
+    dateRate: String
+    exchangeRateDOF: String 
+    exchangeRateSystem: String
+    userLoggedIn: String
+}
+
+input edit_exchangeRateRecords {
+    idExchangeRateRecord: String
+    dateRate: String
+    exchangeRateSystem: String
+    userLoggedIn: String
+}
+
+input delete_exchangeRateRecords {
+    idExchangeRateRecord: String
+    userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_EXCHANGE_RATE_RECORD(input: new_exchangeRateRecords): String
+    EDIT_EXCHANGE_RATE_RECORD(input: edit_exchangeRateRecords): String
+    DELETE_EXCHANGE_RATE_RECORD(input: delete_exchangeRateRecords): String
+}
