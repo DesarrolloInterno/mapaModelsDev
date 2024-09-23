@@ -44,6 +44,7 @@ type tripProducts {
 	maquiladoraData: String
 	authorizedUse: String
 	customsDocumentIdentifier: String
+	dangerousMaterial: String
 }
 
 type return_new_tripProduct{

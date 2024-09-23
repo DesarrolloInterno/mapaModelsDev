@@ -84,7 +84,7 @@ const tripOrderProductsMutations = {
             customsDocumentIdentifierMessage,
         } = input;
         try {
-            console.log('idTripOrder', idTripOrder)
+
             const newid = await tripOrderProducts.query("exec create_tripOrderProducts " +
                 "@idTripOrder = '"+ idTripOrder +
                 "', @productName = '"+ productName + "', @productNameMessage = '"+ productNameMessage +

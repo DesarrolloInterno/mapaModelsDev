@@ -41,7 +41,6 @@ const usersMutations = {
             "@idEmployee = '"+idEmployee+"', "+
             "@idEnterprise = '"+idEnterprise+"' ");
 
-            console.log('newUser', newUser);
             return newUser;
         } catch (error) {
             console.log(error);

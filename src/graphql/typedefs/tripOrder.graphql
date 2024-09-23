@@ -55,6 +55,8 @@ type tripOrder {
   total: String
   orderDate: String
   subtotal: String
+  UUID: String
+  docPdf: String
 }
 
 type tripOrderSafetyEquipment {

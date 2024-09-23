@@ -117,6 +117,14 @@ type transportDocument {
   observations: String
   customsClearance: String
   idEnterprise: String
+  UUID: String
+  SATcertificateNumber: String
+  dateCFDI: String
+  originalChain: String
+  CFDIstamp: String
+  SATStamp: String
+  LinkQR: String
+  idCCP: String
 }
 
 type tripAmounts {

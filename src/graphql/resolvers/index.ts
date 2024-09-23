@@ -96,10 +96,11 @@ import {travelAssignmentQueries, travelAssignmentMutations} from './travelAssign
 import {tripDispatchDocumentsQueries, tripDispatchDocumentsMutations} from './tripDispatchDocuments'
 import {tripProductsQueries, tripProductsMutations} from './tripProducts'
 import {tripTravelPickupsQueries, tripTravelPickupsMutations} from './tripTravelPickups'
-import {invoicesMutations} from './invoices'
+import {invoicesQueries, invoicesMutations} from './invoices'
 import { clientTravelOrderProductsMutations, clientTravelOrderProductsQueries } from './clientTravelOrderProducts'
 import { clientTravelOrderTravelPickupsMutations, clientTravelOrderTravelPickupsQueries } from './clientTravelOrderTravelPickups'
 import { trackingMutations, trackingQueries } from './tracking'
+import { exchangeRateRecordsQueries, exchangeRateRecordsMutations} from './exchangeRateRecords'
 
 const resolvers = {
     Query: {
@@ -202,7 +203,9 @@ const resolvers = {
         ...tripTravelPickupsQueries,
         ...clientTravelOrderProductsQueries,
         ...clientTravelOrderTravelPickupsQueries,
-        ...trackingQueries
+        ...trackingQueries,
+        ...exchangeRateRecordsQueries,
+        ...invoicesQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -274,7 +277,9 @@ const resolvers = {
         ...clientTravelOrderProductsMutations,
         ...clientTravelOrderTravelPickupsMutations,
         ...tripMutations,
-        ...trackingMutations
+        ...trackingMutations,
+        ...exchangeRateRecordsMutations,
+        ...tripMutations
     }
 }
 
