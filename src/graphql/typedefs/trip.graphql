@@ -583,6 +583,11 @@ input update_tripTracking_Pickups {
   userLoggedIn: String
 }
 
+input tripTotalWeight {
+  idTrip: String
+  userLoggedIn: String
+}
+
 type Query {
   GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!): [tripsForCrossings]
   GET_ALL_TRIPS(status: String!, date1: String!, date2: String!): [trips]
@@ -619,4 +624,5 @@ type Mutation {
   UPDATE_TRIP_TRACKING_DYNAMIC(input: update_tripTracking_dynamic): String
   CREATE_TRIP_TRACKING_TRAVEL_PICKUPS(input: new_tripTracking_Pickups): String
   UPDATE_TRIP_TRACKING_TRAVEL_PICKUPS(input: update_tripTracking_Pickups): String
+  UPDATE_TOTALWEIGHT_TRIP(input: tripTotalWeight): String
 }
