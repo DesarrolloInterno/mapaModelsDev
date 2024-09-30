@@ -140,7 +140,25 @@ GET_TRANSPORTDOCUMENT: async (_: any, {idTrip}: any) => {
         } catch (error) {
             console.log(error);
         }
-    }
+    },
+    GET_SUPPLIERS_LETTER_BY_IDTRIP: async (_: any, {idTrip}: any) => {
+        try{
+            const result = await trip.query("exec get_suppliersLetter_idTrip @idTrip = '"+ idTrip +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_CLEANING_LETTER_BY_IDTRIP: async (_: any, {idTrip}: any) => {
+        try{
+            const result = await trip.query("exec get_cleaningLetter_idTrip @idTrip = '"+ idTrip +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default tripQueries;
