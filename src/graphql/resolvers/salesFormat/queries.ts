@@ -101,6 +101,15 @@ const salesFormatQueries = {
             console.log(error);
         }
     },
+    GET_SALES_FORMAT_BY_CLIENT_AND_TRIPTYPE_CROSSINGTYPE: async (_: any, {idClient, tripType, crossingType}: any) => {
+        try{
+            const result = await salesFormat.query("exec get_salesFormats_by_client_and_tripType_and_crossingType @idClient = '"+ idClient +"', @tripType = '"+ tripType +"', @crossingType = '"+crossingType+"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
     GET_SALES_FORMAT_CLIENTS: async (_: any) => {
         try{
             const result = await salesFormat.query("exec get_all_salesFormatClients");

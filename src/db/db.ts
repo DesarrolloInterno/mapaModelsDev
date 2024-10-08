@@ -224,8 +224,8 @@ export const  dbConection = async () =>{
     },
     extra: {
       trustServerCertificate: true,
-      connectionTimeoutMillis: 30000,
-      requestTimeoutMillis: 30000,
+      connectionTimeout: 60000,
+      requestTimeout: 60000,
     },
   })
 

@@ -105,6 +105,7 @@ type invoiceToken {
   deliveryDate: String
   IVApercentage: String
   tripType: String
+  isTaxes: String
 }
 
 type invoiceAmounts {

@@ -45,6 +45,7 @@ type tripProducts {
 	authorizedUse: String
 	customsDocumentIdentifier: String
 	dangerousMaterial: String
+	cargoWeightKg: String
 }
 
 type return_new_tripProduct{
