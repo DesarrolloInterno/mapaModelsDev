@@ -75,7 +75,7 @@ const tripMutations = {
                 "@idTruckBox = '" + idTruckBox + "', " +
                 "@idUnit = '" + idUnit + "', " +
                 "@taxes = '" + taxes + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@idLoggedIn = '" + idLoggedIn + "' "
             );
             return newRecord;

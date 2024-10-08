@@ -52,6 +52,33 @@ type instructionLetter {
   idEnterprise: String
 }
 
+type suppliersLetter {
+  id: ID,
+  idEnterprise: Int,
+  enterprise: String,
+  town: String,
+  state: String,
+  isRefrigerated: Int,
+  economicNumber: String,
+  fullDateName: String,
+  stateCode: String
+}
+
+type cleaningLetter {
+  id: ID,
+  idEnterprise: Int,
+  idTruckBox: Int,
+  loadingDate: String,
+  numTrip: String,
+  sealNumber: String,
+  licensePlates: String,
+  truckBox: String,
+  unitType: String,
+  idLine: Int,
+  line: String,
+  enterprise: String
+}
+
 type tripBoothRoute {
   id: ID
   name: String
@@ -604,6 +631,8 @@ type Query {
   GET_ALL_TRIPTRACKING_DOCUMENTS_BY_ID_TRIP(idTrip: String!): [tripDocuments]
   GET_TRIP_TRACKING_PICKUPS(idTrip:String!): [tripTrackingPickups]
   GET_ALL_CROSSING_TRIP_TRACKING(status: String!, date1: String!, date2: String!): [tripsForTracking]
+  GET_SUPPLIERS_LETTER_BY_IDTRIP(idTrip: String!): [suppliersLetter]
+  GET_CLEANING_LETTER_BY_IDTRIP(idTrip: String!): [cleaningLetter]
 }
 
 type Mutation {
