@@ -36,6 +36,8 @@ const tripMutations = {
             idTruckBox,
             idUnit,
             taxes,
+            isRefrigerated,
+            typeCrossing,
             userLoggedIn,
             idLoggedIn
         } = input;
@@ -75,6 +77,8 @@ const tripMutations = {
                 "@idTruckBox = '" + idTruckBox + "', " +
                 "@idUnit = '" + idUnit + "', " +
                 "@taxes = '" + taxes + "', " +
+                "@isRefrigerated = '" + isRefrigerated + "', " +
+                "@typeCrossing = '" + typeCrossing + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@idLoggedIn = '" + idLoggedIn + "' "
             );

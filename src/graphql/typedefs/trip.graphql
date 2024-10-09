@@ -79,6 +79,24 @@ type cleaningLetter {
   enterprise: String
 }
 
+type fumigationLetter {
+  id: ID,
+  idEnterprise: Int,
+  enterprise: String,
+  address: String,
+  neighborhood: String,
+  town: String,
+  state: String,
+  zipCode: String,
+  phone: String,
+  RFC: String,
+  reference: String,
+  numTrip: String,
+  loadingDate: String,
+  truckBox: String,
+  nextServiceDate: String
+}
+
 type tripBoothRoute {
   id: ID
   name: String
@@ -396,6 +414,8 @@ idEmployee: String,
 idTruckBox: String,
 idUnit: String,
 taxes: String,
+isRefrigerated: String,
+typeCrossing: String,
 userLoggedIn: String,
 idLoggedIn: String
 }
@@ -470,7 +490,10 @@ type tripsForTracking {
   startTripDate: String,
   departureDate: String,
   deliveryDateTime: String
-  currentTemperature: String
+  currentTemperature: String,
+  isRefrigerated: Int,
+  placementDate: String,
+  arrivalDate: String
 }
 
 type tripTracking_observations {
@@ -620,6 +643,7 @@ type Query {
   GET_ALL_CROSSING_TRIP_TRACKING(status: String!, date1: String!, date2: String!): [tripsForTracking]
   GET_SUPPLIERS_LETTER_BY_IDTRIP(idTrip: String!): [suppliersLetter]
   GET_CLEANING_LETTER_BY_IDTRIP(idTrip: String!): [cleaningLetter]
+  GET_FUMIGATION_LETTER_BY_IDTRIP(idTrip: String!): [fumigationLetter]
 }
 
 type Mutation {
