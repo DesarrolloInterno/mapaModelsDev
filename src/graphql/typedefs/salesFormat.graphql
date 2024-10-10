@@ -41,6 +41,8 @@ type salesFormat {
   crossingPortion: String
   mexicanPortion: String
   typeCrossing: String
+  codeCountryOrigin: String
+  codeCountryDestination: String
 }
 
 type salesFormatByIdClient {

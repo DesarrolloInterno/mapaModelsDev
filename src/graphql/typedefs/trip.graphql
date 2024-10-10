@@ -310,6 +310,7 @@ input update_tripBoothRoute {
 input update_tripAmounts {
   idTripAmounts: String
   idInvoicingConcept: String
+  invoicingConcept: String
   subtotal: String
   idIVApercentage: String
   IVApercentage: String
@@ -324,6 +325,7 @@ input update_tripAmounts {
   userLoggedIn: String
   status: String
   idTrip : String
+  taxRate: String
 }
 
 type tripBoothRoute {
@@ -589,6 +591,89 @@ type tripTrackingPickups {
   productName: String
 }
 
+type return_tem_products_trip_excel{
+	productNameMessage: String
+  productName: String
+	productCodeMessage: String
+  productCode: String
+	codeUnitMessage: String
+  codeUnit: String
+	cargoQuantityMessage: String
+  cargoQuantity: String
+	cargoWeightMessage: String
+  cargoWeight: String
+	weightUnitMessage: String
+  weightUnit: String
+  hazardousMaterial: String
+	codeHazardousMaterialMessage: String
+  codeHazardousMaterial: String
+	codePackagingMessage: String
+  codePackaging: String
+	declarationNumberMessage: String
+  declarationNumberPart1: String
+  declarationNumberPart2: String
+  declarationNumberPart3: String
+  declarationNumberPart4: String
+  declarationNumber: String
+	tariffCodeMessage: String
+  tariffCode: String
+	foeringTradeUUIDMessage: String
+  foeringTradeUUID: String
+	documentTypeCodeMessage: String
+  documentTypeCode: String
+	materialTypeCodeMessage: String
+  materialTypeCode: String
+	materialDescriptionMessage: String
+  materialDescription: String
+	cofeprisSectorMessage: String
+  cofeprisSector: String
+	rfcImporterMessage: String
+  rfcImporter: String
+	activeIngredientNameMessage: String
+  activeIngredientName: String
+	chemicalNameMessage: String
+  chemicalName: String
+	genericProductNameMessage: String
+  genericProductName: String
+	distinctiveProductNameMessage: String
+  distinctiveProductName: String
+	companyNameMakerMessage: String
+  companyNameMaker: String
+	expirationDateMessage: String
+  expirationDate: String
+	medicationPackageMessage: String
+  medicationPackage: String
+	pharmaceuticalFormMessage: String
+  pharmaceuticalForm: String
+	specialConditionsTransportMessage: String
+  specialConditionsTransport: String
+	healthRegistryAuthorizationFolioMessage: String
+  healthRegistryAuthorizationFolio: String
+	importPermitFolioMessage: String
+  importPermitFolio: String
+	vucemImportFolioMessage: String
+  vucemImportFolio: String
+	chemicalAbstractsServiceNumberMessage: String
+  chemicalAbstractsServiceNumber: String
+	importCompanyNameMessage: String
+  importCompanyName: String
+	healthRegistrationNumberPesticidesFertilizersMessage: String
+  healthRegistrationNumberPesticidesFertilizers: String
+	manufacturerInformationMessage: String
+  manufacturerInformation: String
+	formulatorDataMessage: String
+  formulatorData: String
+	maquiladoraDataMessage: String
+  maquiladoraData: String
+	authorizedUseMessage: String
+  authorizedUse: String
+	customsClearanceMessage: String
+  customsClearance: String
+	customsDocumentIdentifierMessage: String
+  customsDocumentIdentifier: String
+  excelRow: String
+}
+
 input new_tripTracking_Pickups {
   idClientLocation: String,
   idTrip: String,
@@ -613,6 +698,86 @@ input update_tripTracking_Pickups {
 input tripTotalWeight {
   idTrip: String
   userLoggedIn: String
+}
+
+input tem_products_trip_excel {
+	idSalesFormat: String
+	productName: String
+	productNameMessage: String
+	productCode: String
+	productCodeMessage: String
+	codeUnit: String
+	codeUnitMessage: String
+	cargoQuantity: String
+	cargoQuantityMessage: String
+	cargoWeight: String
+	cargoWeightMessage: String
+	weightUnit: String
+	hazardousMaterial: String
+	codeHazardousMaterial: String
+	codeHazardousMaterialMessage: String
+	codePackaging: String
+	codePackagingMessage: String
+	declarationNumber: String
+	declarationNumberMessage: String
+	tariffCode: String
+	tariffCodeMessage: String
+	foeringTradeUUID: String
+	foeringTradeUUIDMessage: String
+	userLoggedIn: String
+	documentTypeCode: String
+	documentTypeCodeMessage: String
+	materialTypeCode: String
+	materialTypeCodeMessage: String
+	materialDescription: String
+	materialDescriptionMessage: String
+	rfcImporter: String
+	rfcImporterMessage: String
+	cofeprisSector: String
+	cofeprisSectorMessage: String
+	activeIngredientName: String
+	activeIngredientNameMessage: String
+	chemicalName: String
+	chemicalNameMessage: String
+	genericProductName: String
+	genericProductNameMessage: String
+	distinctiveProductName: String
+	distinctiveProductNameMessage: String
+	companyNameMaker: String
+	companyNameMakerMessage: String
+	expirationDate: String
+	expirationDateMessage: String
+	medicationPackage: String
+	medicationPackageMessage: String
+	pharmaceuticalForm: String
+	pharmaceuticalFormMessage: String
+	specialConditionsTransport: String
+	specialConditionsTransportMessage: String
+	healthRegistryAuthorizationFolio: String
+	healthRegistryAuthorizationFolioMessage: String
+	importPermitFolio: String
+	importPermitFolioMessage: String
+	vucemImportFolio: String
+	vucemImportFolioMessage: String
+	chemicalAbstractsServiceNumber: String
+	chemicalAbstractsServiceNumberMessage: String
+	importCompanyName: String
+	importCompanyNameMessage: String
+	healthRegistrationNumberPesticidesFertilizers: String
+	healthRegistrationNumberPesticidesFertilizersMessage: String
+	manufacturerInformation: String
+	manufacturerInformationMessage: String
+	formulatorData: String
+	formulatorDataMessage: String
+	maquiladoraData: String
+	maquiladoraDataMessage: String
+	authorizedUse: String
+	authorizedUseMessage: String
+	excelRow: String
+	customsClearance: String
+	customsClearanceMessage: String
+	customsDocumentIdentifier: String
+	customsDocumentIdentifierMessage: String
 }
 
 type Query {
@@ -654,4 +819,5 @@ type Mutation {
   CREATE_TRIP_TRACKING_TRAVEL_PICKUPS(input: new_tripTracking_Pickups): String
   UPDATE_TRIP_TRACKING_TRAVEL_PICKUPS(input: update_tripTracking_Pickups): String
   UPDATE_TOTALWEIGHT_TRIP(input: tripTotalWeight): String
+  UPLOAD_TEM_PRODUCTS_TRIP(input: tem_products_trip_excel): [return_tem_products_trip_excel]
 }

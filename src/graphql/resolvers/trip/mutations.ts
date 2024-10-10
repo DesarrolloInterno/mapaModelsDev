@@ -216,6 +216,7 @@ const tripMutations = {
         const { 
             idTripAmounts,
             idInvoicingConcept,
+            invoicingConcept,
             subtotal,
             idIVApercentage,
             IVApercentage,
@@ -229,12 +230,14 @@ const tripMutations = {
             measuringUnit,
             userLoggedIn,
             status,
-            idTrip
+            idTrip,
+            taxRate
         } = input;
         try {
             await trip.query("exec update_tripAmounts " + 
                 "@idTripAmounts = '"+idTripAmounts+
                 "', @idInvoicingConcept = '"+idInvoicingConcept+
+                "', @invoicingConcept = '"+invoicingConcept+
                 "', @subtotal = '"+subtotal+
                 "', @idIVApercentage = '"+idIVApercentage+
                 "', @IVApercentage = '"+IVApercentage+
@@ -248,7 +251,8 @@ const tripMutations = {
                 "', @measuringUnit = '"+measuringUnit+
                 "', @userLoggedIn = '"+userLoggedIn+
                 "', @status = '"+status+
-                "', @idTrip = '"+idTrip+"'"
+                "', @idTrip = '"+idTrip+
+                "', @taxRate = '"+taxRate+"'"
             );
             return 'Se ha actualizado el registro';
         } catch (error) {
@@ -487,6 +491,132 @@ const tripMutations = {
             console.log(error);
         }
 
+    },
+    UPLOAD_TEM_PRODUCTS_TRIP: async (_: any, {input}: any) => {
+        const { 
+            idSalesFormat,
+            productName,
+            productNameMessage,
+            productCode,
+            productCodeMessage,
+            codeUnit,
+            codeUnitMessage,
+            cargoQuantity,
+            cargoQuantityMessage,
+            cargoWeight,
+            cargoWeightMessage,
+            weightUnit,
+            hazardousMaterial,
+            codeHazardousMaterial,
+            codeHazardousMaterialMessage,
+            codePackaging,
+            codePackagingMessage,
+            declarationNumber,
+            declarationNumberMessage,
+            tariffCode,
+            tariffCodeMessage,
+            foeringTradeUUID,
+            foeringTradeUUIDMessage,
+            userLoggedIn,
+            documentTypeCode,
+            documentTypeCodeMessage,
+            materialTypeCode,
+            materialTypeCodeMessage,
+            materialDescription,
+            materialDescriptionMessage,
+            rfcImporter,
+            rfcImporterMessage,
+            cofeprisSector,
+            cofeprisSectorMessage,
+            activeIngredientName,
+            activeIngredientNameMessage,
+            chemicalName,
+            chemicalNameMessage,
+            genericProductName,
+            genericProductNameMessage,
+            distinctiveProductName,
+            distinctiveProductNameMessage,
+            companyNameMaker,
+            companyNameMakerMessage,
+            expirationDate,
+            expirationDateMessage,
+            medicationPackage,
+            medicationPackageMessage,
+            pharmaceuticalForm,
+            pharmaceuticalFormMessage,
+            specialConditionsTransport,
+            specialConditionsTransportMessage,
+            healthRegistryAuthorizationFolio,
+            healthRegistryAuthorizationFolioMessage,
+            importPermitFolio,
+            importPermitFolioMessage,
+            vucemImportFolio,
+            vucemImportFolioMessage,
+            chemicalAbstractsServiceNumber,
+            chemicalAbstractsServiceNumberMessage,
+            importCompanyName,
+            importCompanyNameMessage,
+            healthRegistrationNumberPesticidesFertilizers,
+            healthRegistrationNumberPesticidesFertilizersMessage,
+            manufacturerInformation,
+            manufacturerInformationMessage,
+            formulatorData,
+            formulatorDataMessage,
+            maquiladoraData,
+            maquiladoraDataMessage,
+            authorizedUse,
+            authorizedUseMessage,
+            excelRow,
+            customsClearance,
+            customsClearanceMessage,
+            customsDocumentIdentifier,
+            customsDocumentIdentifierMessage
+        } = input;
+        try {
+            const newid = await trip.query("exec uploadTemExcelProductsTrip " +
+            "@idSalesFormat = '"+ idSalesFormat +"', @productName = '"+ productName +"', @productNameMessage = '"+ productNameMessage +"', " +
+            "@productCode = '"+ productCode +"', @productCodeMessage = '"+ productCodeMessage +"', @codeUnit = '"+ codeUnit +"', " +
+            "@codeUnitMessage = '"+ codeUnitMessage +"', @cargoQuantity = '"+ cargoQuantity +"', @cargoQuantityMessage = '"+ cargoQuantityMessage +"', " +
+            "@cargoWeight = '"+ cargoWeight +"', @cargoWeightMessage = '"+ cargoWeightMessage +"', @weightUnit = '"+ weightUnit +"', " +
+            "@hazardousMaterial = '"+ hazardousMaterial +"', @codeHazardousMaterial = '"+ codeHazardousMaterial +"', " +
+            "@codeHazardousMaterialMessage = '"+ codeHazardousMaterialMessage +"', @codePackaging = '"+ codePackaging +"', " +
+            "@codePackagingMessage = '"+ codePackagingMessage +"', @declarationNumber = '"+ declarationNumber +"', " +
+            "@declarationNumberMessage = '"+ declarationNumberMessage +"', @tariffCode = '"+ tariffCode +"', " +
+            "@tariffCodeMessage = '"+ tariffCodeMessage +"', @foeringTradeUUID = '"+ foeringTradeUUID +"', " +
+            "@foeringTradeUUIDMessage = '"+ foeringTradeUUIDMessage +"', @userLoggedIn = '"+ userLoggedIn +"', " +
+            "@documentTypeCode = '"+ documentTypeCode +"', @documentTypeCodeMessage = '"+ documentTypeCodeMessage +"', " +
+            "@materialTypeCode = '"+ materialTypeCode +"', @materialTypeCodeMessage = '"+ materialTypeCodeMessage +"', " +
+            "@materialDescription = '"+ materialDescription +"', @materialDescriptionMessage = '"+ materialDescriptionMessage +"', " +
+            "@rfcImporter = '"+ rfcImporter +"', @rfcImporterMessage = '"+ rfcImporterMessage +"', " +
+            "@cofeprisSector = '"+ cofeprisSector +"', @cofeprisSectorMessage = '"+ cofeprisSectorMessage +"', " +
+            "@activeIngredientName = '"+ activeIngredientName +"', @activeIngredientNameMessage = '"+ activeIngredientNameMessage +"', " +
+            "@chemicalName = '"+ chemicalName +"', @chemicalNameMessage = '"+ chemicalNameMessage +"', " +
+            "@genericProductName = '"+ genericProductName +"', @genericProductNameMessage = '"+ genericProductNameMessage +"', " +
+            "@distinctiveProductName = '"+ distinctiveProductName +"', @distinctiveProductNameMessage = '"+ distinctiveProductNameMessage +"', " +
+            "@companyNameMaker = '"+ companyNameMaker +"', @companyNameMakerMessage = '"+ companyNameMakerMessage +"', " +
+            "@expirationDate = '"+ expirationDate +"', @expirationDateMessage = '"+ expirationDateMessage +"', " +
+            "@medicationPackage = '"+ medicationPackage +"', @medicationPackageMessage = '"+ medicationPackageMessage +"', " +
+            "@pharmaceuticalForm = '"+ pharmaceuticalForm +"', @pharmaceuticalFormMessage = '"+ pharmaceuticalFormMessage +"', " +
+            "@specialConditionsTransport = '"+ specialConditionsTransport +"', @specialConditionsTransportMessage = '"+ specialConditionsTransportMessage +"', " +
+            "@healthRegistryAuthorizationFolio = '"+ healthRegistryAuthorizationFolio +"', @healthRegistryAuthorizationFolioMessage = '"+ healthRegistryAuthorizationFolioMessage +"', " +
+            "@importPermitFolio = '"+ importPermitFolio +"', @importPermitFolioMessage = '"+ importPermitFolioMessage +"', " +
+            "@vucemImportFolio = '"+ vucemImportFolio +"', @vucemImportFolioMessage = '"+ vucemImportFolioMessage +"', " +
+            "@chemicalAbstractsServiceNumber = '"+ chemicalAbstractsServiceNumber +"', @chemicalAbstractsServiceNumberMessage = '"+ chemicalAbstractsServiceNumberMessage +"', " +
+            "@importCompanyName = '"+ importCompanyName +"', @importCompanyNameMessage = '"+ importCompanyNameMessage +"', " +
+            "@healthRegistrationNumberPesticidesFertilizers = '"+ healthRegistrationNumberPesticidesFertilizers +"', " +
+            "@healthRegistrationNumberPesticidesFertilizersMessage = '"+ healthRegistrationNumberPesticidesFertilizersMessage +"', " +
+            "@manufacturerInformation = '"+ manufacturerInformation +"', @manufacturerInformationMessage = '"+ manufacturerInformationMessage +"', " +
+            "@formulatorData = '"+ formulatorData +"', @formulatorDataMessage = '"+ formulatorDataMessage +"', " +
+            "@maquiladoraData = '"+ maquiladoraData +"', @maquiladoraDataMessage = '"+ maquiladoraDataMessage +"', " +
+            "@authorizedUse = '"+ authorizedUse +"', @authorizedUseMessage = '"+ authorizedUseMessage +"', " +
+            "@excelRow = '"+ excelRow +"', @customsClearance = '"+ customsClearance +"', " +
+            "@customsClearanceMessage = '"+ customsClearanceMessage +"', " +
+            "@customsDocumentIdentifier = '"+ customsDocumentIdentifier +"', @customsDocumentIdentifierMessage = '"+ customsDocumentIdentifierMessage +"'");
+            
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
     },
 };
 
