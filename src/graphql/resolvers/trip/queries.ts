@@ -159,6 +159,15 @@ GET_TRANSPORTDOCUMENT: async (_: any, {idTrip}: any) => {
             console.log(error);
         }
     },
+    GET_FUMIGATION_LETTER_BY_IDTRIP: async (_: any, {idTrip}: any) => {
+        try{
+            const result = await trip.query("exec get_fumigationLetter_idTrip @idTrip = '"+ idTrip +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default tripQueries;
