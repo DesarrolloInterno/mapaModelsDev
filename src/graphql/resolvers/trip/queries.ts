@@ -168,6 +168,15 @@ GET_TRANSPORTDOCUMENT: async (_: any, {idTrip}: any) => {
             console.log(error);
         }
     },
+    GET_TRIP_HISTORY: async (_: any, {date1, date2, crossing, filterCheck, dateTypeFilter}: any) => {
+        try{
+            const result = await trip.query("exec get_trip_history @date1 = '"+ date1 +"', @date2 = '"+ date2 + "', @crossing = '"+crossing+"', @filterCheck = '"+filterCheck+"', @dateTypeFilter = '"+dateTypeFilter+"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default tripQueries;
