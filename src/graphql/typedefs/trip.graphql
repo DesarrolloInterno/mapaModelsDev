@@ -170,6 +170,7 @@ type transportDocument {
   SATStamp: String
   LinkQR: String
   idCCP: String
+  CFDItype: String
 }
 
 type tripAmounts {
@@ -247,11 +248,34 @@ type trips {
   operator: String,
   idUnit: Int,
   unit: String,
+  unitLicensePlates: String,
+  unitStatus: String,
   idTruckBox: Int,
   truckBox: String,
+  truckBoxLicensePlates: String,
   idTripOrder: Int,
   total: Float,
   loadingDateTime: String
+  showCPImport: String
+  docXml: String
+  docPdf: String,
+  name: String,
+  originDestination: String,
+  isRefrigerated: String,
+  isDry: String,
+  isDoorDoor: String,
+  isEmpty: String,
+  isEmptyPaid: String,
+  requestProofDelivery: String,
+  codeCountryOrigin: String,
+  codeCountryDestination: String,
+  truckBoxStatus: String,
+  classifyAsCrossover: String,
+  subtotal: String,
+  IVA: String,
+  RET: String,
+  UUID: String,
+  cfdiType: String,
 }
 
 input update_trip_tripAssignment{
@@ -295,7 +319,28 @@ input update_trip{
 	idEmployee: String,
 	idTruckBox: String,
 	idUnit: String,
-	userLoggedIn: String
+	userLoggedIn: String,
+  showCPImport: String,
+}
+
+input update_trip2 {
+  idTrip: String,
+  idSalesFormat: String,
+  legendOriginCollection: String,
+  legendDestinationCollection: String,
+  reference: String,
+  proNumber: String,
+  loadingDate: String,
+  deliveryDate: String,
+  idUnit: String,
+  idEmployee: String,
+  idTruckBox: String,
+  wheelChocks: String,
+  straps: String,
+  showCPImport: String,
+  sealNumber: String,
+  observations: String,
+  userLoggedIn: String,
 }
 
 type return_new_trip{
@@ -428,6 +473,26 @@ isRefrigerated: String,
 typeCrossing: String,
 userLoggedIn: String,
 idLoggedIn: String
+}
+
+input create_trip2 {
+  idSalesFormat: String,
+  legendOriginCollection: String,
+  legendDestinationCollection: String,
+  reference: String,
+  proNumber: String,
+  loadingDate: String,
+  deliveryDate: String,
+  idUnit: String,
+  idEmployee: String,
+  idTruckBox: String,
+  wheelChocks: String,
+  straps: String,
+  showCPImport: String,
+  sealNumber: String,
+  observations: String,
+  userLoggedIn: String,
+  idLoggedIn: String
 }
 
 type tripsForTracking {
@@ -564,13 +629,20 @@ input set_link_tripDocument {
   userLoggedIn: String
 }
 
+input set_link_transferInvoice {
+  idTrip: String
+  linkPDF: String
+  linkXML: String
+  userLoggedIn: String
+}
+
 type tripDocuments {
-    id: ID
-    idTrip: Int
-    nameDocument: String
-    documentLink: String
-    status: String
-    comments: String
+  id: ID
+  idTrip: Int
+  nameDocument: String
+  documentLink: String
+  status: String
+  comments: String
 }
 
 input update_tripDocuments {
@@ -612,6 +684,24 @@ type tripTrackingPickups {
   typeLoad: String
   arrivalDate: String
   productName: String
+}
+
+type create_transferInvoice {
+  idTrip: String
+	message: String
+	messageproducts: String
+	messageClient: String
+	messageSalesFormat: String
+	messageLoadingDate: String
+	messageDeliveryDate: String
+	messageTemperature: String
+	messageProNumber: String
+	messageReference: String
+	messageSalesFormatCrossing: String
+	tokenTransferInvoice : String
+	numTrip: String
+	docXml: String
+	docPdf: String
 }
 
 type return_tem_products_trip_excel{
@@ -695,6 +785,112 @@ type return_tem_products_trip_excel{
 	customsDocumentIdentifierMessage: String
   customsDocumentIdentifier: String
   excelRow: String
+}
+
+type transferInvoice {
+  numTrip: String
+  idTrip: String
+	dateRecorded: String
+	invoiceSeries: String
+	certificateNumber: String
+	enterpriseZipCode: String
+	idClient: String
+	client: String
+	clientRFC: String 
+	clientTAXID: String
+	clientPayment: String 
+	clientPaymentMethod: String
+	clientZipCode: String 
+	clientFiscalSystem: String 
+	clientUseOfCFDI: String
+	clientCodeCountry: String
+	subtotal: String 
+	currency: String 
+	total: String
+	IVA: String
+	RET: String
+	internationalTransport: String 
+	entryExitMerchandise: String
+	countryOriginDestination: String
+	kilometres: String
+	customsClearance: String
+	originRFC: String 
+	origin: String
+	originNumRegIdTrib: String
+	originFiscalResidency: String
+	originAddress: String 
+	originOutsideAddressNumber: String
+	originInsideAddressNumber: String
+	originCodeTownship: String
+	originCodeState: String 
+	originCodeCountry: String
+	originZipCode: String
+	destinationRFC: String
+	destination: String
+	destinationNumRegIdTrib: String
+	destinationFiscalResidency: String
+	destinationAddress: String
+	destinationOutsideAddressNumber: String
+	destinationInsideAddressNumber: String
+	destinationCodeTownship: String
+	destinationCodeState: String
+	destinationCodeCountry: String
+	destinationZipCode: String
+	totalWeight: String
+	idunit: String 
+	unit: String 
+	permissionType: String
+	permissionNumber: String
+	carrierKey: String
+	unitWeight: String
+	unitLicensePlates: String
+	unitYear: String
+	insurer: String
+	insurancePolicy: String
+	idTruckBoxe: String
+	truckBoxe: String
+	truckBoxeLicensePlates: String
+	trailerTypes: String
+	idOperator: String
+	operator: String
+	operatorRFC: String
+	driverLicense: String
+	operatorAddress: String
+	operatorOutsideAddressNumber: String
+	operatorInsideAddressNumber: String
+	operatorCodeTownship: String
+	operatorCodeState: String
+	operatorCodeCountry: String
+	operatorZipCode: String
+	products: String
+	digitalStampCertificate: String
+	certificateKey: String
+	passwordDigitalStampCertificate: String
+	cfdiExportType: String
+	enterpriseFiscalSystemCode: String
+	enterprise: String
+	enterpriseRFC: String
+	loadingDate: String
+	deliveryDate: String
+	IVApercentage: String
+	tripType: String
+	isTaxes: String
+}
+
+input setCFDITrip {
+  idTrip: String
+  UUID: String
+  dateCFDI: String
+  codStatus: String
+  satSeal: String
+  SATcertificateNumber: String
+  CFDIstamp: String
+  SATStamp: String
+  originalChain: String
+  LinkQR: String
+  xmlText: String
+  idCCP: String
+  userLoggedIn: String
 }
 
 input new_tripTracking_Pickups {
@@ -822,12 +1018,15 @@ type Query {
   GET_SUPPLIERS_LETTER_BY_IDTRIP(idTrip: String!): [suppliersLetter]
   GET_CLEANING_LETTER_BY_IDTRIP(idTrip: String!): [cleaningLetter]
   GET_FUMIGATION_LETTER_BY_IDTRIP(idTrip: String!): [fumigationLetter]
+  GET_TRASFERINVOICE_BY_TOKEN(token: String!): [transferInvoice]
 }
 
 type Mutation {
   CREATE_TRIP_FROM_TRIPS(input: create_trip): [return_newTrip]
+  CREATE_TRIP_FROM_TRIPS_2(input: create_trip2): [return_newTrip]
   UPDATE_TRIP_TRIPASSIGNMENT(input: update_trip_tripAssignment): [return_new_trip]
   UPDATE_TRIP(input: update_trip): [return_update_trip]
+  UPDATE_TRIP_2(input: update_trip2): [return_update_trip]
   UPDATE_TRIP_BOOTHROUTE(input: update_tripBoothRoute): String
   UPDATE_TRIP_AMOUNTS(input: update_tripAmounts): String
   DELETE_TRIP_AMOUNTS(input: delete_tripAmounts): String
@@ -844,4 +1043,7 @@ type Mutation {
   UPDATE_TRIP_TRACKING_TRAVEL_PICKUPS(input: update_tripTracking_Pickups): String
   UPDATE_TOTALWEIGHT_TRIP(input: tripTotalWeight): String
   UPLOAD_TEM_PRODUCTS_TRIP(input: tem_products_trip_excel): [return_tem_products_trip_excel]
+  UPDATE_TRIP_CFDI(input: setCFDITrip): String
+  CREATE_TRANSFERINVOCE(input: tripTotalWeight): [create_transferInvoice]
+  SET_LINK_PDF_XML_TRANSFERINVOCE(input: set_link_transferInvoice): String
 }

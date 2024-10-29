@@ -43,6 +43,9 @@ type salesFormat {
   typeCrossing: String
   codeCountryOrigin: String
   codeCountryDestination: String
+  countryOrigin: String
+  countryDestination: String
+  total: String
 }
 
 type salesFormatByIdClient {
