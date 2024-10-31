@@ -163,12 +163,29 @@ type invoiceById {
   creditDays: String
 }
 
+type invoiceCollectionForecast {
+  id: String,
+  idClient: String,
+  client: String,
+  numTrip: String,
+  cCPDate: String,
+  numInvoice: String,
+  invoiceSeries: String,
+	invoiceDate: String,
+  userRecorded: String,
+  creditDays: String,
+	remainingDays: String,
+	total: String,
+  subtotal: String
+}
+
 type Query {
   GET_INVOICES_BY_TOKEN(token: String!): [invoiceToken]
   GET_INVOICEAMOUNTS(idInvoice: String!): [invoiceAmounts]
   GET_ALL_INVOICES_FOR_COLLECTION(date1: String!, date2: String!, typeFilter: String!): [invoicesForCollection]
   GET_INVOICE_FOR_COLLECTION(date1: String!, date2: String!, typeFilter: String!): [invoicesForCollection]
   GET_INVOICE_BY_ID_INVOICE(idInvoice: String!): [invoiceById]
+  GET_ALL_INVOICES_FOR_COLLECTION_FORECAST(date1: String!): [invoiceCollectionForecast]
 }
 
 input setNewInvoices {

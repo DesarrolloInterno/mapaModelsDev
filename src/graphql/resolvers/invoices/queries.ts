@@ -37,7 +37,16 @@ const invoicesQueries = {
         } catch (error) {
             console.log(error);
         }
-    }
+    },
+    GET_ALL_INVOICES_FOR_COLLECTION_FORECAST: async (_: any, {date1}: any) => {
+        try{
+            const result = await invoices.query("exec get_all_invoices_for_collectionForecast @date1 = '"+ date1 +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default invoicesQueries;
