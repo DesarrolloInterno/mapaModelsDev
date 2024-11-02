@@ -176,7 +176,14 @@ type invoiceCollectionForecast {
   creditDays: String,
 	remainingDays: String,
 	total: String,
-  subtotal: String
+  subtotal: String,
+  currency: String
+}
+
+type summaryInvoiceCollectionForecast {
+  idClient: String,
+  client: String,
+	total: String
 }
 
 type Query {
@@ -185,7 +192,8 @@ type Query {
   GET_ALL_INVOICES_FOR_COLLECTION(date1: String!, date2: String!, typeFilter: String!): [invoicesForCollection]
   GET_INVOICE_FOR_COLLECTION(date1: String!, date2: String!, typeFilter: String!): [invoicesForCollection]
   GET_INVOICE_BY_ID_INVOICE(idInvoice: String!): [invoiceById]
-  GET_ALL_INVOICES_FOR_COLLECTION_FORECAST(date1: String!): [invoiceCollectionForecast]
+  GET_ALL_INVOICES_FOR_COLLECTION_FORECAST(date1: String!, currency: String!): [invoiceCollectionForecast]
+  GET_ALL_SUMMARY_INVOICES_FOR_COLLECTION_FORECAST(date1: String!, currency: String!): [summaryInvoiceCollectionForecast]
 }
 
 input setNewInvoices {

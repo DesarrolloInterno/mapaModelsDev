@@ -38,15 +38,24 @@ const invoicesQueries = {
             console.log(error);
         }
     },
-    GET_ALL_INVOICES_FOR_COLLECTION_FORECAST: async (_: any, {date1}: any) => {
+    GET_ALL_INVOICES_FOR_COLLECTION_FORECAST: async (_: any, {date1, currency}: any) => {
         try{
-            const result = await invoices.query("exec get_all_invoices_for_collectionForecast @date1 = '"+ date1 +"'");
+            const result = await invoices.query("exec get_all_invoices_for_collectionForecast @date1 = '"+ date1 +"', @currency = '"+ currency + "'");
             return result;
 
         } catch (error) {
             console.log(error);
         }
     },
+    GET_ALL_SUMMARY_INVOICES_FOR_COLLECTION_FORECAST: async (_: any, {date1, currency}: any) => {
+        try{
+            const result = await invoices.query("exec get_all_summaryInvoices_for_collectionForecast @date1 = '"+ date1 +"', @currency = '"+ currency + "'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default invoicesQueries;
