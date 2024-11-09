@@ -11,7 +11,8 @@ const tollBoothsMutations = {
 			town,
 			latitude,
 			longitude,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -23,7 +24,8 @@ const tollBoothsMutations = {
                 "@town = '" + town + "', " +
                 "@latitude = '" + latitude + "', " +
                 "@longitude = '" + longitude + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {
@@ -41,7 +43,8 @@ const tollBoothsMutations = {
 			town,
 			latitude,
 			longitude,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -54,7 +57,8 @@ const tollBoothsMutations = {
                 "@town = '" + town + "', " +
                 "@latitude = '" + latitude + "', " +
                 "@longitude = '" + longitude + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {

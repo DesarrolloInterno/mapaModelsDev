@@ -18,7 +18,7 @@ type jobTitle_typeReceipt {
 }
 
 type Query {
-  GET_ALL_JOBTITLE(status: String!): [jobTitle]
+  GET_ALL_JOBTITLE(status: String!, idEnterprise: String!): [jobTitle]
   GET_TYPERECEIPT_BY_JOBTITLE(idJobTitle: String!):[jobTitle_typeReceipt]
 }
 
@@ -28,6 +28,7 @@ input create_jobTitle {
   higherPosition: String
   userLoggedIn: String
   idDepartment: String
+  idEnterprise: String
 }
 
 input update_jobTitle {
@@ -37,6 +38,7 @@ input update_jobTitle {
     higherPosition: String
     userLoggedIn: String
     idDepartment: String
+    idEnterprise: String
 }
 
 input delete_jobTitle {

@@ -15,7 +15,8 @@ const taxesMutations = {
             nameAccountingAccountInvoices,
             idAccountingAccountPayments,
             accountingAccountPayments,
-            nameAccountingAccountPayments
+            nameAccountingAccountPayments,
+            idEnterprise
         } = input;
         try {
             const newRecord = await taxes.query("exec create_taxes "+
@@ -27,7 +28,7 @@ const taxesMutations = {
             "@nameAccountingAccountInvoices = '"+nameAccountingAccountInvoices+"', "+
             "@idAccountingAccountPayments = '"+idAccountingAccountPayments+"', "+
             "@accountingAccountPayments = '"+accountingAccountPayments+"', "+
-            "@nameAccountingAccountPayments = '"+nameAccountingAccountPayments+"' ");
+            "@nameAccountingAccountPayments = '"+nameAccountingAccountPayments+"', " + "@idEnterprise = '"+idEnterprise+"' ");
             return newRecord;
         } catch (error) {
             console.log(error);
@@ -47,7 +48,8 @@ const taxesMutations = {
             nameAccountingAccountInvoices,
             idAccountingAccountPayments,
             accountingAccountPayments,
-            nameAccountingAccountPayments
+            nameAccountingAccountPayments,
+            idEnterprise
         } = input;
         try {
             const newRecord = await taxes.query("exec update_taxes "+
@@ -59,7 +61,8 @@ const taxesMutations = {
             "@nameAccountingAccountInvoices = '"+nameAccountingAccountInvoices+"', "+
             "@idAccountingAccountPayments = '"+idAccountingAccountPayments+"', "+
             "@accountingAccountPayments = '"+accountingAccountPayments+"', "+
-            "@nameAccountingAccountPayments = '"+nameAccountingAccountPayments+"' ");
+            "@nameAccountingAccountPayments = '"+nameAccountingAccountPayments+"', " +
+            "@idEnterprise = '"+idEnterprise+"' ");
             
             return newRecord;
         } catch (error) {
@@ -69,13 +72,15 @@ const taxesMutations = {
     DELETE_TAX: async (_: any, {input}: any) => {
         const {
             idTax,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
             await taxes.query("exec delete_tax " +
                 "@idTax = '" + idTax + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return "Registro eliminado correctamente"
         } catch (error) {

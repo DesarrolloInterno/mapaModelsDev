@@ -29,8 +29,8 @@ type return_new_clientLocations{
 }
 
 type Query {
-  GET_CLIENT_LOCATION(status:String!, idClient:String!): [clientLocations]
-  GET_LIST_CLIENT_LOCATION(status:String!): [clientLocations]
+  GET_CLIENT_LOCATION(status:String!, idClient:String!, idEnterprise:String!): [clientLocations]
+  GET_LIST_CLIENT_LOCATION(status:String!, idEnterprise:String!): [clientLocations]
 }
 
 input new_clientLocations {
@@ -50,7 +50,8 @@ input new_clientLocations {
   longitude: String,
   userLoggedIn: String
   confirm: String
-  additionalInformation: String
+  additionalInformation: String,
+  idEnterprise: String
 }
 
 input edit_clientLocations {
@@ -71,7 +72,8 @@ input edit_clientLocations {
   longitude: String,
   userLoggedIn: String
   confirm: String
-  additionalInformation: String
+  additionalInformation: String,
+  idEnterprise: String
 }
 
 input delete_clientLocation {

@@ -25,17 +25,17 @@ const clientTravelOrderQueries = {
             console.log(error);
         }
     },
-    GET_CLIENTS_CLIENT_TRAVEL_ORDERS: async (_: any, {date1, date2, status}: any) => {
+    GET_CLIENTS_CLIENT_TRAVEL_ORDERS: async (_: any, {date1, date2, status, idEnterprise}: any) => {
         try{
-            const result = await clientTravelOrder.query("exec get_all_clients_clientTravelOrders @date1 = '"+date1+"', @date2 = '"+date2+"', @status = '"+status+"'");
+            const result = await clientTravelOrder.query("exec get_all_clients_clientTravelOrders @date1 = '"+date1+"', @date2 = '"+date2+"', @status = '"+status+"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
         } catch (error) {
             console.log(error);
         }
     },
-    GET_CLIENTTRAVELORDER_BY_ID: async (_: any, {idClientTravelOrder}: any) => {
+    GET_CLIENTTRAVELORDER_BY_ID: async (_: any, {idClientTravelOrder, idEnterprise}: any) => {
         try{
-            const result = await clientTravelOrder.query("exec get_all_clients_clientTravelOrders_by_id @idClientTravelOrder = '"+ idClientTravelOrder +"'");
+            const result = await clientTravelOrder.query("exec get_all_clients_clientTravelOrders_by_id @idClientTravelOrder = '"+ idClientTravelOrder +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {

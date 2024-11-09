@@ -1,9 +1,9 @@
 import { tripAdvance } from "../../../db/Entities/tripAdvance";
 
 const tripAdvanceQueries = {
-    GET_TRIPADVANCE: async (_: any, {status, date1, date2}: any) => {
+    GET_TRIPADVANCE: async (_: any, {status, date1, date2, idEnterprise}: any) => {
         try{
-            const result = await tripAdvance.query("exec get_all_tripAdvance @status = '"+ status +"', @date1 = '"+date1+"', @date2 = '"+date2+"' ");
+            const result = await tripAdvance.query("exec get_all_tripAdvance @status = '"+ status +"', @date1 = '"+date1+"', @date2 = '"+date2+"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {

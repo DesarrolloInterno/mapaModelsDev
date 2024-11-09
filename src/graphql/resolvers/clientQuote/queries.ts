@@ -1,18 +1,18 @@
 import { clientQuote } from "../../../db/Entities/clientQuote";
 
 const clientQuoteQueries = {
-    GET_ALL_CLIENT_QUOTE: async (_: any, {status, date1, date2}: any) => {
+    GET_ALL_CLIENT_QUOTE: async (_: any, {status, date1, date2, idEnterprise}: any) => {
         try{
-            const result = await clientQuote.query("exec get_all_clientQuote @status = '"+ status +"', @date1 = '"+date1+"', @date2 = '"+date2+"' ");
+            const result = await clientQuote.query("exec get_all_clientQuote @status = '"+ status +"', @date1 = '"+date1+"', @date2 = '"+date2+"', @idEnterprise = '"+idEnterprise+"'");
             return result;
 
         } catch (error) {
             console.log(error);
         }
     },
-    GET_CLIENT_QUOTE_BY_ID: async (_: any, {idClientQuote}: any) => {
+    GET_CLIENT_QUOTE_BY_ID: async (_: any, {idClientQuote, idEnterprise}: any) => {
         try{
-            const result = await clientQuote.query("exec get_clientQuote_by_id @idClientQuote = '"+ idClientQuote +"' ");
+            const result = await clientQuote.query("exec get_clientQuote_by_id @idClientQuote = '"+ idClientQuote +"', @idEnterprise = '"+idEnterprise+"'");
             return result;
 
         } catch (error) {

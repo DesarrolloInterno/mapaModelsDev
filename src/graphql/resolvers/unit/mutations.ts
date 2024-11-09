@@ -33,7 +33,8 @@ const unitMutations = {
             observations,
             idInsurer,
             idEnvironmentalInsurer,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -68,7 +69,8 @@ const unitMutations = {
                 "@observations = '"+ observations + "',"+
                 "@idInsurer = '"+ idInsurer + "',"+
                 "@idEnvironmentalInsurer = '"+ idEnvironmentalInsurer + "',"+
-                "@userLoggedIn = '"+ userLoggedIn + "'"
+                "@userLoggedIn = '"+ userLoggedIn + "'," +
+                "@idEnterprise = '"+ idEnterprise + "'"
             );
             return newRecord;
         } catch (error) {
@@ -125,7 +127,8 @@ const unitMutations = {
             observations,
             idInsurer,
             idEnvironmentalInsurer,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -160,7 +163,8 @@ const unitMutations = {
                 "@observations = '" + observations + "', " +
                 "@idInsurer = '" + idInsurer + "', " +
                 "@idEnvironmentalInsurer = '" + idEnvironmentalInsurer + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {

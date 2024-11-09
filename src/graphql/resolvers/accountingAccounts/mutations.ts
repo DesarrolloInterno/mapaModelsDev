@@ -19,7 +19,8 @@ const accountingAccountsMutations = {
             accountNature,
             isAffectable,
             showOnCancellation,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
         try {
             const newRecord = await accountingAccounts.query("exec create_accountingAccount " +
@@ -39,7 +40,7 @@ const accountingAccountsMutations = {
             "@accountNature = '"+accountNature+"', " +
             "@isAffectable = '"+isAffectable+"', " +
             "@showOnCancellation = '"+showOnCancellation+"', " +
-            "@userLoggedIn = '"+userLoggedIn+"' ");
+            "@userLoggedIn = '"+userLoggedIn+"', " + "@idEnterprise = '"+idEnterprise+"' ");
             return newRecord;
         } catch (error) {
             console.log(error);
@@ -64,7 +65,8 @@ const accountingAccountsMutations = {
             accountNature,
             isAffectable,
             showOnCancellation,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
         try {
             const newRecord = await accountingAccounts.query("exec update_accountingAccount " +
@@ -85,7 +87,8 @@ const accountingAccountsMutations = {
             "@accountNature = '"+accountNature+"', " +
             "@isAffectable = '"+isAffectable+"', " +
             "@showOnCancellation = '"+showOnCancellation+"', " +
-            "@userLoggedIn = '"+userLoggedIn+"' ");
+            "@userLoggedIn = '"+userLoggedIn+"', " +
+            "@idEnterprise = '"+idEnterprise+"' ");
             return newRecord;
         } catch (error) {
             console.log(error);

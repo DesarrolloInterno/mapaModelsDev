@@ -48,6 +48,7 @@ input create_candidates {
     antiquity: String
     idJobTitle: String
     currentJob: String
+    idEnterprise: String
 }
 
 input update_candidates {
@@ -69,6 +70,7 @@ input update_candidates {
     antiquity: String
     idJobTitle: String
     currentJob: String
+    idEnterprise: String
 }
 
 input reject_candidate {
@@ -82,6 +84,7 @@ input accept_candidate {
   idCandidate: Int
   startDate: String
   userLoggedIn: String
+  idEnterprise: String
 }
 
 input set_reentry {
@@ -91,7 +94,7 @@ input set_reentry {
 }
 
 type Query {
-    GET_ALL_CANDIDATES(status: String!, date1: String!, date2: String!): [candidates]
+    GET_ALL_CANDIDATES(status: String!, date1: String!, date2: String!, idEnterprise: String!): [candidates]
 }
 
 type Mutation {

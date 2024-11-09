@@ -35,8 +35,8 @@ type boothRoutesList {
 }
 
 type Query {
-  GET_BOOTHROUTES(status:String!): [boothRoutes]
-  GET_BOOTHROUTES_LIST(status:String!): [boothRoutesList]
+  GET_BOOTHROUTES(status:String!, idEnterprise:String!): [boothRoutes]
+  GET_BOOTHROUTES_LIST(status:String!, idEnterprise:String!): [boothRoutesList]
 }
 
 type return_new_boothRoutes{
@@ -54,7 +54,8 @@ input new_boothRoutes {
   idDestinationTown: String,
   destinationTown: String,
   isReversible: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input edit_boothRoutes {
@@ -68,7 +69,8 @@ input edit_boothRoutes {
   idDestinationTown: String,
   destinationTown: String,
   isReversible: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input delete_boothRoute {

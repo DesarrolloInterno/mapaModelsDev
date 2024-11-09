@@ -32,7 +32,7 @@ type getTripAdvance {
 }
 
 type Query {
-  GET_TRIPADVANCE(status: String!, date1: String!, date2: String!): [getTripAdvance]
+  GET_TRIPADVANCE(status: String!, date1: String!, date2: String!, idEnterprise: String!): [getTripAdvance]
 }
 
 input new_tripAdvance {
@@ -45,7 +45,8 @@ input new_tripAdvance {
   comments: String,
   reference: String,
   relationTrip: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 type return_new_tripAdvance{
@@ -64,7 +65,8 @@ input update_tripAdvance {
   comments: String,
   reference: String,
   relationTrip: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input delete_tripAdvance {

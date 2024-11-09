@@ -1,9 +1,9 @@
 import { clientUsers } from "../../../db/Entities/clientUsers";
 
 const clientUsersQueries = {
-    GET_CLIENTUSERS_BY_IDCLIENT: async (_: any, {idClient}: any) => {
+    GET_CLIENTUSERS_BY_IDCLIENT: async (_: any, {idClient, idEnterprise}: any) => {
         try{
-            const result = await clientUsers.query("exec get_clientUsers_by_idClient @idClient = '"+ idClient +"', @encrypt = '"+process.env.ENCRYPT+"' ");
+            const result = await clientUsers.query("exec get_clientUsers_by_idClient @idClient = '"+ idClient +"', @encrypt = '"+process.env.ENCRYPT+"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {

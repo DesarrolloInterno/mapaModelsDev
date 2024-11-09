@@ -9,7 +9,7 @@ type warehouses {
 }
 
 type Query {
-  GET_WAREHOUSES(status:String!): [warehouses]
+  GET_WAREHOUSES(status:String!, idEnterprise:String!): [warehouses]
 }
 
 input new_warehouse{
@@ -18,7 +18,8 @@ input new_warehouse{
   idCountry: String,
   country: String,
   code: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 type return_new_warehouse{
@@ -33,7 +34,8 @@ input update_warehouse {
   idCountry: String,
   country: String,
   code: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input delete_warehouse {

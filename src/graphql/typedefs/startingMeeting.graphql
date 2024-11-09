@@ -10,8 +10,8 @@ type startingMeeting {
 }
 
 type Query {
-    GET_ALL_STARTING_MEETING(status: String!, date1: String!, date2: String!): [startingMeeting]
-    GET_STARTING_MEETING_BY_ID(idStartingMeeting: String!): [startingMeeting]
+    GET_ALL_STARTING_MEETING(status: String!, date1: String!, date2: String!, idEnterprise: String!): [startingMeeting]
+    GET_STARTING_MEETING_BY_ID(idStartingMeeting: String!, idEnterprise: String!): [startingMeeting]
 }
 
 type return_new_startingMeeting {

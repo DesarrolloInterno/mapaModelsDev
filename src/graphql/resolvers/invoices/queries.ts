@@ -20,9 +20,9 @@ const invoicesQueries = {
             console.log(error);
         }
     },
-    GET_ALL_INVOICES_FOR_COLLECTION: async (_: any, {date1, date2, typeFilter}: any) => {
+    GET_ALL_INVOICES_FOR_COLLECTION: async (_: any, {date1, date2, typeFilter, idEnterprise}: any) => {
         try{
-            const result = await invoices.query("exec get_all_invoicesForCollection @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @typeFilter= '"+ typeFilter +"'");
+            const result = await invoices.query("exec get_all_invoicesForCollection @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @typeFilter= '"+ typeFilter +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
@@ -38,18 +38,18 @@ const invoicesQueries = {
             console.log(error);
         }
     },
-    GET_ALL_INVOICES_FOR_COLLECTION_FORECAST: async (_: any, {date1, currency}: any) => {
+    GET_ALL_INVOICES_FOR_COLLECTION_FORECAST: async (_: any, {date1, currency, idEnterprise}: any) => {
         try{
-            const result = await invoices.query("exec get_all_invoices_for_collectionForecast @date1 = '"+ date1 +"', @currency = '"+ currency + "'");
+            const result = await invoices.query("exec get_all_invoices_for_collectionForecast @date1 = '"+ date1 +"', @currency = '"+ currency + "', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
             console.log(error);
         }
     },
-    GET_ALL_SUMMARY_INVOICES_FOR_COLLECTION_FORECAST: async (_: any, {date1, currency}: any) => {
+    GET_ALL_SUMMARY_INVOICES_FOR_COLLECTION_FORECAST: async (_: any, {date1, currency, idEnterprise}: any) => {
         try{
-            const result = await invoices.query("exec get_all_summaryInvoices_for_collectionForecast @date1 = '"+ date1 +"', @currency = '"+ currency + "'");
+            const result = await invoices.query("exec get_all_summaryInvoices_for_collectionForecast @date1 = '"+ date1 +"', @currency = '"+ currency + "', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {

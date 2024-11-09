@@ -7,7 +7,7 @@ const tripOrderMutations = {
             orderDate,
 			tripType,
             userLoggedIn,
-            idLoggedIn
+            idEnterprise
         } = input;
 
         try {
@@ -15,7 +15,7 @@ const tripOrderMutations = {
                 "@orderDate = '" + orderDate + "', " +
                 "@tripType = '" + tripType + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@idLoggedIn = '" + idLoggedIn + "' "
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return 'Orden de viaje creada correctamente'
         } catch (error) {
@@ -196,7 +196,7 @@ const tripOrderMutations = {
             orderDate,
 			tripType,
             userLoggedIn,
-            idLoggedIn
+            idEnterprise
         } = input;
 
         try {
@@ -204,7 +204,7 @@ const tripOrderMutations = {
                 "@orderDate = '" + orderDate + "', " +
                 "@tripType = '" + tripType + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@idLoggedIn = '" + idLoggedIn + "' "
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return 'Orden de viaje creada correctamente'
         } catch (error) {

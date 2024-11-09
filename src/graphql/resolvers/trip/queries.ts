@@ -2,18 +2,18 @@ import { trip } from "../../../db/Entities/trip";
 
 const tripQueries = {
 
-    GET_ALL_TRIPFORCROSSING: async (_: any, {date1, date2}: any) => {
+    GET_ALL_TRIPFORCROSSING: async (_: any, {date1, date2, idEnterprise}: any) => {
         try{
-            const result = await trip.query("exec get_all_tripsForCrossings @date1 = '"+ date1 +"', @date2 = '"+ date2 +"' ");
+            const result = await trip.query("exec get_all_tripsForCrossings @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
             console.log(error);
         }
     },
-    GET_ALL_TRIPS: async (_: any, {status, date1, date2}: any) => {
+    GET_ALL_TRIPS: async (_: any, {status, date1, date2, idEnterprise}: any) => {
         try{
-            const result = await trip.query("exec get_all_trips @status = '" + status + "', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"' ");
+            const result = await trip.query("exec get_all_trips @status = '" + status + "', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
@@ -96,9 +96,9 @@ GET_TRANSPORTDOCUMENT: async (_: any, {idTrip}: any) => {
             console.log(error);
         }
     },
-    GET_ALL_TRIPS_FOR_TRIPS_TRACKING: async (_: any, {status, date1, date2}: any) => {
+    GET_ALL_TRIPS_FOR_TRIPS_TRACKING: async (_: any, {status, date1, date2, idEnterprise}: any) => {
         try{
-            const result = await trip.query("exec get_all_trips_for_tripsTracking @status = '" + status + "', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"' ");
+            const result = await trip.query("exec get_all_trips_for_tripsTracking @status = '" + status + "', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
@@ -132,9 +132,9 @@ GET_TRANSPORTDOCUMENT: async (_: any, {idTrip}: any) => {
             console.log(error);
         }
     },
-    GET_ALL_CROSSING_TRIP_TRACKING: async (_: any, {status, date1, date2}: any) => {
+    GET_ALL_CROSSING_TRIP_TRACKING: async (_: any, {status, date1, date2, idEnterprise}: any) => {
         try{
-            const result = await trip.query("exec get_all_trips_for_crossingTripsTracking @status = '"+ status +"', @date1 = '"+ date1 + "', @date2= '"+date2+"' ");
+            const result = await trip.query("exec get_all_trips_for_crossingTripsTracking @status = '"+ status +"', @date1 = '"+ date1 + "', @date2= '"+date2+"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
@@ -168,9 +168,9 @@ GET_TRANSPORTDOCUMENT: async (_: any, {idTrip}: any) => {
             console.log(error);
         }
     },
-    GET_TRIP_HISTORY: async (_: any, {date1, date2, crossing, filterCheck, dateTypeFilter}: any) => {
+    GET_TRIP_HISTORY: async (_: any, {date1, date2, crossing, filterCheck, dateTypeFilter, idEnterprise}: any) => {
         try{
-            const result = await trip.query("exec get_trip_history @date1 = '"+ date1 +"', @date2 = '"+ date2 + "', @crossing = '"+crossing+"', @filterCheck = '"+filterCheck+"', @dateTypeFilter = '"+dateTypeFilter+"'");
+            const result = await trip.query("exec get_trip_history @date1 = '"+ date1 +"', @date2 = '"+ date2 + "', @crossing = '"+crossing+"', @filterCheck = '"+filterCheck+"', @dateTypeFilter = '"+dateTypeFilter+"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {

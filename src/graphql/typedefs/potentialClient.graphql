@@ -140,7 +140,7 @@ type potentialClientToClient {
 }
 
 type Query {
-    GET_ALL_POTENTIAL_CLIENT(status: String!): [potentialClient]
+    GET_ALL_POTENTIAL_CLIENT(status: String!, idEnterprise: String!): [potentialClient]
     GET_POTENTIAL_CLIENT_BY_ID(idPotentialClient: String!): [potentialClient]
     GET_POTENTIAL_CLIENT_FORM_BY_ID(idPotentialClient: String!): [potentialClientForm]
     GET_USER_POTENTIAL_CLIENT_LOGIN(user: String!, password: String!): [login_user_potentialClient]

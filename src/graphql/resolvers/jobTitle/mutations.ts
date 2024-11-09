@@ -2,18 +2,18 @@ import { jobTitle } from "../../../db/Entities/jobTitle";
 
 const jobTitleMutations = {
     CREATE_JOBTITLE: async (_: any, {input}: any) => {
-        const {name, description, higherPosition, userLoggedIn, idDepartment } = input;
+        const {name, description, higherPosition, userLoggedIn, idDepartment, idEnterprise } = input;
         try {
-            const newRecord = await jobTitle.query("exec create_jobTitle @name = '"+name+"', @description = '"+description+"', @higherPosition = '"+higherPosition+"', @userLoggedIn = '"+userLoggedIn+"', @idDepartment = '"+idDepartment+"' ");
+            const newRecord = await jobTitle.query("exec create_jobTitle @name = '"+name+"', @description = '"+description+"', @higherPosition = '"+higherPosition+"', @userLoggedIn = '"+userLoggedIn+"', @idDepartment = '"+idDepartment+"', @idEnterprise = '"+ idEnterprise +"'");
             return newRecord[0].message;
         } catch (error) {
             console.log(error);
         }
     },
     UPDATE_JOBTITLE: async (_: any, {input}: any) => {
-        const {idJobTitle, name, description, higherPosition, userLoggedIn, idDepartment } = input;
+        const {idJobTitle, name, description, higherPosition, userLoggedIn, idDepartment, idEnterprise } = input;
         try {
-            const newRecord = await jobTitle.query("exec update_jobTitle @idJobTitle = '"+idJobTitle+"', @name = '"+name+"', @description = '"+description+"', @higherPosition = '"+higherPosition+"', @userLoggedIn = '"+userLoggedIn+"', @idDepartment = '"+idDepartment+"' ");
+            const newRecord = await jobTitle.query("exec update_jobTitle @idJobTitle = '"+idJobTitle+"', @name = '"+name+"', @description = '"+description+"', @higherPosition = '"+higherPosition+"', @userLoggedIn = '"+userLoggedIn+"', @idDepartment = '"+idDepartment+"', @idEnterprise = '"+ idEnterprise +"'");
             return newRecord[0].message;
         } catch (error) {
             console.log(error);

@@ -3,18 +3,18 @@ import { typeDocumentsClients } from "../../../db/Entities/typeDocumentsClients"
 const typeDocumentsClientsMutations = {
 
     CREATE_TYPE_DOCUMENTS_CLIENTS: async (_: any, {input}: any) => {
-        const {name, description, userLoggedIn, typeClient} = input;
+        const {name, description, userLoggedIn, typeClient, idEnterprise} = input;
         try {
-            const newRecord = await typeDocumentsClients.query("exec create_typeDocumentsClients @name = '"+name+"', @description = '"+description+"', @typeClient = '"+typeClient+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            const newRecord = await typeDocumentsClients.query("exec create_typeDocumentsClients @name = '"+name+"', @description = '"+description+"', @typeClient = '"+typeClient+"', @userLoggedIn = '"+userLoggedIn+"', @idEnterprise = '"+ idEnterprise +"'");
             return newRecord[0].message;
         } catch (error) {
             console.log(error);
         }
     },
     UPDATE_TYPE_DOCUMENT_CLIENT: async (_: any, {input}: any) => {
-        const {idTypeDocumentClient, name, description, userLoggedIn, typeClient} = input;
+        const {idTypeDocumentClient, name, description, userLoggedIn, typeClient, idEnterprise} = input;
         try {
-            const newRecord = await typeDocumentsClients.query("exec update_typeDocumentsClients @idTypeDocumentClient = " + idTypeDocumentClient + ", @name = '"+name+"', @description = '"+description+"', @typeClient = '"+typeClient+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            const newRecord = await typeDocumentsClients.query("exec update_typeDocumentsClients @idTypeDocumentClient = " + idTypeDocumentClient + ", @name = '"+name+"', @description = '"+description+"', @typeClient = '"+typeClient+"', @userLoggedIn = '"+userLoggedIn+"', @idEnterprise = '"+ idEnterprise +"'");
             return newRecord[0].message;
         } catch (error) {
             console.log(error);

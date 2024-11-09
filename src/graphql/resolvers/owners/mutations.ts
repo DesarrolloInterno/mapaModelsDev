@@ -7,7 +7,8 @@ const ownersMutations = {
 			name,
             observations,
             permitHolder,
-	        userLoggedIn
+	        userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -15,7 +16,8 @@ const ownersMutations = {
                 "@name = '" + name + "', " +
                 "@observations = '" + observations + "', " +
                 "@permitHolder = '" + permitHolder + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' " 
             );
             return newRecord;
         } catch (error) {
@@ -29,7 +31,8 @@ const ownersMutations = {
 			name,
             observations,
             permitHolder,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -38,7 +41,8 @@ const ownersMutations = {
                 "@name = '" + name + "', " +
                 "@observations = '" + observations + "', " +
                 "@permitHolder = '" + permitHolder + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' " 
             );
             return newRecord;
         } catch (error) {

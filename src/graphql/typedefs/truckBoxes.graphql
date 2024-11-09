@@ -24,7 +24,7 @@ type truckBox {
 }
 
 type Query {
-  GET_TRUCKBOXES(status:String!): [truckBox]
+  GET_TRUCKBOXES(status:String!, idEnterprise:String!): [truckBox]
 }
 
 input new_truckBox {
@@ -46,7 +46,8 @@ input new_truckBox {
   idState: String,
   state: String,
   trailerTypes: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input delete_truckBox {
@@ -74,7 +75,8 @@ input update_truckBox {
   idState: String,
   state: String,
   trailerTypes: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 type return_new_truckBox{

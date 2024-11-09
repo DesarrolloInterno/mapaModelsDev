@@ -2,9 +2,9 @@ import { salesFormat } from "../../../db/Entities/salesFormat";
 
 const salesFormatQueries = {
 
-    GET_SALES_FORMAT: async (_: any, {status, tripType}: any) => {
+    GET_SALES_FORMAT: async (_: any, {status, tripType, idEnterprise}: any) => {
         try{
-            const result = await salesFormat.query("exec get_all_salesFormat @status = '"+ status +"', @tripType = '"+ tripType +"' ");
+            const result = await salesFormat.query("exec get_all_salesFormat @status = '"+ status +"', @tripType = '"+ tripType +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
@@ -20,9 +20,9 @@ const salesFormatQueries = {
             console.log(error);
         }
     },
-    GET_SALES_FORMAT_BY_ID: async (_: any, {idSalesFormat}: any) => {
+    GET_SALES_FORMAT_BY_ID: async (_: any, {idSalesFormat, idEnterprise}: any) => {
         try{
-            const result = await salesFormat.query("exec get_salesFormat_by_id @idSalesFormat = '"+ idSalesFormat +"' ");
+            const result = await salesFormat.query("exec get_salesFormat_by_id @idSalesFormat = '"+ idSalesFormat +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
@@ -38,9 +38,9 @@ const salesFormatQueries = {
             console.log(error);
         }
     },
-    GET_CROSS_SALES_FORMAT: async (_: any, {}: any) => {
+    GET_CROSS_SALES_FORMAT: async (_: any, {idEnterprise}: any) => {
         try{
-            const result = await salesFormat.query("exec get_cross_salesFormats ");
+            const result = await salesFormat.query("exec get_cross_salesFormats @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
@@ -92,18 +92,18 @@ const salesFormatQueries = {
             console.log(error);
         }
     },
-    GET_SALES_FORMAT_BY_CLIENT_AND_TRIP_TYPE: async (_: any, {idClient, tripType}: any) => {
+    GET_SALES_FORMAT_BY_CLIENT_AND_TRIP_TYPE: async (_: any, {idClient, tripType, idEnterprise}: any) => {
         try{
-            const result = await salesFormat.query("exec get_salesFormats_by_client_and_tripType @idClient = '"+ idClient +"', @tripType = '"+ tripType +"' ");
+            const result = await salesFormat.query("exec get_salesFormats_by_client_and_tripType @idClient = '"+ idClient +"', @tripType = '"+ tripType +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
             console.log(error);
         }
     },
-    GET_SALES_FORMAT_BY_CLIENT_AND_TRIPTYPE_CROSSINGTYPE: async (_: any, {idClient, tripType, crossingType}: any) => {
+    GET_SALES_FORMAT_BY_CLIENT_AND_TRIPTYPE_CROSSINGTYPE: async (_: any, {idClient, tripType, crossingType, idEnterprise}: any) => {
         try{
-            const result = await salesFormat.query("exec get_salesFormats_by_client_and_tripType_and_crossingType @idClient = '"+ idClient +"', @tripType = '"+ tripType +"', @crossingType = '"+crossingType+"' ");
+            const result = await salesFormat.query("exec get_salesFormats_by_client_and_tripType_and_crossingType @idClient = '"+ idClient +"', @tripType = '"+ tripType +"', @crossingType = '"+crossingType+"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {

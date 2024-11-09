@@ -1,9 +1,9 @@
 import { employees } from "../../../db/Entities/employees";
 
 const employeesQueries = {
-    GET_ALL_EMPLOYEES: async (_: any, {status}: any) => {
+    GET_ALL_EMPLOYEES: async (_: any, {status, idEnterprise}: any) => {
         try{
-            const result = await employees.query("exec get_all_employees @status = '"+ status +"' ");
+            const result = await employees.query("exec get_all_employees @status = '"+ status +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
@@ -11,9 +11,9 @@ const employeesQueries = {
         }
 
     },
-    GET_EMPLOYEE_BY_ID: async (_: any, {idEmployee}: any) => {
+    GET_EMPLOYEE_BY_ID: async (_: any, {idEmployee, idEnterprise}: any) => {
         try{
-            const result = await employees.query("exec get_employee @idEmployee = '"+ idEmployee +"' ");
+            const result = await employees.query("exec get_employee @idEmployee = '"+ idEmployee +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
@@ -66,9 +66,9 @@ const employeesQueries = {
         }
 
     },
-    GET_ALL_REGISTRATION_DISMISSAL_EMPLOYEE: async (_: any, {date1, date2, status, idDepartment}: any) => {
+    GET_ALL_REGISTRATION_DISMISSAL_EMPLOYEE: async (_: any, {date1, date2, status, idDepartment, idEnterprise}: any) => {
         try{
-            const result = await employees.query("exec get_all_registration_dismissal_employees @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @status = '"+ status +"', @idDepartment = '"+ idDepartment +"' ");
+            const result = await employees.query("exec get_all_registration_dismissal_employees @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @status = '"+ status +"', @idDepartment = '"+ idDepartment +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
         } catch (error) {
             console.log(error);
@@ -82,41 +82,41 @@ const employeesQueries = {
             console.log(error);
         }
     },
-    GET_ALL_DRIVERLICENSE_EMPLOYEE2: async (_: any, {date1, date2, typeReport, status, idDepartment}: any) => {
+    GET_ALL_DRIVERLICENSE_EMPLOYEE2: async (_: any, {date1, date2, typeReport, status, idDepartment, idEnterprise}: any) => {
         try{
-            const result = await employees.query("exec get_all_driverLicenses2 @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @typeReport = '"+ typeReport +"', @status = '"+ status +"', @idDepartment = '"+ idDepartment +"' ");
+            const result = await employees.query("exec get_all_driverLicenses2 @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @typeReport = '"+ typeReport +"', @status = '"+ status +"', @idDepartment = '"+ idDepartment +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
         } catch (error) {
             console.log(error);
         }
     },
-    GET_ALL_ANTIDOPING_EMPLOYEE: async (_: any, {date1, date2, typeReport, status, idDepartment}: any) => {
+    GET_ALL_ANTIDOPING_EMPLOYEE: async (_: any, {date1, date2, typeReport, status, idDepartment, idEnterprise}: any) => {
         try{
-            const result = await employees.query("exec get_all_antidoping @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @typeReport = '"+ typeReport +"', @status = '"+ status +"', @idDepartment = '"+ idDepartment +"' ");
+            const result = await employees.query("exec get_all_antidoping @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @typeReport = '"+ typeReport +"', @status = '"+ status +"', @idDepartment = '"+ idDepartment +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
         } catch (error) {
             console.log(error);
         }
     },
-    GET_ALL_MEDICAL_VALIDITY_EMPLOYEE: async (_: any, {date1, date2, typeReport, status, idDepartment}: any) => {
+    GET_ALL_MEDICAL_VALIDITY_EMPLOYEE: async (_: any, {date1, date2, typeReport, status, idDepartment, idEnterprise}: any) => {
         try{
-            const result = await employees.query("exec get_all_medicalValidity @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @typeReport = '"+ typeReport +"', @status = '"+ status +"', @idDepartment = '"+ idDepartment +"' ");
+            const result = await employees.query("exec get_all_medicalValidity @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @typeReport = '"+ typeReport +"', @status = '"+ status +"', @idDepartment = '"+ idDepartment +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
         } catch (error) {
             console.log(error);
         }
     },
-    GET_WORKER_ROTATION: async (_: any, {date, idDepartment}: any) => {
+    GET_WORKER_ROTATION: async (_: any, {date, idDepartment, idEnterprise}: any) => {
         try{
-            const result = await employees.query("exec get_worker_rotation @date = '"+ date +"', @idDepartment = '"+ idDepartment +"' ");
+            const result = await employees.query("exec get_worker_rotation @date = '"+ date +"', @idDepartment = '"+ idDepartment +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
         } catch (error) {
             console.log(error);
         }
     },
-    GET_ALL_OPERATOR_EMPLOYEES: async (_: any, {status}: any) => {
+    GET_ALL_OPERATOR_EMPLOYEES: async (_: any, {status, idEnterprise}: any) => {
         try{
-            const result = await employees.query("exec get_all_operator_employees @status = '"+ status +"'");
+            const result = await employees.query("exec get_all_operator_employees @status = '"+ status +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
@@ -139,18 +139,18 @@ const employeesQueries = {
             console.log(error);
         }
     },
-    GET_ALL_EMPLOYEES_BIRTHDAY: async (_: any, {monthOfBirth}: any) => {
+    GET_ALL_EMPLOYEES_BIRTHDAY: async (_: any, {monthOfBirth, idEnterprise}: any) => {
         try{
-            const result = await employees.query("exec get_all_employees_birthDay @monthOfBirth = '" + monthOfBirth + "'");
+            const result = await employees.query("exec get_all_employees_birthDay @monthOfBirth = '" + monthOfBirth + "', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
             console.log(error);
         }
     },
-    GET_ALL_EMPLOYEES_ANIVERSARY: async (_: any, {monthOfBirth}: any) => {
+    GET_ALL_EMPLOYEES_ANIVERSARY: async (_: any, {monthOfBirth, idEnterprise}: any) => {
         try{
-            const result = await employees.query("exec get_all_employees_aniversary @monthOfBirth = '" + monthOfBirth + "'");
+            const result = await employees.query("exec get_all_employees_aniversary @monthOfBirth = '" + monthOfBirth + "', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
