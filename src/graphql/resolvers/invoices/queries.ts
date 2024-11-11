@@ -55,6 +55,24 @@ const invoicesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_INVOICES_FOR_ANALYSIS: async (_: any, {date1, date2, dateTypeFilter, idEnterprise, currency}: any) => {
+        try{
+            const result = await invoices.query("exec get_all_invoices_for_analysis @date1 = '"+ date1 +"', @date2 = '"+ date2 + "', @dateTypeFilter = '"+ dateTypeFilter +"', @idEnterprise = '"+ idEnterprise +"', @currency = '"+ currency +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_INVOICES_DOCUMENTS: async (_: any, {idInvoices}: any) => {
+        try{
+            const result = await invoices.query("exec get_invoicesDocuments @idInvoices = '"+ idInvoices +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

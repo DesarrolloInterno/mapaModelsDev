@@ -186,6 +186,41 @@ type summaryInvoiceCollectionForecast {
 	total: String
 }
 
+type invoicesForAnalysis {
+  id: String,
+  invoiceDate: String,
+  numInvoice: String,
+  numTrip: String,
+  idClient: String,
+  client: String,
+  creditDays: String,
+	unit: String,
+  truckBoxe: String,
+  sentForCollectionDate: String,
+  invoiceSeries: String,
+	loadingDate: String,
+  dateCFDI: String,
+  IVA: String,
+  RET: String,
+  subtotal: String,
+  total: String,
+	idOperator: String,
+  operator: String,
+  completeInvoice: String,
+  currency: String,
+	daysToInvoice: String,
+	possiblePaymentDate: String
+}
+
+type invoicesDocuments {
+  id: ID,
+  idInvoice: Int,
+  idDocument: Int,
+  nameDocument: String,
+  documentLink: String,
+  status: String
+}
+
 type Query {
   GET_INVOICES_BY_TOKEN(token: String!): [invoiceToken]
   GET_INVOICEAMOUNTS(idInvoice: String!): [invoiceAmounts]
@@ -194,6 +229,8 @@ type Query {
   GET_INVOICE_BY_ID_INVOICE(idInvoice: String!): [invoiceById]
   GET_ALL_INVOICES_FOR_COLLECTION_FORECAST(date1: String!, currency: String!, idEnterprise: String!): [invoiceCollectionForecast]
   GET_ALL_SUMMARY_INVOICES_FOR_COLLECTION_FORECAST(date1: String!, currency: String!, idEnterprise: String!): [summaryInvoiceCollectionForecast]
+  GET_ALL_INVOICES_FOR_ANALYSIS(date1: String!, date2: String!, dateTypeFilter: String!, idEnterprise: String!, currency: String!): [invoicesForAnalysis]
+  GET_ALL_INVOICES_DOCUMENTS(idInvoice: String!): [invoicesDocuments]
 }
 
 input setNewInvoices {
@@ -235,9 +272,18 @@ type return_invoiceShippingDate {
   message: String
 }
 
+input new_invoicesDocuments{
+    idInvoice: String,
+    idDocument: String,
+    nameDocument: String,
+    documentLink: String,
+    userLoggedIn: String
+}
+
 type Mutation {
   CREATE_INVOICE_FROM_TRIP(input: setNewInvoices): [newInvoices]
   UPDATE_INVOICE_CFDI(input: setCFDIInvoices): String
   SET_LINK_PDF_XML_INVOICE(input: setLinkPDFXMLInvoice): String
   SET_INVOICE_SHIPPINGDATE(input: setInvoiceShippingDate): [return_invoiceShippingDate]
+  UPLOAD_INVOICES_DOCUMENTS(input: new_invoicesDocuments): String
 }

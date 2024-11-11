@@ -96,6 +96,21 @@ const invoicesMutations = {
             console.log(error);
         }
 
+    },
+    UPLOAD_INVOICES_DOCUMENTS: async (_: any, {input}: any) => {
+        const { 
+            idInvoice,
+            idDocument,
+            nameDocument,
+            documentLink,
+            userLoggedIn
+        } = input;
+        try {
+            await invoices.query("exec upload_invoicesDocuments @idInvoice = '"+idInvoice+"', @idDocument = '"+idDocument+"', @nameDocument = '"+nameDocument+"', @documentLink = '"+documentLink+"', @userLoggedIn ='"+userLoggedIn+"'");
+            return 'Se ha actualizado el registro';
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
