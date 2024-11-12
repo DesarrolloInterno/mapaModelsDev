@@ -97,21 +97,34 @@ const invoicesMutations = {
         }
 
     },
-    UPLOAD_INVOICES_DOCUMENTS: async (_: any, {input}: any) => {
-        const { 
-            idInvoice,
-            idDocument,
-            nameDocument,
-            documentLink,
-            userLoggedIn
-        } = input;
+    SET_INVOICES_DOCUMENTS: async (_: any, {input}: any) => {
+        const { idInvoice, userLoggedIn } = input;
         try {
-            await invoices.query("exec upload_invoicesDocuments @idInvoice = '"+idInvoice+"', @idDocument = '"+idDocument+"', @nameDocument = '"+nameDocument+"', @documentLink = '"+documentLink+"', @userLoggedIn ='"+userLoggedIn+"'");
-            return 'Se ha actualizado el registro';
+            const newRecord = await invoices.query("exec set_document_invoiceDocuments @idInvoice = '"+idInvoice+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_LINK_INVOICES_DOCUMENTS: async (_: any, {input}: any) => {
+        const { idDocument, link, document, userLoggedIn } = input;
+        try {
+            await invoices.query("exec set_linkInvoicesDocuments @idDocument = '"+idDocument+"', @link = '"+link+"', @document = '"+document+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Documento agregado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    DELETE_INVOICES_DOCUMENTS: async (_: any, {input}: any) => {
+        const { idDocument, userLoggedIn } = input;
+        try {
+            await invoices.query("exec delete_invoicesDocuments @idDocument = '"+idDocument+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Documento eliminado correctamente'
         } catch (error) {
             console.log(error);
         }
     }
+
 };
 
 export default invoicesMutations;

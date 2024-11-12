@@ -231,6 +231,7 @@ type Query {
   GET_ALL_SUMMARY_INVOICES_FOR_COLLECTION_FORECAST(date1: String!, currency: String!, idEnterprise: String!): [summaryInvoiceCollectionForecast]
   GET_ALL_INVOICES_FOR_ANALYSIS(date1: String!, date2: String!, dateTypeFilter: String!, idEnterprise: String!, currency: String!): [invoicesForAnalysis]
   GET_ALL_INVOICES_DOCUMENTS(idInvoice: String!): [invoicesDocuments]
+  GET_INVOICES_DOCUMENTS_BY_ID(idInvoiceDocument: String!): [invoicesDocuments]
 }
 
 input setNewInvoices {
@@ -272,12 +273,25 @@ type return_invoiceShippingDate {
   message: String
 }
 
-input new_invoicesDocuments{
-    idInvoice: String,
-    idDocument: String,
-    nameDocument: String,
-    documentLink: String,
-    userLoggedIn: String
+type new_invoicesDocuments {
+    idDocument: String
+}
+
+input set_invoicesDocuments {
+  idInvoice: String,
+  userLoggedIn: String
+}
+
+input set_link_invoicesDocuments {
+  idDocument: String,
+  link: String,
+  document: String,
+  userLoggedIn: String
+}
+
+input delete_invoicesDocuments {
+  idDocument: String,
+  userLoggedIn: String
 }
 
 type Mutation {
@@ -285,5 +299,7 @@ type Mutation {
   UPDATE_INVOICE_CFDI(input: setCFDIInvoices): String
   SET_LINK_PDF_XML_INVOICE(input: setLinkPDFXMLInvoice): String
   SET_INVOICE_SHIPPINGDATE(input: setInvoiceShippingDate): [return_invoiceShippingDate]
-  UPLOAD_INVOICES_DOCUMENTS(input: new_invoicesDocuments): String
+  SET_INVOICES_DOCUMENTS(input: set_invoicesDocuments): [new_invoicesDocuments]
+  SET_LINK_INVOICES_DOCUMENTS(input: set_link_invoicesDocuments): String
+  DELETE_INVOICES_DOCUMENTS(input: delete_invoicesDocuments): String
 }

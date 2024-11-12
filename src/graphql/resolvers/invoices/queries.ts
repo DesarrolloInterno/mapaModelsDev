@@ -65,9 +65,18 @@ const invoicesQueries = {
             console.log(error);
         }
     },
-    GET_ALL_INVOICES_DOCUMENTS: async (_: any, {idInvoices}: any) => {
+    GET_ALL_INVOICES_DOCUMENTS: async (_: any, {idInvoice}: any) => {
         try{
-            const result = await invoices.query("exec get_invoicesDocuments @idInvoices = '"+ idInvoices +"' ");
+            const result = await invoices.query("exec get_invoicesDocuments @idInvoice = '"+ idInvoice +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_INVOICES_DOCUMENTS_BY_ID: async (_: any, {idInvoiceDocument}: any) => {
+        try{
+            const result = await invoices.query("exec get_invoicesDocuments_by_id @idInvoiceDocument = '"+ idInvoiceDocument +"' ");
             return result;
 
         } catch (error) {
