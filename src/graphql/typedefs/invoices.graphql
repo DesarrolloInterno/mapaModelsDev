@@ -227,7 +227,7 @@ type Query {
   GET_ALL_INVOICES_FOR_COLLECTION(date1: String!, date2: String!, typeFilter: String!, idEnterprise: String!): [invoicesForCollection]
   GET_INVOICE_FOR_COLLECTION(date1: String!, date2: String!, typeFilter: String!): [invoicesForCollection]
   GET_INVOICE_BY_ID_INVOICE(idInvoice: String!): [invoiceById]
-  GET_ALL_INVOICES_FOR_COLLECTION_FORECAST(date1: String!, currency: String!, idEnterprise: String!): [invoiceCollectionForecast]
+  GET_ALL_INVOICES_FOR_COLLECTION_FORECAST(date1: String!, currency: String!, idEnterprise: String!, filterStatusType: String!): [invoiceCollectionForecast]
   GET_ALL_SUMMARY_INVOICES_FOR_COLLECTION_FORECAST(date1: String!, currency: String!, idEnterprise: String!): [summaryInvoiceCollectionForecast]
   GET_ALL_INVOICES_FOR_ANALYSIS(date1: String!, date2: String!, dateTypeFilter: String!, idEnterprise: String!, currency: String!): [invoicesForAnalysis]
   GET_ALL_INVOICES_DOCUMENTS(idInvoice: String!): [invoicesDocuments]
