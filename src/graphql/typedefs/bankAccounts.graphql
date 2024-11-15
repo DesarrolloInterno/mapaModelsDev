@@ -1,0 +1,88 @@
+type bankAccounts {
+    id: ID, 
+    nickName: String,
+    idBank: Int,
+    bank: String,
+    accountType: String,
+    account: String,
+    codeAccount: String,
+    accountingAccount1: String,
+	accountingAccount2: String,
+    accountingAccount3: String,
+    complementaryAccount: String,
+    bankTransferAccount: String,
+    complementaryTransferAccount: String,
+	accountManager: String,
+    pettyCash: Int,
+    pettyCashReimbursementAccount: Int,
+    currency: String,
+    status: String,
+    accountingAccountType: String
+}
+
+type Query {
+    GET_ALL_BANK_ACCOUNTS(status: String!, idEnterprise: String!): [bankAccounts]
+}
+
+input new_bankAccount {
+    nickName: String,
+    idBank: String,
+    bank: String,
+    accountType: String,
+    account: String,
+    codeAccount: String,
+    accountingAccount1: String,
+    accountingAccount2: String,
+    accountingAccount3: String,
+    complementaryAccount: String,
+    bankTransferAccount: String,
+    complementaryTransferAccount: String,
+    accountManager: String,
+    pettyCash: String,
+    pettyCashReimbursementAccount: String,
+    currency: String,
+    idEnterprise: String,
+    userLoggedIn: String
+}
+
+type return_new_bankAccount {
+    message: String
+}
+
+input update_bankAccount {
+    idBankAccount: String,
+    nickName: String,
+    idBank: String,
+    bank: String,
+    accountType: String,
+    account: String,
+    codeAccount: String,
+    accountingAccount1: String,
+    accountingAccount2: String,
+    accountingAccount3: String,
+    complementaryAccount: String,
+    bankTransferAccount: String,
+    complementaryTransferAccount: String,
+    accountManager: String,
+    pettyCash: String,
+    pettyCashReimbursementAccount: String,
+    currency: String,
+    idEnterprise: String,
+    userLoggedIn: String
+}
+
+type return_update_bankAccount {
+    idBankAccount: String,
+    message: String
+}
+
+input deleteBankAccount {
+	idBankAccount: String,
+	userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_BANK_ACCOUNT(input: new_bankAccount): [return_new_bankAccount]
+    UPDATE_BANK_ACCOUNT(input: update_bankAccount): [return_update_bankAccount]
+    DELETE_BANK_ACCOUNT(input: deleteBankAccount): String
+}
