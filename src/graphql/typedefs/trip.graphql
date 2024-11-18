@@ -873,6 +873,28 @@ type tripHistory {
   codesalesFormat: String
 }
 
+type tripsByClient {
+  loadingDate: String,
+  numTrip: String,
+  tripType: String,
+  trailerTypes: String,
+  numInvoice: String,
+	IVA: String,
+  RET: String,
+  subtotal: String,
+  total: String,
+  pagado: String,
+  fechaDePago: String,
+  status: String,
+  client: String,
+  origin: String,
+  destination: String,
+	departureDate: String,
+  truckBoxe: String,
+  userRecorded: String,
+  fechaDisponible: String
+}
+
 type Query {
   GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!, idEnterprise: String!): [tripsForCrossings]
   GET_ALL_TRIPS(status: String!, date1: String!, date2: String!, idEnterprise: String!): [trips]
@@ -893,6 +915,7 @@ type Query {
   GET_CLEANING_LETTER_BY_IDTRIP(idTrip: String!): [cleaningLetter]
   GET_FUMIGATION_LETTER_BY_IDTRIP(idTrip: String!): [fumigationLetter]
   GET_TRIP_HISTORY(date1: String!, date2: String!, crossing: String!, filterCheck: String!, dateTypeFilter: String!, idEnterprise: String!): [tripHistory]
+  GET_ALL_TRIPS_BY_CLIENT(date1: String!, date2: String!, idEnterprise: String!): [tripsByClient]
 }
 
 type Mutation {
