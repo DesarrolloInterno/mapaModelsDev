@@ -162,7 +162,7 @@ type worker_rotation {
 }
 
 type operator_employees {
-    id: Int
+    id: String
     name: String
     nickname: String
     mailNotification: String

@@ -43,6 +43,18 @@ type salesFormat {
   typeCrossing: String
   codeCountryOrigin: String
   codeCountryDestination: String
+  countryOrigin: String
+  countryDestination: String
+  total: String
+  idPayment: Int
+  codePayment: String
+  payment: String
+  idPaymentMethod: Int
+  codePaymentMethod: String
+  paymentMethod: String
+  idUseOfCFDI: Int
+  codeUseOfCFDI: String
+  useOfCFDI: String
 }
 
 type salesFormatByIdClient {
@@ -248,6 +260,7 @@ type salesFormatAmounts {
   measuringUnit: String
   codeMeasuringUnit: String
   status: String
+  isTaxes: Int
 }
 
 type documentsProofDeliverySalesFormat {

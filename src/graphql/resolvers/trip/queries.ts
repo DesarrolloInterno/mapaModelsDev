@@ -39,7 +39,7 @@ const tripQueries = {
         }
     },
 
-GET_BOOTHROUTE_BY_IDTRIP: async (_: any, {idTrip}: any) => {
+    GET_BOOTHROUTE_BY_IDTRIP: async (_: any, {idTrip}: any) => {
         try{
             const result = await trip.query("exec get_boothRoutes_trip_byIdTrip @idTrip = '"+ idTrip +"' ");
             return result;
@@ -49,7 +49,7 @@ GET_BOOTHROUTE_BY_IDTRIP: async (_: any, {idTrip}: any) => {
         }
     },
 
-GET_TRIPSAFETYEQUIPMENT_BY_IDTRIP: async (_: any, {idTrip}: any) => {
+    GET_TRIPSAFETYEQUIPMENT_BY_IDTRIP: async (_: any, {idTrip}: any) => {
         try{
             const result = await trip.query("exec get_tripSafetyEquipment_byIdTrip @idTrip = '"+ idTrip +"' ");
             return result;
@@ -59,7 +59,7 @@ GET_TRIPSAFETYEQUIPMENT_BY_IDTRIP: async (_: any, {idTrip}: any) => {
         }
     },
 
-GET_TRANSPORTDOCUMENT: async (_: any, {idTrip}: any) => {
+    GET_TRANSPORTDOCUMENT: async (_: any, {idTrip}: any) => {
         try{
             const result = await trip.query("exec get_transportDocument @idTrip = '"+ idTrip +"' ");
             return result;
@@ -185,7 +185,26 @@ GET_TRANSPORTDOCUMENT: async (_: any, {idTrip}: any) => {
         } catch (error) {
             console.log(error);
         }
-    }
+    },
+    GET_TRASFERINVOICE_BY_TOKEN: async (_: any, {token}: any) => {
+        try{
+            const encrypt = process.env.ENCRYPT;
+            const result = await trip.query("exec get_transferInvoice_by_token @token = '"+ token +"', @encrypt = '"+encrypt+"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_TRIPS_FOR_INVOICE: async (_: any, {date1, date2}: any) => {
+        try{
+            const result = await trip.query("exec get_all_trips_for_invoice @date1 = '"+ date1 +"', @date2 = '"+ date2 +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default tripQueries;

@@ -87,6 +87,98 @@ const tripMutations = {
             console.log(error);
         }
     },
+    CREATE_TRIP_FROM_TRIPS_2: async (_: any, {input}: any) => {
+        const {
+            idSalesFormat,
+            legendOriginCollection,
+            legendDestinationCollection,
+            reference,
+            proNumber,
+            loadingDate ,
+            deliveryDate,
+            idUnit,
+            idEmployee,
+            idTruckBox,
+            wheelChocks,
+            straps,
+            showCPImport,
+            sealNumber,
+            observations ,
+            userLoggedIn,
+            idLoggedIn
+        } = input;
+
+        try {
+            const newRecord = await trip.query("exec create_trip2 " +
+                "@idSalesFormat = '" + idSalesFormat + "', " +
+                "@legendOriginCollection = '" + legendOriginCollection + "', " +
+                "@legendDestinationCollection = '" + legendDestinationCollection + "', " +
+                "@reference = '" + reference + "', " +
+                "@proNumber = '" + proNumber + "', " +
+                "@loadingDate = '" + loadingDate + "', " +
+                "@deliveryDate = '" + deliveryDate + "', " +
+                "@idUnit = '" + idUnit + "', " +
+                "@idEmployee = '" + idEmployee + "', " +
+                "@idTruckBox = '" + idTruckBox + "', " +
+                "@wheelChocks = '" + wheelChocks + "', " +
+                "@straps = '" + straps + "', " +
+                "@showCPImport = '" + showCPImport + "', " +
+                "@sealNumber = '" + sealNumber + "', " +
+                "@observations = '" + observations + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idLoggedIn = '" + idLoggedIn + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_TRIP_2: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            idSalesFormat,
+            legendOriginCollection,
+            legendDestinationCollection,
+            reference,
+            proNumber,
+            loadingDate ,
+            deliveryDate,
+            idUnit,
+            idEmployee,
+            idTruckBox,
+            wheelChocks,
+            straps,
+            showCPImport,
+            sealNumber,
+            observations ,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newRecord = await trip.query("exec update_trip2 " +
+                "@idTrip = '" + idTrip + "', " +
+                "@idSalesFormat = '" + idSalesFormat + "', " +
+                "@legendOriginCollection = '" + legendOriginCollection + "', " +
+                "@legendDestinationCollection = '" + legendDestinationCollection + "', " +
+                "@reference = '" + reference + "', " +
+                "@proNumber = '" + proNumber + "', " +
+                "@loadingDate = '" + loadingDate + "', " +
+                "@deliveryDate = '" + deliveryDate + "', " +
+                "@idUnit = '" + idUnit + "', " +
+                "@idEmployee = '" + idEmployee + "', " +
+                "@idTruckBox = '" + idTruckBox + "', " +
+                "@wheelChocks = '" + wheelChocks + "', " +
+                "@straps = '" + straps + "', " +
+                "@showCPImport = '" + showCPImport + "', " +
+                "@sealNumber = '" + sealNumber + "', " +
+                "@observations = '" + observations + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
     UPDATE_TRIP_TRIPASSIGNMENT: async (_: any, {input}: any) => {
         const {
             idTripOrder ,
@@ -143,7 +235,8 @@ const tripMutations = {
             idEmployee,
             idTruckBox,
             idUnit,
-            userLoggedIn
+            userLoggedIn,
+            showCPImport
         } = input;
 
         try {
@@ -180,7 +273,8 @@ const tripMutations = {
                 "@idEmployee = '" + idEmployee + "', " +
                 "@idTruckBox = '" + idTruckBox + "', " +
                 "@idUnit = '" + idUnit + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@showCPImport = '" + showCPImport + "' "
             );
             return newRecord;
         } catch (error) {
@@ -621,6 +715,83 @@ const tripMutations = {
         } catch (error) {
             console.log(error);
         }
+    },
+    UPDATE_TRIP_CFDI: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            UUID,
+            dateCFDI,
+            codStatus,
+            satSeal,
+            SATcertificateNumber,
+            CFDIstamp,
+            SATStamp,
+            originalChain,
+            LinkQR,
+            xmlText,
+            idCCP,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await trip.query("exec update_trip_cfdi " +
+                "@idTrip = '" + idTrip + "', " +
+                "@UUID = '" + UUID + "', " +
+                "@dateCFDI = '" + dateCFDI + "', " +
+                "@codStatus = '" + codStatus + "', " +
+                "@satSeal = '" + satSeal + "', " +
+                "@SATcertificateNumber = '" + SATcertificateNumber + "', " +
+                "@CFDIstamp = '" + CFDIstamp + "', " +
+                "@SATStamp = '" + SATStamp + "', " +
+                "@originalChain = '" + originalChain + "', " +
+                "@LinkQR = '" + LinkQR + "', " +
+                "@xmlText = '" + xmlText + "', " +
+                "@idCCP = '"+idCCP+"', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'CFDI de traslado actualizado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    CREATE_TRANSFERINVOCE: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newid = await trip.query("exec create_transferInvoice " +
+                "@idTrip = '" + idTrip + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    SET_LINK_PDF_XML_TRANSFERINVOCE: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            linkPDF,
+            linkXML,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await trip.query("exec set_link_pdf_xml_transferInvoice " +
+                "@idTrip = '" + idTrip + "', " +
+                "@linkPDF = '" + linkPDF + "', " +
+                "@linkXML = '" + linkXML + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Documentos del traslado actualizados correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
     },
 };
 
