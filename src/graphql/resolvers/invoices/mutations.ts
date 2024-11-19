@@ -80,28 +80,20 @@ const invoicesMutations = {
         }
 
     },
-    CREATE_INVOICE: async (_: any, {input}: any) => {
+    SET_INVOICE_SHIPPINGDATE: async (_: any, {input}: any) => {
         const {
-            idTrip,
-            idUseOfCFDI,
-            idPaymentMethod,
-            idPayment,
-            currency,
-            exchangeRate,
+            idInvoice,
             userLoggedIn,
+            sentForCollectionDate
         } = input;
 
         try {
-            const newid = await invoices.query("exec create_invoice " +
-                "@idTrip = '" + idTrip + "', " +
-                "@idUseOfCFDI = '" + idUseOfCFDI + "', " +
-                "@idPaymentMethod = '" + idPaymentMethod + "', " +
-                "@idPayment = '" + idPayment + "', " +
-                "@currency = '" + currency + "', " +
-                "@exchangeRate = '" + exchangeRate + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+            const newRecord = await invoices.query("exec set_invoice_shippingDate " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@sentForCollectionDate = '" + sentForCollectionDate + "' "
             );
-            return newid;
+            return newRecord;
         } catch (error) {
             console.log(error);
         }
