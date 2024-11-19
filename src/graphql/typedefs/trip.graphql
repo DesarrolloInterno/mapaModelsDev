@@ -278,6 +278,51 @@ type trips {
   cfdiType: String,
 }
 
+type tripsForInvoice {
+  id: ID,
+  numTrip: String,
+  tripType: String,
+  isRefrigerated: String,
+  isDry: String,
+  status: String,
+  idClient: String,
+  client: String,
+  fullAddressClient: String,
+  fiscalSystem: String,
+  idOrigin: String,
+  origin: String,
+  fullAddressOrigin: String,
+  idDestination: String,
+  destination: String,
+  fullAddressDestination: String,
+  total: String,
+  loadingDate: String,
+  deliveryDate: String,
+  idUnit: String,
+  unit: String,
+  licensePlatesUnit: String,
+  idTruckBox: String,
+  truckBox: String,
+  licensePlatesTruckBox: String,
+  dateRecorded: String,
+  userRecorded: String,
+  reference: String,
+  idEmployee: String,
+  employee: String,
+  idSalesFormat: String,
+  salesFormat: String,
+  currency: String,
+  idPayment: Int,
+  codePayment: String,
+  payment: String,
+  idPaymentMethod: Int,
+  codePaymentMethod: String,
+  paymentMethod: String,
+  idUseOfCFDI: Int,
+  codeUseOfCFDI: String,
+  useOfCFDI: String,
+}
+
 input update_trip_tripAssignment{
   idTripOrder : String,
 	idUnit: String,
@@ -1114,6 +1159,7 @@ type Query {
   GET_TRIP_HISTORY(date1: String!, date2: String!, crossing: String!, filterCheck: String!, dateTypeFilter: String!): [tripHistory]
   GET_TRIP_HISTORY(date1: String!, date2: String!, crossing: String!, filterCheck: String!, dateTypeFilter: String!, idEnterprise: String!): [tripHistory]
   GET_ALL_TRIPS_BY_CLIENT(date1: String!, date2: String!, idEnterprise: String!): [tripsByClient]
+  GET_ALL_TRIPS_FOR_INVOICE(date1: String!, date2: String!): [tripsForInvoice]
 }
 
 type Mutation {

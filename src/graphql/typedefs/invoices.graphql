@@ -16,6 +16,21 @@ type newInvoices {
   docPdf: String
 }
 
+type newInvoices2 {
+  idInvoice: ID
+  message: String
+  messageproducts: String
+  messageClient: String
+  messageSalesFormat: String
+  messageLoadingDate: String
+  messageDeliveryDate: String 
+  messageTemperature: String
+  messageProNumber: String
+  messageReference: String
+  messageSalesFormatCrossing: String
+  numInvoice: String
+}
+
 type invoiceToken {
   id: ID
   idTrip: String
@@ -129,96 +144,214 @@ type invoiceAmounts {
   taxCode: String
 }
 
-type invoicesForCollection {
-  id: String,
-  invoiceDate: String,
-  numInvoice: String,
-  numTrip: String,
-  tripStatus: String,
-  idClient: String,
-  client: String,
-  creditDays: String,
-  origin: String,
-  destination: String,
-  orderDate: String,
-  unit: String,
-  truckBoxe: String,
-  status: String,
-  sentForCollectionDate: String,
-  billingReceptionPersonMail: String,
-  total: String,
-  invoiceSeries: String
-}
-
-type invoiceById {
-  id: String,
-  enterpriseLogo: String,
-  client: String,
-  numInvoice: String,
-  invoiceSeries: String,
-  total: String,
-	invoiceDate: String, 
-  sentForCollectionDate: String,
-	mail: String,
-  creditDays: String
-}
-
-type invoiceCollectionForecast {
-  id: String,
-  idClient: String,
-  client: String,
-  numTrip: String,
-  cCPDate: String,
-  numInvoice: String,
-  invoiceSeries: String,
-	invoiceDate: String,
-  userRecorded: String,
-  creditDays: String,
-	remainingDays: String,
-	total: String,
-  subtotal: String,
-  currency: String
-}
-
-type summaryInvoiceCollectionForecast {
-  idClient: String,
-  client: String,
-	total: String
-}
-
-type invoicesForAnalysis {
-  id: String,
-  invoiceDate: String,
-  numInvoice: String,
-  numTrip: String,
-  idClient: String,
-  client: String,
-  creditDays: String,
-	unit: String,
-  truckBoxe: String,
-  sentForCollectionDate: String,
-  invoiceSeries: String,
-	loadingDate: String,
-  dateCFDI: String,
-  IVA: String,
-  RET: String,
-  subtotal: String,
-  total: String,
-	idOperator: String,
-  operator: String,
-  completeInvoice: String,
-  currency: String,
-	daysToInvoice: String,
-	possiblePaymentDate: String
-}
-
-type invoicesDocuments {
-  id: ID,
-  idInvoice: Int,
-  idDocument: Int,
-  nameDocument: String,
-  documentLink: String,
+type invoiceAmounts_Front {
+  id: ID
+  idSalesFormat: Int 
+  idInvoicingConcept: Int 
+  invoicingConcept: String 
+  subtotal: String 
+  idIVApercentage: Int
+	IVApercentage: String 
+  IVA: String 
+  idRETpercentage: Int
+  RETpercentage: String 
+  RET: String 
+  totalAmount: String 
+  taxRate: String 
+  measuringUnit: String
+	codeMeasuringUnit: String 
   status: String
+  isTaxes: String
+  idSalesFormatAmount: Int
+  quantity: String
+  codeInvoicingConcept: String
+}
+
+type invoices {
+  id: ID
+  numInvoice: String
+  invoiceSeries: String
+  idTrip: String
+  numTrip: String
+  invoiceDate: String
+  status: String
+  dateRemoved: String
+	client: String
+  origin: String
+  originCountry: String
+  destination: String
+  destinationCountry: String
+  idTruckBoxe: String
+  truckBoxe: String
+  loadingDate: String
+  tripType: String
+	subtotal: String
+  IVA: String
+  RET: String
+  total: String
+  balanceDue: String
+  docPDF: String
+  docXML: String 
+	dateRecorded: String
+  userRecorded: String
+}
+
+type invoice {
+  id: ID
+  numInvoice: Int
+  invoiceSeries: String
+  invoiceDate: String
+  status: String
+  idClient: Int
+  client: String
+  clientShortName: String
+  clientRFC: String
+  idOrigin: Int
+  origin: String
+  originCountry: String
+  fullAddressOrigin: String
+  legendOriginCollection: String
+  originCodeCountry: String
+  idDestination: Int
+  destination: String
+  destinationCountry: String
+  fullAddressDestination: String
+  legendDestinationCollection: String
+  destinationCodeCountry: String
+  idTrip: Int
+  numTrip: Int
+  travelClassification: String
+  kilometres: String
+  travelTime: String
+  temperature: String
+  tripType: String
+  currency: String
+  taxes: String
+  isRefrigerated: String
+  isDry: String
+  isDoorDoor: String
+  isCrossing: String
+  isEmpty: String
+  isEmptyPaid: String
+  requestProofDelivery: String
+  idSalesFormatCrossing: Int
+  salesFormatCrossing: String
+  operatorComments: String
+  operationComments: String
+  observations: String
+  productDescription: String
+  crossingType: String
+  americanPortion: String
+  crossingPortion: String
+  mexicanPortion: String
+  typeCrossing: String
+  total: String
+  idPayment: Int
+  codePayment: String
+  payment: String
+  idPaymentMethod: Int
+  codePaymentMethod: String
+  paymentMethod: String
+  idUseOfCFDI: Int
+  codeUseOfCFDI: String
+  useOfCFDI: String
+  loadingDate: String
+  deliveryDate: String
+  exchangeRate: String
+  fullAddressClient: String
+  fiscalSystem: String
+  idUnit: Int
+  unit: String
+  unitLicensePlates: String
+  idTruckBox: Int
+  truckBox: String
+  truckBoxeLicensePlates: String
+  idOperator: Int
+  operator: String
+  idSalesFormat: Int
+  salesFormat: String
+  reference: String
+  UUID: String
+  docInvoicePdf: String
+}
+
+type invoiceDocument {
+  id: ID
+  numInvoice: String
+  sealNumber: String
+  invoiceDate: String
+  idEnterprise: String
+  enterprise: String
+  enterpriseRFC: String
+  enterpriseFiscalSystem: String
+  enterpriseZipCode: String
+  enterpriseFullAddress: String
+  idTrip: String
+  dateRecorded: String
+  numTrip: String
+  proNumber: String
+  kilometres: String
+  loadingDate: String
+  deliveryDate: String
+  tripType: String
+  grossWeights: String
+  client: String
+  idClient: String
+  clientFullAddress: String
+  reference: String
+  clientRFC: String
+  clientTAXID: String
+  payment: String
+  useOfCFDI: String
+  paymentMethod: String
+  currency: String
+  exchangeRate: String
+  origin: String
+  originRFC: String
+  originTAXID: String
+  originFullAddress: String
+  destination: String
+  destinationRFC: String
+  destinationTAXID: String
+  destinationFullAddress: String
+  unit: String
+  licensePlatesUnit: String
+  insurer: String
+  insurancePolicy: String
+  carrierKey: String
+  permissionType: String
+  permissionNumber: String
+  truckBox: String
+  trailerTypes: String
+  licensePlatesTruckBox: String
+  stateTruckBox: String
+  operator: String
+  driverLicense: String
+  operatorRFC: String
+  countryOperator: String
+  subtotal: String
+  IVA: String
+  RET: String
+  total: String
+  IVApercentage: String
+  RETpercentage: String
+  observations: String
+  customsClearance: String
+  UUID: String
+  SATcertificateNumber: String
+  dateCFDI: String
+  originalChain: String
+  CFDIstamp: String
+  SATStamp: String
+  LinkQR: String
+  idCCP: String
+  CFDItype: String
+}
+
+type newToken {
+  tokenInvoice: String
+  numInvoice: String
+  idTrip: String
 }
 
 type Query {
@@ -232,10 +365,36 @@ type Query {
   GET_ALL_INVOICES_FOR_ANALYSIS(date1: String!, date2: String!, dateTypeFilter: String!, idEnterprise: String!, currency: String!): [invoicesForAnalysis]
   GET_ALL_INVOICES_DOCUMENTS(idInvoice: String!): [invoicesDocuments]
   GET_INVOICES_DOCUMENTS_BY_ID(idInvoiceDocument: String!): [invoicesDocuments]
+  GET_ALL_INVOICES(typeStatus: String!, date1: String!, date2: String!, date: String!): [invoices]
+  GET_ALL_INVOICES_BY_CLIENT(typeStatus: String!, date1: String!, date2: String!, date: String!): [invoices]
+  GET_INVOICE_BY_ID(idInvoice: String!): [invoice]
+  GET_INVOICEAMOUNTS_BY_ID(idInvoice: String!): [invoiceAmounts_Front]
+  GET_INVOICEDOCUMENT(idInvoice: String!): [invoiceDocument]
 }
 
 input setNewInvoices {
   idTrip: String
+  userLoggedIn: String
+}
+
+input setNewInvoices2 {
+  idTrip: String
+  idUseOfCFDI: String
+  idPaymentMethod: String
+  idPayment: String
+  currency: String
+  exchangeRate: String
+  userLoggedIn: String
+}
+
+input updateInvoices2 {
+  idInvoice: String
+  idTrip: String
+  idUseOfCFDI: String
+  idPaymentMethod: String
+  idPayment: String
+  currency: String
+  exchangeRate: String
   userLoggedIn: String
 }
 
@@ -259,6 +418,34 @@ input setLinkPDFXMLInvoice {
   idInvoice: String
   linkPDF: String
   linkXML: String
+  linkInvoicePDF: String
+  userLoggedIn: String
+}
+
+input setInvoiceAmount {
+  idInvoiceAmount: String
+  idInvoice: String
+  idTrip: String
+  idSalesFormatAmounts: String
+  idInvoicingConcept: String
+  subtotal: String
+  idIVApercentage: String
+  IVApercentage: String
+  IVA: String
+  idRETpercentage: String
+  RETpercentage: String
+  RET: String
+  totalAmount: String
+  idSalesFormat: String
+  codeMeasuringUnit: String
+  measuringUnit: String
+  isTaxes: String
+  userLoggedIn: String
+  status: String
+}
+
+input setTokenStampInvoice {
+  idInvoice: String
   userLoggedIn: String
 }
 
@@ -296,10 +483,17 @@ input delete_invoicesDocuments {
 
 type Mutation {
   CREATE_INVOICE_FROM_TRIP(input: setNewInvoices): [newInvoices]
+  CREATE_INVOICE(input: setNewInvoices2): [newInvoices2]
+  UPDATE_INVOICE(input: updateInvoices2): [newInvoices2]
   UPDATE_INVOICE_CFDI(input: setCFDIInvoices): String
   SET_LINK_PDF_XML_INVOICE(input: setLinkPDFXMLInvoice): String
+<<<<<<< HEAD
   SET_INVOICE_SHIPPINGDATE(input: setInvoiceShippingDate): [return_invoiceShippingDate]
   SET_INVOICES_DOCUMENTS(input: set_invoicesDocuments): [new_invoicesDocuments]
   SET_LINK_INVOICES_DOCUMENTS(input: set_link_invoicesDocuments): String
   DELETE_INVOICES_DOCUMENTS(input: delete_invoicesDocuments): String
+=======
+  SET_INVOICE_AMOUNTS(input: setInvoiceAmount): String
+  SET_TOKEN_STAMPINVOICE(input: setTokenStampInvoice): [newToken]
+>>>>>>> AlanSerna
 }

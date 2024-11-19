@@ -20,69 +20,73 @@ const invoicesQueries = {
             console.log(error);
         }
     },
-    GET_ALL_INVOICES_FOR_COLLECTION: async (_: any, {date1, date2, typeFilter, idEnterprise}: any) => {
+    GET_ALL_INVOICES: async (_: any, {
+        typeStatus,
+        date1,
+        date2,
+        date
+    }: any) => {
         try{
-            const result = await invoices.query("exec get_all_invoicesForCollection @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @typeFilter= '"+ typeFilter +"', @idEnterprise = '"+ idEnterprise +"'");
+            const result = await invoices.query("exec get_all_invoices " +
+            "@typeStatus = '"+ typeStatus +"'," +
+            "@date1 = '"+ date1 +"', " +
+            "@date2 = '"+ date2 +"', " +
+            "@date = '"+ date +"' ");
             return result;
 
         } catch (error) {
             console.log(error);
         }
     },
-    GET_INVOICE_BY_ID_INVOICE: async (_: any, {idInvoice}: any) => {
+    GET_ALL_INVOICES_BY_CLIENT: async (_: any, {
+        typeStatus,
+        date1,
+        date2,
+        date
+    }: any) => {
         try{
-            const result = await invoices.query("exec get_invoice_by_idInvoice @idInvoice = '"+ idInvoice +"'");
+            const result = await invoices.query("exec get_all_invoices_by_client " +
+            "@typeStatus = '"+ typeStatus +"'," +
+            "@date1 = '"+ date1 +"', " +
+            "@date2 = '"+ date2 +"', " +
+            "@date = '"+ date +"' ");
             return result;
 
         } catch (error) {
             console.log(error);
         }
     },
-    GET_ALL_INVOICES_FOR_COLLECTION_FORECAST: async (_: any, {date1, currency, idEnterprise, filterStatusType}: any) => {
+    GET_INVOICE_BY_ID: async (_: any, {
+        idInvoice
+    }: any) => {
         try{
-            const result = await invoices.query("exec get_all_invoices_for_collectionForecast @date1 = '"+ date1 +"', @currency = '"+ currency + "', @idEnterprise = '"+ idEnterprise +"', @filterStatusType = '"+ filterStatusType +"'");
+            const result = await invoices.query("exec get_invoices_by_id @idInvoice = '"+ idInvoice +"' ");
             return result;
 
         } catch (error) {
             console.log(error);
         }
     },
-    GET_ALL_SUMMARY_INVOICES_FOR_COLLECTION_FORECAST: async (_: any, {date1, currency, idEnterprise}: any) => {
+    GET_INVOICEAMOUNTS_BY_ID: async (_: any, {
+        idInvoice
+    }: any) => {
         try{
-            const result = await invoices.query("exec get_all_summaryInvoices_for_collectionForecast @date1 = '"+ date1 +"', @currency = '"+ currency + "', @idEnterprise = '"+ idEnterprise +"'");
+            const result = await invoices.query("exec get_invoiceAmounts_by_id @idInvoice = '"+ idInvoice +"' ");
             return result;
 
         } catch (error) {
             console.log(error);
         }
     },
-    GET_ALL_INVOICES_FOR_ANALYSIS: async (_: any, {date1, date2, dateTypeFilter, idEnterprise, currency}: any) => {
+    GET_INVOICEDOCUMENT: async (_: any, {idInvoice}: any) => {
         try{
-            const result = await invoices.query("exec get_all_invoices_for_analysis @date1 = '"+ date1 +"', @date2 = '"+ date2 + "', @dateTypeFilter = '"+ dateTypeFilter +"', @idEnterprise = '"+ idEnterprise +"', @currency = '"+ currency +"'");
+            const result = await invoices.query("exec get_invoiceDocument @idInvoice = '"+ idInvoice +"' ");
             return result;
 
         } catch (error) {
             console.log(error);
         }
     },
-    GET_ALL_INVOICES_DOCUMENTS: async (_: any, {idInvoice}: any) => {
-        try{
-            const result = await invoices.query("exec get_invoicesDocuments @idInvoice = '"+ idInvoice +"' ");
-            return result;
-
-        } catch (error) {
-            console.log(error);
-        }
-    },
-    GET_INVOICES_DOCUMENTS_BY_ID: async (_: any, {idInvoiceDocument}: any) => {
-        try{
-            const result = await invoices.query("exec get_invoicesDocuments_by_id @idInvoiceDocument = '"+ idInvoiceDocument +"' ");
-            return result;
-
-        } catch (error) {
-            console.log(error);
-        }
-    }
 };
 
 export default invoicesQueries;
