@@ -78,6 +78,25 @@ const invoicesMutations = {
         }
 
     },
+    SET_INVOICE_SHIPPINGDATE: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            userLoggedIn,
+            sentForCollectionDate
+        } = input;
+
+        try {
+            const newRecord = await invoices.query("exec set_invoice_shippingDate " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@sentForCollectionDate = '" + sentForCollectionDate + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
 };
 
 export default invoicesMutations;

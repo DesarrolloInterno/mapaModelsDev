@@ -999,6 +999,76 @@ input tem_products_trip_excel {
 	customsDocumentIdentifierMessage: String
 }
 
+type tripHistory {
+  id: ID, 
+  numTrip: String, 
+  name: String, 
+  tripType: String, 
+  tripTypeName: String, 
+  travelClassification: String, 
+  idUnit: Int, 
+  unit: String, 
+  idTruckBox: Int, 
+  truckBox: String, 
+  unitType: String, 
+  idLine: Int, 
+  line: String, 
+  idClient: Int, 
+  businessName: String, 
+  clientShortName: String,
+  isDoorDoor: String, 
+  idOrigin: Int, 
+  origin: String,
+  countryOrigin: String, 
+  stateOrigin: String, 
+  townOrigin: String, 
+  idDestination: Int, 
+  destination: String, 
+  countryDestination: String, 
+  stateDestination: String, 
+  townDestination: String,
+  subtotal: String, 
+  IVA: String, 
+  RET: String, 
+  totalAmount: String, 
+  currency: String, 
+  cPNumber: String, 
+  cPDate: String,
+  numInvoice: String, 
+  invoiceDate: String, 
+  loadingDate: String, 
+  deliveryDate: String, 
+  placementDate: String, 
+  inGateDate: String, 
+  documentDeliveryDate: String,
+  startTripDate: String, 
+  arrivalDate: String, 
+  departureDate: String, 
+  status: String, 
+  sealNumber: String, 
+  idEmployee: Int,
+  operator: String, 
+  licenseNumber: String, 
+  temperature: String, 
+  kilometres: String, 
+  userRecorded: String, 
+  dateRecorded: String, 
+  userModified: String, 
+  dateModified: String,
+  salesFormat: String, 
+  wheelChocks: String, 
+  straps: String, 
+  idInsurer: Int, 
+  insurer: String, 
+  insurancePolicy: String, 
+  reference: String,
+  americanPortion: String, 
+  mexicanPortion: String,
+  idSalesFormatCrossing: Int,
+  UUID: String,
+  codesalesFormat: String
+}
+
 type Query {
   GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!): [tripsForCrossings]
   GET_ALL_TRIPS(status: String!, date1: String!, date2: String!): [trips]
@@ -1019,6 +1089,7 @@ type Query {
   GET_CLEANING_LETTER_BY_IDTRIP(idTrip: String!): [cleaningLetter]
   GET_FUMIGATION_LETTER_BY_IDTRIP(idTrip: String!): [fumigationLetter]
   GET_TRASFERINVOICE_BY_TOKEN(token: String!): [transferInvoice]
+  GET_TRIP_HISTORY(date1: String!, date2: String!, crossing: String!, filterCheck: String!, dateTypeFilter: String!): [tripHistory]
 }
 
 type Mutation {

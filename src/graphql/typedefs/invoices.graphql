@@ -129,9 +129,46 @@ type invoiceAmounts {
   taxCode: String
 }
 
+type invoicesForCollection {
+  id: String,
+  invoiceDate: String,
+  numInvoice: String,
+  numTrip: String,
+  tripStatus: String,
+  idClient: String,
+  client: String,
+  creditDays: String,
+  origin: String,
+  destination: String,
+  orderDate: String,
+  unit: String,
+  truckBoxe: String,
+  status: String,
+  sentForCollectionDate: String,
+  billingReceptionPersonMail: String,
+  total: String,
+  invoiceSeries: String
+}
+
+type invoiceById {
+  id: String,
+  enterpriseLogo: String,
+  client: String,
+  numInvoice: String,
+  invoiceSeries: String,
+  total: String,
+	invoiceDate: String, 
+  sentForCollectionDate: String,
+	mail: String,
+  creditDays: String
+}
+
 type Query {
   GET_INVOICES_BY_TOKEN(token: String!): [invoiceToken]
   GET_INVOICEAMOUNTS(idInvoice: String!): [invoiceAmounts]
+  GET_ALL_INVOICES_FOR_COLLECTION(date1: String!, date2: String!, typeFilter: String!): [invoicesForCollection]
+  GET_INVOICE_FOR_COLLECTION(date1: String!, date2: String!, typeFilter: String!): [invoicesForCollection]
+  GET_INVOICE_BY_ID_INVOICE(idInvoice: String!): [invoiceById]
 }
 
 input setNewInvoices {
@@ -162,8 +199,20 @@ input setLinkPDFXMLInvoice {
   userLoggedIn: String
 }
 
+input setInvoiceShippingDate {
+  idInvoice: String
+  userLoggedIn: String
+  sentForCollectionDate: String
+}
+
+type return_invoiceShippingDate {
+  idInvoice: String
+  message: String
+}
+
 type Mutation {
   CREATE_INVOICE_FROM_TRIP(input: setNewInvoices): [newInvoices]
   UPDATE_INVOICE_CFDI(input: setCFDIInvoices): String
   SET_LINK_PDF_XML_INVOICE(input: setLinkPDFXMLInvoice): String
+  SET_INVOICE_SHIPPINGDATE(input: setInvoiceShippingDate): [return_invoiceShippingDate]
 }
