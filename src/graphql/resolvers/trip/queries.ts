@@ -176,7 +176,17 @@ GET_TRANSPORTDOCUMENT: async (_: any, {idTrip}: any) => {
         } catch (error) {
             console.log(error);
         }
-    }
+    },
+    GET_TRASFERINVOICE_BY_TOKEN: async (_: any, {token}: any) => {
+        try{
+            const encrypt = process.env.ENCRYPT;
+            const result = await trip.query("exec get_transferInvoice_by_token @token = '"+ token +"', @encrypt = '"+encrypt+"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default tripQueries;
