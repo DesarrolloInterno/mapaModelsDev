@@ -349,7 +349,7 @@ type invoiceDocument {
 }
 
 type newToken {
-  toketokenInvoicen: String
+  tokenInvoice: String
   numInvoice: String
   idTrip: String
 }
