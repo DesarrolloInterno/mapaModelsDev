@@ -585,3 +585,4 @@ type Mutation {
   DELETE_INVOICES_DOCUMENTS(input: delete_invoicesDocuments): String
   SET_INVOICE_AMOUNTS(input: setInvoiceAmount): String
   SET_TOKEN_STAMPINVOICE(input: setTokenStampInvoice): [newToken]
+}
