@@ -6,14 +6,16 @@ const linesMutations = {
         const {
 			name,
             description,
-	        userLoggedIn
+	        userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
             const newRecord = await lines.query("exec create_line " +
                 "@name = '" + name + "', " +
                 "@description = '" + description + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {
@@ -26,7 +28,8 @@ const linesMutations = {
             idLine,
 			name,
             description,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -34,7 +37,8 @@ const linesMutations = {
                 "@idLine = '" + idLine + "', " +
                 "@name = '" + name + "', " +
                 "@description = '" + description + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {

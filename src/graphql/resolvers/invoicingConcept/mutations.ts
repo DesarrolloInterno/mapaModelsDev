@@ -14,7 +14,8 @@ const invoicingConceptMutations = {
             userLoggedIn,
             idAccountingAccount,
             accountingAccount,
-            nameAccountingAccount
+            nameAccountingAccount,
+            idEnterprise
         } = input;
         try {
             const newRecord = await invoicingConcept.query("exec create_invoicingConcept " +
@@ -22,7 +23,7 @@ const invoicingConceptMutations = {
             "@refrigeratedBox = '"+refrigeratedBox+"', @isTaxes = '"+isTaxes+"', @taxRate = '"+taxRate+"', " +
             "@typeTrip = '"+typeTrip+"', @userLoggedIn = '"+userLoggedIn+"', " +
             "@idAccountingAccount = '"+idAccountingAccount+"', @accountingAccount = '"+accountingAccount+"', " +
-            "@nameAccountingAccount = '"+nameAccountingAccount+"' ");
+            "@nameAccountingAccount = '"+nameAccountingAccount+"', " + "@idEnterprise = '"+idEnterprise+"' ");
             return newRecord;
         } catch (error) {
             console.log(error);
@@ -41,7 +42,8 @@ const invoicingConceptMutations = {
             userLoggedIn,
             idAccountingAccount,
             accountingAccount,
-            nameAccountingAccount
+            nameAccountingAccount,
+            idEnterprise
         } = input;
         try {
             const newRecord = await invoicingConcept.query("exec update_invoicingConcept " +
@@ -49,7 +51,7 @@ const invoicingConceptMutations = {
             "@description = '"+description+"', @refrigeratedBox = '"+refrigeratedBox+"', @isTaxes = '"+isTaxes+"', " +
             "@taxRate = '"+taxRate+"', @typeTrip = '"+typeTrip+"', @userLoggedIn = '"+userLoggedIn+"', " +
             "@idAccountingAccount = '"+idAccountingAccount+"', @accountingAccount = '"+accountingAccount+"' , " +
-            "@nameAccountingAccount = '"+nameAccountingAccount+"' ");
+            "@nameAccountingAccount = '"+nameAccountingAccount+"', " + "@idEnterprise = '"+idEnterprise+"' ");
             return newRecord;
         } catch (error) {
             console.log(error);

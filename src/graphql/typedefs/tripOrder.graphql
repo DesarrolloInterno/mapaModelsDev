@@ -152,7 +152,7 @@ type validated_tripOrder {
 }
 
 type Query {
-  GET_ALL_TRIP_ORDER(typeFilter:String!, date: String!, date1: String!, date2: String!): [tripOrder]
+  GET_ALL_TRIP_ORDER(typeFilter:String!, date: String!, date1: String!, date2: String!, idEnterprise: String!): [tripOrder]
   GET_ALL_CROSSING_TRIP_ORDER(typeFilter:String!, date: String!, date1: String!, date2: String!): [tripOrder]
   GET_SAFETY_EQUIPMENT_TRIP_ORDER(idTripOrder: String!): [tripOrderSafetyEquipment]
   GET_ALL_VALIDATED_TRIP_ORDERS(typeFilter:String!, date: String!, date1: String!, date2: String!): [validated_tripOrder]
@@ -161,8 +161,8 @@ type Query {
 input new_tripOrder {
   orderDate: String,
   tripType: String,
-  userLoggedIn: String
-  idLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input new_orderPriority {

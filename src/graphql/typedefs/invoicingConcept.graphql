@@ -15,7 +15,7 @@ type invoicingConcept {
 }
 
 type Query {
-  GET_INVOICINGCONCEPT(status:String!): [invoicingConcept]
+  GET_INVOICINGCONCEPT(status:String!, idEnterprise:String!): [invoicingConcept]
 }
 
 type return_new_invoicingConcept{
@@ -35,6 +35,7 @@ input new_invoicingConcept {
   idAccountingAccount: String
   accountingAccount: String
   nameAccountingAccount: String
+  idEnterprise: String
 }
 
 input update_invoicingConcept {
@@ -50,6 +51,7 @@ input update_invoicingConcept {
   idAccountingAccount: String
   accountingAccount: String
   nameAccountingAccount: String
+  idEnterprise: String
 }
 
 input delete_invoicingConcept {

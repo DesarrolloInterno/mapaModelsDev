@@ -66,10 +66,10 @@ type unit_noRetired{
 }
 
 type Query {
-  GET_UNIT(status:String!): [unit]
+  GET_UNIT(status:String!, idEnterprise:String!): [unit]
   GET_UNIT_DOCUMENTS(idUnit: String!): [unitDocuments]
-  GET_UNIT_NO_RETIRED: [unit_noRetired]
-  GET_ACTIVE_UNITS_WITH_ACTIVE_OPERATORS:[unit]
+  GET_UNIT_NO_RETIRED(idEnterprise: String!): [unit_noRetired]
+  GET_ACTIVE_UNITS_WITH_ACTIVE_OPERATORS(idEnterprise:String!):[unit]
 }
 
 type return_new_unit{
@@ -107,7 +107,8 @@ input new_unit {
   observations: String,
   idInsurer: String,
   idEnvironmentalInsurer: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input delete_unit {
@@ -146,7 +147,8 @@ input update_unit {
   observations: String,
   idInsurer: String,
   idEnvironmentalInsurer: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input edit_unitDocuments {

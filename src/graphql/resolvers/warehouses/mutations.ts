@@ -9,7 +9,8 @@ const warehousesMutations = {
             idCountry,
             country,
             code,
-	        userLoggedIn
+	        userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -19,7 +20,8 @@ const warehousesMutations = {
                 "@idCountry = '" + idCountry + "', " +
                 "@country = '" + country + "', " +
                 "@code = '" + code + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {
@@ -35,7 +37,8 @@ const warehousesMutations = {
             idCountry,
             country,
             code,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -46,7 +49,8 @@ const warehousesMutations = {
                 "@idCountry = '" + idCountry + "', " +
                 "@country = '" + country + "', " +
                 "@code = '" + code + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {

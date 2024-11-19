@@ -1,0 +1,8 @@
+type banks {
+    id: ID, 
+    name: String
+}
+
+type Query {
+    GET_ALL_BANKS(status: String!): [banks]
+}

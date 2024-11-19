@@ -7,14 +7,15 @@ type owners {
 }
 
 type Query {
-  GET_OWNERS(status:String!): [owners]
+  GET_OWNERS(status:String!, idEnterprise:String!): [owners]
 }
 
 input new_owner{
   name: String,
   observations: String,
   permitHolder: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 type return_new_owner{
@@ -27,7 +28,8 @@ input update_owner {
   name: String,
   observations: String,
   permitHolder: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input delete_owner {

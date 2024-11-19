@@ -213,9 +213,9 @@ const employeesMutations = {
         }
     },
     REENTRY_EMPLOYEE: async (_: any, {input}: any) => {
-        const { idEmployee, userLoggedIn, dateReentry, comment } = input;
+        const { idEmployee, userLoggedIn, dateReentry, comment, idEnterprise } = input;
         try {
-            await employees.query("exec reentry_employee @idEmployee = '"+idEmployee+"', @userLoggedIn = '"+userLoggedIn+"', @dateReentry = '"+dateReentry+"', @comment = '"+comment+"' ");
+            await employees.query("exec reentry_employee @idEmployee = '"+idEmployee+"', @userLoggedIn = '"+userLoggedIn+"', @dateReentry = '"+dateReentry+"', @comment = '"+comment+"', @idEnterprise = '"+ idEnterprise +"'");
             return 'Reingreso de empleado exitoso';
         } catch (error) {
             console.log(error);

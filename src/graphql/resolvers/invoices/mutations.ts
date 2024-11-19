@@ -96,7 +96,35 @@ const invoicesMutations = {
             console.log(error);
         }
 
+    },
+    SET_INVOICES_DOCUMENTS: async (_: any, {input}: any) => {
+        const { idInvoice, userLoggedIn } = input;
+        try {
+            const newRecord = await invoices.query("exec set_document_invoiceDocuments @idInvoice = '"+idInvoice+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_LINK_INVOICES_DOCUMENTS: async (_: any, {input}: any) => {
+        const { idDocument, link, document, userLoggedIn } = input;
+        try {
+            await invoices.query("exec set_linkInvoicesDocuments @idDocument = '"+idDocument+"', @link = '"+link+"', @document = '"+document+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Documento agregado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    DELETE_INVOICES_DOCUMENTS: async (_: any, {input}: any) => {
+        const { idDocument, userLoggedIn } = input;
+        try {
+            await invoices.query("exec delete_invoicesDocuments @idDocument = '"+idDocument+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Documento eliminado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
     }
+
 };
 
 export default invoicesMutations;

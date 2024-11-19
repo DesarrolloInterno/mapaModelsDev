@@ -2,9 +2,9 @@ import { jobTitle } from "../../../db/Entities/jobTitle";
 
 const jobTitleQuery = {
 
-    GET_ALL_JOBTITLE: async (_: any, {status}: any) => {
+    GET_ALL_JOBTITLE: async (_: any, {status, idEnterprise}: any) => {
         try{
-            const result = await jobTitle.query("exec get_AllJobTitle @status = '"+ status +"' ");
+            const result = await jobTitle.query("exec get_AllJobTitle @status = '"+ status +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {

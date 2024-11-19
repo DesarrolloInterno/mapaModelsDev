@@ -13,6 +13,7 @@ input setGeneralTermsAndConditions {
     idGeneralTermsAndConditions: String
     termsAndConditions: String
     userLoggedIn: String
+    idEnterprise: String
 }
 
 type Mutation {

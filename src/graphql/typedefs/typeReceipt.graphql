@@ -6,13 +6,14 @@ type typeReceipt{
 }
 
 type Query {
-  GET_ALL_TYPE_RECEIPT(status:String!): [typeReceipt]
+  GET_ALL_TYPE_RECEIPT(status:String!, idEnterprise: String!): [typeReceipt]
 }
 
 input create_typeReceipt {
   name: String
   description: String
   userLoggedIn: String
+  idEnterprise: String
 }
 
 input update_typeReceipt {
@@ -20,6 +21,7 @@ input update_typeReceipt {
     name: String
     description: String
     userLoggedIn: String
+    idEnterprise: String
 }
 
 input delete_enable_typeReceipt {

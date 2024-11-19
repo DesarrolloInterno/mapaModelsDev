@@ -119,10 +119,10 @@ type clientUser {
 }
 
 type Query {
-    GET_ALL_CLIENT(status: String!): [client]
-    GET_ALL_CLIENTS_LIST(status: String!): [clientList]
-    GET_ALL_CLIENTS_TABLE_SELECTOR(status: String!): [clientListTableSelector]
-    GET_CLIENT_BYID(idClient: Int!): [client]
+    GET_ALL_CLIENT(status: String!, idEnterprise: String!): [client]
+    GET_ALL_CLIENTS_LIST(status: String!, idEnterprise: String!): [clientList]
+    GET_ALL_CLIENTS_TABLE_SELECTOR(status: String!, idEnterprise: String!): [clientListTableSelector]
+    GET_CLIENT_BYID(idClient: Int!, idEnterprise: String!): [client]
     GET_CLIENT_USERS_BY_POTENTIAL_CLIENT(idClient: String!): [clientUser]
 }
 

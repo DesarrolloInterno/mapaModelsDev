@@ -1,9 +1,9 @@
 import { startingMeeting } from "../../../db/Entities/startingMeeting";
 
 const startingMeetingQueries = {
-    GET_ALL_STARTING_MEETING: async (_: any, {status, date1, date2}: any) => {
+    GET_ALL_STARTING_MEETING: async (_: any, {status, date1, date2, idEnterprise}: any) => {
         try{
-            const result = await startingMeeting.query("exec get_all_startingMeeting @status = '"+ status +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"' ");
+            const result = await startingMeeting.query("exec get_all_startingMeeting @status = '"+ status +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"' ");
             return result;
 
         } catch (error) {
@@ -11,9 +11,9 @@ const startingMeetingQueries = {
         }
 
     },
-    GET_STARTING_MEETING_BY_ID: async (_: any, {idStartingMeeting}: any) => {
+    GET_STARTING_MEETING_BY_ID: async (_: any, {idStartingMeeting, idEnterprise}: any) => {
         try{
-            const result = await startingMeeting.query("exec get_startingMeeting_by_id @idStartingMeeting = '"+ idStartingMeeting +"' ");
+            const result = await startingMeeting.query("exec get_startingMeeting_by_id @idStartingMeeting = '"+ idStartingMeeting +"', @idEnterprise = '"+ idEnterprise +"' ");
             return result;
 
         } catch (error) {

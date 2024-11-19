@@ -196,24 +196,24 @@ type employeesAniversary {
 }
 
 type Query {
-    GET_ALL_EMPLOYEES(status: String!): [employees]
-    GET_EMPLOYEE_BY_ID(idEmployee: Int!): [employees]
+    GET_ALL_EMPLOYEES(status: String!, idEnterprise: String!): [employees]
+    GET_EMPLOYEE_BY_ID(idEmployee: Int!, idEnterprise: String!): [employees]
     GET_NAME_EMPLOYEE(idEmployee: Int!): [employees_name]
     GET_DOC_MEDICAL_VALIDITY(idEmployee: Int!): [employees_name_doc]
     GET_DOC_ANTIDOPING_EMPLOYEE(idEmployee: Int!): [employees_name_doc]
     GET_TYPERECEIPT_BY_EMPLOYEE(idEmployee: String!):[employees_typeReceipt]
     GET_TYPERECEIPT_EMPLOYEE_FILE(idEmployeeTypeReceipt: String!):[employeetypeReceiptFile]
-    GET_ALL_REGISTRATION_DISMISSAL_EMPLOYEE(date1: String!, date2: String!, status: String!, idDepartment: String!): [registration_dismissal_employees]
+    GET_ALL_REGISTRATION_DISMISSAL_EMPLOYEE(date1: String!, date2: String!, status: String!, idDepartment: String!, idEnterprise: String!): [registration_dismissal_employees]
     GET_ALL_DRIVERLICENSE_EMPLOYEE(date1: String!, date2: String!): [registration_driverLicenses_employees]
-    GET_ALL_DRIVERLICENSE_EMPLOYEE2(date1: String!, date2: String!, typeReport: String!, status: String!, idDepartment: String!): [registration_driverLicenses_employees]
-    GET_ALL_ANTIDOPING_EMPLOYEE(date1: String!, date2: String!, typeReport: String!, status: String!, idDepartment: String!): [registration_antidoping_employees]
-    GET_ALL_MEDICAL_VALIDITY_EMPLOYEE(date1: String!, date2: String!, typeReport: String!, status: String!, idDepartment: String!): [registration_medicalValidity_employees]
-    GET_WORKER_ROTATION(date: String!, idDepartment: String!): [worker_rotation]
-    GET_ALL_OPERATOR_EMPLOYEES(status: String!): [operator_employees]
+    GET_ALL_DRIVERLICENSE_EMPLOYEE2(date1: String!, date2: String!, typeReport: String!, status: String!, idDepartment: String!, idEnterprise: String!): [registration_driverLicenses_employees]
+    GET_ALL_ANTIDOPING_EMPLOYEE(date1: String!, date2: String!, typeReport: String!, status: String!, idDepartment: String!, idEnterprise: String!): [registration_antidoping_employees]
+    GET_ALL_MEDICAL_VALIDITY_EMPLOYEE(date1: String!, date2: String!, typeReport: String!, status: String!, idDepartment: String!, idEnterprise: String!): [registration_medicalValidity_employees]
+    GET_WORKER_ROTATION(date: String!, idDepartment: String!, idEnterprise: String!): [worker_rotation]
+    GET_ALL_OPERATOR_EMPLOYEES(status: String!, idEnterprise: String!): [operator_employees]
     GET_ALL_DRIVERLICENSES_QUANTITY:[driverLicensesQuantity]
     GET_ALL_MEDICALVALIDITY_QUANTITY:[medicalValidityQuantity]
-    GET_ALL_EMPLOYEES_BIRTHDAY(monthOfBirth: String!):[employeesBirthDay]
-    GET_ALL_EMPLOYEES_ANIVERSARY(monthOfBirth: String!):[employeesAniversary]
+    GET_ALL_EMPLOYEES_BIRTHDAY(monthOfBirth: String!, idEnterprise: String!):[employeesBirthDay]
+    GET_ALL_EMPLOYEES_ANIVERSARY(monthOfBirth: String!, idEnterprise: String!):[employeesAniversary]
 }
 
 input update_employees {

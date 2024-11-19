@@ -25,7 +25,7 @@ type new_accountingAccount {
 
 
 type Query {
-    GET_ALL_ACCOUNTINGACCOUNTS(status: String!, isAffectable: String!): [accountingAccounts]
+    GET_ALL_ACCOUNTINGACCOUNTS(status: String!, isAffectable: String!, idEnterprise: String!): [accountingAccounts]
 }
 
 input accountingAccount {
@@ -45,7 +45,8 @@ input accountingAccount {
 	accountNature: String,
 	isAffectable: String,
 	showOnCancellation: String,
-	userLoggedIn: String
+	userLoggedIn: String,
+	idEnterprise: String
 }
 
 input accountingAccountEdit {
@@ -66,7 +67,8 @@ input accountingAccountEdit {
 	accountNature: String,
 	isAffectable: String,
 	showOnCancellation: String,
-	userLoggedIn: String
+	userLoggedIn: String,
+	idEnterprise: String
 }
 
 input accountingAccountDelete {

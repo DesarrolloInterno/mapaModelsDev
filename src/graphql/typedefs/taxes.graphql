@@ -21,7 +21,7 @@ type taxRate {
 }
 
 type Query {
-  GET_TAXES(status:String!): [taxes]
+  GET_TAXES(status:String!, idEnterprise: String!): [taxes]
   GET_TAXRATE_INVOICINGCONCEPT: [taxRate]
 }
 
@@ -43,6 +43,7 @@ input new_tax {
   idAccountingAccountPayments: String
   accountingAccountPayments: String
   nameAccountingAccountPayments: String
+  idEnterprise: String
 }
 
 input update_tax {
@@ -59,6 +60,7 @@ input update_tax {
   idAccountingAccountPayments: String
   accountingAccountPayments: String
   nameAccountingAccountPayments: String
+  idEnterprise: String
 }
 
 input delete_tax {

@@ -5,14 +5,16 @@ const departmentMutations = {
         const {
             name,
             description,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
             const newRecord = await department.query("exec create_department " +
                 "@name = '" + name + "', " +
                 "@description = '" + description + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {
@@ -25,7 +27,8 @@ const departmentMutations = {
             idDepartment,
             name,
             description,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -33,7 +36,8 @@ const departmentMutations = {
                 "@idDepartment = '" + idDepartment + "', " +
                 "@name = '" + name + "', " +
                 "@description = '" + description + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return record;
         } catch (error) {

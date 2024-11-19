@@ -6,7 +6,7 @@ type lines {
 }
 
 type Query {
-  GET_LINES(status:String!): [lines]
+  GET_LINES(status:String!, idEnterprise:String!): [lines]
 }
 
 type return_new_line{
@@ -17,14 +17,16 @@ type return_new_line{
 input new_line{
   name: String,
   description: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input update_line {
   idLine: String,
   name: String,
   description: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input delete_line {

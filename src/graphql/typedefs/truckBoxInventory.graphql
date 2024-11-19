@@ -15,7 +15,7 @@ type truckBoxInventory {
 }
 
 type Query {
-  GET_TRUCKBOXINVENTORY(warehouse: String!): [truckBoxInventory]
+  GET_TRUCKBOXINVENTORY(warehouse: String!, idEnterprise: String!): [truckBoxInventory]
 }
 
 input new_truckBoxInventory{

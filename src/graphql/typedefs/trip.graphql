@@ -1069,9 +1069,31 @@ type tripHistory {
   codesalesFormat: String
 }
 
+type tripsByClient {
+  loadingDate: String,
+  numTrip: String,
+  tripType: String,
+  trailerTypes: String,
+  numInvoice: String,
+	IVA: String,
+  RET: String,
+  subtotal: String,
+  total: String,
+  pagado: String,
+  fechaDePago: String,
+  status: String,
+  client: String,
+  origin: String,
+  destination: String,
+	departureDate: String,
+  truckBoxe: String,
+  userRecorded: String,
+  fechaDisponible: String
+}
+
 type Query {
-  GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!): [tripsForCrossings]
-  GET_ALL_TRIPS(status: String!, date1: String!, date2: String!): [trips]
+  GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!, idEnterprise: String!): [tripsForCrossings]
+  GET_ALL_TRIPS(status: String!, date1: String!, date2: String!, idEnterprise: String!): [trips]
   GET_ALL_TRIP_BY_ID_TRIP(idTrip: String!): [trips]
   GET_INSTRUCTION_LETTER_BY_IDTRIP(idTrip: String!): [instructionLetter]
   GET_BOOTHROUTE_BY_IDTRIP(idTrip: String!): [tripBoothRoute]
@@ -1080,16 +1102,18 @@ type Query {
   GET_TRIPAMOUNTS(idTrip: String!): [tripAmounts]
   GET_TRIPBOOTHROUTE_BY_IDTRIP(idTrip: String!): [tripBoothRoute]
   GET_TRIPAMOUNTS_BY_IDTRIP(idTrip: String!): [tripAmounts]
-  GET_ALL_TRIPS_FOR_TRIPS_TRACKING(status: String!, date1: String!, date2: String!): [tripsForTracking]
+  GET_ALL_TRIPS_FOR_TRIPS_TRACKING(status: String!, date1: String!, date2: String!, idEnterprise: String!): [tripsForTracking]
   GET_ALL_TRIPTRACKING_OBSERVATIONS(idTrip: String!): [tripTracking_observations]
   GET_ALL_TRIPTRACKING_DOCUMENTS_BY_ID_TRIP(idTrip: String!): [tripDocuments]
   GET_TRIP_TRACKING_PICKUPS(idTrip:String!): [tripTrackingPickups]
-  GET_ALL_CROSSING_TRIP_TRACKING(status: String!, date1: String!, date2: String!): [tripsForTracking]
+  GET_ALL_CROSSING_TRIP_TRACKING(status: String!, date1: String!, date2: String!, idEnterprise: String!): [tripsForTracking]
   GET_SUPPLIERS_LETTER_BY_IDTRIP(idTrip: String!): [suppliersLetter]
   GET_CLEANING_LETTER_BY_IDTRIP(idTrip: String!): [cleaningLetter]
   GET_FUMIGATION_LETTER_BY_IDTRIP(idTrip: String!): [fumigationLetter]
   GET_TRASFERINVOICE_BY_TOKEN(token: String!): [transferInvoice]
   GET_TRIP_HISTORY(date1: String!, date2: String!, crossing: String!, filterCheck: String!, dateTypeFilter: String!): [tripHistory]
+  GET_TRIP_HISTORY(date1: String!, date2: String!, crossing: String!, filterCheck: String!, dateTypeFilter: String!, idEnterprise: String!): [tripHistory]
+  GET_ALL_TRIPS_BY_CLIENT(date1: String!, date2: String!, idEnterprise: String!): [tripsByClient]
 }
 
 type Mutation {

@@ -1,9 +1,9 @@
 import { taxes } from "../../../db/Entities/taxes";
 
 const taxesQueries = {
-    GET_TAXES: async (_: any, {status}: any) => {
+    GET_TAXES: async (_: any, {status, idEnterprise}: any) => {
         try{
-            const result = await taxes.query("exec get_all_taxes @status = '"+ status +"' ");
+            const result = await taxes.query("exec get_all_taxes @status = '"+ status +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {

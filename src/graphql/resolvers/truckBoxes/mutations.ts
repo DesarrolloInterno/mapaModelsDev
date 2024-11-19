@@ -22,7 +22,8 @@ const truckBoxesMutations = {
             idState,
             state,
             trailerTypes,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -45,7 +46,8 @@ const truckBoxesMutations = {
                 "@idState = '" + idState + "', "+
                 "@state = '" + state + "', "+
                 "@trailerTypes = '" + trailerTypes + "', "+
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {
@@ -74,7 +76,8 @@ const truckBoxesMutations = {
             idState,
             state,
             trailerTypes,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -98,7 +101,8 @@ const truckBoxesMutations = {
                 "@idState = '" + idState + "', " +
                 "@state = '" + state + "', " +
                 "@trailerTypes = '" + trailerTypes + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {

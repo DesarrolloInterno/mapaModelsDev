@@ -163,12 +163,75 @@ type invoiceById {
   creditDays: String
 }
 
+type invoiceCollectionForecast {
+  id: String,
+  idClient: String,
+  client: String,
+  numTrip: String,
+  cCPDate: String,
+  numInvoice: String,
+  invoiceSeries: String,
+	invoiceDate: String,
+  userRecorded: String,
+  creditDays: String,
+	remainingDays: String,
+	total: String,
+  subtotal: String,
+  currency: String
+}
+
+type summaryInvoiceCollectionForecast {
+  idClient: String,
+  client: String,
+	total: String
+}
+
+type invoicesForAnalysis {
+  id: String,
+  invoiceDate: String,
+  numInvoice: String,
+  numTrip: String,
+  idClient: String,
+  client: String,
+  creditDays: String,
+	unit: String,
+  truckBoxe: String,
+  sentForCollectionDate: String,
+  invoiceSeries: String,
+	loadingDate: String,
+  dateCFDI: String,
+  IVA: String,
+  RET: String,
+  subtotal: String,
+  total: String,
+	idOperator: String,
+  operator: String,
+  completeInvoice: String,
+  currency: String,
+	daysToInvoice: String,
+	possiblePaymentDate: String
+}
+
+type invoicesDocuments {
+  id: ID,
+  idInvoice: Int,
+  idDocument: Int,
+  nameDocument: String,
+  documentLink: String,
+  status: String
+}
+
 type Query {
   GET_INVOICES_BY_TOKEN(token: String!): [invoiceToken]
   GET_INVOICEAMOUNTS(idInvoice: String!): [invoiceAmounts]
-  GET_ALL_INVOICES_FOR_COLLECTION(date1: String!, date2: String!, typeFilter: String!): [invoicesForCollection]
+  GET_ALL_INVOICES_FOR_COLLECTION(date1: String!, date2: String!, typeFilter: String!, idEnterprise: String!): [invoicesForCollection]
   GET_INVOICE_FOR_COLLECTION(date1: String!, date2: String!, typeFilter: String!): [invoicesForCollection]
   GET_INVOICE_BY_ID_INVOICE(idInvoice: String!): [invoiceById]
+  GET_ALL_INVOICES_FOR_COLLECTION_FORECAST(date1: String!, currency: String!, idEnterprise: String!, filterStatusType: String!): [invoiceCollectionForecast]
+  GET_ALL_SUMMARY_INVOICES_FOR_COLLECTION_FORECAST(date1: String!, currency: String!, idEnterprise: String!): [summaryInvoiceCollectionForecast]
+  GET_ALL_INVOICES_FOR_ANALYSIS(date1: String!, date2: String!, dateTypeFilter: String!, idEnterprise: String!, currency: String!): [invoicesForAnalysis]
+  GET_ALL_INVOICES_DOCUMENTS(idInvoice: String!): [invoicesDocuments]
+  GET_INVOICES_DOCUMENTS_BY_ID(idInvoiceDocument: String!): [invoicesDocuments]
 }
 
 input setNewInvoices {
@@ -210,9 +273,33 @@ type return_invoiceShippingDate {
   message: String
 }
 
+type new_invoicesDocuments {
+    idDocument: String
+}
+
+input set_invoicesDocuments {
+  idInvoice: String,
+  userLoggedIn: String
+}
+
+input set_link_invoicesDocuments {
+  idDocument: String,
+  link: String,
+  document: String,
+  userLoggedIn: String
+}
+
+input delete_invoicesDocuments {
+  idDocument: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_INVOICE_FROM_TRIP(input: setNewInvoices): [newInvoices]
   UPDATE_INVOICE_CFDI(input: setCFDIInvoices): String
   SET_LINK_PDF_XML_INVOICE(input: setLinkPDFXMLInvoice): String
   SET_INVOICE_SHIPPINGDATE(input: setInvoiceShippingDate): [return_invoiceShippingDate]
+  SET_INVOICES_DOCUMENTS(input: set_invoicesDocuments): [new_invoicesDocuments]
+  SET_LINK_INVOICES_DOCUMENTS(input: set_link_invoicesDocuments): String
+  DELETE_INVOICES_DOCUMENTS(input: delete_invoicesDocuments): String
 }

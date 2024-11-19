@@ -37,8 +37,8 @@ type return_new_tollBooth{
 }
 
 type Query {
-  GET_TOLLBOOTHS(status:String!): [tollBooths]
-  GET_LIST_TOLLBOOTHS(status:String!): [tollBoothsList]
+  GET_TOLLBOOTHS(status:String!, idEnterprise:String!): [tollBooths]
+  GET_LIST_TOLLBOOTHS(status:String!,idEnterprise:String!): [tollBoothsList]
 }
 
 input new_tollBooth {
@@ -49,7 +49,8 @@ input new_tollBooth {
   town: String,
   latitude: String,
   longitude: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input update_tollBooth {
@@ -61,7 +62,8 @@ input update_tollBooth {
   town: String,
   latitude: String,
   longitude: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input delete_tollBooth {

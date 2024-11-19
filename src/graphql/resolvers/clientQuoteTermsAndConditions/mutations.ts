@@ -5,10 +5,11 @@ const clientQuoteTermsAndConditionsMutations = {
         const { 
             idGeneralTermsAndConditions,
             termsAndConditions,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
         try {
-            await clientQuoteTermsAndConditions.query("exec set_generalTermsAndConditions @idGeneralTermsAndConditions = '"+idGeneralTermsAndConditions+"', @termsAndConditions = '"+termsAndConditions+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            await clientQuoteTermsAndConditions.query("exec set_generalTermsAndConditions @idGeneralTermsAndConditions = '"+idGeneralTermsAndConditions+"', @termsAndConditions = '"+termsAndConditions+"', @userLoggedIn = '"+userLoggedIn+"', @idEnterprise = '"+ idEnterprise +"'");
             return 'Se ha actualizado el registro';
         } catch (error) {
             console.log(error);

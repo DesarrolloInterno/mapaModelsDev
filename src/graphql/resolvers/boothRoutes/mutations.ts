@@ -12,7 +12,8 @@ const boothRoutesMutations = {
             idDestinationTown,
             destinationTown,
             isReversible,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -26,7 +27,8 @@ const boothRoutesMutations = {
                 "@idDestinationTown = '" + idDestinationTown + "', " +
                 "@destinationTown = '" + destinationTown + "', " +
                 "@isReversible = '" + isReversible + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {
@@ -45,7 +47,8 @@ const boothRoutesMutations = {
             idDestinationTown,
             destinationTown,
             isReversible,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -60,7 +63,8 @@ const boothRoutesMutations = {
                 "@idDestinationTown = '" + idDestinationTown + "', " +
                 "@destinationTown = '" + destinationTown + "', " +
                 "@isReversible = '" + isReversible + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {

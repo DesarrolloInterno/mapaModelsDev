@@ -9,6 +9,7 @@ input create_typeDocumentsEmployees {
     name: String
     description: String
     userLoggedIn: String
+    idEnterprise: String
 }
 
 input delete_enable_typeDocumentsEmployees {
@@ -21,10 +22,11 @@ input update_typeDocumentsEmployees {
     name: String
     description: String
     userLoggedIn: String
+    idEnterprise: String
 }
 
 type Query {
-  GET_ALL_TYPE_DOCUMENTS_EMPLOYEES(status:String!): [typeDocumentsEmployees]
+  GET_ALL_TYPE_DOCUMENTS_EMPLOYEES(status:String!, idEnterprise: String!): [typeDocumentsEmployees]
 }
 
 type Mutation {

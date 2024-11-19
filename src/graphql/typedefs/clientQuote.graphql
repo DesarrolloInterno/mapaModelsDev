@@ -77,8 +77,8 @@ type return_new_clientQuote {
 }
 
 type Query {
-    GET_ALL_CLIENT_QUOTE(status: String!, date1: String!, date2: String!): [clientQuote]
-    GET_CLIENT_QUOTE_BY_ID(idClientQuote: String!): [clientQuote]
+    GET_ALL_CLIENT_QUOTE(status: String!, date1: String!, date2: String!, idEnterprise: String!): [clientQuote]
+    GET_CLIENT_QUOTE_BY_ID(idClientQuote: String!, idEnterprise: String!): [clientQuote]
     GET_CLIENT_QUOTE_BY_ID_PDF(idClientQuote: String!): [clientQuotePDF]
     GET_CLIENT_QUOTE_DETAIL_BY_ID(idClientQuote: String!): [clientQuoteDetai]
     GET_CLIENT_QUOTE_LOGOS(idClientQuote: String!): [clientQuoteLogos]

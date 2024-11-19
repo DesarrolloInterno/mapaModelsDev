@@ -2,18 +2,18 @@ import { typeReceipt } from "../../../db/Entities/typeReceipt";
 
 const typeReceiptMutations = {
     CREATE_TYPE_RECEIPT: async (_: any, {input}: any) => {
-        const {name, description, userLoggedIn} = input;
+        const {name, description, userLoggedIn, idEnterprise} = input;
         try {
-            const newRecord = await typeReceipt.query("exec create_typeReceipt @name = '"+name+"', @description = '"+description+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            const newRecord = await typeReceipt.query("exec create_typeReceipt @name = '"+name+"', @description = '"+description+"', @userLoggedIn = '"+userLoggedIn+"', @idEnterprise = '"+ idEnterprise +"'");
             return newRecord[0].message;
         } catch (error) {
             console.log(error);
         }
     },
     EDIT_TYPE_RECEIPT: async (_: any, {input}: any) => {
-        const {idTypeReceipt, name, description, userLoggedIn} = input;
+        const {idTypeReceipt, name, description, userLoggedIn, idEnterprise} = input;
         try {
-            const newRecord = await typeReceipt.query("exec update_typeReceipt @idTypeReceipt = '"+idTypeReceipt+"', @name = '"+name+"', @description = '"+description+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            const newRecord = await typeReceipt.query("exec update_typeReceipt @idTypeReceipt = '"+idTypeReceipt+"', @name = '"+name+"', @description = '"+description+"', @userLoggedIn = '"+userLoggedIn+"', @idEnterprise = '"+ idEnterprise + "'");
             return newRecord[0].message;
         } catch (error) {
             console.log(error);

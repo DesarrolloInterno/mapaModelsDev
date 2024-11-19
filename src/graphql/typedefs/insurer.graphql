@@ -19,7 +19,7 @@ type insurer {
 }
 
 type Query {
-  GET_INSURER(status:String!): [insurer]
+  GET_INSURER(status:String!, idEnterprise:String!): [insurer]
 }
 
 type return_new_insurer{
@@ -43,7 +43,8 @@ input new_insurer {
   contactName: String,
   phone: String,
   email: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input update_insurer {
@@ -63,7 +64,8 @@ input update_insurer {
   contactName: String,
   phone: String,
   email: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 input delete_insurer {

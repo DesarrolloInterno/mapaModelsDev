@@ -2,9 +2,9 @@ import { potentialClient } from "../../../db/Entities/potentialClient";
 
 const potentialClientQueries = {
 
-    GET_ALL_POTENTIAL_CLIENT: async (_: any, {status}: any) => {
+    GET_ALL_POTENTIAL_CLIENT: async (_: any, {status, idEnterprise}: any) => {
         try{
-            const result = await potentialClient.query("exec get_all_potentialClient @status = '"+ status +"' ");
+            const result = await potentialClient.query("exec get_all_potentialClient @status = '"+ status +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {

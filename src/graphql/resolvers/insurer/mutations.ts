@@ -19,7 +19,8 @@ const insurerMutations = {
 	        contactName,
 	        phone,
 	        email,
-	        userLoggedIn
+	        userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -39,7 +40,8 @@ const insurerMutations = {
                 "@contactName = '" + contactName + "', " +
                 "@phone = '" + phone + "', " +
                 "@email = '" + email + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {
@@ -65,7 +67,8 @@ const insurerMutations = {
 	        contactName,
 	        phone,
 	        email,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -86,7 +89,8 @@ const insurerMutations = {
                 "@contactName = '" + contactName + "', " +
                 "@phone = '" + phone + "', " +
                 "@email = '" + email + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {

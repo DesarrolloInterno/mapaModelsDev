@@ -7,7 +7,7 @@ type typeDocumentsClients{
 }
 
 type Query {
-  GET_ALL_TYPE_DOCUMENTS_CLIENTS(status:String!, typeClient: String!): [typeDocumentsClients]
+  GET_ALL_TYPE_DOCUMENTS_CLIENTS(status:String!, typeClient: String!, idEnterprise: String!): [typeDocumentsClients]
 }
 
 input create_typeDocumentsClients {
@@ -15,6 +15,7 @@ input create_typeDocumentsClients {
     description: String
     typeClient: String
     userLoggedIn: String
+    idEnterprise: String
 }
 
 input update_typeDocumentClient {
@@ -23,6 +24,7 @@ input update_typeDocumentClient {
     description: String
     typeClient: String
     userLoggedIn: String
+    idEnterprise: String
 }
 
 input delete_enable_typeDocumentClient {

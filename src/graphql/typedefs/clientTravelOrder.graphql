@@ -439,8 +439,8 @@ type Query {
   GET_CLIENT_TRAVEL_ORDERS(date1: String!, date2: String!, idClient: String!): [clientTravelOrder]
   GET_CLIENT_SALES_FORMAT_AMOUNTS(idClient: String!): [clientSalesFormatAmounts]
   GET_CLIENT_ADDRESSES: [clientAdresses]
-  GET_CLIENTS_CLIENT_TRAVEL_ORDERS(date1: String!, date2: String!, status: String!): [clientsClientTravelOrder]
-  GET_CLIENTTRAVELORDER_BY_ID(idClientTravelOrder: String!): [clientsClientTravelOrder]
+  GET_CLIENTS_CLIENT_TRAVEL_ORDERS(date1: String!, date2: String!, status: String!, idEnterprise: String!): [clientsClientTravelOrder]
+  GET_CLIENTTRAVELORDER_BY_ID(idClientTravelOrder: String!, idEnterprise: String!): [clientsClientTravelOrder]
 }
 
 type Mutation {

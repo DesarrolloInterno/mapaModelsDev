@@ -19,10 +19,11 @@ const candidatesMutations = {
             userLoggedIn, 
             antiquity, 
             idJobTitle ,
-            currentJob
+            currentJob,
+            idEnterprise
         } = input;
         try {
-            const newRecord = await candidates.query("exec create_candidates @contact = '"+contact+"', @firstName = '"+firstName+"', @paternalLastName= '"+paternalLastName+"', @maternalLastName = '"+maternalLastName+"', @driverLicenseIsActive = '"+driverLicenseIsActive+"', @APTOIsActive = '"+APTOIsActive+"', @currentlyLabaorando = '"+currentlyLabaorando+"', @age = '"+age+"', @experience = '"+experience+"', @locatedAt = '"+locatedAt+"', @phone = '"+phone+"', @comments = '"+comments+"', @userLoggedIn = '"+userLoggedIn+"', @dateCandidateAdded = '"+dateCandidateAdded+"', @antiquity = '"+antiquity+"', @idJobTitle = '"+idJobTitle+"', @currentJob = '"+currentJob+"' ");
+            const newRecord = await candidates.query("exec create_candidates @contact = '"+contact+"', @firstName = '"+firstName+"', @paternalLastName= '"+paternalLastName+"', @maternalLastName = '"+maternalLastName+"', @driverLicenseIsActive = '"+driverLicenseIsActive+"', @APTOIsActive = '"+APTOIsActive+"', @currentlyLabaorando = '"+currentlyLabaorando+"', @age = '"+age+"', @experience = '"+experience+"', @locatedAt = '"+locatedAt+"', @phone = '"+phone+"', @comments = '"+comments+"', @userLoggedIn = '"+userLoggedIn+"', @dateCandidateAdded = '"+dateCandidateAdded+"', @antiquity = '"+antiquity+"', @idJobTitle = '"+idJobTitle+"', @currentJob = '"+currentJob+"', @idEnterprise = '"+ idEnterprise +"'");
             return newRecord[0].message;
         } catch (error) {
             console.log(error);
@@ -47,10 +48,11 @@ const candidatesMutations = {
             userLoggedIn, 
             antiquity, 
             idJobTitle,
-            currentJob
+            currentJob,
+            idEnterprise
         } = input;
         try {
-            const newRecord = await candidates.query("exec update_candidates @id = '"+id+"', @contact = '"+contact+"', @firstName = '"+firstName+"', @paternalLastName = '"+paternalLastName+"', @maternalLastName = '"+maternalLastName+"', @driverLicenseIsActive = '"+driverLicenseIsActive+"', @APTOIsActive = '"+APTOIsActive+"', @currentlyLabaorando = '"+currentlyLabaorando+"', @age = '"+age+"', @experience = '"+experience+"', @locatedAt = '"+locatedAt+"', @phone = '"+phone+"', @comments = '"+comments+"', @userLoggedIn = '"+userLoggedIn+"', @dateCandidateAdded = '"+dateCandidateAdded+"', @antiquity = '"+antiquity+"', @idJobTitle = '"+idJobTitle+"', @currentJob = '"+currentJob+"' ");
+            const newRecord = await candidates.query("exec update_candidates @id = '"+id+"', @contact = '"+contact+"', @firstName = '"+firstName+"', @paternalLastName = '"+paternalLastName+"', @maternalLastName = '"+maternalLastName+"', @driverLicenseIsActive = '"+driverLicenseIsActive+"', @APTOIsActive = '"+APTOIsActive+"', @currentlyLabaorando = '"+currentlyLabaorando+"', @age = '"+age+"', @experience = '"+experience+"', @locatedAt = '"+locatedAt+"', @phone = '"+phone+"', @comments = '"+comments+"', @userLoggedIn = '"+userLoggedIn+"', @dateCandidateAdded = '"+dateCandidateAdded+"', @antiquity = '"+antiquity+"', @idJobTitle = '"+idJobTitle+"', @currentJob = '"+currentJob+"', @idEnterprise = '"+ idEnterprise +"'");
             return newRecord[0].message;
 
         } catch (error) {
@@ -67,9 +69,9 @@ const candidatesMutations = {
         }
     },
     SET_ACCEPTED_CANDIDATE: async (_: any, {input}: any) => {
-        const {idCandidate, startDate, userLoggedIn} = input;
+        const {idCandidate, startDate, userLoggedIn, idEnterprise} = input;
         try {
-            const newRecord =  await candidates.query("exec set_accept_candidate @idCandidate = '"+idCandidate+"', @startDate = '"+startDate+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            const newRecord =  await candidates.query("exec set_accept_candidate @idCandidate = '"+idCandidate+"', @startDate = '"+startDate+"', @userLoggedIn = '"+userLoggedIn+"', @idEnterprise = '"+ idEnterprise +"'");
             return newRecord[0].message;
         } catch (error) {
             console.log(error);
