@@ -107,101 +107,34 @@ const invoicesMutations = {
         }
 
     },
-    SET_INVOICE_AMOUNTS: async (_: any, {input}: any) => {
-        const {
-            idInvoiceAmount,
-            idInvoice,
-            idTrip,
-            idSalesFormatAmounts,
-            idInvoicingConcept,
-            subtotal,
-            idIVApercentage,
-            IVApercentage,
-            IVA,
-            idRETpercentage,
-            RETpercentage,
-            RET,
-            totalAmount,
-            idSalesFormat,
-            codeMeasuringUnit,
-            measuringUnit,
-            isTaxes,
-            userLoggedIn,
-            status
-        } = input;
-
+    SET_INVOICES_DOCUMENTS: async (_: any, {input}: any) => {
+        const { idInvoice, userLoggedIn } = input;
         try {
-            await invoices.query("exec set_invoiceAmounts " +
-                "@idInvoiceAmount = '" + idInvoiceAmount + "', " +
-                "@idInvoice = '" + idInvoice + "', " +
-                "@idTrip = '" + idTrip + "', " +
-                "@idSalesFormatAmounts = '" + idSalesFormatAmounts + "', " +
-                "@idInvoicingConcept = '" + idInvoicingConcept + "', " +
-                "@subtotal = '" + subtotal + "', " +
-                "@idIVApercentage = '" + idIVApercentage + "', " +
-                "@IVApercentage = '" + IVApercentage + "', " +
-                "@IVA = '" + IVA + "', " +
-                "@idRETpercentage = '" + idRETpercentage + "', " +
-                "@RETpercentage = '" + RETpercentage + "', " +
-                "@RET = '" + RET + "', " +
-                "@totalAmount = '" + totalAmount + "', " +
-                "@idSalesFormat = '" + idSalesFormat + "', " +
-                "@codeMeasuringUnit = '" + codeMeasuringUnit + "', " +
-                "@measuringUnit = '" + measuringUnit + "', " +
-                "@isTaxes = '" + isTaxes + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@status = '" + status + "' "
-            );
-            return 'Montos de factura actualizados correctamente'
-        } catch (error) {
-            console.log(error);
-        }
-
-    },
-    UPDATE_INVOICE: async (_: any, {input}: any) => {
-        const {
-            idInvoice,
-            idTrip,
-            idUseOfCFDI,
-            idPaymentMethod,
-            idPayment,
-            currency,
-            exchangeRate,
-            userLoggedIn,
-        } = input;
-
-        try {
-            const newid = await invoices.query("exec update_invoice " +
-                "@idInvoice = '" + idInvoice + "', " +
-                "@idTrip = '" + idTrip + "', " +
-                "@idUseOfCFDI = '" + idUseOfCFDI + "', " +
-                "@idPaymentMethod = '" + idPaymentMethod + "', " +
-                "@idPayment = '" + idPayment + "', " +
-                "@currency = '" + currency + "', " +
-                "@exchangeRate = '" + exchangeRate + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
-            );
-            return newid;
+            const newRecord = await invoices.query("exec set_document_invoiceDocuments @idInvoice = '"+idInvoice+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return newRecord;
         } catch (error) {
             console.log(error);
         }
     },
-    SET_TOKEN_STAMPINVOICE: async (_: any, {input}: any) => {
-        const {
-            idInvoice,
-            userLoggedIn,
-        } = input;
-
+    SET_LINK_INVOICES_DOCUMENTS: async (_: any, {input}: any) => {
+        const { idDocument, link, document, userLoggedIn } = input;
         try {
-            const newid = await invoices.query("exec set_token_stampInvoice " +
-                "@idInvoice = '" + idInvoice + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
-            );
-            return newid;
+            await invoices.query("exec set_linkInvoicesDocuments @idDocument = '"+idDocument+"', @link = '"+link+"', @document = '"+document+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Documento agregado correctamente'
         } catch (error) {
             console.log(error);
         }
     },
+    DELETE_INVOICES_DOCUMENTS: async (_: any, {input}: any) => {
+        const { idDocument, userLoggedIn } = input;
+        try {
+            await invoices.query("exec delete_invoicesDocuments @idDocument = '"+idDocument+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Documento eliminado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 };
 
 export default invoicesMutations;
