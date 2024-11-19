@@ -892,7 +892,7 @@ type tripsByClient {
 	departureDate: String,
   truckBoxe: String,
   userRecorded: String,
-  fechaDisponible: String
+  availableDate: String
 }
 
 type Query {
