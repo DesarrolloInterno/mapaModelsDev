@@ -6,6 +6,7 @@ type jobTitle {
   higherPosition: Int
   higherPositionName: String
   department: String
+  idDepartment: Int
 }
 
 type jobTitle_typeReceipt {

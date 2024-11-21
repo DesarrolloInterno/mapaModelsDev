@@ -22,7 +22,7 @@ type taxRate {
 
 type Query {
   GET_TAXES(status:String!, idEnterprise: String!): [taxes]
-  GET_TAXRATE_INVOICINGCONCEPT: [taxRate]
+  GET_TAXRATE_INVOICINGCONCEPT(idEnterprise: String!): [taxRate]
 }
 
 type return_new_tax{

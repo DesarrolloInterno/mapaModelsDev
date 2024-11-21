@@ -19,18 +19,18 @@ const travelAssignmentQueries = {
             console.log(error);
         }
     },
-    GET_ALL_TRAVEL_ASSIGNMENT_TRIP: async (_: any, {typeFilter, date, date1, date2, dateTypeFilter}: any) => {
+    GET_ALL_TRAVEL_ASSIGNMENT_TRIP: async (_: any, {typeFilter, date, date1, date2, dateTypeFilter, idEnterpriseLoggedIn}: any) => {
         try{
-            const result = await tripOrder.query("exec get_all_travelAssignment_trip @typeFilter = '"+ typeFilter +"', @date = '"+ date +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @dateTypeFilter = '"+ dateTypeFilter +"' ");
+            const result = await tripOrder.query("exec get_all_travelAssignment_trip @typeFilter = '"+ typeFilter +"', @date = '"+ date +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @dateTypeFilter = '"+ dateTypeFilter +"', @idEnterpriseLoggedIn = '"+ idEnterpriseLoggedIn +"' ");
             return result;
 
         } catch (error) {
             console.log(error);
         }
     },
-    GET_ALL_TRAVEL_ASSIGNMENT_TRIP_CROSSING: async (_: any, {typeFilter, date, date1, date2, dateTypeFilter}: any) => {
+    GET_ALL_TRAVEL_ASSIGNMENT_TRIP_CROSSING: async (_: any, {typeFilter, date, date1, date2, dateTypeFilter, idEnterprise}: any) => {
         try{
-            const result = await tripOrder.query("exec get_all_travelAssignment_trip_crossing @typeFilter = '"+ typeFilter +"', @date = '"+ date +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @dateTypeFilter = '"+ dateTypeFilter +"' ");
+            const result = await tripOrder.query("exec get_all_travelAssignment_trip_crossing @typeFilter = '"+ typeFilter +"', @date = '"+ date +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @dateTypeFilter = '"+ dateTypeFilter +"', @idEnterprise = '"+ idEnterprise +"' ");
             return result;
 
         } catch (error) {

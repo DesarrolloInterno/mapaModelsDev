@@ -10,9 +10,9 @@ const taxesQueries = {
             console.log(error);
         }
     },
-    GET_TAXRATE_INVOICINGCONCEPT: async (_: any, {}: any) => {
+    GET_TAXRATE_INVOICINGCONCEPT: async (_: any, {idEnterprise}: any) => {
         try{
-            const result = await taxes.query("exec get_taxRate_invoicingConcept ");
+            const result = await taxes.query("exec get_taxRate_invoicingConcept @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
