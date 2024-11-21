@@ -40,11 +40,24 @@ type return_newTracking {
     message: String
 }
 
+input new_tripOrder {
+    orderDate: String,
+    userLoggedIn: String,
+    idEnterprise: String,
+    idTrip: String
+}
+
+type return_new_tripOrder {
+    idTripOrder: String,
+    message: String
+}
+
 type Query {
-    GET_ALL_TRACKING_BY_IDTRIP(idTrip: String!, dateType: String!): [tracking]
+    GET_ALL_TRACKING_BY_IDTRIP(idTrip: String!): [tracking]
 }
 
 type Mutation {
   CREATE_TRACKING(input: new_tracking): [return_newTracking]
   CREATE_CROSSING_TRACKING(input: new_tracking): [return_newTracking]
+  CREATE_TRIP_ORDER_CROSSING_FROM_TRIP_TRACKING(input: new_tripOrder): [return_new_tripOrder]
 }

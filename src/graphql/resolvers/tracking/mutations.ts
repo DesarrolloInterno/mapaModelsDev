@@ -72,6 +72,26 @@ const trackingMutations = {
         } catch (error) {
             console.log(error);
         }
+    },
+    CREATE_TRIP_ORDER_CROSSING_FROM_TRIP_TRACKING: async (_: any, {input}: any) => {
+        const {
+            orderDate,
+            userLoggedIn,
+            idEnterprise,
+            idTrip
+        } = input;
+
+        try {
+            const newRecord = await tracking.query("exec create_tripOrderCrossing_from_tripTracking " +
+                "@orderDate = '" + orderDate + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "', " +
+                "@idTrip = '" + idTrip + "'"
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

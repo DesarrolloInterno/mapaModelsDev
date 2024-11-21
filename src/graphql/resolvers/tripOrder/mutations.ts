@@ -257,7 +257,7 @@ const tripOrderMutations = {
         } = input;
 
         try {
-            await tripOrder.query("exec update_travelAssignment_tripCrossin " +
+            await tripOrder.query("exec update_travelAssignment_tripCrossing " +
                 "@idTripOrder = '" + idTripOrder + "', " +
                 "@idTripCrossing = '" + idTripCrossing + "', " +
                 "@numTripOrigin = '" + numTripOrigin + "', " +
