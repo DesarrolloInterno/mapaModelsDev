@@ -2,9 +2,9 @@ import { clientDocuments } from "../../../db/Entities/clientDocuments";
 
 const clientDocumentsQueries = {
 
-    GET_POTENTIAL_CLIENT_DOCUMENTS: async (_: any, {idPotentialClient}: any) => {
+    GET_POTENTIAL_CLIENT_DOCUMENTS: async (_: any, {idPotentialClient, idEnterprise}: any) => {
         try{
-            const result = await clientDocuments.query("exec get_clientsDocuments_by_potentialClient @idPotentialClient = '"+ idPotentialClient +"' ");
+            const result = await clientDocuments.query("exec get_clientsDocuments_by_potentialClient @idPotentialClient = '"+ idPotentialClient +"', @idEnterprise = '"+ idEnterprise +"' ");
             return result;
 
         } catch (error) {

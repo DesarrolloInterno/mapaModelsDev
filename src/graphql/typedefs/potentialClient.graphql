@@ -123,6 +123,7 @@ type login_user_potentialClient {
     formatClient: String
     enterpriseLogo: String
     finishedForm: String
+    idEnterprise: String
 }
 
 type return_new_potentialClient {
