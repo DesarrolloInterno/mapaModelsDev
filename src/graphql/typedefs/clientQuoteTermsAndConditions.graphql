@@ -5,7 +5,7 @@ type generalTermsAndConditions {
 }
 
 type Query {
-    GET_GENERAL_TERMS_AND_CONDITIONS: [generalTermsAndConditions]
+    GET_GENERAL_TERMS_AND_CONDITIONS(idEnterprise: String!): [generalTermsAndConditions]
     GET_CLIENT_QUOTE_TERMS_AND_CONDITIONS_BY_ID(idClientQuote: String): [generalTermsAndConditions]
 }
 

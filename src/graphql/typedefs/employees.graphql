@@ -285,6 +285,7 @@ input update_employees_personal_information {
     DateOfBirth: String,
     gender: String,
     civilStatus: String
+    idEnterprise: String
 }
 
 input update_employees_income_data {

@@ -10,9 +10,9 @@ const tripOrderQueries = {
             console.log(error);
         }
     },
-    GET_ALL_CROSSING_TRIP_ORDER: async (_: any, {typeFilter, date, date1, date2}: any) => {
+    GET_ALL_CROSSING_TRIP_ORDER: async (_: any, {typeFilter, date, date1, date2, idEnterprise}: any) => {
         try{
-            const result = await tripOrder.query("exec get_all_crossing_tripOrder @typeFilter = '"+ typeFilter +"', @date = '"+ date +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"' ");
+            const result = await tripOrder.query("exec get_all_crossing_tripOrder @typeFilter = '"+ typeFilter +"', @date = '"+ date +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"' ");
             return result;
 
         } catch (error) {

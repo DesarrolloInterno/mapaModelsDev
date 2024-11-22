@@ -316,6 +316,7 @@ const employeesMutations = {
             DateOfBirth,
             gender,
             civilStatus,
+            idEnterprise
         } = input;
         try {
             const newRecord = await employees.query("exec update_employees_personal_information " +
@@ -340,7 +341,8 @@ const employeesMutations = {
             "@userLoggedIn = '"+userLoggedIn+"', " +
             "@DateOfBirth = '"+DateOfBirth+"', " +
             "@gender = '"+gender+"', " +
-            "@civilStatus = '"+civilStatus+"' ");
+            "@civilStatus = '"+civilStatus+"', " +
+            "@idEnterprise = '"+idEnterprise+"' ");
             return newRecord[0].message;
         } catch (error) {
             console.log(error);

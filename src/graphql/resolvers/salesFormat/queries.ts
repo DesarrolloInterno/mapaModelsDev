@@ -128,9 +128,9 @@ const salesFormatQueries = {
             console.log(error);
         }
     },
-    GET_SALES_FORMAT_AMOUNT_CLIENTS: async (_: any) => {
+    GET_SALES_FORMAT_AMOUNT_CLIENTS: async (_: any, {idEnterprise}: any) => {
         try{
-            const result = await salesFormat.query("exec get_all_salesFormatAmountClients");
+            const result = await salesFormat.query("exec get_all_salesFormatAmountClients @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {

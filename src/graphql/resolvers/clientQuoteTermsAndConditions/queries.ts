@@ -1,9 +1,9 @@
 import { clientQuoteTermsAndConditions } from "../../../db/Entities/clientQuoteTermsAndConditions";
 
 const clientQuoteTermsAndConditionsQueries = {
-    GET_GENERAL_TERMS_AND_CONDITIONS: async (_: any, {}: any) => {
+    GET_GENERAL_TERMS_AND_CONDITIONS: async (_: any, {idEnterprise}: any) => {
         try{
-            const result = await clientQuoteTermsAndConditions.query("exec get_generalTermsAndConditions ");
+            const result = await clientQuoteTermsAndConditions.query("exec get_generalTermsAndConditions @idEnterprise = '"+ idEnterprise +"' ");
             return result;
 
         } catch (error) {

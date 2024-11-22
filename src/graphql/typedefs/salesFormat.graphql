@@ -328,7 +328,7 @@ type Query {
   GET_SAFETYEQUIPMENT_BY_ID_SALESFORMAT(idSalesFormat: String!): [safetyEquipmentSalesFormat]
   GET_CROSS_SALES_FORMAT(idEnterprise: String!): [cross_salesFormat]
   GET_SALES_FORMAT_CLIENTS: [salesFormatClients]
-  GET_SALES_FORMAT_AMOUNT_CLIENTS: [salesFormatAmountClients]
+  GET_SALES_FORMAT_AMOUNT_CLIENTS(idEnterprise: String!): [salesFormatAmountClients]
   GET_SALES_FORMAT_ADDRESSES_BY_ID_CLIENT(idClient: String!): [salesFormat_addresses_by_idClient]
 }
 
