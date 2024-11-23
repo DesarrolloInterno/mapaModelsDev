@@ -7,4 +7,5 @@ type country {
 type Query {
     GET_ALL_COUNTRIES: [country]
     GET_COUNTRY(countryCode: String!): [country]
+    GET_ALL_COUNTRIES_INTERNATIONAL_FORM: [country]
 }

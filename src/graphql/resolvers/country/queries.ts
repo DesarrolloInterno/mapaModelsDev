@@ -21,7 +21,16 @@ const countryQueries = {
         }
 
     },
+    GET_ALL_COUNTRIES_INTERNATIONAL_FORM: async (_: any, {}: any) => {
+        try{
+            const result = await country.query("exec get_all_countries_internationalForm ");
+            return result;
 
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
 };
 
 export default countryQueries;
