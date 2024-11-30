@@ -15,7 +15,8 @@ const invoicingConceptMutations = {
             idAccountingAccount,
             accountingAccount,
             nameAccountingAccount,
-            idEnterprise
+            idEnterprise,
+            isOtherIncome
         } = input;
         try {
             const newRecord = await invoicingConcept.query("exec create_invoicingConcept " +
@@ -23,7 +24,7 @@ const invoicingConceptMutations = {
             "@refrigeratedBox = '"+refrigeratedBox+"', @isTaxes = '"+isTaxes+"', @taxRate = '"+taxRate+"', " +
             "@typeTrip = '"+typeTrip+"', @userLoggedIn = '"+userLoggedIn+"', " +
             "@idAccountingAccount = '"+idAccountingAccount+"', @accountingAccount = '"+accountingAccount+"', " +
-            "@nameAccountingAccount = '"+nameAccountingAccount+"', " + "@idEnterprise = '"+idEnterprise+"' ");
+            "@nameAccountingAccount = '"+nameAccountingAccount+"', " + "@idEnterprise = '"+idEnterprise+"', "+ "@isOtherIncome = '"+ isOtherIncome +"' ");
             return newRecord;
         } catch (error) {
             console.log(error);
@@ -43,7 +44,8 @@ const invoicingConceptMutations = {
             idAccountingAccount,
             accountingAccount,
             nameAccountingAccount,
-            idEnterprise
+            idEnterprise,
+            isOtherIncome
         } = input;
         try {
             const newRecord = await invoicingConcept.query("exec update_invoicingConcept " +
@@ -51,7 +53,7 @@ const invoicingConceptMutations = {
             "@description = '"+description+"', @refrigeratedBox = '"+refrigeratedBox+"', @isTaxes = '"+isTaxes+"', " +
             "@taxRate = '"+taxRate+"', @typeTrip = '"+typeTrip+"', @userLoggedIn = '"+userLoggedIn+"', " +
             "@idAccountingAccount = '"+idAccountingAccount+"', @accountingAccount = '"+accountingAccount+"' , " +
-            "@nameAccountingAccount = '"+nameAccountingAccount+"', " + "@idEnterprise = '"+idEnterprise+"' ");
+            "@nameAccountingAccount = '"+nameAccountingAccount+"', " + "@idEnterprise = '"+idEnterprise+"', "+ "@isOtherIncome = '"+ isOtherIncome +"' ");
             return newRecord;
         } catch (error) {
             console.log(error);

@@ -286,6 +286,7 @@ type invoices {
   docXML: String 
 	dateRecorded: String
   userRecorded: String
+  TAXID: String
 }
 
 type invoice {
@@ -365,6 +366,7 @@ type invoice {
   reference: String
   UUID: String
   docInvoicePdf: String
+  TAXID: String
 }
 
 type invoiceDocument {
@@ -446,6 +448,30 @@ type newToken {
   idTrip: String
 }
 
+type assetInvoiceAmounts {
+  id: ID
+  idSalesFormat: Int 
+  idInvoicingConcept: Int 
+  invoicingConcept: String 
+  subtotal: String 
+  idIVApercentage: Int
+	IVApercentage: String 
+  IVA: String 
+  idRETpercentage: Int
+  RETpercentage: String 
+  RET: String 
+  totalAmount: String 
+  taxRate: String 
+  measuringUnit: String
+	codeMeasuringUnit: String 
+  status: String
+  isTaxes: String
+  idSalesFormatAmount: Int
+  quantity: String
+  codeInvoicingConcept: String
+  unitImport: String
+}
+
 type Query {
   GET_INVOICES_BY_TOKEN(token: String!): [invoiceToken]
   GET_INVOICEAMOUNTS(idInvoice: String!): [invoiceAmounts]
@@ -462,6 +488,8 @@ type Query {
   GET_INVOICE_BY_ID(idInvoice: String!): [invoice]
   GET_INVOICEAMOUNTS_BY_ID(idInvoice: String!): [invoiceAmounts_Front]
   GET_INVOICEDOCUMENT(idInvoice: String!): [invoiceDocument]
+  GET_ASSET_INVOICEAMOUNTS_BY_ID(idInvoice: String!): [assetInvoiceAmounts]
+  GET_ALL_ASSET_INVOICES(typeStatus: String!, date1: String!, date2: String!, date: String!): [invoices]
 }
 
 input setNewInvoices {
@@ -573,6 +601,82 @@ input delete_invoicesDocuments {
   userLoggedIn: String
 }
 
+input newAssetInvoice {
+  idEnterprise: String,
+  idClient: String,
+  currency: String,
+  exchangeRate: String,
+  userLoggedIn: String,
+  idPaymentMethod: String,
+  idUseOfCFDI: String,
+  idPayment: String
+}
+
+type return_newAssetInvoice {
+  idInvoice: ID
+  message: String
+  numInvoice: String
+}
+
+input setInvoiceAmount {
+  idInvoiceAmount: String
+  idInvoice: String
+  idTrip: String
+  idSalesFormatAmounts: String
+  idInvoicingConcept: String
+  subtotal: String
+  idIVApercentage: String
+  IVApercentage: String
+  IVA: String
+  idRETpercentage: String
+  RETpercentage: String
+  RET: String
+  totalAmount: String
+  idSalesFormat: String
+  codeMeasuringUnit: String
+  measuringUnit: String
+  isTaxes: String
+  userLoggedIn: String
+  status: String
+  quantity: String
+}
+
+input updateAssetInvoice {
+  idInvoice: String,
+  idEnterprise: String,
+  idClient: String,
+  currency: String,
+  exchangeRate: String,
+  userLoggedIn: String,
+  idPaymentMethod: String,
+  idUseOfCFDI: String,
+  idPayment: String
+}
+
+input setAssetInvoiceAmount {
+  idInvoiceAmount: String,
+  idInvoice: String,
+  idTrip: String,
+  idSalesFormatAmounts: String,
+  idInvoicingConcept: String,
+  idIVApercentage: String,
+  IVApercentage: String,
+  IVA: String,
+  idRETpercentage: String,
+  RETpercentage: String,
+  RET: String,
+  totalAmount: String,
+  idSalesFormat: String,
+  codeMeasuringUnit: String,
+  measuringUnit: String,
+  isTaxes: String,
+  userLoggedIn: String,
+  status: String,
+  quantity: String,
+  unitImport: String,
+  subtotal: String
+}
+
 type Mutation {
   CREATE_INVOICE_FROM_TRIP(input: setNewInvoices): [newInvoices]
   CREATE_INVOICE(input: setNewInvoices2): [newInvoices2]
@@ -585,4 +689,7 @@ type Mutation {
   DELETE_INVOICES_DOCUMENTS(input: delete_invoicesDocuments): String
   SET_INVOICE_AMOUNTS(input: setInvoiceAmount): String
   SET_TOKEN_STAMPINVOICE(input: setTokenStampInvoice): [newToken]
+  CREATE_ASSET_INVOICE(input: newAssetInvoice): [return_newAssetInvoice]
+  SET_ASSET_INVOICE_AMOUNTS(input: setAssetInvoiceAmount): String
+  UPDATE_ASSET_INVOICE(input: updateAssetInvoice): [return_newAssetInvoice]
 }

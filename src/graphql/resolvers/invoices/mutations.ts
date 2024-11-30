@@ -248,6 +248,121 @@ const invoicesMutations = {
             console.log(error);
         }
     },
+    CREATE_ASSET_INVOICE: async (_: any, {input}: any) => {
+        const {
+            idEnterprise,
+            idClient,
+            currency,
+            exchangeRate,
+            userLoggedIn,
+            idPaymentMethod,
+            idUseOfCFDI,
+            idPayment
+        } = input;
+
+        try {
+            const newid = await invoices.query("exec create_assetInvoice " +
+                "@idEnterprise = '" + idEnterprise + "', " +
+                "@idClient = '" + idClient + "', " +
+                "@currency = '" + currency + "', " +
+                "@exchangeRate = '" + exchangeRate + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idPaymentMethod = '" + idPaymentMethod + "', " +
+                "@idUseOfCFDI = '" + idUseOfCFDI + "', " +
+                "@idPayment = '" + idPayment + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    SET_ASSET_INVOICE_AMOUNTS: async (_: any, {input}: any) => {
+        const {
+            idInvoiceAmount,
+            idInvoice,
+            idTrip,
+            idSalesFormatAmounts,
+            idInvoicingConcept,
+            idIVApercentage,
+            IVApercentage,
+            IVA,
+            idRETpercentage,
+            RETpercentage,
+            RET,
+            totalAmount,
+            idSalesFormat,
+            codeMeasuringUnit,
+            measuringUnit,
+            isTaxes,
+            userLoggedIn,
+            status,
+            quantity,
+            unitImport,
+            subtotal
+        } = input;
+
+        try {
+            await invoices.query("exec set_assetInvoiceAmounts " +
+                "@idInvoiceAmount = '" + idInvoiceAmount + "', " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@idTrip = '" + idTrip + "', " +
+                "@idSalesFormatAmounts = '" + idSalesFormatAmounts + "', " +
+                "@idInvoicingConcept = '" + idInvoicingConcept + "', " +
+                "@idIVApercentage = '" + idIVApercentage + "', " +
+                "@IVApercentage = '" + IVApercentage + "', " +
+                "@IVA = '" + IVA + "', " +
+                "@idRETpercentage = '" + idRETpercentage + "', " +
+                "@RETpercentage = '" + RETpercentage + "', " +
+                "@RET = '" + RET + "', " +
+                "@totalAmount = '" + totalAmount + "', " +
+                "@idSalesFormat = '" + idSalesFormat + "', " +
+                "@codeMeasuringUnit = '" + codeMeasuringUnit + "', " +
+                "@measuringUnit = '" + measuringUnit + "', " +
+                "@isTaxes = '" + isTaxes + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@status = '" + status + "', " +
+                "@quantity = '" + quantity + "', " +
+                "@unitImport = '" + unitImport + "', " +
+                "@subtotal = '" + subtotal + "' "
+            );
+            return 'Montos de factura actualizados correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    UPDATE_ASSET_INVOICE: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            idEnterprise,
+            idClient,
+            currency,
+            exchangeRate,
+            userLoggedIn,
+            idPaymentMethod,
+            idUseOfCFDI,
+            idPayment
+        } = input;
+
+        try {
+            const newid = await invoices.query("exec update_assetInvoice " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@idEnterprise = '" + idEnterprise + "', " +
+                "@idClient = '" + idClient + "', " +
+                "@currency = '" + currency + "', " +
+                "@exchangeRate = '" + exchangeRate + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idPaymentMethod = '" + idPaymentMethod + "', " +
+                "@idUseOfCFDI = '" + idUseOfCFDI + "', " +
+                "@idPayment = '" + idPayment + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
 };
 
 export default invoicesMutations;

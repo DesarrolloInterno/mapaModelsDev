@@ -12,6 +12,7 @@ type invoicingConcept {
   idAccountingAccount: String
   accountingAccount: String
   nameAccountingAccount: String
+  isOtherIncome: Int
 }
 
 type Query {
@@ -36,6 +37,7 @@ input new_invoicingConcept {
   accountingAccount: String
   nameAccountingAccount: String
   idEnterprise: String
+  isOtherIncome: String
 }
 
 input update_invoicingConcept {
@@ -52,6 +54,7 @@ input update_invoicingConcept {
   accountingAccount: String
   nameAccountingAccount: String
   idEnterprise: String
+  isOtherIncome: String
 }
 
 input delete_invoicingConcept {

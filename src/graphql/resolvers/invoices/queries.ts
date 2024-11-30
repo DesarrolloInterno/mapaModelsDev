@@ -150,6 +150,35 @@ const invoicesQueries = {
             console.log(error);
         }
     },
+    GET_ASSET_INVOICEAMOUNTS_BY_ID: async (_: any, {
+        idInvoice
+    }: any) => {
+        try{
+            const result = await invoices.query("exec get_asset_invoiceAmounts_by_id @idInvoice = '"+ idInvoice +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_ASSET_INVOICES: async (_: any, {
+        typeStatus,
+        date1,
+        date2,
+        date
+    }: any) => {
+        try{
+            const result = await invoices.query("exec get_all_assetInvoices " +
+            "@typeStatus = '"+ typeStatus +"'," +
+            "@date1 = '"+ date1 +"', " +
+            "@date2 = '"+ date2 +"', " +
+            "@date = '"+ date +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default invoicesQueries;

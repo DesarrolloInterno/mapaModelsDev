@@ -118,12 +118,51 @@ type clientUser {
     fullAddress: String,
 }
 
+type fiscalData_from_clients {    
+    id: String, 
+	name: String, 
+    businessName: String, 
+    shortName: String, 
+    RFC: String, 
+    address: String, 
+    outsideAddressNumber: String, 
+    insideAddressNumber: String, 
+	neighborhood: String, 
+    zipCode: String, 
+    idCountry: String, 
+    country: String, 
+    idTown: String, 
+    town: String, 
+    idState: String, 
+    state: String,
+	idPaymentMethod: String, 
+    paymentMethod: String, 
+    codePaymentMethod: String,
+	idUseOfCFDI: String,
+    useOfCFDI: String, 
+    codeUseOfCFDI: String,
+	currency: String,
+	idPayment: String, 
+    payment: String, 
+    codePayment: String,
+	idFiscalSystem: String, 
+    fiscalSystem: String, 
+    codeFiscalSystem: String,
+	creditDays: String,
+	status: String, 
+    TAXID: String,
+	authorizedCreditLimit: String,
+	formatClient: String,
+    fullAddress: String
+}
+
 type Query {
     GET_ALL_CLIENT(status: String!, idEnterprise: String!): [client]
     GET_ALL_CLIENTS_LIST(status: String!, idEnterprise: String!): [clientList]
     GET_ALL_CLIENTS_TABLE_SELECTOR(status: String!, idEnterprise: String!): [clientListTableSelector]
     GET_CLIENT_BYID(idClient: Int!, idEnterprise: String!): [client]
     GET_CLIENT_USERS_BY_POTENTIAL_CLIENT(idClient: String!): [clientUser]
+    GET_ALL_FISCAL_DATA_FROM_CLIENTS(status: String!, idEnterprise: String!): [fiscalData_from_clients]
 }
 
 input delete_client {
