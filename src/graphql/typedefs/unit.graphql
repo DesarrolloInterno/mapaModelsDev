@@ -40,7 +40,8 @@ type unit {
   environmentalInsurer: String,
   operativeClasificationName: String, 
   typeUnitName: String,
-  name: String
+  name: String,
+  deletedDate: String
 }
 
 type unitDocuments {
@@ -113,7 +114,8 @@ input new_unit {
 
 input delete_unit {
   idUnit: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  deletedDate: String
 }
 
 input update_unit {

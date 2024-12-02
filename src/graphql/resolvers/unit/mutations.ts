@@ -81,13 +81,15 @@ const unitMutations = {
     DELETE_UNIT: async (_: any, {input}: any) => {
         const {
             idUnit,
-            userLoggedIn
+            userLoggedIn,
+            deletedDate
         } = input;
 
         try {
             await unit.query("exec delete_unit " +
                 "@idUnit = '" + idUnit + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@deletedDate = '" + deletedDate + "' "
             );
             return "Registro eliminado correctamente"
         } catch (error) {

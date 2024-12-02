@@ -113,13 +113,15 @@ const truckBoxesMutations = {
     DELETE_TRUCKBOX: async (_: any, {input}: any) => {
         const {
             idTruckBox,
-            userLoggedIn
+            userLoggedIn,
+            deletedDate
         } = input;
 
         try {
             await truckBoxes.query("exec delete_truckBox " +
                 "@idTruckBox = '" + idTruckBox + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@deletedDate = '" + deletedDate + "' "
             );
             return "Registro eliminado correctamente"
         } catch (error) {

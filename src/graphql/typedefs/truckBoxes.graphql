@@ -20,7 +20,8 @@ type truckBox {
   trailerTypes: String,
   owner: String,
   line: String,
-  name: String
+  name: String,
+  deletedDate: String
 }
 
 type Query {
@@ -52,7 +53,8 @@ input new_truckBox {
 
 input delete_truckBox {
   idTruckBox: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  deletedDate: String
 }
 
 input update_truckBox {
