@@ -1,0 +1,41 @@
+type payrollExpenseConcepts {
+  id: ID,
+  name: String,
+  description: String,
+  status: String
+}
+
+type Query {
+    GET_ALL_PAYROLL_EXPENSE_CONCEPTS(idEnterprise: String!, status: String!): [payrollExpenseConcepts]
+}
+
+input new_payrollExpenseConcept {
+  name: String,
+  description: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+type return_new_payrollExpenseConcept {
+  idPayrollExpenseConcept: String,
+  message: String
+}
+
+input update_payrollExpenseConcept {
+  idPayrollExpenseConcept: String,
+  name: String,
+  description: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+input delete_payrollExpenseConcept {
+  idPayrollExpenseConcept: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_PAYROLL_EXPENSE_CONCEPT(input: new_payrollExpenseConcept): [return_new_payrollExpenseConcept]
+  UPDATE_PAYROLL_EXPENSE_CONCEPT(input: update_payrollExpenseConcept): [return_new_payrollExpenseConcept]
+  DELETE_PAYROLL_EXPENSE_CONCEPT(input: delete_payrollExpenseConcept): [return_new_payrollExpenseConcept]
+}

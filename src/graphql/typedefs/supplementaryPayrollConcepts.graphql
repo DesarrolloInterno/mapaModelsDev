@@ -1,0 +1,41 @@
+type supplementaryPayrollConcepts {
+  id: ID,
+  name: String,
+  description: String,
+  status: String
+}
+
+type Query {
+    GET_ALL_SUPPLEMENTARY_PAYROLL_CONCEPTS(idEnterprise: String!, status: String!): [supplementaryPayrollConcepts]
+}
+
+input new_supplementaryPayrollConcepts {
+  name: String,
+  description: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+type return_new_supplementaryPayrollConcepts {
+  idSupplementaryPayrollConcept: String,
+  message: String
+}
+
+input update_supplementaryPayrollConcepts {
+  idSupplementaryPayrollConcept: String,
+  name: String,
+  description: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+input delete_supplementaryPayrollConcepts {
+  idSupplementaryPayrollConcept: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_SUPPLEMENTARY_PAYROLL_CONCEPT(input: new_supplementaryPayrollConcepts): [return_new_supplementaryPayrollConcepts]
+  UPDATE_SUPPLEMENTARY_PAYROLL_CONCEPT(input: update_supplementaryPayrollConcepts): [return_new_supplementaryPayrollConcepts]
+  DELETE_SUPPLEMENTARY_PAYROLL_CONCEPT(input: delete_supplementaryPayrollConcepts): [return_new_supplementaryPayrollConcepts]
+}

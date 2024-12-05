@@ -103,6 +103,9 @@ import { trackingMutations, trackingQueries } from './tracking'
 import { exchangeRateRecordsQueries, exchangeRateRecordsMutations} from './exchangeRateRecords'
 import { bankAccountsMutations, bankAccountsQueries } from './bankAccounts'
 import { banksQueries } from './banks'
+import payrollExpenseConceptsQueries from './payrollExpenseConcepts/queries'
+import payrollExpenseConceptsMutations from './payrollExpenseConcepts/mutations'
+import { supplementaryPayrollConceptsMutations, supplementaryPayrollConceptsQueries } from './supplementaryPayrollConcepts'
 
 const resolvers = {
     Query: {
@@ -209,7 +212,9 @@ const resolvers = {
         ...exchangeRateRecordsQueries,
         ...invoicesQueries,
         ...bankAccountsQueries,
-        ...banksQueries
+        ...banksQueries,
+        ...payrollExpenseConceptsQueries,
+        ...supplementaryPayrollConceptsQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -284,7 +289,9 @@ const resolvers = {
         ...trackingMutations,
         ...exchangeRateRecordsMutations,
         ...tripMutations,
-        ...bankAccountsMutations
+        ...bankAccountsMutations,
+        ...payrollExpenseConceptsMutations,
+        ...supplementaryPayrollConceptsMutations
     }
 }
 
