@@ -1,0 +1,58 @@
+type position {
+    id: ID,
+	idUnit: Int,
+	idTruckbox: Int,
+	idEnterprise: Int,
+	reference: String,
+	latitude: String,
+	longitude: String,
+	address: String,
+	orientation: String,
+	speed: String,
+	gpsDate: String,
+	deviceType: String,
+	odometer: String,
+	hourometer: String,
+	heading: String,
+	temperature: String,
+	rmp: String,
+	fuel: String,
+	ignition: String,
+	UUID: String,
+	tokenTransaction: String,
+	status: String
+}
+
+input new_position {
+    idEnterprise: String,
+	reference: String,
+	latitude: String,
+	longitude: String,
+	address: String,
+	orientation: String,
+	speed: String,
+	gpsDate: String,
+	deviceType: String,
+	odometer: String,
+	hourometer: String,
+	heading: String,
+	temperature: String,
+	rmp: String,
+	fuel: String,
+	ignition: String,
+	tokenTransaction: String,
+	userLoggedIn: String
+}
+
+type return_new_position {
+    reference: String,
+    idPosition: String,
+    UUID: String,
+    dateRecorded: String,
+    message: String,
+    tokenTransaction: String
+}
+
+type Mutation {
+    SET_POSITION(input: new_position): [return_new_position]
+}
