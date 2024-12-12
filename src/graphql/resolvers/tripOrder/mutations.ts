@@ -152,7 +152,9 @@ const tripOrderMutations = {
             idSalesFormatCrossing,
             containers,
             shippingLines,
-            userLoggedIn
+            userLoggedIn,
+            idClient,
+            idSalesFormat
         } = input;
 
         try {
@@ -168,7 +170,202 @@ const tripOrderMutations = {
                 "@idSalesFormatCrossing = '" + idSalesFormatCrossing + "', " +
                 "@containers = '" + containers + "', " +
                 "@shippingLines = '" + shippingLines + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idClient = '" + idClient + "', " +
+                "@idSalesFormat = '" + idSalesFormat + "' "
+            );
+            return 'Orden de viaje actualizada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_DYNAMIC_TRIPORDER2: async (_: any, {input}: any) => {
+        const {
+            idTripOrder,
+            loadingDate,
+            deliveryDate,
+            sealNumber,
+            temperature,
+            proNumber,
+            reference,
+            isCrossing,
+            containers,
+            shippingLines,
+            userLoggedIn,
+            idClient,
+            idSalesFormat
+        } = input;
+
+        try {
+            await tripOrder.query("exec update_dynamic_tripOrder2 " +
+                "@idTripOrder = '" + idTripOrder + "', " +
+                "@loadingDate = '" + loadingDate + "', " +
+                "@deliveryDate = '" + deliveryDate + "', " +
+                "@sealNumber = '" + sealNumber + "', " +
+                "@temperature = '" + temperature + "', " +
+                "@proNumber = '" + proNumber + "', " +
+                "@reference = '" + reference + "', " +
+                "@isCrossing = '" + isCrossing + "', " +
+                "@containers = '" + containers + "', " +
+                "@shippingLines = '" + shippingLines + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idClient = '" + idClient + "', " +
+                "@idSalesFormat = '" + idSalesFormat + "' "
+            );
+            return 'Orden de viaje actualizada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_DYNAMIC_TRAVELASSIGNMENT_TRIPORDER: async (_: any, {input}: any) => {
+        const {
+            idTripOrder,
+            loadingDate,
+            deliveryDate,
+            sealNumber,
+            temperature,
+            proNumber,
+            reference,
+            isCrossing,
+            userLoggedIn,
+            idClient,
+            idSalesFormat,
+            idUnit,
+            idTruckBox,
+            idOperator
+        } = input;
+
+        try {
+            await tripOrder.query("exec update_dynamic_travelAssignment " +
+                "@idTripOrder = '" + idTripOrder + "', " +
+                "@loadingDate = '" + loadingDate + "', " +
+                "@deliveryDate = '" + deliveryDate + "', " +
+                "@sealNumber = '" + sealNumber + "', " +
+                "@temperature = '" + temperature + "', " +
+                "@proNumber = '" + proNumber + "', " +
+                "@reference = '" + reference + "', " +
+                "@isCrossing = '" + isCrossing + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idClient = '" + idClient + "', " +
+                "@idSalesFormat = '" + idSalesFormat + "', " +
+                "@idUnit = '" + idUnit + "', " +
+                "@idTruckBox = '" + idTruckBox + "', " +
+                "@idOperator = '" + idOperator + "' "
+            );
+            return 'Orden de viaje actualizada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_DYNAMIC_TRAVELASSIGNMENT_TRIPORDERCROSSING: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            idTripOrder,
+            loadingDate,
+            deliveryDate,
+            sealNumber,
+            temperature,
+            proNumber,
+            reference,
+            userLoggedIn,
+            idClient,
+            idSalesFormat,
+            idUnit,
+            idTruckBox,
+            idOperator
+        } = input;
+
+        try {
+            await tripOrder.query("exec update_dynamic_travelAssignmentCrossing " +
+                "@idTripOrder = '" + idTripOrder + "', " +
+                "@loadingDate = '" + loadingDate + "', " +
+                "@deliveryDate = '" + deliveryDate + "', " +
+                "@sealNumber = '" + sealNumber + "', " +
+                "@temperature = '" + temperature + "', " +
+                "@proNumber = '" + proNumber + "', " +
+                "@reference = '" + reference + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idClient = '" + idClient + "', " +
+                "@idSalesFormat = '" + idSalesFormat + "', " +
+                "@idUnit = '" + idUnit + "', " +
+                "@idTruckBox = '" + idTruckBox + "', " +
+                "@idOperator = '" + idOperator + "' "
+            );
+            return 'Orden de viaje actualizada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_DYNAMIC_TRAVELASSIGNMENT_TRIPCROSSING: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            idTripOrder,
+            loadingDate,
+            deliveryDate,
+            sealNumber,
+            temperature,
+            proNumber,
+            reference,
+            userLoggedIn,
+            idClient,
+            idSalesFormat,
+            idUnit,
+            idTruckBox,
+            idOperator
+        } = input;
+
+        try {
+            await tripOrder.query("exec update_dynamic_travelAssignmentCrossing_trip " +
+                "@idTrip = '" + idTrip + "', " +
+                "@idTripOrder = '" + idTripOrder + "', " +
+                "@loadingDate = '" + loadingDate + "', " +
+                "@deliveryDate = '" + deliveryDate + "', " +
+                "@sealNumber = '" + sealNumber + "', " +
+                "@temperature = '" + temperature + "', " +
+                "@proNumber = '" + proNumber + "', " +
+                "@reference = '" + reference + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idClient = '" + idClient + "', " +
+                "@idSalesFormat = '" + idSalesFormat + "', " +
+                "@idUnit = '" + idUnit + "', " +
+                "@idTruckBox = '" + idTruckBox + "', " +
+                "@idOperator = '" + idOperator + "' "
+            );
+            return 'Orden de viaje actualizada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_DYNAMIC_TRIPORDERCROSSING: async (_: any, {input}: any) => {
+        const {
+            idTripOrder,
+            loadingDate,
+            deliveryDate,
+            sealNumber,
+            temperature,
+            proNumber,
+            reference,
+            containers,
+            shippingLines,
+            userLoggedIn,
+            idClient,
+            idSalesFormat
+        } = input;
+
+        try {
+            await tripOrder.query("exec update_dynamic_tripOrderCrossing " +
+                "@idTripOrder = '" + idTripOrder + "', " +
+                "@loadingDate = '" + loadingDate + "', " +
+                "@deliveryDate = '" + deliveryDate + "', " +
+                "@sealNumber = '" + sealNumber + "', " +
+                "@temperature = '" + temperature + "', " +
+                "@proNumber = '" + proNumber + "', " +
+                "@reference = '" + reference + "', " +
+                "@containers = '" + containers + "', " +
+                "@shippingLines = '" + shippingLines + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idClient = '" + idClient + "', " +
+                "@idSalesFormat = '" + idSalesFormat + "' "
             );
             return 'Orden de viaje actualizada correctamente'
         } catch (error) {

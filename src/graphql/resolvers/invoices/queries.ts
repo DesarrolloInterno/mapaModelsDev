@@ -87,14 +87,16 @@ const invoicesQueries = {
         typeStatus,
         date1,
         date2,
-        date
+        date,
+        idEnterprise
     }: any) => {
         try{
             const result = await invoices.query("exec get_all_invoices " +
             "@typeStatus = '"+ typeStatus +"'," +
             "@date1 = '"+ date1 +"', " +
             "@date2 = '"+ date2 +"', " +
-            "@date = '"+ date +"' ");
+            "@date = '"+ date +"', " +
+            "@idEnterprise = '"+ idEnterprise +"' ");
             return result;
 
         } catch (error) {
@@ -120,10 +122,10 @@ const invoicesQueries = {
         }
     },
     GET_INVOICE_BY_ID: async (_: any, {
-        idInvoice
+        idInvoice, idEnterprise
     }: any) => {
         try{
-            const result = await invoices.query("exec get_invoices_by_id @idInvoice = '"+ idInvoice +"' ");
+            const result = await invoices.query("exec get_invoices_by_id @idInvoice = '"+ idInvoice +"', @idEnterprise = '"+ idEnterprise +"' ");
             return result;
 
         } catch (error) {

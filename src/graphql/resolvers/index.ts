@@ -103,6 +103,7 @@ import { trackingMutations, trackingQueries } from './tracking'
 import { exchangeRateRecordsQueries, exchangeRateRecordsMutations} from './exchangeRateRecords'
 import { bankAccountsMutations, bankAccountsQueries } from './bankAccounts'
 import { banksQueries } from './banks'
+import { bankDepositsQueries, bankDepositsMutations } from './bankDeposits'
 
 const resolvers = {
     Query: {
@@ -209,7 +210,8 @@ const resolvers = {
         ...exchangeRateRecordsQueries,
         ...invoicesQueries,
         ...bankAccountsQueries,
-        ...banksQueries
+        ...banksQueries,
+        ...bankDepositsQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -284,7 +286,8 @@ const resolvers = {
         ...trackingMutations,
         ...exchangeRateRecordsMutations,
         ...tripMutations,
-        ...bankAccountsMutations
+        ...bankAccountsMutations,
+        ...bankDepositsMutations
     }
 }
 

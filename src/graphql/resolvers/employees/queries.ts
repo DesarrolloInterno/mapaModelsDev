@@ -123,17 +123,17 @@ const employeesQueries = {
             console.log(error);
         }
     },
-    GET_ALL_DRIVERLICENSES_QUANTITY: async (_: any) => {
+    GET_ALL_DRIVERLICENSES_QUANTITY: async (_: any,{idEnterprise}: any) => {
         try{
-            const result = await employees.query("exec get_all_driverLicensesQuantity");
+            const result = await employees.query("exec get_all_driverLicensesQuantity @idEnterprise = '"+ idEnterprise +"'");
             return result;
         } catch (error) {
             console.log(error);
         }
     },
-    GET_ALL_MEDICALVALIDITY_QUANTITY: async (_: any) => {
+    GET_ALL_MEDICALVALIDITY_QUANTITY: async (_: any, {idEnterprise}: any) => {
         try{
-            const result = await employees.query("exec get_all_medicalValidityQuantity");
+            const result = await employees.query("exec get_all_medicalValidityQuantity @idEnterprise = '"+ idEnterprise +"'");
             return result;
         } catch (error) {
             console.log(error);

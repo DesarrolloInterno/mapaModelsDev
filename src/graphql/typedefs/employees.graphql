@@ -210,8 +210,8 @@ type Query {
     GET_ALL_MEDICAL_VALIDITY_EMPLOYEE(date1: String!, date2: String!, typeReport: String!, status: String!, idDepartment: String!, idEnterprise: String!): [registration_medicalValidity_employees]
     GET_WORKER_ROTATION(date: String!, idDepartment: String!, idEnterprise: String!): [worker_rotation]
     GET_ALL_OPERATOR_EMPLOYEES(status: String!, idEnterprise: String!): [operator_employees]
-    GET_ALL_DRIVERLICENSES_QUANTITY:[driverLicensesQuantity]
-    GET_ALL_MEDICALVALIDITY_QUANTITY:[medicalValidityQuantity]
+    GET_ALL_DRIVERLICENSES_QUANTITY(idEnterprise: String!):[driverLicensesQuantity]
+    GET_ALL_MEDICALVALIDITY_QUANTITY(idEnterprise: String!):[medicalValidityQuantity]
     GET_ALL_EMPLOYEES_BIRTHDAY(monthOfBirth: String!, idEnterprise: String!):[employeesBirthDay]
     GET_ALL_EMPLOYEES_ANIVERSARY(monthOfBirth: String!, idEnterprise: String!):[employeesAniversary]
 }
