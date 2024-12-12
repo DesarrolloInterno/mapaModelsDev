@@ -223,6 +223,10 @@ type salesFormat_by_client {
   countryOrigin: String
   countryDestination: String
   typeCrossing: String
+  americanPortion: String
+  crossingPortion: String
+  mexicanPortion: String
+  classifyAsCrossover: String
 }
 
 type return_salesFormat {

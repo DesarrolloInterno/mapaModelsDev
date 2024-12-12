@@ -1,0 +1,77 @@
+type bankDeposits {
+    id: ID, 
+    numBankDeposit: Int
+    idClient: Int
+    client: String
+    idBankAccount: Int
+    bankAccount: String
+    exchangeRate: String
+    amount: String
+    balanceDue: String
+    reference: String
+    bankDepositDate: String
+    bankDepositControlDate: String
+    observations: String
+    status: String
+    currency: String
+    docPDF: String
+    docXML: String
+    depositType: String
+}
+
+type return_bankDeposit {
+    idBankDeposit: Int
+    message: String
+}
+
+type invoices_bankDeposits {
+    id: ID,
+	idBankDeposit: Int,
+	numBankDeposit: Int,
+	idInvoice: Int,
+	numInvoice: Int,
+	idClient: Int,
+	client: String,
+	invoiceDate: String,
+	invoiceCurrency: String,
+	invoiceBalance: String,
+	depositFee: String,
+	newInvoiceBalance: String,
+	amount: String,
+	status: String
+}
+type unpaid_Invoices {
+    id: ID,
+    numInvoice: Int,
+    idClient: Int,
+    client: String,
+    invoiceDate: String,
+    currency: String,
+    balanceDue: String,
+    status: String
+}
+
+type Query {
+    GET_ALL_BANK_DEPOSITS(date1: String!, date2: String!, idEnterprise: String!): [bankDeposits]
+    GET_BANK_DEPOSIT_BY_ID(idBankDeposit: String!, idEnterprise: String!): [bankDeposits]
+    GET_INVOICES_BANK_DEPOSITS_BY_IDINVOICE(idBankDeposit: String!, idEnterprise: String!): [invoices_bankDeposits]
+    GET_UNPAID_INVOICES_BY_CLIENT(idClient: String!, idEnterprise: String!): [unpaid_Invoices]
+}
+
+input create_bankDeposit {
+    idClient: String
+    idBankAccount: String
+    exchangeRate: String
+    amount: String
+    reference: String
+    bankDepositDate: String
+    bankDepositControlDate: String
+    observations: String
+    depositType: String
+    userLoggedIn: String
+    idEnterprise: String
+}
+
+type Mutation {
+  CREATE_BANKDEPOSIT(input: create_bankDeposit): [return_bankDeposit]
+}
