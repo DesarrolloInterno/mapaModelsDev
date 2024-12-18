@@ -205,6 +205,15 @@ const tripQueries = {
             console.log(error);
         }
     },
+    GET_ALL_TRIPS_FOR_SETTLEMENT: async (_: any, {date1, date2, tripType, settlementStatus, idEnterprise}: any) => {
+        try{
+            const result = await trip.query("exec get_all_trips_for_settlement @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @tripType = '"+ tripType +"', @settlementStatus = '"+ settlementStatus +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default tripQueries;

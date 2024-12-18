@@ -32,8 +32,65 @@ type getTripAdvance {
     numTrip: Int
 }
 
+type tripAdvances {
+    id: String,
+    loadingDate: String,
+    numTrip: String,
+    idTruckBox: String,
+    truckBox: String,
+    idClient: String,
+    client: String,
+    idUnit: String,
+    unit: String,
+    idEmployee: String,
+    employee: String,
+    temperature: String,
+    wheelChocks: String,
+    straps: String,
+    deliveryDate: String,
+    observations: String,
+    salesFormat: String,
+    totalAmountAdvances: String
+    tripType: String
+}
+
+type tripAdvancesByIdTrip {
+  id: String,
+  name: String,
+  importAdvance: String,
+  reference: String,
+  comments: String,
+  placementDate: String
+}
+
+type tripAdvancesCrossing {
+    id: String,
+    loadingDate: String,
+    numTrip: String,
+    idTruckBox: String,
+    truckBox: String,
+    idClient: String,
+    client: String,
+    idUnit: String,
+    unit: String,
+    idEmployee: String,
+    employee: String,
+    temperature: String,
+    wheelChocks: String,
+    straps: String,
+    deliveryDate: String,
+    observations: String,
+    salesFormat: String,
+    totalAmountAdvances: String
+    tripType: String,
+    typeCrossing: String
+}
+
 type Query {
   GET_TRIPADVANCE(status: String!, date1: String!, date2: String!, idEnterprise: String!): [getTripAdvance]
+  GET_TRIPADVANCES(date1: String!, date2: String!, idEnterprise: String!, typeFilter: String!): [tripAdvances]
+  GET_TRIPADVANCES_BY_IDTRIP(idTrip: String!, idEnterprise: String!): [tripAdvancesByIdTrip]
+  GET_TRIPADVANCES_FOR_CROSSING_TRIPS(date1: String!, date2: String!, idEnterprise: String!, typeFilter: String!): [tripAdvancesCrossing]
 }
 
 input new_tripAdvance {
