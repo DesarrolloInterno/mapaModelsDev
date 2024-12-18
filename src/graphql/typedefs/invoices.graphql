@@ -483,7 +483,7 @@ type Query {
   GET_ALL_INVOICES_FOR_ANALYSIS(date1: String!, date2: String!, dateTypeFilter: String!, idEnterprise: String!, currency: String!): [invoicesForAnalysis]
   GET_ALL_INVOICES_DOCUMENTS(idInvoice: String!): [invoicesDocuments]
   GET_INVOICES_DOCUMENTS_BY_ID(idInvoiceDocument: String!): [invoicesDocuments]
-  GET_ALL_INVOICES(typeStatus: String!, date1: String!, date2: String!, date: String!): [invoices]
+  GET_ALL_INVOICES(typeStatus: String!, date1: String!, date2: String!, date: String!, idEnterprise: String!): [invoices]
   GET_ALL_INVOICES_BY_CLIENT(typeStatus: String!, date1: String!, date2: String!, date: String!): [invoices]
   GET_INVOICE_BY_ID(idInvoice: String!): [invoice]
   GET_INVOICEAMOUNTS_BY_ID(idInvoice: String!): [invoiceAmounts_Front]
