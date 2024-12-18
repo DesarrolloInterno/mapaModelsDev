@@ -10,6 +10,15 @@ const exchangeRateRecordsQueries = {
             console.log(error);
         }
     },
+    GET_LAST_EXCHANGE_RATE_RECORDS: async (_: any, {}: any) => {
+        try{
+            const result = await exchangeRateRecords.query("exec get_lastExchangeRateRecord ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
     GET_EXCHANGE_RATE_INVOICE: async (_: any, {date}: any) => {
         try{
             const result = await exchangeRateRecords.query("exec get_exchangeRateRecord_invoice @date = '"+ date +"' ");

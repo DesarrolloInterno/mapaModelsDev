@@ -108,6 +108,7 @@ import payrollExpenseConceptsMutations from './payrollExpenseConcepts/mutations'
 import { supplementaryPayrollConceptsMutations, supplementaryPayrollConceptsQueries } from './supplementaryPayrollConcepts'
 import { positionsMutations } from './positions'
 import { respaldoClientesMutations } from './respaldoClientes'
+import { bankDepositsQueries, bankDepositsMutations } from './bankDeposits'
 
 const resolvers = {
     Query: {
@@ -216,7 +217,8 @@ const resolvers = {
         ...bankAccountsQueries,
         ...banksQueries,
         ...payrollExpenseConceptsQueries,
-        ...supplementaryPayrollConceptsQueries
+        ...supplementaryPayrollConceptsQueries,
+        ...bankDepositsQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -295,7 +297,8 @@ const resolvers = {
         ...payrollExpenseConceptsMutations,
         ...supplementaryPayrollConceptsMutations,
         ...positionsMutations,
-        ...respaldoClientesMutations
+        ...respaldoClientesMutations,
+        ...bankDepositsMutations,
     }
 }
 

@@ -57,6 +57,8 @@ type tripOrder {
   subtotal: String
   UUID: String
   docPdf: String
+  IVA: String
+  RET: String
 }
 
 type tripOrderSafetyEquipment {
@@ -214,7 +216,75 @@ input update_dynamic_tripOrder {
   idSalesFormatCrossing: String,
   containers: String,
   shippingLines: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idClient: String,
+  idSalesFormat: String,
+}
+
+input update_dynamic_tripOrder2 {
+  idTripOrder: String,
+  loadingDate: String,
+  deliveryDate: String,
+  sealNumber: String,
+  temperature: String,
+  proNumber: String,
+  reference: String,
+  isCrossing: String,
+  containers: String,
+  shippingLines: String,
+  userLoggedIn: String,
+  idClient: String,
+  idSalesFormat: String,
+}
+
+input update_dynamic_travelAssignment {
+  idTrip: String,
+  idTripOrder: String,
+  loadingDate: String,
+  deliveryDate: String,
+  sealNumber: String,
+  temperature: String,
+  proNumber: String,
+  reference: String,
+  isCrossing: String,
+  userLoggedIn: String,
+  idClient: String,
+  idSalesFormat: String,
+  idUnit: String,
+	idTruckBox: String,
+	idOperator: String
+}
+
+input update_dynamic_travelAssignmentCrossing {
+  idTrip: String,
+  idTripOrder: String,
+  loadingDate: String,
+  deliveryDate: String,
+  sealNumber: String,
+  temperature: String,
+  proNumber: String,
+  reference: String,
+  userLoggedIn: String,
+  idClient: String,
+  idSalesFormat: String,
+  idUnit: String,
+	idTruckBox: String,
+	idOperator: String
+}
+
+input update_dynamic_tripOrderCrossing {
+  idTripOrder: String,
+  loadingDate: String,
+  deliveryDate: String,
+  sealNumber: String,
+  temperature: String,
+  proNumber: String,
+  reference: String,
+  containers: String,
+  shippingLines: String,
+  userLoggedIn: String,
+  idClient: String,
+  idSalesFormat: String,
 }
 
 input confirm_tripOrder {
@@ -252,6 +322,12 @@ type Mutation {
   SET_SALEFORMAT_TRIPORDER(input: set_salesFormat_tripOrder): String
   UPDATE_TRIPORDER_MOORINGGEAR(input: update_tripOrder_mooringGear): String
   UPDATE_DYNAMIC_TRIPORDER(input: update_dynamic_tripOrder): String
+  UPDATE_DYNAMIC_TRIPORDER2(input: update_dynamic_tripOrder2): String
+  UPDATE_DYNAMIC_TRAVELASSIGNMENT_TRIPORDER(input: update_dynamic_travelAssignment): String
+  UPDATE_DYNAMIC_TRAVELASSIGNMENT_TRIPORDERCROSSING(input: update_dynamic_travelAssignmentCrossing): String
+  UPDATE_DYNAMIC_TRAVELASSIGNMENT_TRIPCROSSING(input: update_dynamic_travelAssignmentCrossing): String
+  UPDATE_DYNAMIC_TRAVELASSIGNMENT_TRIP(input: update_dynamic_travelAssignment): String
+  UPDATE_DYNAMIC_TRIPORDERCROSSING(input: update_dynamic_tripOrderCrossing): String
   CONFIRM_TRIPORDER(input: confirm_tripOrder): [responseConfirmTripOrder]
   DELETE_TRIPORDER_PRODUCT(input: delete_tripOrder_product): String
   UPDATE_TRAVEL_ASSIGNMENT_TRIPCROSSING(input: update_travelAssignment_tripCrossing): String

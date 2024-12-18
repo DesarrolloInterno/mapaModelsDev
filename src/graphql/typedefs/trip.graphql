@@ -95,6 +95,7 @@ type fumigationLetter {
   loadingDate: String,
   truckBox: String,
   nextServiceDate: String
+  FumigationFolio: String
 }
 
 type tripBoothRoute {
@@ -614,6 +615,7 @@ type tripsForTracking {
   isRefrigerated: Int,
   placementDate: String,
   arrivalDate: String
+  warehouseDeliveryDate: String
 }
 
 type tripTracking_observations {
@@ -1111,7 +1113,9 @@ type tripHistory {
   mexicanPortion: String,
   idSalesFormatCrossing: Int,
   UUID: String,
-  codesalesFormat: String
+  codesalesFormat: String,
+  typeCrossing: String,
+  warehouseDeliveryDate: String,
 }
 
 type tripsByClient {
@@ -1164,7 +1168,7 @@ type tripForSettlement {
 type Query {
   GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!, idEnterprise: String!): [tripsForCrossings]
   GET_ALL_TRIPS(status: String!, date1: String!, date2: String!, idEnterprise: String!): [trips]
-  GET_ALL_TRIP_BY_ID_TRIP(idTrip: String!): [trips]
+  GET_ALL_TRIP_BY_ID_TRIP(idTrip: String!, idEnterprise: String!): [trips]
   GET_INSTRUCTION_LETTER_BY_IDTRIP(idTrip: String!): [instructionLetter]
   GET_BOOTHROUTE_BY_IDTRIP(idTrip: String!): [tripBoothRoute]
   GET_TRIPSAFETYEQUIPMENT_BY_IDTRIP(idTrip: String!): [tripSafetyEquipment]
@@ -1181,10 +1185,9 @@ type Query {
   GET_CLEANING_LETTER_BY_IDTRIP(idTrip: String!): [cleaningLetter]
   GET_FUMIGATION_LETTER_BY_IDTRIP(idTrip: String!): [fumigationLetter]
   GET_TRASFERINVOICE_BY_TOKEN(token: String!): [transferInvoice]
-  GET_TRIP_HISTORY(date1: String!, date2: String!, crossing: String!, filterCheck: String!, dateTypeFilter: String!): [tripHistory]
   GET_TRIP_HISTORY(date1: String!, date2: String!, crossing: String!, filterCheck: String!, dateTypeFilter: String!, idEnterprise: String!): [tripHistory]
   GET_ALL_TRIPS_BY_CLIENT(date1: String!, date2: String!, idEnterprise: String!): [tripsByClient]
-  GET_ALL_TRIPS_FOR_INVOICE(date1: String!, date2: String!): [tripsForInvoice]
+  GET_ALL_TRIPS_FOR_INVOICE(date1: String!, date2: String!, idEnterprise: String!): [tripsForInvoice]
   GET_ALL_TRIPS_FOR_SETTLEMENT(date1: String!, date2: String!, tripType: String!, settlementStatus: String!, idEnterprise: String!): [tripForSettlement]
 }
 

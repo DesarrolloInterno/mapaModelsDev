@@ -17,7 +17,8 @@ type bankAccounts {
     pettyCashReimbursementAccount: Int,
     currency: String,
     status: String,
-    accountingAccountType: String
+    accountingAccountType: String,
+    name: String,
 }
 
 type Query {

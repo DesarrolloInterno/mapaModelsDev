@@ -20,9 +20,9 @@ const tripQueries = {
             console.log(error);
         }
     },
-    GET_ALL_TRIP_BY_ID_TRIP: async (_: any, {idTrip}: any) => {
+    GET_ALL_TRIP_BY_ID_TRIP: async (_: any, {idTrip, idEnterprise}: any) => {
         try{
-            const result = await trip.query("exec get_all_trip_by_idTrip @idTrip = '" + idTrip + "'");
+            const result = await trip.query("exec get_all_trip_by_idTrip @idTrip = '" + idTrip + "', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
@@ -196,9 +196,9 @@ const tripQueries = {
             console.log(error);
         }
     },
-    GET_ALL_TRIPS_FOR_INVOICE: async (_: any, {date1, date2}: any) => {
+    GET_ALL_TRIPS_FOR_INVOICE: async (_: any, {date1, date2, idEnterprise}: any) => {
         try{
-            const result = await trip.query("exec get_all_trips_for_invoice @date1 = '"+ date1 +"', @date2 = '"+ date2 +"' ");
+            const result = await trip.query("exec get_all_trips_for_invoice @date1 = '"+ date1 +"', @date2 = '"+ date2 + "', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {

@@ -39,7 +39,7 @@ const main = async () =>{
     await new Promise<void>((resolve) => httpServer.listen({ port: PORT }, resolve));
     console.log(`🚀 Server ready at http://localhost:`+PORT+`/graphql`);
 
-    
+    //hola
 }
 
 main().catch((err)=>{

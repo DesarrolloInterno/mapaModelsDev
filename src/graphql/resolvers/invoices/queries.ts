@@ -122,10 +122,10 @@ const invoicesQueries = {
         }
     },
     GET_INVOICE_BY_ID: async (_: any, {
-        idInvoice
+        idInvoice, idEnterprise
     }: any) => {
         try{
-            const result = await invoices.query("exec get_invoices_by_id @idInvoice = '"+ idInvoice +"' ");
+            const result = await invoices.query("exec get_invoices_by_id @idInvoice = '"+ idInvoice +"', @idEnterprise = '"+ idEnterprise +"' ");
             return result;
 
         } catch (error) {

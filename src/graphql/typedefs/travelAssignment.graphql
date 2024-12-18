@@ -20,7 +20,13 @@ type travelAssignment {
   tripType: String
   currency: String
   taxes: String
+  isRefrigerated: Int
+  isDry: Int
+  isDoorDoor: Int
   isCrossing: Int
+  isEmpty: Int
+  isEmptyPaid: Int
+  requestProofDelivery: Int
   idSalesFormatCrossing: Int
   salesFormatCrossing: String
   operatorComments: String
@@ -47,11 +53,16 @@ type travelAssignment {
   shippingLines: String
   numTripOrder: Int
   customsClearance: String
-  countryOrigin: String
-  countryDestination: String
   typeCrossing: String
   idTripOrigin: Int
   numTripOrigin: String
+  countryOrigin: String
+  countryDestination: String
+  orderDate: String
+  subtotal: String
+  total: String
+  IVA: String
+  RET: String
   idTrip: Int
   numTrip: String
   idOperator: Int
@@ -60,8 +71,6 @@ type travelAssignment {
   unit: String
   idTruckBox: Int
   truckBox: String
-  orderDate: String
-  subtotal: String
   UUID: String
   docPdf: String
 }
@@ -88,7 +97,13 @@ type travelAssignmentTrip {
   tripType: String
   currency: String
   taxes: String
+  isRefrigerated: Int
+  isDry: Int
+  isDoorDoor: Int
   isCrossing: Int
+  isEmpty: Int
+  isEmptyPaid: Int
+  requestProofDelivery: Int
   idSalesFormatCrossing: Int
   salesFormatCrossing: String
   operatorComments: String
@@ -115,11 +130,16 @@ type travelAssignmentTrip {
   shippingLines: String
   numTripOrder: Int
   customsClearance: String
-  countryOrigin: String
-  countryDestination: String
   typeCrossing: String
   idTripOrigin: Int
   numTripOrigin: String
+  countryOrigin: String
+  countryDestination: String
+  orderDate: String
+  subtotal: String
+  total: String
+  IVA: String
+  RET: String
   idTrip: Int
   numTrip: String
   idOperator: Int
@@ -128,9 +148,7 @@ type travelAssignmentTrip {
   unit: String
   idTruckBox: Int
   truckBox: String
-  idTripOrder: Int
-  orderDate: String
-  subtotal: String
+  idTripOrder: Int 
   UUID: String
   docPdf: String
 }

@@ -793,6 +793,47 @@ const tripMutations = {
         }
 
     },
+    UPDATE_DYNAMIC_TRAVELASSIGNMENT_TRIP: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            idTripOrder,
+            loadingDate,
+            deliveryDate,
+            sealNumber,
+            temperature,
+            proNumber,
+            reference,
+            isCrossing,
+            userLoggedIn,
+            idClient,
+            idSalesFormat,
+            idUnit,
+            idTruckBox,
+            idOperator
+        } = input;
+
+        try {
+            await trip.query("exec update_dynamic_travelAssignment_trip " +
+                "@idTrip = '" + idTrip + "', " +
+                "@loadingDate = '" + loadingDate + "', " +
+                "@deliveryDate = '" + deliveryDate + "', " +
+                "@sealNumber = '" + sealNumber + "', " +
+                "@temperature = '" + temperature + "', " +
+                "@proNumber = '" + proNumber + "', " +
+                "@reference = '" + reference + "', " +
+                "@isCrossing = '" + isCrossing + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idClient = '" + idClient + "', " +
+                "@idSalesFormat = '" + idSalesFormat + "', " +
+                "@idUnit = '" + idUnit + "', " +
+                "@idTruckBox = '" + idTruckBox + "', " +
+                "@idOperator = '" + idOperator + "' "
+            );
+            return 'Orden de viaje actualizada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default tripMutations;
