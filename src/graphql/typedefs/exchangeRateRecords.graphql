@@ -9,6 +9,7 @@ type exchangeRateRecords {
 
 type Query {
     GET_ALL_EXCHANGE_RATE_RECORDS(typeUser: String!, date1: String!, date2: String!): [exchangeRateRecords]
+    GET_LAST_EXCHANGE_RATE_RECORDS: [exchangeRateRecords]
     GET_EXCHANGE_RATE_INVOICE(date: String!): [exchangeRateRecords]
 }
 
