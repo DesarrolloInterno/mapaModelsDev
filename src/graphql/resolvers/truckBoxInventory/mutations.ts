@@ -9,7 +9,8 @@ const truckBoxInventoryMutations = {
             idWarehouse,
             positioner,
             observations,
-	        userLoggedIn
+	        userLoggedIn,
+            idEnterprise
         } = input;
 
         try {
@@ -19,7 +20,8 @@ const truckBoxInventoryMutations = {
                 "@idWarehouse = '" + idWarehouse + "', " +
                 "@positioner = '" + positioner + "', " +
                 "@observations = '" + observations + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
             );
             return newRecord;
         } catch (error) {
