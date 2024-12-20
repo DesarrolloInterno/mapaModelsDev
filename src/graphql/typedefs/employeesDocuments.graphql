@@ -35,8 +35,8 @@ type nameDocuments {
 }
 
 type Query {
-    GET_EMPLOYEES_DOCUMENTS(idEmployees: String!): [employeesDocuments]
-    GET_CANDIDATE_DOCUMENTS(idCandidate: String!): [candidatesDocuments]
+    GET_EMPLOYEES_DOCUMENTS(idEmployees: String!, idEnterprise: String!): [employeesDocuments]
+    GET_CANDIDATE_DOCUMENTS(idCandidate: String!, idEnterprise: String!): [candidatesDocuments]
 }
 
 input set_documentEmployees {
