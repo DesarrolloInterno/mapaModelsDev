@@ -834,6 +834,23 @@ const tripMutations = {
             console.log(error);
         }
     },
+    SET_TRIP_SETTLEMENT: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            userLoggedIn
+        } = input;
+
+        try {
+            const newRecord = await trip.query("exec set_trip_settlement " +
+                "@idTrip = '" + idTrip + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
 };
 
 export default tripMutations;

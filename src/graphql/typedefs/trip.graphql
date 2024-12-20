@@ -1162,7 +1162,18 @@ type tripForSettlement {
   truckBox: String,
 	userRecorded: String,
   availableDate: String,
-  reference: String
+  reference: String,
+  isValidatedSettlement: String
+}
+
+input set_trip_settlement{
+  idTrip: String,
+  userLoggedIn: String
+}
+
+type return_set_trip_settlement{
+  idTrip: String,
+  message: String
 }
 
 type Query {
@@ -1216,4 +1227,5 @@ type Mutation {
   UPDATE_TRIP_CFDI(input: setCFDITrip): String
   CREATE_TRANSFERINVOCE(input: tripTotalWeight): [create_transferInvoice]
   SET_LINK_PDF_XML_TRANSFERINVOCE(input: set_link_transferInvoice): String
+  SET_TRIP_SETTLEMENT(input: set_trip_settlement): [return_set_trip_settlement]
 }
