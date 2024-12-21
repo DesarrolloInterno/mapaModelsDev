@@ -109,6 +109,7 @@ import { supplementaryPayrollConcepts } from "./Entities/supplementaryPayrollCon
 import { positions } from "./Entities/positions"
 import { respaldoClientes } from "./Entities/respaldoClientes"
 import {bankDeposits} from "./Entities/bankDeposits"
+import { respaldoFormatosVenta } from "./Entities/respaldoFormatosVenta"
 
 export const  dbConection = async () =>{
   let PORT: string = process.env.DATABASE_PORT!
@@ -232,6 +233,7 @@ export const  dbConection = async () =>{
       positions,
       respaldoClientes,
       bankDeposits,
+      respaldoFormatosVenta
     ],
     options: {
       encrypt: true,//true para Windows Azure

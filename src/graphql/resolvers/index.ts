@@ -109,6 +109,7 @@ import { supplementaryPayrollConceptsMutations, supplementaryPayrollConceptsQuer
 import { positionsMutations } from './positions'
 import { respaldoClientesMutations } from './respaldoClientes'
 import { bankDepositsQueries, bankDepositsMutations } from './bankDeposits'
+import { respaldoFormatosVentaMutations } from './respaldoFormatosVenta'
 
 const resolvers = {
     Query: {
@@ -299,6 +300,7 @@ const resolvers = {
         ...positionsMutations,
         ...respaldoClientesMutations,
         ...bankDepositsMutations,
+        ...respaldoFormatosVentaMutations
     }
 }
 
