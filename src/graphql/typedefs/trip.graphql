@@ -96,6 +96,7 @@ type fumigationLetter {
   truckBox: String,
   nextServiceDate: String
   FumigationFolio: String
+  fumigationDate: String
 }
 
 type tripBoothRoute {
