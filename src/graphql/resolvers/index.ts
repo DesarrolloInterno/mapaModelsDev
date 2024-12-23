@@ -107,8 +107,9 @@ import payrollExpenseConceptsQueries from './payrollExpenseConcepts/queries'
 import payrollExpenseConceptsMutations from './payrollExpenseConcepts/mutations'
 import { supplementaryPayrollConceptsMutations, supplementaryPayrollConceptsQueries } from './supplementaryPayrollConcepts'
 import { positionsMutations } from './positions'
-import { bankDepositsQueries, bankDepositsMutations } from './bankDeposits'
 import { respaldoClientesMutations } from './respaldoClientes'
+import { bankDepositsQueries, bankDepositsMutations } from './bankDeposits'
+import { respaldoFormatosVentaMutations } from './respaldoFormatosVenta'
 
 const resolvers = {
     Query: {
@@ -297,8 +298,9 @@ const resolvers = {
         ...payrollExpenseConceptsMutations,
         ...supplementaryPayrollConceptsMutations,
         ...positionsMutations,
+        ...respaldoClientesMutations,
         ...bankDepositsMutations,
-        ...respaldoClientesMutations
+        ...respaldoFormatosVentaMutations
     }
 }
 
