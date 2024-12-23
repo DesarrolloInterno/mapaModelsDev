@@ -110,6 +110,8 @@ import { positionsMutations } from './positions'
 import { respaldoClientesMutations } from './respaldoClientes'
 import { bankDepositsQueries, bankDepositsMutations } from './bankDeposits'
 import { respaldoFormatosVentaMutations } from './respaldoFormatosVenta'
+import { respaldoCasetasMutations } from './respaldoCasetas'
+import { respaldoDocumentosMutations } from './respaldoDocumentos'
 
 const resolvers = {
     Query: {
@@ -300,7 +302,9 @@ const resolvers = {
         ...positionsMutations,
         ...respaldoClientesMutations,
         ...bankDepositsMutations,
-        ...respaldoFormatosVentaMutations
+        ...respaldoFormatosVentaMutations,
+        ...respaldoCasetasMutations,
+        ...respaldoDocumentosMutations
     }
 }
 

@@ -1,0 +1,31 @@
+type respaldoCasetas {
+    id: ID,
+    nombreFormatoVenta: String,
+    orden: String,
+    IDRuta: String,
+    ruta: String,
+    origen: String,
+    destino: String,
+    tipo: String,
+    idEnterprise: Int
+}
+
+input new_respaldoCasetas{
+    nombreFormatoVenta: String,
+    orden: String,
+    IDRuta: String,
+    ruta: String,
+    origen: String,
+    destino: String,
+    tipo: String,
+    idEnterprise: String
+}
+
+type return_new_respaldoCasetas{
+    idRespaldoCaseta: String,
+    message: String
+}
+
+type Mutation {
+    CREATE_RESPALDO_CASETAS_EXCEL(input: new_respaldoCasetas):[return_new_respaldoCasetas]
+}
