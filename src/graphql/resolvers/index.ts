@@ -112,6 +112,7 @@ import { bankDepositsQueries, bankDepositsMutations } from './bankDeposits'
 import { respaldoFormatosVentaMutations } from './respaldoFormatosVenta'
 import { respaldoCasetasMutations } from './respaldoCasetas'
 import { respaldoDocumentosMutations } from './respaldoDocumentos'
+import { payrollRatesMutations, payrollRatesQueries } from './payrollRates'
 
 const resolvers = {
     Query: {
@@ -221,7 +222,8 @@ const resolvers = {
         ...banksQueries,
         ...payrollExpenseConceptsQueries,
         ...supplementaryPayrollConceptsQueries,
-        ...bankDepositsQueries
+        ...bankDepositsQueries,
+        ...payrollRatesQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -304,7 +306,8 @@ const resolvers = {
         ...bankDepositsMutations,
         ...respaldoFormatosVentaMutations,
         ...respaldoCasetasMutations,
-        ...respaldoDocumentosMutations
+        ...respaldoDocumentosMutations,
+        ...payrollRatesMutations
     }
 }
 
