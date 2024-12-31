@@ -24,7 +24,8 @@ input new_truckBoxInventory{
   idWarehouse: String,
   positioner: String,
   observations: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 type return_new_truckBoxInventory{

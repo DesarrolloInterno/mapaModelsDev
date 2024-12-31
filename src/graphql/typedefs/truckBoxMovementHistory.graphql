@@ -1,0 +1,23 @@
+type truckBoxMovements {
+    id: ID,
+    idWarehouse: Int,
+	warehouse: String,
+	numTruckBoxMovement: Int,
+	idTruckBox: Int,
+	truckBox: String,
+	placementDate: String,
+	idClient: Int,
+	client: String,
+	idLine: Int,
+	line: String,
+	positioner: String,
+	observations: String,
+	truckBoxStatus: String,
+	status: String,
+	movementType: String,
+    dwellTime: String
+}
+
+type Query {
+    GET_ALL_TRUCKBOX_MOVEMENTS(date1: String!, date2: String!, idEnterprise: String!):[truckBoxMovements]
+}

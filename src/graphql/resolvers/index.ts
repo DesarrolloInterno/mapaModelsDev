@@ -113,6 +113,7 @@ import { respaldoFormatosVentaMutations } from './respaldoFormatosVenta'
 import { respaldoCasetasMutations } from './respaldoCasetas'
 import { respaldoDocumentosMutations } from './respaldoDocumentos'
 import { payrollRatesMutations, payrollRatesQueries } from './payrollRates'
+import { truckBoxMovementHistoryQueries } from './truckBoxMovementHistory'
 
 const resolvers = {
     Query: {
@@ -223,7 +224,8 @@ const resolvers = {
         ...payrollExpenseConceptsQueries,
         ...supplementaryPayrollConceptsQueries,
         ...bankDepositsQueries,
-        ...payrollRatesQueries
+        ...payrollRatesQueries,
+        ...truckBoxMovementHistoryQueries
     },
     Mutation: {
         ...user_historialMutations,
