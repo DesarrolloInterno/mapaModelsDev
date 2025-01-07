@@ -28,7 +28,10 @@ type payrollRateStates {
     state: String,
     stateCode: String,
     status: String,
-    payrollRateOrder: Int
+    payrollRateOrder: Int,
+    idTownship: Int, 
+    townShip: String, 
+    townshipCode: String
 }
 
 input new_payrollRateState{
@@ -40,7 +43,10 @@ input new_payrollRateState{
     idEnterprise: String
     payrollRateOrder: String,
     idPayrollRateState: String,
-	status: String
+	status: String,
+    idTownship: String,
+    townShip: String,
+    townshipCode: String
 }
 
 type return_new_payrollRateState{
@@ -74,4 +80,5 @@ type Mutation {
     CREATE_PAYROLL_RATE_STATE(input: new_payrollRateState):[return_new_payrollRateState]
     DELETE_PAYROLL_RATE(input: delete_payrollRate): String
     UPDATE_PAYROLL_RATE(input: update_payrollRate):[return_new_payrollRate]
+    UPDATE_PAYROLL_RATE_STATE(input: new_payrollRateState):[return_new_payrollRateState]
 }

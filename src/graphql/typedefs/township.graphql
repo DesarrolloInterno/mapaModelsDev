@@ -6,6 +6,16 @@ type township {
     clave: String
 }
 
+type townshipWithStates {
+    id: ID, 
+    name: String, 
+    clave: String, 
+    idState: String, 
+    state: String, 
+    claveState: String
+}
+
 type Query {
     GET_ALL_TOWNSHIP: [township]
+    GET_ALL_TOWNSHIP_WITH_STATE: [townshipWithStates]
 }

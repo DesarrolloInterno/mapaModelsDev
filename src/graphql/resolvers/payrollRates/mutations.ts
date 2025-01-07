@@ -34,7 +34,10 @@ const payrollRatesMutations = {
             idEnterprise,
             payrollRateOrder,
             idPayrollRateState,
-            status
+            status,
+            idTownship,
+            townShip,
+            townshipCode
         } = input;
         try {
             const newid = await payrollRates.query("exec create_payrollRateState " +
@@ -46,7 +49,11 @@ const payrollRatesMutations = {
                 "@idEnterprise = '"+ idEnterprise + "', " +
                 "@payrollRateOrder = '"+ payrollRateOrder + "', " +
                 "@idPayrollRateState = '"+ idPayrollRateState + "', " +
-                "@status = '"+ status + "' ");            
+                "@status = '"+ status + "', " +
+                "@idTownship = '"+ idTownship + "', " +
+                "@townShip = '"+ townShip + "', " +
+                "@townshipCode = '"+ townshipCode + "' "
+            );            
             return newid;
         } catch (error) {
             console.log(error);
@@ -92,6 +99,41 @@ const payrollRatesMutations = {
                 "@idPayrollRate = '" + idPayrollRate + "' "
             );
             return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_PAYROLL_RATE_STATE: async (_: any, {input}: any) => {
+        const { 
+            idPayrollRate,
+            idState,
+            state,
+            stateCode,
+            userLoggedIn,
+            idEnterprise,
+            payrollRateOrder,
+            idPayrollRateState,
+            status,
+            idTownship,
+            townShip,
+            townshipCode
+        } = input;
+        try {
+            const newid = await payrollRates.query("exec update_payrollRateState " +
+                "@idPayrollRate = '" + idPayrollRate + "', " +
+                "@idState = '" + idState + "', " +
+                "@state = '"+ state + "', " +
+                "@stateCode = '"+ stateCode + "', " +
+                "@userLoggedIn = '"+ userLoggedIn + "', " +
+                "@idEnterprise = '"+ idEnterprise + "', " +
+                "@payrollRateOrder = '"+ payrollRateOrder + "', " +
+                "@idPayrollRateState = '"+ idPayrollRateState + "', " +
+                "@status = '"+ status + "', " +
+                "@idTownship = '"+ idTownship + "', " +
+                "@townShip = '"+ townShip + "', " +
+                "@townshipCode = '"+ townshipCode + "' "
+            );            
+            return newid;
         } catch (error) {
             console.log(error);
         }
