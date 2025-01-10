@@ -110,6 +110,10 @@ import { positionsMutations } from './positions'
 import { respaldoClientesMutations } from './respaldoClientes'
 import { bankDepositsQueries, bankDepositsMutations } from './bankDeposits'
 import { respaldoFormatosVentaMutations } from './respaldoFormatosVenta'
+import { respaldoCasetasMutations } from './respaldoCasetas'
+import { respaldoDocumentosMutations } from './respaldoDocumentos'
+import { payrollRatesMutations, payrollRatesQueries } from './payrollRates'
+import { truckBoxMovementHistoryQueries } from './truckBoxMovementHistory'
 
 const resolvers = {
     Query: {
@@ -219,7 +223,9 @@ const resolvers = {
         ...banksQueries,
         ...payrollExpenseConceptsQueries,
         ...supplementaryPayrollConceptsQueries,
-        ...bankDepositsQueries
+        ...bankDepositsQueries,
+        ...payrollRatesQueries,
+        ...truckBoxMovementHistoryQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -300,7 +306,10 @@ const resolvers = {
         ...positionsMutations,
         ...respaldoClientesMutations,
         ...bankDepositsMutations,
-        ...respaldoFormatosVentaMutations
+        ...respaldoFormatosVentaMutations,
+        ...respaldoCasetasMutations,
+        ...respaldoDocumentosMutations,
+        ...payrollRatesMutations
     }
 }
 

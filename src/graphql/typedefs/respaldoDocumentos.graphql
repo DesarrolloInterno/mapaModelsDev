@@ -1,0 +1,23 @@
+type respaldoDocumentos {
+    id: ID,
+    claveCliente: String,
+    nombreCliente: String,
+    nombreDocumento: String,
+    idEnterprise: Int
+}
+
+input new_respaldoDocumentos{
+    claveCliente: String,
+    nombreCliente: String,
+    nombreDocumento: String,
+    idEnterprise: String
+}
+
+type return_new_respaldoDocumentos{
+    idRespaldoDocumentos: String,
+    message: String
+}
+
+type Mutation {
+    CREATE_RESPALDO_DOCUMENTOS_EXCEL(input: new_respaldoDocumentos):[return_new_respaldoDocumentos]
+}

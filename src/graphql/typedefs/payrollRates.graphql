@@ -1,0 +1,84 @@
+type payrollRates {
+    id: ID,
+    name: String,
+	typeRate: String,
+	kilometers: Float,
+	rate: Float,
+    status: String
+}
+
+input new_payrollRate{
+    name: String,
+	typeRate: String,
+	kilometers: String,
+	rate: String,
+	userLoggedIn: String,
+    idEnterprise: String
+}
+
+type return_new_payrollRate{
+    idPayrollRate: String,
+    message: String
+}
+
+type payrollRateStates {
+    id: ID,
+    idPayrollRate: Int,
+    idState: Int,
+    state: String,
+    stateCode: String,
+    status: String,
+    payrollRateOrder: Int,
+    idTownship: Int, 
+    townShip: String, 
+    townshipCode: String
+}
+
+input new_payrollRateState{
+    idPayrollRate: String,
+    idState: String,
+    state: String,
+    stateCode: String,
+    userLoggedIn: String,
+    idEnterprise: String
+    payrollRateOrder: String,
+    idPayrollRateState: String,
+	status: String,
+    idTownship: String,
+    townShip: String,
+    townshipCode: String
+}
+
+type return_new_payrollRateState{
+    idPayrollRateState: String,
+    message: String
+}
+
+input delete_payrollRate {
+  idPayrollRate: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+input update_payrollRate{
+    name: String,
+	typeRate: String,
+	kilometers: String,
+	rate: String,
+	userLoggedIn: String,
+	idEnterprise: String,
+	idPayrollRate: String
+}
+
+type Query {
+    GET_ALL_PAYROLL_RATES(status: String!, idEnterprise: String!):[payrollRates]
+    GET_ALL_PAYROLL_RATE_STATES(idPayrollRate: String!, idEnterprise: String!): [payrollRateStates]
+}
+
+type Mutation {
+    CREATE_PAYROLL_RATE(input: new_payrollRate):[return_new_payrollRate]
+    CREATE_PAYROLL_RATE_STATE(input: new_payrollRateState):[return_new_payrollRateState]
+    DELETE_PAYROLL_RATE(input: delete_payrollRate): String
+    UPDATE_PAYROLL_RATE(input: update_payrollRate):[return_new_payrollRate]
+    UPDATE_PAYROLL_RATE_STATE(input: new_payrollRateState):[return_new_payrollRateState]
+}

@@ -1,0 +1,33 @@
+type respaldoImportes {
+    id: ID,
+    claveFormatoVenta: String,
+    nombreFormatoVenta: String,
+    concepto: String,
+    IVA: String,
+    porcentajeIVA: String,
+    IVARetenido: String,
+    porcentajeIVARetenido: String,
+    importe: String,
+    idEnterprise: Int
+}
+
+input new_respaldoImportes{
+    claveFormatoVenta: String,
+    nombreFormatoVenta: String,
+    concepto: String,
+    IVA: String,
+    porcentajeIVA: String,
+    IVARetenido: String,
+    porcentajeIVARetenido: String,
+    importe: String,
+    idEnterprise: String
+}
+
+type return_new_respaldoImportes{
+    idRespaldoImporte: String,
+    message: String
+}
+
+type Mutation {
+    CREATE_RESPALDO_IMPORTE_EXCEL(input: new_respaldoImportes):[return_new_respaldoImportes]
+}
