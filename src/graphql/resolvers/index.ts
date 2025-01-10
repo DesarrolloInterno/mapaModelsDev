@@ -114,6 +114,8 @@ import { respaldoCasetasMutations } from './respaldoCasetas'
 import { respaldoDocumentosMutations } from './respaldoDocumentos'
 import { payrollRatesMutations, payrollRatesQueries } from './payrollRates'
 import { truckBoxMovementHistoryQueries } from './truckBoxMovementHistory'
+import { preReceiptsQueries } from './preReceipts'
+import preReceiptsMutations from './preReceipts/mutations'
 
 const resolvers = {
     Query: {
@@ -225,7 +227,8 @@ const resolvers = {
         ...supplementaryPayrollConceptsQueries,
         ...bankDepositsQueries,
         ...payrollRatesQueries,
-        ...truckBoxMovementHistoryQueries
+        ...truckBoxMovementHistoryQueries,
+        ...preReceiptsQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -309,7 +312,8 @@ const resolvers = {
         ...respaldoFormatosVentaMutations,
         ...respaldoCasetasMutations,
         ...respaldoDocumentosMutations,
-        ...payrollRatesMutations
+        ...payrollRatesMutations,
+        ...preReceiptsMutations
     }
 }
 

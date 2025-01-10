@@ -1,0 +1,151 @@
+type preReceipts {
+  id: ID,
+  numReceipt: Int,
+  idOperator: Int,
+  operator: String,
+  trips: String,
+  dateReceipt: String,
+  status: String,
+  idEnterprise: Int
+}
+
+type supplementaryPayrollConcepts {
+  id: ID,
+  trip: String,
+  supplementaryPayrollConcept: String,
+  dateSupplementaryPayrollConcept: String,
+  rate: String,
+  status: String
+}
+
+type preReceiptMovements{
+  id: ID,
+	idPreReceipt: String,
+	quantity: String,
+	amount: String,
+	dateMovement: String,
+	description: String,
+	status: String
+}
+
+type preReceiptDiscounts{
+  id: ID,
+  idPreReceipt: String,
+  name: String,
+  amount: String,
+  status: String
+}
+
+type preReceiptVerifiedExpenses{
+  id: ID,
+  idPreReceipt: String,
+  idTrip: String,
+  numTrip: String,
+  idUnit: String,
+  unit: String,
+  idTruckBox: String,
+  truckBox: String,
+  idOperator: String,
+	operator: String,
+  idPayrollExpenseConcept: String,
+  payrollExpenseConcept: String,
+  amount: String,
+  dateVerifiedExpense: String,
+	comments: String,
+  status: String,
+  idEnterprise: String
+}
+
+type Query {
+  GET_ALL_PRE_RECEIPTS(status:String!, idEnterprise: String!): [preReceipts]
+  GET_PRE_RECEIPT_SUPPLEMENTARY_PAYROLL_CONCEPTS(idPreReceipt:String!, idEnterprise: String!): [supplementaryPayrollConcepts]
+  GET_ALL_PRE_RECEIPT_MOVEMENTS(idPreReceipt:String!, idEnterprise: String!): [preReceiptMovements]
+  GET_ALL_PRE_RECEIPT_DISCOUNTS(idPreReceipt:String!, idEnterprise: String!): [preReceiptDiscounts]
+  GET_ALL_PRE_RECEIPT_VERIFIED_EXPENSES(idPreReceipt:String!, idEnterprise: String!): [preReceiptVerifiedExpenses]
+}
+
+input new_supplementary_payroll_concept{
+  idPreReceipt: String,
+	idSupplementaryPayrollConcept: String,
+	supplementaryPayrollConcept: String,
+	dateSupplementaryPayrollConcept: String,
+	idOperator: String,
+	operator: String,
+	idUnit: String,
+	unit: String,
+	licensePlates: String,
+	rate: String,
+	comments: String,
+	userLoggedIn: String,
+	idEnterprise: String
+}
+
+type return_supplementary_payroll_concept{
+  idPreReceiptSupplementaryPayrollConcept: String,
+  message: String
+}
+
+input new_preReceiptMovement{
+  idPreReceipt: String,
+  quantity: String,
+  amount: String,
+  dateMovement: String,
+  description: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+type return_preReceiptMovement{
+  idPreReceiptMovement: String,
+  message: String
+}
+
+input new_preReceiptDiscount{
+  idPreReceipt: String,
+	name: String,
+	amount: String,
+	userLoggedIn: String,
+	idEnterprise: String
+}
+
+type return_preReceiptDiscount{
+  idPreReceiptDiscount: String,
+  message: String
+}
+
+input new_preReceiptVerifiedExpense{
+  idPreReceipt: String,
+	idTrip: String,
+	numTrip: String,
+	idUnit: String,
+	unit: String,
+	idTruckBox: String,
+	truckBox: String,
+	idOperator: String,
+	operator: String,
+	idPayrollExpenseConcept: String,
+	payrollExpenseConcept: String,
+	amount: String,
+	dateVerifiedExpense: String,
+	comments: String,
+	userLoggedIn: String,
+	idEnterprise: String
+}
+
+type return_preReceiptVerifiedExpense{
+  idPreReceiptVerifiedExpense: String,
+  message: String
+}
+
+input delete_preReceipt {
+  idPreReceipt: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_PRE_RECEIPT_SUPPLEMENTARY_PAROLL_CONCEPT(input: new_supplementary_payroll_concept): [return_supplementary_payroll_concept]
+  CREATE_PRE_RECEIPT_MOVEMENT(input: new_preReceiptMovement): [return_preReceiptMovement]
+  CREATE_PRE_RECEIPT_DISCOUNT(input: new_preReceiptDiscount): [return_preReceiptDiscount]
+  CREATE_PRE_RECEIPT_VERIFIED_EXPENSES(input: new_preReceiptVerifiedExpense): [return_preReceiptVerifiedExpense]
+  DELETE_PRE_RECEIPT(input: delete_preReceipt): String
+}

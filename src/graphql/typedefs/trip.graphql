@@ -1176,6 +1176,18 @@ type return_set_trip_settlement{
   message: String
 }
 
+type tripsList{
+  id: String, 
+  name: String,
+  numTrip: String, 
+  idUnit: String, 
+  unit: String, 
+  idTruckBox: String, 
+  truckBox: String, 
+  idOperator: String, 
+  operator: String 
+}
+
 type Query {
   GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!, idEnterprise: String!): [tripsForCrossings]
   GET_ALL_TRIPS(status: String!, date1: String!, date2: String!, idEnterprise: String!): [trips]
@@ -1200,6 +1212,7 @@ type Query {
   GET_ALL_TRIPS_BY_CLIENT(date1: String!, date2: String!, idEnterprise: String!): [tripsByClient]
   GET_ALL_TRIPS_FOR_INVOICE(date1: String!, date2: String!, idEnterprise: String!): [tripsForInvoice]
   GET_ALL_TRIPS_FOR_SETTLEMENT(date1: String!, date2: String!, tripType: String!, settlementStatus: String!, idEnterprise: String!): [tripForSettlement]
+  GET_ALL_TRIPS_LIST(date1: String!, date2: String!, idEnterprise: String!): [tripsList]
 }
 
 type Mutation {
