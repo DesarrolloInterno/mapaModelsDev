@@ -213,6 +213,15 @@ const tripQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_TRIPS_LIST: async (_: any, {date1, date2, idEnterprise}: any) => {
+        try{
+            const result = await trip.query("exec get_all_trips_list @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
