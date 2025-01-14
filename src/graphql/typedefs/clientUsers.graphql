@@ -38,7 +38,8 @@ type clientUsers_enterprise {
     EnterpriseName: String,
     enterpriseLogo: String,
     logisticsContactPerson: String,
-    logisticsContactPersonMail: String
+    logisticsContactPersonMail: String,
+    businessName: String
 }
 
 type Query {
