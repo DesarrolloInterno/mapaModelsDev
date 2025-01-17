@@ -396,7 +396,9 @@ type return_new_trip{
 
 type return_newTrip{
   message: String,
-  idTrip: String
+  idTrip: String,
+  messagePreReceiptMovement: String,
+	idPreReceiptMovement: String
 }
 
 type return_update_trip{
