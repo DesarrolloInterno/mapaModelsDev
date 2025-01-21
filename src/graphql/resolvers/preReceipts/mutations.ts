@@ -105,7 +105,9 @@ const preReceiptsMutations = {
             dateVerifiedExpense,
             comments,
             userLoggedIn,
-            idEnterprise
+            idEnterprise,
+            isDeadlines,
+	        quantityDeadlines
         } = input;
 
         try {
@@ -125,7 +127,9 @@ const preReceiptsMutations = {
                 "@dateVerifiedExpense = '" + dateVerifiedExpense + "', " +
                 "@comments = '" + comments + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@idEnterprise = '" + idEnterprise + "' "
+                "@idEnterprise = '" + idEnterprise + "', " +
+                "@isDeadlines = '" + isDeadlines + "', " +
+                "@quantityDeadlines = '" + quantityDeadlines + "' "
             );
             return newRecord;
         } catch (error) {
@@ -148,6 +152,80 @@ const preReceiptsMutations = {
             console.log(error);
         }
 
+    },
+    UPDATE_EXPENSE_DEADLINE: async (_: any, {input}: any) => {
+        const {
+            idExpenseDeadline,
+            dateDeadline,
+            amount,
+            idPayrollExpenseConcept,
+            payrollExpenseConcept,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newRecord = await preReceipts.query("exec update_expenseDeadline " +
+                "@idExpenseDeadline = '" + idExpenseDeadline + "', " +
+                "@dateDeadline = '" + dateDeadline + "', " +
+                "@amount = '" + amount + "', " +
+                "@idPayrollExpenseConcept = '" + idPayrollExpenseConcept + "', " +
+                "@payrollExpenseConcept = '" + payrollExpenseConcept + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_PRE_RECEIPT_VERIFIED_EXPENSES: async (_: any, {input}: any) => {
+        const {
+            idPreReceiptVerifiedExpense,
+            idPreReceipt,
+            idTrip,
+            numTrip,
+            idUnit,
+            unit,
+            idTruckBox,
+            truckBox,
+            idOperator,
+            operator,
+            idPayrollExpenseConcept,
+            payrollExpenseConcept,
+            amount,
+            dateVerifiedExpense,
+            comments,
+            userLoggedIn,
+            idEnterprise,
+            isDeadlines,
+	        quantityDeadlines
+        } = input;
+
+        try {
+            const newRecord = await preReceipts.query("exec update_preReceiptVerifiedExpense " +
+                "@idPreReceiptVerifiedExpense = '" + idPreReceiptVerifiedExpense + "', " +
+                "@idPreReceipt = '" + idPreReceipt + "', " +
+                "@idTrip = '" + idTrip + "', " +
+                "@numTrip = '" + numTrip + "', " +
+                "@idUnit = '" + idUnit + "', " +
+                "@unit = '" + unit + "', " +
+                "@idTruckBox = '" + idTruckBox + "', " +
+                "@truckBox = '" + truckBox + "', " +
+                "@idOperator = '" + idOperator + "', " +
+                "@operator = '" + operator + "', " +
+                "@idPayrollExpenseConcept = '" + idPayrollExpenseConcept + "', " +
+                "@payrollExpenseConcept = '" + payrollExpenseConcept + "', " +
+                "@amount = '" + amount + "', " +
+                "@dateVerifiedExpense = '" + dateVerifiedExpense + "', " +
+                "@comments = '" + comments + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "', " +
+                "@isDeadlines = '" + isDeadlines + "', " +
+                "@quantityDeadlines = '" + quantityDeadlines + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

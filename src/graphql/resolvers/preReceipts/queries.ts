@@ -35,9 +35,25 @@ const preReceiptsQueries = {
             console.log(error);
         }
     },
-    GET_ALL_PRE_RECEIPT_VERIFIED_EXPENSES: async (_: any, {idPreReceipt, idEnterprise}: any) => {
+    GET_ALL_PRE_RECEIPT_VERIFIED_EXPENSES: async (_: any, {idPreReceipt, idEnterprise, status, date1, date2}: any) => {
         try{
-            const result = await preReceipts.query("exec get_preReceiptVerifiedExpenses @idPreReceipt = '"+ idPreReceipt +"', @idEnterprise = '"+ idEnterprise +"'");
+            const result = await preReceipts.query("exec get_preReceiptVerifiedExpenses @idPreReceipt = '"+ idPreReceipt +"', @idEnterprise = '"+ idEnterprise +"', @status = '"+ status +"', @date1 = '"+ date1 + "', @date2 = '"+ date2 + "'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_EXPENSES_DEADLINES_BY_VERIFIED_EXPENSE: async (_: any, {idPreReceiptVerifiedExpense}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_all_expensesDeadlines_by_verifiedExpense @idPreReceiptVerifiedExpense = '"+ idPreReceiptVerifiedExpense +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_EXPENSES_DEADLINES: async (_: any, {status, date1, date2, idEnterprise}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_all_expensesDeadlines @status = '"+ status +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
         } catch (error) {
             console.log(error);
