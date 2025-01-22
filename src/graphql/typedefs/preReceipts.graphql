@@ -57,12 +57,37 @@ type preReceiptVerifiedExpenses{
   idEnterprise: String
 }
 
+type tripsForPreReceiptPayrollByEmployee {
+  id: ID
+  numTrip: Int
+  idClient: Int
+  client: String
+  idOrigin: Int
+  origin: String
+  idDestination: Int
+  destination: String
+  deliveryDate: String
+  loadingDate: String
+  idEmployee: Int
+  employee: String
+  nickname: String
+  idTruckBox: Int
+  truckBox: String
+  idUnit: Int
+  unit: String
+  status: String
+  tripType: String
+  employeeSalary: String
+  salaryAdvances: String
+}
+
 type Query {
   GET_ALL_PRE_RECEIPTS(status:String!, idEnterprise: String!): [preReceipts]
   GET_PRE_RECEIPT_SUPPLEMENTARY_PAYROLL_CONCEPTS(idPreReceipt:String!, idEnterprise: String!): [supplementaryPayrollConcepts]
   GET_ALL_PRE_RECEIPT_MOVEMENTS(idPreReceipt:String!, idEnterprise: String!): [preReceiptMovements]
   GET_ALL_PRE_RECEIPT_DISCOUNTS(idPreReceipt:String!, idEnterprise: String!): [preReceiptDiscounts]
   GET_ALL_PRE_RECEIPT_VERIFIED_EXPENSES(idPreReceipt:String!, idEnterprise: String!): [preReceiptVerifiedExpenses]
+  GET_TRIP_FOR_PRE_RECEIPT_PAYROLL_BY_EMPLOYEE(idEmployee: String!, idEnterprise: String!): [tripsForPreReceiptPayrollByEmployee]
 }
 
 input new_supplementary_payroll_concept{

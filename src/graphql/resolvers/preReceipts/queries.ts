@@ -42,6 +42,15 @@ const preReceiptsQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_TRIP_FOR_PRE_RECEIPT_PAYROLL_BY_EMPLOYEE: async (_: any, {idEmployee, idEnterprise}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_tripsForPreReceiptPayrollByEmployee @idEmployee = '"+ idEmployee +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
