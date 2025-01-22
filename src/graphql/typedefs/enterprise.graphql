@@ -49,11 +49,16 @@ type enterpriseLogo {
     taxpayerIdentificationCard: String
 }
 
+type enterpriseLogo_by_idUser {
+    enterpriseLogo: String
+}
+
 type Query {
     GET_ALL_ENTERPRISES(status: String!): [enterprises]
     GET_ENTERPRISE_BY_ID(idEnterprise: String!): [enterprises]
     GET_NAME_ENTERPRISE(idEnterprise: String!): [name_enterprises]
     GET_ALL_ENTERPRISE_LOGO(idEnterprise: String!): [enterpriseLogo]
+    GET_ENTERPRISE_LOGO_BY_ID_USER(idUser: String!):[enterpriseLogo_by_idUser]
 }
 
 input new_enterprise {
