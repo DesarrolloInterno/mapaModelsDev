@@ -26,7 +26,14 @@ type preReceiptMovements{
 	amount: String,
 	dateMovement: String,
 	description: String,
-	status: String
+	status: String,
+  operator: String,
+  unit: String,
+  originTown: String,
+  originState: String,
+  destinationTown: String,
+  destinationState: String,
+  numMovement: String
 }
 
 type preReceiptDiscounts{
@@ -84,7 +91,7 @@ type tripsForPreReceiptPayrollByEmployee {
 type Query {
   GET_ALL_PRE_RECEIPTS(status:String!, idEnterprise: String!): [preReceipts]
   GET_PRE_RECEIPT_SUPPLEMENTARY_PAYROLL_CONCEPTS(idPreReceipt:String!, idEnterprise: String!): [supplementaryPayrollConcepts]
-  GET_ALL_PRE_RECEIPT_MOVEMENTS(idPreReceipt:String!, idEnterprise: String!): [preReceiptMovements]
+  GET_ALL_PRE_RECEIPT_MOVEMENTS(idPreReceipt:String!, idEnterprise: String!, date1:String!, date2: String!): [preReceiptMovements]
   GET_ALL_PRE_RECEIPT_DISCOUNTS(idPreReceipt:String!, idEnterprise: String!): [preReceiptDiscounts]
   GET_ALL_PRE_RECEIPT_VERIFIED_EXPENSES(idPreReceipt:String!, idEnterprise: String!): [preReceiptVerifiedExpenses]
   GET_TRIP_FOR_PRE_RECEIPT_PAYROLL_BY_EMPLOYEE(idEmployee: String!, idEnterprise: String!): [tripsForPreReceiptPayrollByEmployee]

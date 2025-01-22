@@ -37,6 +37,15 @@ const enterpriseQueries = {
             console.log(error);
         }
     },
+    GET_ENTERPRISE_LOGO_BY_ID_USER: async (_: any, {idUser}: any) => {
+        try{
+            const result = await enterprise.query("exec get_enterpriseLogo_by_idUser @idUser = '"+ idUser +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default enterpriseQueries;

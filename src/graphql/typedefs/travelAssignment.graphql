@@ -167,6 +167,8 @@ type responseCreateTrip {
   messageUnit: String
   messageTruckBox: String
   messageOperator: String
+  messagePreReceiptMovement: String
+	idPreReceiptMovement: String
 }
 
 type tripSafetyEquipment {

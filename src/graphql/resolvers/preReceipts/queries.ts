@@ -19,9 +19,9 @@ const preReceiptsQueries = {
             console.log(error);
         }
     },
-    GET_ALL_PRE_RECEIPT_MOVEMENTS: async (_: any, {idPreReceipt, idEnterprise}: any) => {
+    GET_ALL_PRE_RECEIPT_MOVEMENTS: async (_: any, {idPreReceipt, idEnterprise, date1, date2}: any) => {
         try{
-            const result = await preReceipts.query("exec get_preReceiptMovements @idPreReceipt = '"+ idPreReceipt +"', @idEnterprise = '"+ idEnterprise +"'");
+            const result = await preReceipts.query("exec get_preReceiptMovements @idPreReceipt = '"+ idPreReceipt +"', @idEnterprise = '"+ idEnterprise +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"'");
             return result;
         } catch (error) {
             console.log(error);
