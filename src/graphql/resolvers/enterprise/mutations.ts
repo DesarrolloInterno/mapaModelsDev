@@ -130,7 +130,7 @@ const enterpriseMutations = {
         const { idEnterprise, link, userLoggedIn } = input;
         try {
             await enterprise.query("exec set_document_enterpriseLogo_enterprise @idEnterprise = '"+idEnterprise+"', @link = '"+link+"', @userLoggedIn = '"+userLoggedIn+"' ");
-            return 'Documento agregado correctamente';
+            return 'Logo agregado correctamente';
         } catch (error) {
             console.log(error);
         }
@@ -153,6 +153,15 @@ const enterpriseMutations = {
             console.log(error);
         }
     },
+    SET_MINIMIZED_LOGO_ENTERPRISE: async (_: any, {input}: any) => {
+        const { idEnterprise, link, userLoggedIn } = input;
+        try {
+            await enterprise.query("exec set_enterpriseMinimizedLogo @idEnterprise = '"+idEnterprise+"', @link = '"+link+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Logo agregado correctamente';
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default enterpriseMutations;

@@ -28,6 +28,7 @@ type enterprises {
     codeFiscalSystem: String
     status: String
     taxpayerIdentificationCard: String
+    enterpriseMinimizedLogo: String
 }
 
 type return_new_enterprises {
@@ -50,7 +51,8 @@ type enterpriseLogo {
 }
 
 type enterpriseLogo_by_idUser {
-    enterpriseLogo: String
+    enterpriseLogo: String,
+    enterpriseMinimizedLogo: String
 }
 
 type Query {
@@ -125,4 +127,5 @@ type Mutation {
     SET_LOGO_ENTERPRISE(input: doc_enterprise): String
     SET_TAXPAYERIDENTIFICATIONCARD_ENTERPRISE(input: doc_enterprise): String
     DELETE_ENTERPRISE(input: delete_enterprise): String
+    SET_MINIMIZED_LOGO_ENTERPRISE(input: doc_enterprise): String
 }
