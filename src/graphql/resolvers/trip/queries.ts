@@ -105,6 +105,15 @@ const tripQueries = {
             console.log(error);
         }
     },
+    GET_ALL_TRIPS_FOR_TRIPS_TRACKING2: async (_: any, {status, idEnterprise}: any) => {
+        try{
+            const result = await trip.query("exec get_all_trips_for_tripsTracking2 @status = '" + status + "', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
     GET_ALL_TRIPTRACKING_OBSERVATIONS: async (_: any, {idTrip}: any) => {
         try{
             const result = await trip.query("exec get_all_tripTracking_observations @idTrip = '" + idTrip + "' ");
