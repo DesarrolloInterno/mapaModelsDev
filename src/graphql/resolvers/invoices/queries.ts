@@ -180,6 +180,33 @@ const invoicesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ASSET_INVOICES_BY_TOKEN: async (_: any, {token}: any) => {
+        try{
+            const encrypt = process.env.ENCRYPT;
+            const result = await invoices.query("exec get_assetInvoice_by_token @token = '"+ token +"', @encrypt = '"+encrypt+"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ASSET_INVOICES_BY_ID: async (_: any, {idInvoice,idEnterprise}: any) => {
+        try{
+            const result = await invoices.query("exec get_assetInvoices_by_id @idInvoice = '"+ idInvoice +"', @idEnterprise = '"+idEnterprise+"' ");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ASSETINVOICEDOCUMENT: async (_: any, {idInvoice}: any) => {
+        try{
+            const result = await invoices.query("exec get_assetInvoiceDocument @idInvoice = '"+ idInvoice +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
