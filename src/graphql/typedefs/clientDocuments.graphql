@@ -10,7 +10,7 @@ type clientDocuments {
 
 type Query {
   GET_POTENTIAL_CLIENT_DOCUMENTS(idPotentialClient: String!, idEnterprise: String!): [clientDocuments]
-  GET_CLIENT_DOCUMENTS_BY_IDCLIENT(idClient: String!): [clientDocuments]
+  GET_CLIENT_DOCUMENTS_BY_IDCLIENT(idClient: String! idEnterprise: String!): [clientDocuments]
 }
 
 type documentPotentialClient {
