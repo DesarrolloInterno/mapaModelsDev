@@ -1,0 +1,36 @@
+type operatorReceipts {
+    id: ID
+	idPreReceipt: Int,
+	numOperatorReceipt: Int,
+	dateOperatorReceipt: String,
+	idOperator: Int,
+	operator: String,
+	idUnit: Int,
+	unit: String,
+	idTruckBox: Int,
+	truckBox: String,
+	bankAccount: String,
+	netSalary: Float,
+	advances: Float,
+	verifiedExpenses: Float,
+	discounts: Float,
+	movements: Float,
+	supplements: Float,
+	netAmountDeposit: Float,
+	status: String,
+	idEnterprise: Int
+}
+
+type Query {
+    GET_ALL_OPERATOR_RECEIPTS(idEnterprise: String!, date1: String!, date2: String!):[operatorReceipts]
+	GET_OPERATOR_RECEIPT_BY_ID(idOperatorReceipt: String!):[operatorReceipts]
+}
+
+input delete_operatorReceipt {
+    idOperatorReceipt: String,
+    userLoggedIn: String
+}
+
+type Mutation {
+    DELETE_OPERATOR_RECEIPT(input: delete_operatorReceipt): String
+}
