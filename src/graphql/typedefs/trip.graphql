@@ -1203,6 +1203,7 @@ type Query {
   GET_TRIPBOOTHROUTE_BY_IDTRIP(idTrip: String!): [tripBoothRoute]
   GET_TRIPAMOUNTS_BY_IDTRIP(idTrip: String!): [tripAmounts]
   GET_ALL_TRIPS_FOR_TRIPS_TRACKING(status: String!, date1: String!, date2: String!, idEnterprise: String!): [tripsForTracking]
+  GET_ALL_TRIPS_FOR_TRIPS_TRACKING2(status: String!, idEnterprise: String!): [tripsForTracking]
   GET_ALL_TRIPTRACKING_OBSERVATIONS(idTrip: String!): [tripTracking_observations]
   GET_ALL_TRIPTRACKING_DOCUMENTS_BY_ID_TRIP(idTrip: String!): [tripDocuments]
   GET_TRIP_TRACKING_PICKUPS(idTrip:String!): [tripTrackingPickups]

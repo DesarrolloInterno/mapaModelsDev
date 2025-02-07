@@ -169,7 +169,7 @@ type operator_employees {
     phone: String
     idUnit: Int
     economicNumber: String
-
+    licensePlates: String
 }
 
 type driverLicensesQuantity {
@@ -386,6 +386,18 @@ input status_employee_Receipt {
     returnedItem: String
 }
 
+input tripsForPreReceipt {
+    idPreReceiptTrip: String,
+    idPreReceipt: String,
+    idTrip: String,
+    numTrip: String,
+    employeeSalary: String,
+    salaryAdvances: String,
+    idEnterprise: String,
+    userLoggedIn: String,
+    status: String
+}
+
 type Mutation {
     UPDATE_EMPLOYEE(input: update_employees): String
     UPDATE_EMPLOYEE_PERSONALINFORMATION(input: update_employees_personal_information): String
@@ -401,4 +413,5 @@ type Mutation {
     DELETE_EMPLOYEE_TYPERECEIPT(input: deleteemployeetypeReceipt): String
     SET_LINK_EMPLOYEE_TYPERECEIPT(input: linkemployeetypeReceipt): String
     SET_STATUS_EMPLOYEE_RECEIPT(input: status_employee_Receipt): String
+    UPDATE_TRIPS_FOR_PRERECEIPT(input: tripsForPreReceipt): String
 }
