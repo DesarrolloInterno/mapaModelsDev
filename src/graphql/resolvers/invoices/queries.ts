@@ -167,14 +167,17 @@ const invoicesQueries = {
         typeStatus,
         date1,
         date2,
-        date
+        date,
+        idEnterprise
     }: any) => {
         try{
             const result = await invoices.query("exec get_all_assetInvoices " +
             "@typeStatus = '"+ typeStatus +"'," +
             "@date1 = '"+ date1 +"', " +
             "@date2 = '"+ date2 +"', " +
-            "@date = '"+ date +"' ");
+            "@date = '"+ date +"', " +
+            "@idEnterprise = '"+ idEnterprise +"' "
+            );
             return result;
 
         } catch (error) {
