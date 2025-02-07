@@ -21,9 +21,105 @@ type operatorReceipts {
 	idEnterprise: Int
 }
 
+type operatorReceiptTrips {
+  id: String,
+  idPreReceipt: Int,
+  idTrip: Int,
+  numTrip: Int,
+  loadingDate: String,
+  idOrigin: Int,
+  origin: String,
+  idClient: Int,
+  client: String,
+  idDestination: Int,
+  destination: String,
+  idTruckBox: Int,
+  truckBox: String,
+  employeeSalary: String,
+  salaryAdvances: String,
+  status: String,
+  idEmployee: Int,
+  employee: String,
+  nickname: String
+  idUnit: Int,
+  unit: String,
+  tripType: String,
+  idOperatorReceipt: Int,
+}
+
+type expensesDeadlines_operatorReceipt{
+  id: String,
+  numDeadline: String,
+  dateDeadline: String,
+  amount: String,
+  idPreReceipt: String,
+  idPreReceiptVerifiedExpense: String,
+  idTrip: String,
+  numTrip: String,
+  idOperator: String,
+  operator: String,
+  idUnit: String,
+  unit: String,
+  idTruckBox: String,
+  truckBox: String,
+  idPayrollExpenseConcept: String,
+  payrollExpenseConcept: String,
+  status: String,
+  idOperatorReceipt: String,
+}
+
+type preReceiptDiscounts_operatorReceipt{
+  id: ID,
+  idPreReceipt: String,
+  name: String,
+  amount: String,
+  status: String,
+  idOperator: String,
+  operator: String,
+  date: String,
+  idOperatorReceipt: String,
+}
+
+type movementsByOperatorReceipt{
+  id: ID,
+  idPreReceipt: String,
+  quantity: String,
+  amount: String,
+  dateMovement: String,
+  description: String,
+  status: String,
+  idOperator: String,
+  operator: String,
+  idUnit: String,
+  unit: String,
+  numMovement: String,
+  idOperatorReceipt: String,
+}
+
+type supplementaryPayrollByOperatorReceipt {
+  id: ID,
+  idSupplementaryPayrollConcept: Int,
+  supplementaryPayrollConcept: String,
+  dateSupplementaryPayrollConcept: String,
+  idOperator: Int,
+  operator: String,
+  idUnit: Int,
+  unit: String,
+  rate: String,
+  comments: String,
+  status: String,
+  idPreReceipt: Int,
+  idOperatorReceipt: Int,
+}
+
 type Query {
     GET_ALL_OPERATOR_RECEIPTS(idEnterprise: String!, date1: String!, date2: String!):[operatorReceipts]
 	GET_OPERATOR_RECEIPT_BY_ID(idOperatorReceipt: String!):[operatorReceipts]
+	GET_OPERATORRECEIPT_TRIPS(idOperatorReceipt: String!, idEnterprise: String!): [operatorReceiptTrips]
+	GET_EXPENSEDEADLINES_BY_OPERATORRECEIPT(idOperatorReceipt: String!, idEnterprise: String!): [expensesDeadlines_operatorReceipt]
+	GET_DISCOUNT_BY_OPERATORRECEIPT(idOperatorReceipt: String!, idEnterprise: String!): [preReceiptDiscounts_operatorReceipt]
+	GET_MOVEMENTS_BY_OPERATORRECEIPT(idOperatorReceipt: String!, idEnterprise: String!): [movementsByOperatorReceipt]
+	GET_SUPPLEMENTARY_BY_OPERATORRECEIPT(idOperatorReceipt: String!, idEnterprise: String!): [supplementaryPayrollByOperatorReceipt]
 }
 
 input delete_operatorReceipt {

@@ -18,7 +18,47 @@ const operatorReceiptsQueries = {
         } catch (error) {
             console.log(error);
         }
-    }
+    },
+    GET_OPERATORRECEIPT_TRIPS: async (_: any, {idOperatorReceipt, idEnterprise}: any) => {
+        try{
+            const result = await operatorReceipts.query("exec get_operatorReceipt_trips @idOperatorReceipt = '"+ idOperatorReceipt +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_EXPENSEDEADLINES_BY_OPERATORRECEIPT: async (_: any, {idOperatorReceipt, idEnterprise}: any) => {
+        try{
+            const result = await operatorReceipts.query("exec get_expenseDeadlines_by_operatorReceipt @idOperatorReceipt = '"+ idOperatorReceipt +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_DISCOUNT_BY_OPERATORRECEIPT: async (_: any, {idOperatorReceipt, idEnterprise}: any) => {
+        try{
+            const result = await operatorReceipts.query("exec get_discounts_by_operatorReceipt @idOperatorReceipt = '"+ idOperatorReceipt +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_MOVEMENTS_BY_OPERATORRECEIPT: async (_: any, {idOperatorReceipt, idEnterprise}: any) => {
+        try{
+            const result = await operatorReceipts.query("exec get_movements_by_operatorReceipt @idOperatorReceipt = '"+ idOperatorReceipt +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_SUPPLEMENTARY_BY_OPERATORRECEIPT: async (_: any, {idOperatorReceipt, idEnterprise}: any) => {
+        try{
+            const result = await operatorReceipts.query("exec get_supplementaryPayroll_by_operatorReceipt @idOperatorReceipt = '"+ idOperatorReceipt +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default operatorReceiptsQueries;
