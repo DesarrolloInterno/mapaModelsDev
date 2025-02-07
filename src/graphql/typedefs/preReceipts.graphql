@@ -17,6 +17,7 @@ type preReceipts {
   totalSupplement: String,
   total: String,
   numTrips: String
+  idOperatorReceipt: Int
 }
 
 type supplementaryPayrollConcepts {
@@ -175,7 +176,8 @@ type preReceiptTrips {
   nickname: String
   idUnit: Int,
   unit: String,
-  tripType: String
+  tripType: String,
+  idOperatorReceipt: Int,
 }
 
 type Query {
@@ -277,6 +279,11 @@ input new_preReceiptDiscount2{
 
 type return_preReceiptDiscount{
   idPreReceiptDiscount: String,
+  message: String
+}
+
+type return_newReceipt {
+  idReceipt: String,
   message: String
 }
 
@@ -390,6 +397,21 @@ input new_preReceipt{
   numTrips: String,
 }
 
+input edit_preReceipt{
+  idPreReceipt: String,
+  trips: String,
+  dateReceipt: String,
+  totalSalaryAdvances: String,
+  totalsEmployeeSalary: String,
+  totalVerifiedExpense: String,
+  totalDiscount: String,
+  totalMovements: String,
+  totalSupplement: String,
+  total: String,
+  userLoggedIn: String,
+  numTrips: String,
+}
+
 input update_idPreReceipt_VerifiedExpenses{
   verifiedExpenses: String,
   idPreReceipt: String,
@@ -414,6 +436,12 @@ input update_idPreReceipt_Supplementary{
   userLoggedIn: String,
 }
 
+input new_receipt{
+  idPreReceipt: String,
+  idEnterprise: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_PRE_RECEIPT_SUPPLEMENTARY_PAROLL_CONCEPT(input: new_supplementary_payroll_concept): [return_supplementary_payroll_concept]
   CREATE_PRE_RECEIPT_MOVEMENT(input: new_preReceiptMovement): [return_preReceiptMovement]
@@ -434,4 +462,6 @@ type Mutation {
   UPDATE_IDPRERECEIPT_DISCOUNTS(input: update_idPreReceipt_Discounts): String
   UPDATE_IDPRERECEIPT_MOVEMENTS(input: update_idPreReceipt_Movements): String
   UPDATE_IDPRERECEIPT_SUPPLEMENTARY(input: update_idPreReceipt_Supplementary): String
+  EDIT_PRERECEIPT(input: edit_preReceipt): [return_preReceipt]
+  CREATE_RECEIPT(input: new_receipt): [return_newReceipt]
 }

@@ -387,13 +387,15 @@ input status_employee_Receipt {
 }
 
 input tripsForPreReceipt {
+    idPreReceiptTrip: String,
     idPreReceipt: String,
     idTrip: String,
     numTrip: String,
     employeeSalary: String,
     salaryAdvances: String,
-    idEnterprise: String
-    userLoggedIn: String
+    idEnterprise: String,
+    userLoggedIn: String,
+    status: String
 }
 
 type Mutation {

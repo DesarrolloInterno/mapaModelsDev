@@ -501,6 +501,7 @@ const preReceiptsMutations = {
     },
     UPDATE_TRIPS_FOR_PRERECEIPT: async (_: any, {input}: any) => {
         const {
+            idPreReceiptTrip,
             idPreReceipt,
             idTrip,
             numTrip,
@@ -508,19 +509,77 @@ const preReceiptsMutations = {
             salaryAdvances,
             idEnterprise,
             userLoggedIn,
+            status
         } = input;
 
         try {
             await preReceipts.query("exec set_trips_for_preReceipt " +
+                "@idPreReceiptTrip = '" + idPreReceiptTrip + "', " +
                 "@idPreReceipt = '" + idPreReceipt + "', " +
                 "@idTrip = '" + idTrip + "', " +
                 "@numTrip = '" + numTrip + "', " +
                 "@employeeSalary = '" + employeeSalary + "', " +
                 "@salaryAdvances = '" + salaryAdvances + "', " +
                 "@idEnterprise = '" + idEnterprise + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@status = '" + status + "' "
             );
             return "Registros editados correctamente"
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    EDIT_PRERECEIPT: async (_: any, {input}: any) => {
+        const {
+            idPreReceipt,
+            trips,
+            dateReceipt,
+            totalSalaryAdvances,
+            totalsEmployeeSalary,
+            totalVerifiedExpense,
+            totalDiscount,
+            totalMovements,
+            totalSupplement,
+            total,
+            userLoggedIn,
+            numTrips
+        } = input;
+
+        try {
+            const newRecord = await preReceipts.query("exec edit_preReceipt " +
+                "@idPreReceipt = '" + idPreReceipt + "', " +
+                "@trips = '" + trips + "', " +
+                "@dateReceipt = '" + dateReceipt + "', " +
+                "@totalSalaryAdvances = '" + totalSalaryAdvances + "', " +
+                "@totalsEmployeeSalary = '" + totalsEmployeeSalary + "', " +
+                "@totalVerifiedExpense = '" + totalVerifiedExpense + "', " +
+                "@totalDiscount = '" + totalDiscount + "', " +
+                "@totalMovements = '" + totalMovements + "', " +
+                "@totalSupplement = '" + totalSupplement + "', " +
+                "@total = '" + total + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@numTrips = '" + numTrips + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    CREATE_RECEIPT: async (_: any, {input}: any) => {
+        const {
+            idPreReceipt,
+            idEnterprise,
+            userLoggedIn
+        } = input;
+
+        try {
+            const newRecord = await preReceipts.query("exec create_operatorReceipt " +
+                "@idPreReceipt = '" + idPreReceipt + "', " +
+                "@idEnterprise = '" + idEnterprise + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+                
+            );
+            return newRecord;
         } catch (error) {
             console.log(error);
         }
