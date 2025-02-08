@@ -65,7 +65,8 @@ input update_tax {
 
 input delete_tax {
     idTax: String,
-    userLoggedIn: String
+    userLoggedIn: String,
+    idEnterprise: String
 }
 
 type Mutation {

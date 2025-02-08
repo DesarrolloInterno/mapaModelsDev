@@ -362,6 +362,27 @@ const invoicesMutations = {
             console.log(error);
         }
 
+    },
+    SET_LINK_PDF_XML_ASSET_INVOICE: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            linkXML,
+            linkInvoicePDF,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await invoices.query("exec set_link_pdf_xml_assetInvoices " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@linkXML = '" + linkXML + "', " +
+                "@linkInvoicePDF = '" + linkInvoicePDF + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Documentos de factura actualizados correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 };
 

@@ -472,6 +472,78 @@ type assetInvoiceAmounts {
   unitImport: String
 }
 
+type assetInvoices{
+  id: String, 
+  numInvoice: String, 
+  invoiceSeries: String, 
+  invoiceDate: String, 
+  status: String, 
+	idClient: String, 
+  client: String, 
+  clientShortName: String, 
+  clientRFC: String, 
+	fullAddressClient: String, 
+  fiscalSystem: String,	
+  idTrip: String, 
+  numTrip: String, 
+  currency: String, 
+  taxes: String, 
+  total: String, 
+  idPayment: String,
+	codePayment: String, 
+  payment: String, 
+  idPaymentMethod: String, 
+  codePaymentMethod: String, 
+  paymentMethod: String, 
+  idUseOfCFDI: String, 
+  codeUseOfCFDI: String, 
+  useOfCFDI: String,
+	exchangeRate: String, 
+  UUID: String, 
+  docInvoicePdf: String,
+  clientTAXID: String
+}
+
+type assetInvoiceDocument {
+  id: ID,
+  numInvoice: String,
+  sealNumber: String,
+  invoiceDate: String,
+  idEnterprise: String,
+  enterprise: String,
+  enterpriseRFC: String,
+  enterpriseFiscalSystem: String,
+  enterpriseZipCode: String,
+  enterpriseFullAddress: String,
+  idTrip: String,
+  dateRecorded: String,
+  numTrip: String,
+  client: String,
+  idClient: String,
+  clientFullAddress: String,
+  clientRFC: String,
+  clientTAXID: String,
+  payment: String,
+  useOfCFDI: String,
+  paymentMethod: String,
+  currency: String,
+  exchangeRate: String,
+  subtotal: String,
+  IVA: String,
+  RET: String,
+  total: String,
+  IVApercentage: String,
+  RETpercentage: String,
+  UUID: String,
+  SATcertificateNumber: String,
+  dateCFDI: String,
+  originalChain: String,
+  CFDIstamp: String,
+  SATStamp: String,
+  LinkQR: String,
+  CFDItype: String
+}
+
 type Query {
   GET_INVOICES_BY_TOKEN(token: String!): [invoiceToken]
   GET_INVOICEAMOUNTS(idInvoice: String!): [invoiceAmounts]
@@ -489,7 +561,10 @@ type Query {
   GET_INVOICEAMOUNTS_BY_ID(idInvoice: String!): [invoiceAmounts_Front]
   GET_INVOICEDOCUMENT(idInvoice: String!): [invoiceDocument]
   GET_ASSET_INVOICEAMOUNTS_BY_ID(idInvoice: String!): [assetInvoiceAmounts]
-  GET_ALL_ASSET_INVOICES(typeStatus: String!, date1: String!, date2: String!, date: String!): [invoices]
+  GET_ALL_ASSET_INVOICES(typeStatus: String!, date1: String!, date2: String!, date: String!, idEnterprise: String!): [invoices]
+  GET_ASSET_INVOICES_BY_TOKEN(token: String!): [invoiceToken]
+  GET_ASSET_INVOICES_BY_ID(idInvoice: String!, idEnterprise: String!): [assetInvoices]
+  GET_ASSETINVOICEDOCUMENT(idInvoice: String!): [assetInvoiceDocument]
 }
 
 input setNewInvoices {
@@ -537,6 +612,13 @@ input setCFDIInvoices {
 input setLinkPDFXMLInvoice {
   idInvoice: String
   linkPDF: String
+  linkXML: String
+  linkInvoicePDF: String
+  userLoggedIn: String
+}
+
+input setLinkPDFXMLAssetInvoice {
+  idInvoice: String
   linkXML: String
   linkInvoicePDF: String
   userLoggedIn: String
@@ -692,4 +774,5 @@ type Mutation {
   CREATE_ASSET_INVOICE(input: newAssetInvoice): [return_newAssetInvoice]
   SET_ASSET_INVOICE_AMOUNTS(input: setAssetInvoiceAmount): String
   UPDATE_ASSET_INVOICE(input: updateAssetInvoice): [return_newAssetInvoice]
+  SET_LINK_PDF_XML_ASSET_INVOICE(input: setLinkPDFXMLAssetInvoice): String
 }
