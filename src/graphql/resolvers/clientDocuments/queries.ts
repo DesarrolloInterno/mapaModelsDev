@@ -14,7 +14,7 @@ const clientDocumentsQueries = {
     },
     GET_CLIENT_DOCUMENTS_BY_IDCLIENT: async (_: any, {idClient, idEnterprise}: any) => {
         try{
-            const result = await clientDocuments.query("exec get_clientsDocuments_by_idClient @idClient = '"+ idClient +"', @idEnterprise = '"+ idEnterprise +"'");
+            const result = await clientDocuments.query("exec get_clientsDocuments_by_idClient @idClient = '"+ idClient +"', @idEnterprise = '"+ idEnterprise +"' ");
             return result;
 
         } catch (error) {
