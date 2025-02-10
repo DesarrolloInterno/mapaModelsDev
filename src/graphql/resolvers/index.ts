@@ -117,6 +117,7 @@ import { truckBoxMovementHistoryQueries } from './truckBoxMovementHistory'
 import { preReceiptsQueries } from './preReceipts'
 import preReceiptsMutations from './preReceipts/mutations'
 import { operatorReceiptsMutations, operatorReceiptsQueries } from './operatorReceipts'
+import { discountsConceptsMutations, discountsConceptsQueries } from './discountsConcepts'
 
 const resolvers = {
     Query: {
@@ -230,7 +231,8 @@ const resolvers = {
         ...payrollRatesQueries,
         ...truckBoxMovementHistoryQueries,
         ...preReceiptsQueries,
-        ...operatorReceiptsQueries
+        ...operatorReceiptsQueries,
+        ...discountsConceptsQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -316,7 +318,8 @@ const resolvers = {
         ...respaldoDocumentosMutations,
         ...payrollRatesMutations,
         ...preReceiptsMutations,
-        ...operatorReceiptsMutations
+        ...operatorReceiptsMutations,
+        ...discountsConceptsMutations
     }
 }
 
