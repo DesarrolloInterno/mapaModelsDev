@@ -115,7 +115,23 @@ const preReceiptsQueries = {
         } catch (error) {
             console.log(error);
         }
-    }
+    },
+    GET_ALL_PRE_RECEIPT_LOCAL_MOVEMENTS: async (_: any, {idPreReceipt, idEnterprise, date1, date2}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_preReceiptLocalMovements @idPreReceipt = '"+ idPreReceipt +"', @idEnterprise = '"+ idEnterprise +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_LOCAL_MOVEMENTS_BY_PRERECEIPT: async (_: any, {date, idPrereceipt, idOperator, idEnterprise}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_local_movements_by_prereceipt @date = '"+ date +"', @idPrereceipt = '"+ idPrereceipt +"', @idOperator = '"+ idOperator +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default preReceiptsQueries;

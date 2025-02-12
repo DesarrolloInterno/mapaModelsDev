@@ -180,6 +180,73 @@ type preReceiptTrips {
   idOperatorReceipt: Int,
 }
 
+type preReceiptLocalMovements{
+  id: ID,
+	idPreReceipt: String,
+	quantity: String,
+	amount: String,
+	dateMovement: String,
+	description: String,
+	status: String,
+  operator: String,
+  unit: String,
+  originTown: String,
+  originState: String,
+  destinationTown: String,
+  destinationState: String,
+  numMovement: String
+}
+
+type localMovementsByPrereceipt{
+  id: ID,
+  idPreReceipt: String,
+  quantity: String,
+  amount: String,
+  dateMovement: String,
+  description: String,
+  status: String,
+  idOperator: String,
+  operator: String,
+  idUnit: String,
+  unit: String,
+  numMovement: String
+}
+
+input deletePreReceiptLocalMovement{
+  idPreReceiptLocalMovement: String,
+  userLoggedIn: String
+}
+
+input new_preReceiptLocalMovement{
+  idPreReceipt: String,
+  quantity: String,
+  amount: String,
+  dateMovement: String,
+  description: String,
+  userLoggedIn: String,
+  idEnterprise: String,
+  idOperator: String,
+  operator: String,
+}
+
+type return_preReceiptLocalMovement{
+  idPreReceiptLocalMovement: String,
+  message: String
+}
+
+input edit_preReceiptLocalMovement{
+  idPreReceiptLocalMovement: String,
+  idPreReceipt: String,
+  quantity: String,
+  amount: String,
+  dateMovement: String,
+  description: String,
+  userLoggedIn: String,
+  idEnterprise: String,
+  idOperator: String,
+  operator: String,
+}
+
 type Query {
   GET_ALL_PRE_RECEIPTS(status:String!, idEnterprise: String!): [preReceipts]
   GET_PRE_RECEIPT_SUPPLEMENTARY_PAYROLL_CONCEPTS(idPreReceipt:String!, idEnterprise: String!): [supplementaryPayrollConcepts]
@@ -195,6 +262,8 @@ type Query {
   GET_SUPPLEMENTARY_BY_PRERECEIPT(date: String!, idPrereceipt: String!, idOperator: String!, idEnterprise: String!): [supplementaryPayroll]
   GET_PRE_RECEIPT_BY_ID(idPreReceipt: String!, idEnterprise: String!): [preReceipts]
   GET_PRE_RECEIPT_TRIPS(idPreReceipt: String!, idEnterprise: String!): [preReceiptTrips]
+  GET_ALL_PRE_RECEIPT_LOCAL_MOVEMENTS(idPreReceipt:String!, idEnterprise: String!, date1:String!, date2: String!): [preReceiptLocalMovements]
+  GET_LOCAL_MOVEMENTS_BY_PRERECEIPT(date: String!, idPrereceipt: String!, idOperator: String!, idEnterprise: String!): [localMovementsByPrereceipt]
 }
 
 input new_supplementary_payroll_concept{
@@ -430,6 +499,12 @@ input update_idPreReceipt_Movements{
   userLoggedIn: String,
 }
 
+input update_idPreReceipt_localMovements{
+  localMovements: String,
+  idPreReceipt: String,
+  userLoggedIn: String,
+}
+
 input update_idPreReceipt_Supplementary{
   supplementaryPayroll: String,
   idPreReceipt: String,
@@ -464,4 +539,8 @@ type Mutation {
   UPDATE_IDPRERECEIPT_SUPPLEMENTARY(input: update_idPreReceipt_Supplementary): String
   EDIT_PRERECEIPT(input: edit_preReceipt): [return_preReceipt]
   CREATE_RECEIPT(input: new_receipt): [return_newReceipt]
+  UPDATE_IDPRERECEIPT_LOCAL_MOVEMENTS(input: update_idPreReceipt_localMovements): String
+  DELETE_PRERECEIPT_LOCAL_MOVEMENT(input: deletePreReceiptLocalMovement): String
+  CREATE_PRE_RECEIPT_LOCAL_MOVEMENT(input: new_preReceiptLocalMovement): [return_preReceiptLocalMovement]
+  EDIT_PRE_RECEIPT_LOCAL_MOVEMENT(input: edit_preReceiptLocalMovement): [return_preReceiptLocalMovement]
 }
