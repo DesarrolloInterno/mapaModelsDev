@@ -105,7 +105,8 @@ const tripMutations = {
             sealNumber,
             observations ,
             userLoggedIn,
-            idLoggedIn
+            idLoggedIn,
+            temperature
         } = input;
 
         try {
@@ -126,7 +127,8 @@ const tripMutations = {
                 "@sealNumber = '" + sealNumber + "', " +
                 "@observations = '" + observations + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@idLoggedIn = '" + idLoggedIn + "' "
+                "@idLoggedIn = '" + idLoggedIn + "', " +
+                "@temperature = '" + temperature + "' "
             );
             return newRecord;
         } catch (error) {
@@ -152,6 +154,7 @@ const tripMutations = {
             sealNumber,
             observations ,
             userLoggedIn,
+            temperature
         } = input;
 
         try {
@@ -172,7 +175,8 @@ const tripMutations = {
                 "@showCPImport = '" + showCPImport + "', " +
                 "@sealNumber = '" + sealNumber + "', " +
                 "@observations = '" + observations + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@temperature = '" + temperature + "' "
             );
             return newRecord;
         } catch (error) {
