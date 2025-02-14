@@ -27,9 +27,9 @@ const preReceiptsQueries = {
             console.log(error);
         }
     },
-    GET_ALL_PRE_RECEIPT_DISCOUNTS: async (_: any, {idPreReceipt, idEnterprise}: any) => {
+    GET_ALL_PRE_RECEIPT_DISCOUNTS: async (_: any, {idPreReceipt, idEnterprise, status, date1, date2}: any) => {
         try{
-            const result = await preReceipts.query("exec get_preReceiptDiscounts @idPreReceipt = '"+ idPreReceipt +"', @idEnterprise = '"+ idEnterprise +"'");
+            const result = await preReceipts.query("exec get_preReceiptDiscounts @idPreReceipt = '"+ idPreReceipt +"', @idEnterprise = '"+ idEnterprise +"', @status = '"+ status +"', @date1 = '"+ date1 + "', @date2 = '"+ date2 + "'");
             return result;
         } catch (error) {
             console.log(error);
@@ -127,6 +127,22 @@ const preReceiptsQueries = {
     GET_LOCAL_MOVEMENTS_BY_PRERECEIPT: async (_: any, {date, idPrereceipt, idOperator, idEnterprise}: any) => {
         try{
             const result = await preReceipts.query("exec get_local_movements_by_prereceipt @date = '"+ date +"', @idPrereceipt = '"+ idPrereceipt +"', @idOperator = '"+ idOperator +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_DISCOUNTDEADLINES_BY_PRE_RECEIPT: async (_: any, {date, idPrereceipt, idOperator, idEnterprise}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_discountDeadlines_by_prereceipt @date = '"+ date +"', @idPrereceipt = '"+ idPrereceipt +"', @idOperator = '"+ idOperator +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_DISCOUNT_DEADLINES_BY_DISCOUNT: async (_: any, {idPreReceiptDiscount}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_all_discountsDeadlines_by_Discount @idPreReceiptDiscount = '"+ idPreReceiptDiscount +"'");
             return result;
         } catch (error) {
             console.log(error);

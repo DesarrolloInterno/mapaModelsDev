@@ -12,7 +12,7 @@ type Query {
 
 input new_discountConcept {
   name: String,
-  amount: String,
+  description: String,
   userLoggedIn: String,
   idEnterprise: String
 }
@@ -25,7 +25,7 @@ type return_new_discountConcept  {
 input update_discountConcept {
   idDiscountConcept: String,
   name: String,
-  amount: String,
+  description: String,
   userLoggedIn: String,
   idEnterprise: String
 }
