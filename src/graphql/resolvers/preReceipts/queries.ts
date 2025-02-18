@@ -76,6 +76,14 @@ const preReceiptsQueries = {
             console.log(error);
         }
     },
+    GET_VERIFIED_EXPENSES_BY_PRE_RECEIPT: async (_: any, {date, idPrereceipt, idOperator, idTrips, idEnterprise}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_preReceiptVerifiedExpenses_by_prereceipt @date = '"+ date +"', @idPrereceipt = '"+ idPrereceipt +"', @idOperator = '"+ idOperator +"', @idTrips = '"+ idTrips +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
     GET_DISCOUNT_BY_PRERECEIPT: async (_: any, {date, idPrereceipt, idOperator, idEnterprise}: any) => {
         try{
             const result = await preReceipts.query("exec get_discounts_by_prereceipt @date = '"+ date +"', @idPrereceipt = '"+ idPrereceipt +"', @idOperator = '"+ idOperator +"', @idEnterprise = '"+ idEnterprise +"'");

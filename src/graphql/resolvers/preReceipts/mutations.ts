@@ -202,6 +202,50 @@ const preReceiptsMutations = {
             console.log(error);
         }
     },
+    CREATE_PRE_RECEIPT_VERIFIED_EXPENSES2: async (_: any, {input}: any) => {
+        const {
+            idPreReceipt,
+            idTrip,
+            numTrip,
+            idUnit,
+            unit,
+            idTruckBox,
+            truckBox,
+            idOperator,
+            operator,
+            idPayrollExpenseConcept,
+            payrollExpenseConcept,
+            amount,
+            dateVerifiedExpense,
+            comments,
+            userLoggedIn,
+            idEnterprise,
+        } = input;
+
+        try {
+            const newRecord = await preReceipts.query("exec create_preReceiptVerifiedExpense2 " +
+                "@idPreReceipt = '" + idPreReceipt + "', " +
+                "@idTrip = '" + idTrip + "', " +
+                "@numTrip = '" + numTrip + "', " +
+                "@idUnit = '" + idUnit + "', " +
+                "@unit = '" + unit + "', " +
+                "@idTruckBox = '" + idTruckBox + "', " +
+                "@truckBox = '" + truckBox + "', " +
+                "@idOperator = '" + idOperator + "', " +
+                "@operator = '" + operator + "', " +
+                "@idPayrollExpenseConcept = '" + idPayrollExpenseConcept + "', " +
+                "@payrollExpenseConcept = '" + payrollExpenseConcept + "', " +
+                "@amount = '" + amount + "', " +
+                "@dateVerifiedExpense = '" + dateVerifiedExpense + "', " +
+                "@comments = '" + comments + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' " 
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
     DELETE_PRE_RECEIPT: async (_: any, {input}: any) => {
         const {
             idPreReceipt,
@@ -293,6 +337,52 @@ const preReceiptsMutations = {
             console.log(error);
         }
     },
+    UPDATE_PRE_RECEIPT_VERIFIED_EXPENSES2: async (_: any, {input}: any) => {
+        const {
+            idPreReceiptVerifiedExpense,
+            idPreReceipt,
+            idTrip,
+            numTrip,
+            idUnit,
+            unit,
+            idTruckBox,
+            truckBox,
+            idOperator,
+            operator,
+            idPayrollExpenseConcept,
+            payrollExpenseConcept,
+            amount,
+            dateVerifiedExpense,
+            comments,
+            userLoggedIn,
+            idEnterprise,
+        } = input;
+
+        try {
+            const newRecord = await preReceipts.query("exec update_preReceiptVerifiedExpense2 " +
+                "@idPreReceiptVerifiedExpense = '" + idPreReceiptVerifiedExpense + "', " +
+                "@idPreReceipt = '" + idPreReceipt + "', " +
+                "@idTrip = '" + idTrip + "', " +
+                "@numTrip = '" + numTrip + "', " +
+                "@idUnit = '" + idUnit + "', " +
+                "@unit = '" + unit + "', " +
+                "@idTruckBox = '" + idTruckBox + "', " +
+                "@truckBox = '" + truckBox + "', " +
+                "@idOperator = '" + idOperator + "', " +
+                "@operator = '" + operator + "', " +
+                "@idPayrollExpenseConcept = '" + idPayrollExpenseConcept + "', " +
+                "@payrollExpenseConcept = '" + payrollExpenseConcept + "', " +
+                "@amount = '" + amount + "', " +
+                "@dateVerifiedExpense = '" + dateVerifiedExpense + "', " +
+                "@comments = '" + comments + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
     DELETE_EXPENSE_DEADLINE: async (_: any, {input}: any) => {
         const {
             idPreReceiptVerifiedExpense,
@@ -304,6 +394,23 @@ const preReceiptsMutations = {
             await preReceipts.query("exec delete_expenseDeadline " +
                 "@idPreReceiptVerifiedExpense = '" + idPreReceiptVerifiedExpense + "', " +
                 "@idExpenseDeadline = '" + idExpenseDeadline + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return "Registro eliminado correctamente"
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    DELETE_VERIFIEDEXPENSES: async (_: any, {input}: any) => {
+        const {
+            idVerifiedExpense,
+            userLoggedIn
+        } = input;
+
+        try {
+            await preReceipts.query("exec delete_verifiedExpense " +
+                "@idVerifiedExpense = '" + idVerifiedExpense + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "' "
             );
             return "Registro eliminado correctamente"
@@ -408,9 +515,11 @@ const preReceiptsMutations = {
             totalDiscount,
             totalMovements,
             totalSupplement,
+            totalLocalMovements,
             total,
             userLoggedIn,
-            numTrips
+            numTrips,
+            quantityTrips
         } = input;
 
         try {
@@ -426,9 +535,11 @@ const preReceiptsMutations = {
                 "@totalDiscount = '" + totalDiscount + "', " +
                 "@totalMovements = '" + totalMovements + "', " +
                 "@totalSupplement = '" + totalSupplement + "', " +
+                "@totalLocalMovements = '" + totalLocalMovements + "', " +
                 "@total = '" + total + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@numTrips = '" + numTrips + "' "
+                "@numTrips = '" + numTrips + "', " +
+                "@quantityTrips = '" + quantityTrips + "' "
             );
             return newRecord;
         } catch (error) {
@@ -444,6 +555,24 @@ const preReceiptsMutations = {
 
         try {
             await preReceipts.query("exec update_idPreReceipt_VerifiedExpenses " +
+                "@verifiedExpenses = '" + verifiedExpenses + "', " +
+                "@idPreReceipt = '" + idPreReceipt + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return "Registros editados correctamente"
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_IDPRERECEIPT_VERIFIEDEXPENSES2: async (_: any, {input}: any) => {
+        const {
+            verifiedExpenses,
+            idPreReceipt,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await preReceipts.query("exec update_idPreReceipt_VerifiedExpenses2 " +
                 "@verifiedExpenses = '" + verifiedExpenses + "', " +
                 "@idPreReceipt = '" + idPreReceipt + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "' "
@@ -517,7 +646,11 @@ const preReceiptsMutations = {
             salaryAdvances,
             idEnterprise,
             userLoggedIn,
-            status
+            status,
+            hasGratuity,
+            employeeTenure, 
+            gratuity,
+            percentageBonu,
         } = input;
 
         try {
@@ -530,7 +663,12 @@ const preReceiptsMutations = {
                 "@salaryAdvances = '" + salaryAdvances + "', " +
                 "@idEnterprise = '" + idEnterprise + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@status = '" + status + "' "
+                "@status = '" + status + "', " +
+                "@hasGratuity = '" + hasGratuity + "', " +
+                "@employeeTenure = '" + employeeTenure + "', " +
+                "@gratuity = '" + gratuity + "', " +
+                "@percentageBonu = '" + percentageBonu + "' "
+
             );
             return "Registros editados correctamente"
         } catch (error) {
@@ -548,9 +686,11 @@ const preReceiptsMutations = {
             totalDiscount,
             totalMovements,
             totalSupplement,
+            totalLocalMovements,
             total,
             userLoggedIn,
-            numTrips
+            numTrips,
+            quantityTrips
         } = input;
 
         try {
@@ -564,9 +704,11 @@ const preReceiptsMutations = {
                 "@totalDiscount = '" + totalDiscount + "', " +
                 "@totalMovements = '" + totalMovements + "', " +
                 "@totalSupplement = '" + totalSupplement + "', " +
+                "@totalLocalMovements = '" + totalLocalMovements + "', " +
                 "@total = '" + total + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@numTrips = '" + numTrips + "' "
+                "@numTrips = '" + numTrips + "', " +
+                "@quantityTrips = '" + quantityTrips + "' "
             );
             return newRecord;
         } catch (error) {
