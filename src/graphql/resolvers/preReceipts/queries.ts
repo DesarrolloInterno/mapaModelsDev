@@ -148,6 +148,14 @@ const preReceiptsQueries = {
             console.log(error);
         }
     },
+    GET_ALL_ACCRUED_SETTLEMENT_RECEIPTS: async (_: any, {typeFilter, date, date1, date2, idEnterprise}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_all_accruedSettlementReceipts @typeFilter = '" + typeFilter + "', @date = '" + date + "', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default preReceiptsQueries;

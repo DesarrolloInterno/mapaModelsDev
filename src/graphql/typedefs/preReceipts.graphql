@@ -277,6 +277,39 @@ input edit_preReceiptLocalMovement{
   operator: String,
 }
 
+type accruedSettlementReceipts {
+  id: ID,
+  nomipaq: String,
+  employee_number: String,
+  name: String,
+  nickname: String,
+  totalTrip: String,
+	totalTripCommission: String,
+  totalAutXDirection: String,
+  totalPaymentCashEnvelope: String,
+  totalVerifiedExpenses: String,
+  totalTripAdvance: String,
+	totalPerformanceBonds: String,
+  totalStays: String,
+	totalLocalMovements: String,
+	totalVacationBonus: String,
+  totalOthers: String, 
+	netSalary: String,
+	totalInfonavit: String,
+  totalSchoolSuppliesLoan: String, 
+  totalDamageUnit: String, 
+  totalDiscountProhibitedRoute: String, 
+	totalPhoneEquipment: String, 
+  totalTicket: String,
+	totalImss: String, 
+  totalDiesel: String,
+  patoTotal: String, 
+  totalSeverancePayment: String, 
+  totalPayroll: String, 
+  totalDispersion: String, 
+  totalFixedPayroll: String
+}
+
 type Query {
   GET_ALL_PRE_RECEIPTS(status:String!, idEnterprise: String!): [preReceipts]
   GET_PRE_RECEIPT_SUPPLEMENTARY_PAYROLL_CONCEPTS(idPreReceipt:String!, idEnterprise: String!): [supplementaryPayrollConcepts]
@@ -296,6 +329,7 @@ type Query {
   GET_LOCAL_MOVEMENTS_BY_PRERECEIPT(date: String!, idPrereceipt: String!, idOperator: String!, idEnterprise: String!): [localMovementsByPrereceipt]
   GET_DISCOUNTDEADLINES_BY_PRE_RECEIPT(date: String!, idPrereceipt: String!, idOperator: String!, idEnterprise: String!): [discountDeadlines]
   GET_ALL_DISCOUNT_DEADLINES_BY_DISCOUNT(idPreReceiptDiscount:String!): [discountDeadlines]
+  GET_ALL_ACCRUED_SETTLEMENT_RECEIPTS(typeFilter: String!, date: String!, date1: String!, date2: String!, idEnterprise: String!): [accruedSettlementReceipts]
 }
 
 input new_supplementary_payroll_concept{
