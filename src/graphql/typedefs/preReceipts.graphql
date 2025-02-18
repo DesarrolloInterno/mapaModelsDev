@@ -73,6 +73,22 @@ type preReceiptDiscounts{
   date: String
 }
 
+type discountsPreReceipt{
+  id: ID, 
+  idPreReceipt: String, 
+  idOperator: String,
+	operator: String, 
+  idDiscountConcept: String, 
+  discountsConcepts: String, 
+  amount: String, 
+  dateDiscount: String,
+	status: String, 
+  idEnterprise: String, 
+  isDeadline: String, 
+  quantityDeadlines: String,
+  showPrintable: String
+}
+
 type movementsByPrereceipt{
   id: ID,
   idPreReceipt: String,
@@ -146,6 +162,20 @@ type expensesDeadlines{
   truckBox: String,
   idPayrollExpenseConcept: String,
   payrollExpenseConcept: String,
+  status: String
+}
+
+type discountDeadlines{
+  id: String,
+  numDeadline: String,
+  dateDeadline: String,
+  amount: String,
+  idPreReceipt: String,
+  idPreReceiptDiscount: String,
+  idOperator: String,
+  operator: String,
+  idDiscountConcept: String,
+  discountConcept: String,
   status: String
 }
 
@@ -277,7 +307,7 @@ type Query {
   GET_ALL_PRE_RECEIPTS(status:String!, idEnterprise: String!): [preReceipts]
   GET_PRE_RECEIPT_SUPPLEMENTARY_PAYROLL_CONCEPTS(idPreReceipt:String!, idEnterprise: String!): [supplementaryPayrollConcepts]
   GET_ALL_PRE_RECEIPT_MOVEMENTS(idPreReceipt:String!, idEnterprise: String!, date1:String!, date2: String!): [preReceiptMovements]
-  GET_ALL_PRE_RECEIPT_DISCOUNTS(idPreReceipt:String!, idEnterprise: String!): [preReceiptDiscounts]
+  GET_ALL_PRE_RECEIPT_DISCOUNTS(idPreReceipt:String!, idEnterprise: String!, status:String!, date1:String!, date2:String!): [discountsPreReceipt]
   GET_TRIP_FOR_PRE_RECEIPT_PAYROLL_BY_EMPLOYEE(idEmployee: String!, idEnterprise: String!): [tripsForPreReceiptPayrollByEmployee]
   GET_ALL_PRE_RECEIPT_VERIFIED_EXPENSES(idPreReceipt:String!, idEnterprise: String!, status:String!, date1:String!, date2:String!): [preReceiptVerifiedExpenses]
   GET_ALL_EXPENSES_DEADLINES_BY_VERIFIED_EXPENSE(idPreReceiptVerifiedExpense:String!): [expensesDeadlines],
@@ -291,6 +321,8 @@ type Query {
   GET_PRE_RECEIPT_TRIPS(idPreReceipt: String!, idEnterprise: String!): [preReceiptTrips]
   GET_ALL_PRE_RECEIPT_LOCAL_MOVEMENTS(idPreReceipt:String!, idEnterprise: String!, date1:String!, date2: String!): [preReceiptLocalMovements]
   GET_LOCAL_MOVEMENTS_BY_PRERECEIPT(date: String!, idPrereceipt: String!, idOperator: String!, idEnterprise: String!): [localMovementsByPrereceipt]
+  GET_DISCOUNTDEADLINES_BY_PRE_RECEIPT(date: String!, idPrereceipt: String!, idOperator: String!, idEnterprise: String!): [discountDeadlines]
+  GET_ALL_DISCOUNT_DEADLINES_BY_DISCOUNT(idPreReceiptDiscount:String!): [discountDeadlines]
 }
 
 input new_supplementary_payroll_concept{
@@ -370,7 +402,11 @@ input new_preReceiptDiscount2{
 	idEnterprise: String
   idOperator: String
   operator: String
-  dateReceipt: String
+  dateReceipt: String,
+  idDiscountConcept: String,
+  isDeadlines: String,
+  quantityDeadlines: String,
+  showPrintable: String
 }
 
 type return_preReceiptDiscount{
@@ -474,24 +510,20 @@ input update_preReceiptVerifiedExpense {
 	quantityDeadlines: String
 }
 
-input update_preReceiptVerifiedExpense2 {
-  idPreReceiptVerifiedExpense: String,
-  idPreReceipt: String,
-	idTrip: String,
-	numTrip: String,
-	idUnit: String,
-	unit: String,
-	idTruckBox: String,
-	truckBox: String,
+input update_preReceiptDiscount {
+  idPreReceiptDiscount: String,
+	idPreReceipt: String,
 	idOperator: String,
 	operator: String,
-	idPayrollExpenseConcept: String,
-	payrollExpenseConcept: String,
+	idDiscountConcept: String,
+	discountConcept: String,
 	amount: String,
-	dateVerifiedExpense: String,
-	comments: String,
+	dateDiscount: String,
 	userLoggedIn: String,
-	idEnterprise: String
+	idEnterprise: String,
+	isDeadlines: String,
+	quantityDeadlines: String,
+  showPrintable: String
 }
 
 input deleteExpenseDeadline{
@@ -500,8 +532,9 @@ input deleteExpenseDeadline{
   userLoggedIn: String
 }
 
-input deleteVerifiedExpense{
-  idVerifiedExpense: String,
+input deleteDiscountDeadline {
+  idPreReceiptDiscount: String,
+  idDiscountDeadline: String,
   userLoggedIn: String
 }
 
@@ -622,4 +655,6 @@ type Mutation {
   DELETE_PRERECEIPT_LOCAL_MOVEMENT(input: deletePreReceiptLocalMovement): String
   CREATE_PRE_RECEIPT_LOCAL_MOVEMENT(input: new_preReceiptLocalMovement): [return_preReceiptLocalMovement]
   EDIT_PRE_RECEIPT_LOCAL_MOVEMENT(input: edit_preReceiptLocalMovement): [return_preReceiptLocalMovement]
+  DELETE_DISCOUNT_DEADLINE(input: deleteDiscountDeadline): String
+  UPDATE_PRE_RECEIPT_DISCOUNT(input: update_preReceiptDiscount): [return_preReceiptDiscount]
 }

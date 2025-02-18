@@ -127,7 +127,11 @@ const preReceiptsMutations = {
             idEnterprise,
             idOperator,
             operator,
-            dateReceipt
+            dateReceipt,
+            idDiscountConcept,
+            isDeadlines,
+            quantityDeadlines,
+            showPrintable
         } = input;
 
         try {
@@ -139,7 +143,11 @@ const preReceiptsMutations = {
                 "@idEnterprise = '" + idEnterprise + "', " +
                 "@idOperator = '" + idOperator + "', " +
                 "@operator = '" + operator + "', " +
-                "@dateReceipt = '" + dateReceipt + "' "
+                "@dateReceipt = '" + dateReceipt + "', " +
+                "@idDiscountConcept = '" + idDiscountConcept + "', " +
+                "@isDeadlines = '" + isDeadlines + "', " +
+                "@quantityDeadlines = '" + quantityDeadlines + "', " +
+                "@showPrintable = '" + showPrintable + "' "
             );
             return newRecord;
         } catch (error) {
@@ -817,6 +825,63 @@ const preReceiptsMutations = {
                 "@idEnterprise = '" + idEnterprise + "', " +
                 "@idOperator = '" + idOperator + "', " +
                 "@operator = '" + operator + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    DELETE_DISCOUNT_DEADLINE: async (_: any, {input}: any) => {
+        const {
+            idPreReceiptDiscount,
+            idDiscountDeadline,
+            userLoggedIn
+        } = input;
+
+        try {
+            await preReceipts.query("exec delete_discountDeadline " +
+                "@idPreReceiptDiscount = '" + idPreReceiptDiscount + "', " +
+                "@idDiscountDeadline = '" + idDiscountDeadline + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return "Registro eliminado correctamente"
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    UPDATE_PRE_RECEIPT_DISCOUNT: async (_: any, {input}: any) => {
+        const {
+            idPreReceiptDiscount,
+            idPreReceipt,
+            idOperator,
+            operator,
+            idDiscountConcept,
+            discountConcept,
+            amount,
+            dateDiscount,
+            userLoggedIn,
+            idEnterprise,
+            isDeadlines,
+            quantityDeadlines,
+            showPrintable
+        } = input;
+
+        try {
+            const newRecord = await preReceipts.query("exec update_preReceiptDiscount " +
+                "@idPreReceiptDiscount = '" + idPreReceiptDiscount + "', " +
+                "@idPreReceipt = '" + idPreReceipt + "', " +
+                "@idOperator = '" + idOperator + "', " +
+                "@operator = '" + operator + "', " +
+                "@idDiscountConcept = '" + idDiscountConcept + "', " +
+                "@discountConcept = '" + discountConcept + "', " +
+                "@amount = '" + amount + "', " +
+                "@dateDiscount = '" + dateDiscount + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "', " +
+                "@isDeadlines = '" + isDeadlines + "', " +
+                "@quantityDeadlines = '" + quantityDeadlines + "', " +
+                "@showPrintable = '" + showPrintable + "' "
             );
             return newRecord;
         } catch (error) {

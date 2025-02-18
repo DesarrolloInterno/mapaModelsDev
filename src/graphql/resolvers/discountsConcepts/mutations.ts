@@ -4,14 +4,14 @@ const discountsConceptsMutations = {
     CREATE_DISCOUNT_CONCEPT: async (_: any, {input}: any) => {
         const { 
             name,
-            amount,
+            description,
             userLoggedIn,
             idEnterprise,
         } = input;
         try {
             const newRecord = await discountsConcepts.query("exec create_discountConcept " +
                 "@name = '" + name + "', " +
-                "@amount = '" + amount + "', " +
+                "@description = '" + description + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@idEnterprise = '" + idEnterprise + "' "
             );
@@ -24,7 +24,7 @@ const discountsConceptsMutations = {
         const {
             idDiscountConcept,
             name,
-            amount,
+            description,
             userLoggedIn,
             idEnterprise,
         } = input;
@@ -32,7 +32,7 @@ const discountsConceptsMutations = {
             const newRecord = await discountsConcepts.query("exec update_discountConcept " +
                 "@idDiscountConcept = '" + idDiscountConcept + "', " +
                 "@name = '" + name + "', " +
-                "@amount = '" + amount + "', " +
+                "@description = '" + description + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@idEnterprise = '" + idEnterprise + "' "
             );
