@@ -395,7 +395,11 @@ input tripsForPreReceipt {
     salaryAdvances: String,
     idEnterprise: String,
     userLoggedIn: String,
-    status: String
+    status: String,
+    hasGratuity: String,
+    employeeTenure: String,
+    gratuity: String,
+    percentageBonu: String,
 }
 
 type Mutation {

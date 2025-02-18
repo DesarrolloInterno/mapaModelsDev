@@ -107,7 +107,26 @@ type preReceiptVerifiedExpenses{
   status: String,
   idEnterprise: String,
   isDeadlines: String,
-  quantityDeadlines: String
+  quantityDeadlines: String,
+  idOperatorReceipt: String
+}
+
+type verifiedExpenses {
+  id: String,
+  dateVerifiedExpense: String,
+  amount: String,
+  idPreReceipt: String,
+  idTrip: Int,
+  numTrip: String,
+  idOperator: Int,
+  operator: String,
+  idUnit: Int,
+  unit: String,
+  idTruckBox: Int,
+  truckBox: String,
+  idPayrollExpenseConcept: String,
+  payrollExpenseConcept: String,
+  status: String
 }
 
 type expensesDeadlines{
@@ -152,6 +171,9 @@ type tripsForPreReceiptPayrollByEmployee {
   tripType: String
   employeeSalary: String
   salaryAdvances: String
+  yearsWorking: String
+  gratuity: String
+  percentageBonu: String
 }
 
 type preReceiptTrips {
@@ -178,6 +200,10 @@ type preReceiptTrips {
   unit: String,
   tripType: String,
   idOperatorReceipt: Int,
+  gratuity: String,
+  employeeTenure: String,
+  hasGratuity: Int,
+  percentageBonu: String
 }
 
 type preReceiptLocalMovements{
@@ -257,6 +283,7 @@ type Query {
   GET_ALL_EXPENSES_DEADLINES_BY_VERIFIED_EXPENSE(idPreReceiptVerifiedExpense:String!): [expensesDeadlines],
   GET_ALL_EXPENSES_DEADLINES(status: String!, date1:String!, date2: String!, idEnterprise: String!): [expensesDeadlines]
   GET_EXPENSEDEADLINES_BY_PRE_RECEIPT(date: String!, idPrereceipt: String!, idOperator: String!, idTrips: String!, idEnterprise: String!): [expensesDeadlines]
+  GET_VERIFIED_EXPENSES_BY_PRE_RECEIPT(date: String!, idPrereceipt: String!, idOperator: String!, idTrips: String!, idEnterprise: String!): [verifiedExpenses]
   GET_DISCOUNT_BY_PRERECEIPT(date: String!, idPrereceipt: String!, idOperator: String!, idEnterprise: String!): [preReceiptDiscounts]
   GET_MOVEMENTS_BY_PRERECEIPT(date: String!, idPrereceipt: String!, idOperator: String!, idEnterprise: String!): [movementsByPrereceipt]
   GET_SUPPLEMENTARY_BY_PRERECEIPT(date: String!, idPrereceipt: String!, idOperator: String!, idEnterprise: String!): [supplementaryPayroll]
@@ -377,6 +404,25 @@ input new_preReceiptVerifiedExpense{
 	quantityDeadlines: String
 }
 
+input new_preReceiptVerifiedExpense2{
+  idPreReceipt: String,
+	idTrip: String,
+	numTrip: String,
+	idUnit: String,
+	unit: String,
+	idTruckBox: String,
+	truckBox: String,
+	idOperator: String,
+	operator: String,
+	idPayrollExpenseConcept: String,
+	payrollExpenseConcept: String,
+	amount: String,
+	dateVerifiedExpense: String,
+	comments: String,
+	userLoggedIn: String,
+	idEnterprise: String
+}
+
 type return_preReceiptVerifiedExpense{
   idPreReceiptVerifiedExpense: String,
   message: String
@@ -428,9 +474,34 @@ input update_preReceiptVerifiedExpense {
 	quantityDeadlines: String
 }
 
+input update_preReceiptVerifiedExpense2 {
+  idPreReceiptVerifiedExpense: String,
+  idPreReceipt: String,
+	idTrip: String,
+	numTrip: String,
+	idUnit: String,
+	unit: String,
+	idTruckBox: String,
+	truckBox: String,
+	idOperator: String,
+	operator: String,
+	idPayrollExpenseConcept: String,
+	payrollExpenseConcept: String,
+	amount: String,
+	dateVerifiedExpense: String,
+	comments: String,
+	userLoggedIn: String,
+	idEnterprise: String
+}
+
 input deleteExpenseDeadline{
   idPreReceiptVerifiedExpense: String,
   idExpenseDeadline: String,
+  userLoggedIn: String
+}
+
+input deleteVerifiedExpense{
+  idVerifiedExpense: String,
   userLoggedIn: String
 }
 
@@ -461,9 +532,11 @@ input new_preReceipt{
   totalDiscount: String,
   totalMovements: String,
   totalSupplement: String,
+  totalLocalMovements: String,
   total: String,
   userLoggedIn: String,
   numTrips: String,
+  quantityTrips: String,
 }
 
 input edit_preReceipt{
@@ -476,9 +549,11 @@ input edit_preReceipt{
   totalDiscount: String,
   totalMovements: String,
   totalSupplement: String,
+  totalLocalMovements: String,
   total: String,
   userLoggedIn: String,
   numTrips: String,
+  quantityTrips: String,
 }
 
 input update_idPreReceipt_VerifiedExpenses{
@@ -525,15 +600,19 @@ type Mutation {
   CREATE_PRE_RECEIPT_DISCOUNT(input: new_preReceiptDiscount): [return_preReceiptDiscount]
   CREATE_PRE_RECEIPT_DISCOUNT2(input: new_preReceiptDiscount2): [return_preReceiptDiscount]
   CREATE_PRE_RECEIPT_VERIFIED_EXPENSES(input: new_preReceiptVerifiedExpense): [return_preReceiptVerifiedExpense]
+  CREATE_PRE_RECEIPT_VERIFIED_EXPENSES2(input: new_preReceiptVerifiedExpense2): [return_preReceiptVerifiedExpense]
   DELETE_PRE_RECEIPT(input: delete_preReceipt): String
   UPDATE_EXPENSE_DEADLINE(input: update_expenseDeadline): [return_updateExpenseDeadline]
   UPDATE_PRE_RECEIPT_VERIFIED_EXPENSES(input: update_preReceiptVerifiedExpense): [return_preReceiptVerifiedExpense]
+  UPDATE_PRE_RECEIPT_VERIFIED_EXPENSES2(input: update_preReceiptVerifiedExpense2): [return_preReceiptVerifiedExpense]
   DELETE_EXPENSE_DEADLINE(input: deleteExpenseDeadline): String
+  DELETE_VERIFIEDEXPENSES(input: deleteVerifiedExpense): String
   DELETE_PRERECEIPTDISCOUNT(input: deletePreReceiptDiscount): String
   DELETE_PRERECEIPTMOVEMENT(input: deletePreReceiptMovement): String
   DELETE_PRE_RECEIPT_SUPPLEMENTARYPAYROLL(input: deletePreReceiptSupplementaryPayroll): String
   CREATE_PRERECEIPT(input: new_preReceipt): [return_preReceipt]
   UPDATE_IDPRERECEIPT_VERIFIEDEXPENSES(input: update_idPreReceipt_VerifiedExpenses): String
+  UPDATE_IDPRERECEIPT_VERIFIEDEXPENSES2(input: update_idPreReceipt_VerifiedExpenses): String
   UPDATE_IDPRERECEIPT_DISCOUNTS(input: update_idPreReceipt_Discounts): String
   UPDATE_IDPRERECEIPT_MOVEMENTS(input: update_idPreReceipt_Movements): String
   UPDATE_IDPRERECEIPT_SUPPLEMENTARY(input: update_idPreReceipt_Supplementary): String
