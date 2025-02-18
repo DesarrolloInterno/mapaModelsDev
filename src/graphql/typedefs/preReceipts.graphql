@@ -625,6 +625,31 @@ input new_receipt{
   userLoggedIn: String
 }
 
+input update_preReceiptVerifiedExpense2 {
+  idPreReceiptVerifiedExpense: String,
+  idPreReceipt: String,
+	idTrip: String,
+	numTrip: String,
+	idUnit: String,
+	unit: String,
+	idTruckBox: String,
+	truckBox: String,
+	idOperator: String,
+	operator: String,
+	idPayrollExpenseConcept: String,
+	payrollExpenseConcept: String,
+	amount: String,
+	dateVerifiedExpense: String,
+	comments: String,
+	userLoggedIn: String,
+	idEnterprise: String
+}
+
+input deleteVerifiedExpense{
+  idVerifiedExpense: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_PRE_RECEIPT_SUPPLEMENTARY_PAROLL_CONCEPT(input: new_supplementary_payroll_concept): [return_supplementary_payroll_concept]
   CREATE_PRE_RECEIPT_MOVEMENT(input: new_preReceiptMovement): [return_preReceiptMovement]
