@@ -86,7 +86,8 @@ type discountsPreReceipt{
   idEnterprise: String, 
   isDeadline: String, 
   quantityDeadlines: String,
-  showPrintable: String
+  showPrintable: String,
+  idOperatorReceipt: String
 }
 
 type movementsByPrereceipt{
@@ -706,6 +707,7 @@ type Mutation {
   UPDATE_IDPRERECEIPT_VERIFIEDEXPENSES(input: update_idPreReceipt_VerifiedExpenses): String
   UPDATE_IDPRERECEIPT_VERIFIEDEXPENSES2(input: update_idPreReceipt_VerifiedExpenses): String
   UPDATE_IDPRERECEIPT_DISCOUNTS(input: update_idPreReceipt_Discounts): String
+  UPDATE_IDPRERECEIPT_DISCOUNTDEADLINES(input: update_idPreReceipt_Discounts): String
   UPDATE_IDPRERECEIPT_MOVEMENTS(input: update_idPreReceipt_Movements): String
   UPDATE_IDPRERECEIPT_SUPPLEMENTARY(input: update_idPreReceipt_Supplementary): String
   EDIT_PRERECEIPT(input: edit_preReceipt): [return_preReceipt]

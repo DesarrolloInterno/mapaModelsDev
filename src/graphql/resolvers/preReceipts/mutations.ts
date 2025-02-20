@@ -600,6 +600,24 @@ const preReceiptsMutations = {
             console.log(error);
         }
     },
+    UPDATE_IDPRERECEIPT_DISCOUNTDEADLINES: async (_: any, {input}: any) => {
+        const {
+            discounts,
+            idPreReceipt,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await preReceipts.query("exec update_idPreReceipt_Discounts2 " +
+                "@discounts = '" + discounts + "', " +
+                "@idPreReceipt = '" + idPreReceipt + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return "Registros editados correctamente"
+        } catch (error) {
+            console.log(error);
+        }
+    },
     UPDATE_IDPRERECEIPT_MOVEMENTS: async (_: any, {input}: any) => {
         const {
             movements,
