@@ -113,6 +113,22 @@ type supplementaryPayrollByOperatorReceipt {
   idOperatorReceipt: Int,
 }
 
+type localMovementsByOperatorReceipt{
+  id: ID,
+  idPreReceipt: String,
+  quantity: String,
+  amount: String,
+  dateMovement: String,
+  description: String,
+  status: String,
+  idOperator: String,
+  operator: String,
+  idUnit: String,
+  unit: String,
+  numMovement: String,
+  idOperatorReceipt: String,
+}
+
 type Query {
   GET_ALL_OPERATOR_RECEIPTS(idEnterprise: String!, date1: String!, date2: String!):[operatorReceipts]
 	GET_OPERATOR_RECEIPT_BY_ID(idOperatorReceipt: String!):[operatorReceipts]
@@ -121,6 +137,7 @@ type Query {
 	GET_DISCOUNT_BY_OPERATORRECEIPT(idOperatorReceipt: String!, idEnterprise: String!): [preReceiptDiscounts_operatorReceipt]
 	GET_MOVEMENTS_BY_OPERATORRECEIPT(idOperatorReceipt: String!, idEnterprise: String!): [movementsByOperatorReceipt]
 	GET_SUPPLEMENTARY_BY_OPERATORRECEIPT(idOperatorReceipt: String!, idEnterprise: String!): [supplementaryPayrollByOperatorReceipt]
+  GET_LOCAL_MOVEMENTS_BY_OPERATORRECEIPT(idOperatorReceipt: String!, idEnterprise: String!): [localMovementsByOperatorReceipt]
 }
 
 input delete_operatorReceipt {

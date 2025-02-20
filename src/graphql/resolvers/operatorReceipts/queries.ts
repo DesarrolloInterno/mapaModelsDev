@@ -59,6 +59,14 @@ const operatorReceiptsQueries = {
             console.log(error);
         }
     },
+    GET_LOCAL_MOVEMENTS_BY_OPERATORRECEIPT: async (_: any, {idOperatorReceipt, idEnterprise}: any) => {
+        try{
+            const result = await operatorReceipts.query("exec get_localMovements_by_operatorReceipt @idOperatorReceipt = '"+ idOperatorReceipt +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default operatorReceiptsQueries;
