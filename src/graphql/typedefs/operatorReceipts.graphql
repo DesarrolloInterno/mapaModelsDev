@@ -19,7 +19,7 @@ type operatorReceipts {
 	netAmountDeposit: String,
 	status: String,
 	idEnterprise: Int,
-  totalLocalMovements: String,
+  totalLocalMovements: String
 }
 
 type operatorReceiptTrips {
@@ -46,6 +46,7 @@ type operatorReceiptTrips {
   unit: String,
   tripType: String,
   idOperatorReceipt: Int,
+  gratuity: String
 }
 
 type expensesDeadlines_operatorReceipt{

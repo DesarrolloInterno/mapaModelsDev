@@ -177,7 +177,8 @@ type discountDeadlines{
   operator: String,
   idDiscountConcept: String,
   discountConcept: String,
-  status: String
+  status: String,
+  idOperatorReceipt: String
 }
 
 type tripsForPreReceiptPayrollByEmployee {
