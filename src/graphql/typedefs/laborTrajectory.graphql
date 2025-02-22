@@ -4,10 +4,17 @@ type laborTrajectory {
     comments: String
     status: String
     correctlyCompleted: String
+    docLink: String
+}
+
+type candidates_laborTrajectory {
+    candidates: String
+    docLink: String
 }
 
 type Query {
     GET_LABORTRAJECTORYBYCANDIDATE(idCandidates: String!): [laborTrajectory]
+    GET_CANDIDATE_LABORTRAJECTORY (idLaborTrajectory: String!): [candidates_laborTrajectory]
 }
 
 input candidate_laborTrajectory {
@@ -19,6 +26,18 @@ input candidate_laborTrajectory {
     correctlyCompleted: String
 }
 
+type return_newLaborTrajectory {
+    idLaborTrajectory: String,
+    message: String
+}
+
+input candidate_laborTrajectory_doc{
+    idLaborTrajectory: String
+    link: String
+    userLoggedIn: String
+}
+
 type Mutation {
-    SET_LABOR_TRAJECTORY(input: candidate_laborTrajectory): String
+    SET_LABOR_TRAJECTORY(input: candidate_laborTrajectory): [return_newLaborTrajectory]
+    SET_LABORTRAJECTORY_DOCUMENTS(input: candidate_laborTrajectory_doc): String
 }
