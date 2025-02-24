@@ -1,0 +1,25 @@
+type bonuses {
+    id: ID,
+	dateBonus: String,
+	amount: String
+}
+
+type Query {
+  GET_ALL_BONUSES(idEnterprise: String!): [bonuses]
+}
+
+input update_bonus {
+  idBonus: String,
+  amount: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+type return_new_bonus{
+  idBonus: String
+  message: String
+}
+
+type Mutation {
+  UPDATE_BONUS(input: update_bonus): [return_new_bonus]
+}
