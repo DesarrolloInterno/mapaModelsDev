@@ -361,7 +361,8 @@ input reentry_employee {
     idEmployee: String,
     userLoggedIn: String,
     dateReentry: String,
-    comment: String
+    comment: String,
+    idEnterprise: String
 }
 
 input setemployeetypeReceipt {
