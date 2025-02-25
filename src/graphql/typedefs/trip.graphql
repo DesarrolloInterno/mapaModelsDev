@@ -388,6 +388,7 @@ input update_trip2 {
   sealNumber: String,
   observations: String,
   userLoggedIn: String,
+  temperature: String,
 }
 
 type return_new_trip{
@@ -541,7 +542,8 @@ input create_trip2 {
   sealNumber: String,
   observations: String,
   userLoggedIn: String,
-  idLoggedIn: String
+  idLoggedIn: String,
+  temperature: String,
 }
 
 type tripsForTracking {

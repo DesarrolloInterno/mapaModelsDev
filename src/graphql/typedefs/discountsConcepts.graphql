@@ -1,0 +1,42 @@
+type discountsConcepts {
+  id: ID,
+  name: String,
+  description: String,
+  amount: String,
+  status: String
+}
+
+type Query {
+  GET_ALL_DISCOUNTS_CONCEPTS(idEnterprise: String!, status: String!): [discountsConcepts]
+}
+
+input new_discountConcept {
+  name: String,
+  description: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+type return_new_discountConcept  {
+  idDiscountConcept: String,
+  message: String
+}
+
+input update_discountConcept {
+  idDiscountConcept: String,
+  name: String,
+  description: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+input delete_discountConcept {
+  idDiscountConcept: String,
+  userLoggedIn: String
+}
+
+type Mutation {
+  CREATE_DISCOUNT_CONCEPT(input: new_discountConcept): [return_new_discountConcept]
+  UPDATE_DISCOUNT_CONCEPT(input: update_discountConcept): [return_new_discountConcept]
+  DELETE_DISCOUNT_CONCEPT(input: delete_discountConcept): [return_new_discountConcept]
+}

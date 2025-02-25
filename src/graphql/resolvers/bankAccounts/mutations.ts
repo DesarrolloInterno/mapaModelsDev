@@ -20,7 +20,11 @@ const bankAccountsMutations = {
 			pettyCashReimbursementAccount,
 			currency,
 			idEnterprise,
-			userLoggedIn
+			userLoggedIn,
+            isAnotherBank,
+            anotherBank,
+            isAnotherTypeAccount,
+            anotherTypeAccount
         } = input;
         try {
             const newRecord = await bankAccounts.query("exec create_bankAccount " +
@@ -41,7 +45,11 @@ const bankAccountsMutations = {
             "@pettyCashReimbursementAccount = '"+pettyCashReimbursementAccount+"', " +
             "@currency = '"+currency+"', " +
             "@idEnterprise = '"+idEnterprise+"', " + 
-            "@userLoggedIn = '"+userLoggedIn+"' ");
+            "@userLoggedIn = '"+userLoggedIn+"', " + 
+            "@isAnotherBank = '"+isAnotherBank+"', " + 
+            "@anotherBank = '"+anotherBank+"', " + 
+            "@isAnotherTypeAccount = '"+isAnotherTypeAccount+"', " + 
+            "@anotherTypeAccount = '"+anotherTypeAccount+"' ");
             return newRecord;
         } catch (error) {
             console.log(error);
@@ -67,7 +75,11 @@ const bankAccountsMutations = {
 			pettyCashReimbursementAccount,
 			currency,
 			idEnterprise,
-			userLoggedIn
+			userLoggedIn,
+            isAnotherBank,
+            anotherBank,
+            isAnotherTypeAccount,
+            anotherTypeAccount
         } = input;
         try {
             const newRecord = await bankAccounts.query("exec update_bankAccount " +
@@ -88,8 +100,12 @@ const bankAccountsMutations = {
             "@pettyCash = '"+pettyCash+"', " +
             "@pettyCashReimbursementAccount = '"+pettyCashReimbursementAccount+"', " +
             "@currency = '"+currency+"', " +
-            "@idEnterprise = '"+idEnterprise+"', " + 
-            "@userLoggedIn = '"+userLoggedIn+"' ");
+            "@idEnterprise = '"+idEnterprise+"', " +
+            "@userLoggedIn = '"+userLoggedIn+"', " +
+            "@isAnotherBank = '"+isAnotherBank+"', " +
+            "@anotherBank = '"+anotherBank+"', " +
+            "@isAnotherTypeAccount = '"+isAnotherTypeAccount+"', " +
+            "@anotherTypeAccount = '"+anotherTypeAccount+"' ");
             return newRecord;
         } catch (error) {
             console.log(error);
