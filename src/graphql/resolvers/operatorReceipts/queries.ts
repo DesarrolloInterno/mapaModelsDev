@@ -66,7 +66,31 @@ const operatorReceiptsQueries = {
         } catch (error) {
             console.log(error);
         }
-    }
+    },
+    GET_ALL_ACCRUEDSETTLEMENTRECEIPTS2: async (_: any, {typeFilter, idWeek, idYear, date1, date2, idEnterprise}: any) => {
+        try{
+            const result = await operatorReceipts.query("exec get_all_accruedSettlementReceipts2 @typeFilter = '"+ typeFilter +"', @idWeek = '"+ idWeek +"', @idYear = '"+ idYear +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_ACCRUEDSETTLEMENTRECEIPTS_SUPPLEMENTARYPAYROLL: async (_: any, {idOperatorReceipt}: any) => {
+        try{
+            const result = await operatorReceipts.query("exec get_all_accruedSettlementReceipts_supplementaryPayroll  @idOperatorReceipt = '"+ idOperatorReceipt +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_ACCRUEDSETTLEMENTRECEIPTS_DISCOUNTS: async (_: any, {idOperatorReceipt}: any) => {
+        try{
+            const result = await operatorReceipts.query("exec get_all_accruedSettlementReceipts_discounts  @idOperatorReceipt = '"+ idOperatorReceipt +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default operatorReceiptsQueries;

@@ -307,6 +307,8 @@ input edit_preReceiptLocalMovement{
 
 type accruedSettlementReceipts {
   id: ID,
+  numReceipt: String,
+  idPreReceipts: String,
   nomipaq: String,
   employee_number: String,
   name: String,
