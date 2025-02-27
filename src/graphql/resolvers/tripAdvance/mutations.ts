@@ -14,7 +14,10 @@ const tripAdvanceMutations = {
             reference,
             relationTrip,
             userLoggedIn,
-            idEnterprise
+            idEnterprise,
+            isDeadlines,
+            quantityDeadlines
+
         } = input;
 
         try {
@@ -29,7 +32,9 @@ const tripAdvanceMutations = {
                 "@reference = '" + reference + "', "+
                 "@relationTrip = '" + relationTrip + "', "+
                 "@userLoggedIn = '" + userLoggedIn + "', "+
-                "@idEnterprise = '" + idEnterprise + "' "
+                "@idEnterprise = '" + idEnterprise + "', "+
+                "@isDeadlines = '" + isDeadlines + "', "+
+                "@quantityDeadlines = '" + quantityDeadlines + "' "
             );
             return newRecord;
         } catch (error) {
@@ -50,7 +55,9 @@ const tripAdvanceMutations = {
             reference,
             relationTrip,
             userLoggedIn,
-            idEnterprise
+            idEnterprise,
+            isDeadlines,
+            quantityDeadlines
         } = input;
 
         try {
@@ -66,7 +73,9 @@ const tripAdvanceMutations = {
                 "@reference = '" + reference + "', " +
                 "@relationTrip = '" + relationTrip + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@idEnterprise = '" + idEnterprise + "' "
+                "@idEnterprise = '" + idEnterprise + "', "+
+                "@isDeadlines = '" + isDeadlines + "', "+
+                "@quantityDeadlines = '" + quantityDeadlines + "' "
             );
             return newRecord;
         } catch (error) {
