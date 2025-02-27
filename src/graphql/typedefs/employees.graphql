@@ -68,6 +68,9 @@ type employees {
     tshirtSizes: String
     imageLink: String
     dateRemoved: String
+    contact: String,
+	idDepartment: Int,
+	department: String
 }
 
 type employees_name{
