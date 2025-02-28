@@ -119,6 +119,7 @@ import preReceiptsMutations from './preReceipts/mutations'
 import { operatorReceiptsMutations, operatorReceiptsQueries } from './operatorReceipts'
 import { discountsConceptsMutations, discountsConceptsQueries } from './discountsConcepts'
 import { bonusesMutations, bonusesQueries } from './bonuses'
+import { accountingPeriodsMutations, accountingPeriodsQueries } from './accountingPeriods'
 
 const resolvers = {
     Query: {
@@ -234,7 +235,8 @@ const resolvers = {
         ...preReceiptsQueries,
         ...operatorReceiptsQueries,
         ...discountsConceptsQueries,
-        ...bonusesQueries
+        ...bonusesQueries,
+        ...accountingPeriodsQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -322,7 +324,8 @@ const resolvers = {
         ...preReceiptsMutations,
         ...operatorReceiptsMutations,
         ...discountsConceptsMutations,
-        ...bonusesMutations
+        ...bonusesMutations,
+        ...accountingPeriodsMutations
     }
 }
 

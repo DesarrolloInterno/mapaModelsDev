@@ -24,7 +24,21 @@ input new_accountingPeriod {
 	recalculate: String,
 	postToAccounting: String,
 	userLoggedIn: String,
-	idEnterprise: String
+	idEnterprise: String,
+	status: String
+}
+
+input update_accountingPeriod {
+	idAccountingPeriod: String,
+    beginningDate: String,
+	endingDate: String,
+	numPeriod: String,
+	fiscalYear: String,
+	recalculate: String,
+	postToAccounting: String,
+	userLoggedIn: String,
+	idEnterprise: String,
+	status: String
 }
 
 type return_new_accountingPeriod {
@@ -32,6 +46,13 @@ type return_new_accountingPeriod {
     message: String
 }
 
+input delete_accountingPeriod {
+	idAccountingPeriod: String,
+	userLoggedIn: String
+}
+
 type Mutation {
     CREATE_ACCOUNTING_PERIOD(input: new_accountingPeriod): [return_new_accountingPeriod]
+	UPDATE_ACCOUNTING_PERIOD(input: update_accountingPeriod): [return_new_accountingPeriod]
+	DELETE_ACCOUNTING_PERIOD(input: delete_accountingPeriod): String
 }
