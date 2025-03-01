@@ -20,6 +20,8 @@ type operatorReceipts {
 	status: String,
 	idEnterprise: Int,
   totalLocalMovements: String
+  fixedPayroll: String,
+  payrollDispersion: String
 }
 
 type operatorReceiptTrips {
