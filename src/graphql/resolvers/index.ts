@@ -120,6 +120,7 @@ import { operatorReceiptsMutations, operatorReceiptsQueries } from './operatorRe
 import { discountsConceptsMutations, discountsConceptsQueries } from './discountsConcepts'
 import { bonusesMutations, bonusesQueries } from './bonuses'
 import { accountingPeriodsMutations, accountingPeriodsQueries } from './accountingPeriods'
+import { accountingVouchersMutations, accountingVouchersQueries } from './accountingVouchers'
 
 const resolvers = {
     Query: {
@@ -236,7 +237,8 @@ const resolvers = {
         ...operatorReceiptsQueries,
         ...discountsConceptsQueries,
         ...bonusesQueries,
-        ...accountingPeriodsQueries
+        ...accountingPeriodsQueries,
+        ...accountingVouchersQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -325,7 +327,8 @@ const resolvers = {
         ...operatorReceiptsMutations,
         ...discountsConceptsMutations,
         ...bonusesMutations,
-        ...accountingPeriodsMutations
+        ...accountingPeriodsMutations,
+        ...accountingVouchersMutations
     }
 }
 
