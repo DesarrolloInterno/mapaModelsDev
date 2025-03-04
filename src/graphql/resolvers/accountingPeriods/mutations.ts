@@ -5,7 +5,6 @@ const accountingPeriodsMutations = {
         const { 
             beginningDate,
             endingDate,
-            numPeriod,
             fiscalYear,
             recalculate,
             postToAccounting,
@@ -17,7 +16,6 @@ const accountingPeriodsMutations = {
             const newRecord = await accountingPeriods.query("exec create_accountingPeriod " +
                 "@beginningDate = '"+beginningDate+"', " +
                 "@endingDate = '"+endingDate+"', " +
-                "@numPeriod = '"+numPeriod+"', " +
                 "@fiscalYear = '"+fiscalYear+"', " +
                 "@recalculate = '"+recalculate+"', " +
                 "@postToAccounting = '"+postToAccounting+"', " +
@@ -69,6 +67,22 @@ const accountingPeriodsMutations = {
             "@idAccountingPeriod = '"+idAccountingPeriod+"', " +
             "@userLoggedIn = '"+userLoggedIn+"' ");
             return "Registro eliminado correctamente";
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_STATUS_ACCOUNTING_PERIOD: async (_: any, {input}: any) => {
+        const { 
+            idAccountingPeriod,
+            userLoggedIn,
+            status
+        } = input;
+        try {
+            const newRecord = await accountingPeriods.query("exec set_status_accountingPeriod " +
+                "@idAccountingPeriod = '"+idAccountingPeriod+"', " +
+                "@userLoggedIn = '"+userLoggedIn+"', " +
+                "@status = '"+status+"' ");
+            return newRecord;
         } catch (error) {
             console.log(error);
         }

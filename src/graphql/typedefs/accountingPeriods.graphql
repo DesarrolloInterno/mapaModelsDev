@@ -12,14 +12,40 @@ type accountingPeriods {
 	idEnterprise: String
 }
 
+type accountingPeriods_by_fiscalYear {
+	id: ID,
+	beginningDate: String,
+	endingDate: String,
+	numPeriod: String,
+	fiscalYear: String,
+	recalculate: String,
+	postToAccounting: String,
+	openingDate: String,
+	closingDate: String,
+	status: String,
+	idEnterprise: String,
+	voucherDR : String,
+	voucherIN : String,
+	voucherEG : String,
+	applied : String,
+	canceled : String,
+	toBeProcessed : String,
+	closingVoucher : String,
+	accountsNumber : String,
+	userModified : String,
+	dateModified : String,
+	userRecalculated : String,
+	dateRecalculated : String
+}
+
 type Query {
     GET_ALL_ACCOUNTING_PERIODS(idEnterprise: String!): [accountingPeriods]
+	GET_ALL_ACCOUNTING_PERIODS_BY_FISCALYEAR(fiscalYear: String!, idEnterprise: String!): [accountingPeriods_by_fiscalYear]
 }
 
 input new_accountingPeriod {
     beginningDate: String,
 	endingDate: String,
-	numPeriod: String,
 	fiscalYear: String,
 	recalculate: String,
 	postToAccounting: String,
@@ -51,8 +77,15 @@ input delete_accountingPeriod {
 	userLoggedIn: String
 }
 
+input set_status_accountingPeriod {
+	idAccountingPeriod: String,
+	userLoggedIn: String,
+	status: String
+}
+
 type Mutation {
     CREATE_ACCOUNTING_PERIOD(input: new_accountingPeriod): [return_new_accountingPeriod]
 	UPDATE_ACCOUNTING_PERIOD(input: update_accountingPeriod): [return_new_accountingPeriod]
 	DELETE_ACCOUNTING_PERIOD(input: delete_accountingPeriod): String
+	SET_STATUS_ACCOUNTING_PERIOD(input: set_status_accountingPeriod): [return_new_accountingPeriod] 
 }
