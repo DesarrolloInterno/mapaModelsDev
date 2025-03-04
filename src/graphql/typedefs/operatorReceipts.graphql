@@ -19,7 +19,9 @@ type operatorReceipts {
 	netAmountDeposit: String,
 	status: String,
 	idEnterprise: Int,
-  totalLocalMovements: String
+  totalLocalMovements: String,
+  nameDocument: String,
+  documentLink: String
 }
 
 type operatorReceiptTrips {
