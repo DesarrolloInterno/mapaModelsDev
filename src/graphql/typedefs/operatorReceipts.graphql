@@ -20,6 +20,8 @@ type operatorReceipts {
 	status: String,
 	idEnterprise: Int,
   totalLocalMovements: String
+  fixedPayroll: String,
+  payrollDispersion: String
 }
 
 type operatorReceiptTrips {
@@ -132,6 +134,7 @@ type localMovementsByOperatorReceipt{
 
 type accruedSettlementReceipts2 {
   id: String,
+  numOperatorReceipt: Int,
 	idOperator: String,
 	nomipaq: String,
 	employee_number: String,
@@ -142,13 +145,15 @@ type accruedSettlementReceipts2 {
   gratuity: String,
   envelopePayment: String,
   verifiedExpenses: String,
-  amount: String,
   advances: String,
+  totalLocalMovements: String,
+  supplements: String,
   netPayment: String,
-  totalPayment: String,
-  fixedPayroll: String,
-  payment: String,
-  disbursement: String,
+  discounts: String,
+  netAmountDeposit: String,
+  payroll: String,
+  payrollDispersion: String
+  fixedPayroll: String
 }
 
 type accruedSettlementReceiptsSupplementaryPayroll {
