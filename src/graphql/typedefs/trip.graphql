@@ -1168,7 +1168,8 @@ type tripForSettlement {
 	userRecorded: String,
   availableDate: String,
   reference: String,
-  isValidatedSettlement: String
+  isValidatedSettlement: String,
+  operator: String
 }
 
 input set_trip_settlement{

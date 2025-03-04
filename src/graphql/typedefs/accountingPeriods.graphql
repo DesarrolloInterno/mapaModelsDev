@@ -1,0 +1,37 @@
+type accountingPeriods {
+    id: ID,
+	beginningDate: String,
+	endingDate: String,
+	numPeriod: String,
+	fiscalYear: String,
+	recalculate: String,
+	postToAccounting: String,
+	openingDate: String,
+	closingDate: String,
+	status: String,
+	idEnterprise: String
+}
+
+type Query {
+    GET_ALL_ACCOUNTING_PERIODS(idEnterprise: String!): [accountingPeriods]
+}
+
+input new_accountingPeriod {
+    beginningDate: String,
+	endingDate: String,
+	numPeriod: String,
+	fiscalYear: String,
+	recalculate: String,
+	postToAccounting: String,
+	userLoggedIn: String,
+	idEnterprise: String
+}
+
+type return_new_accountingPeriod {
+    idAccountingPeriod: String,
+    message: String
+}
+
+type Mutation {
+    CREATE_ACCOUNTING_PERIOD(input: new_accountingPeriod): [return_new_accountingPeriod]
+}

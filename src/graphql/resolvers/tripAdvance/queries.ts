@@ -36,6 +36,15 @@ const tripAdvanceQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_TRIPADVANCE_DEADLINES_BY_ADVANCE: async (_: any, {idTripAdvance}: any) => {
+        try{
+            const result = await tripAdvance.query("exec get_all_tripAdvanceDeadlines_by_Advance @idTripAdvance = '"+ idTripAdvance +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

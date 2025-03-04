@@ -8,4 +8,5 @@ type paymentType {
 
 type Query {
     GET_ALL_PAYMENT_TYPE: [paymentType]
+    GET_ALL_CLIENT_PAYMENT_TYPE: [paymentType]
 }

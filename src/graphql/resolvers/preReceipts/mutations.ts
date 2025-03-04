@@ -905,6 +905,15 @@ const preReceiptsMutations = {
         } catch (error) {
             console.log(error);
         }
+    },
+    SET_LINK_OPERATOR_RECEIPT_DOCUMENT: async (_: any, {input}: any) => {
+        const { idReceipt, link, document, userLoggedIn } = input;
+        try {
+            await preReceipts.query("exec set_linkOperatorReceiptDocument @idReceipt = '"+idReceipt+"', @link = '"+link+"', @document = '"+document+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Documento agregado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
