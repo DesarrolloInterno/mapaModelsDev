@@ -1,0 +1,10 @@
+type claveCancelacion {
+    id: ID
+    claveCancelacion: String,
+    name: String,
+    description: String
+}
+
+type Query {
+    GET_ALL_CANCELLATION_CODES: [claveCancelacion]
+}

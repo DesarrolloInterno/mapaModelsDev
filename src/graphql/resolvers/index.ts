@@ -121,6 +121,7 @@ import { discountsConceptsMutations, discountsConceptsQueries } from './discount
 import { bonusesMutations, bonusesQueries } from './bonuses'
 import { accountingPeriodsMutations, accountingPeriodsQueries } from './accountingPeriods'
 import { accountingVouchersMutations, accountingVouchersQueries } from './accountingVouchers'
+import { claveCancelacionQueries } from './claveCancelacion'
 
 const resolvers = {
     Query: {
@@ -238,7 +239,8 @@ const resolvers = {
         ...discountsConceptsQueries,
         ...bonusesQueries,
         ...accountingPeriodsQueries,
-        ...accountingVouchersQueries
+        ...accountingVouchersQueries,
+        ...claveCancelacionQueries
     },
     Mutation: {
         ...user_historialMutations,
