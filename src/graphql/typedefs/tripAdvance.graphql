@@ -14,24 +14,25 @@ type tripAdvance {
 }
 
 type getTripAdvance {
-    id: ID,
-    date: String,
-    importAdvance: Float,
-    idTrip: String,
-    tripOrderNumber: String,
-    idUnit: Int,
-    unit: String,
-	  idEmployee: Int,
-    employee: String,
-	  comments: String,
-	  status: String,
-    userLoggedIn: String,
-    reference: String,
-    relationTrip: String,
-    name: String
-    numTrip: Int,
-    isDeadlines: String,
-    quantityDeadlines: String
+  id: ID,
+  date: String,
+  importAdvance: Float,
+  idTrip: String,
+  tripOrderNumber: String,
+  idUnit: Int,
+  unit: String,
+  idEmployee: Int,
+  employee: String,
+  comments: String,
+  status: String,
+  userLoggedIn: String,
+  reference: String,
+  relationTrip: String,
+  name: String
+  numTrip: Int,
+  isDeadlines: String,
+  quantityDeadlines: String,
+  idOperatorReceipt: Int
 }
 
 type tripAdvances {
@@ -64,7 +65,8 @@ type tripAdvancesByIdTrip {
   comments: String,
   placementDate: String,
   isDeadlines: String,
-  quantityDeadlines: String
+  quantityDeadlines: String,
+  idOperatorReceipt: Int
 }
 
 type tripAdvancesCrossing {

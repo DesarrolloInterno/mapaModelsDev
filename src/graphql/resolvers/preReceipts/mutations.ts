@@ -520,7 +520,8 @@ const preReceiptsMutations = {
             quantityTrips,
             travelCommission,
             gratuity,
-            fixedPayroll
+            fixedPayroll,
+            tripAdvanceDeadlinesString
         } = input;
 
         try {
@@ -612,6 +613,24 @@ const preReceiptsMutations = {
         try {
             await preReceipts.query("exec update_idPreReceipt_Discounts2 " +
                 "@discounts = '" + discounts + "', " +
+                "@idPreReceipt = '" + idPreReceipt + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return "Registros editados correctamente"
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_IDPRERECEIPT_TRIPADVANCEDEADLINES: async (_: any, {input}: any) => {
+        const {
+            tripAdvanceDeadlines,
+            idPreReceipt,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await preReceipts.query("exec update_idPreReceipt_tripAdvanceDeadlines " +
+                "@tripAdvanceDeadlines = '" + tripAdvanceDeadlines + "', " +
                 "@idPreReceipt = '" + idPreReceipt + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "' "
             );
@@ -864,6 +883,25 @@ const preReceiptsMutations = {
             await preReceipts.query("exec delete_discountDeadline " +
                 "@idPreReceiptDiscount = '" + idPreReceiptDiscount + "', " +
                 "@idDiscountDeadline = '" + idDiscountDeadline + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return "Registro eliminado correctamente"
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    DELETE_TRIP_ADVANCE_DEADLINE: async (_: any, {input}: any) => {
+        const {
+            idTripAdvance,
+            idTripAdvanceDeadline,
+            userLoggedIn
+        } = input;
+
+        try {
+            await preReceipts.query("exec delete_tripAdvanceDeadlines " +
+                "@idTripAdvance = '" + idTripAdvance + "', " +
+                "@idTripAdvanceDeadline = '" + idTripAdvanceDeadline + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "' "
             );
             return "Registro eliminado correctamente"
