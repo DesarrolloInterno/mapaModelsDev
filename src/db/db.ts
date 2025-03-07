@@ -120,6 +120,8 @@ import { operatorReceipts } from "./Entities/operatorReceipts"
 import { discountsConcepts } from "./Entities/discountsConcepts"
 import { bonuses } from "./Entities/bonuses"
 import { accountingPeriods } from "./Entities/accountingPeriods"
+import { accountingVouchers } from "./Entities/accountingVouchers"
+import { claveCancelacion } from "./Entities/claveCancelacion"
 
 export const  dbConection = async () =>{
   let PORT: string = process.env.DATABASE_PORT!
@@ -253,7 +255,9 @@ export const  dbConection = async () =>{
       operatorReceipts,
       discountsConcepts,
       bonuses,
-      accountingPeriods
+      accountingPeriods,
+      accountingVouchers,
+      claveCancelacion
     ],
     options: {
       encrypt: true,//true para Windows Azure

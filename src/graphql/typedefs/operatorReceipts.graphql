@@ -22,6 +22,8 @@ type operatorReceipts {
   totalLocalMovements: String
   fixedPayroll: String,
   payrollDispersion: String
+  nameDocument: String,
+  documentLink: String
 }
 
 type operatorReceiptTrips {

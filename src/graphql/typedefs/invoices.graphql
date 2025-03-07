@@ -759,6 +759,14 @@ input setAssetInvoiceAmount {
   subtotal: String
 }
 
+input deleteInvoiceFromTrip {
+  idInvoice: String,
+  idTrip: String,
+  idCancellationCode: String,
+  cancellationReasons: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_INVOICE_FROM_TRIP(input: setNewInvoices): [newInvoices]
   CREATE_INVOICE(input: setNewInvoices2): [newInvoices2]
@@ -774,5 +782,6 @@ type Mutation {
   CREATE_ASSET_INVOICE(input: newAssetInvoice): [return_newAssetInvoice]
   SET_ASSET_INVOICE_AMOUNTS(input: setAssetInvoiceAmount): String
   UPDATE_ASSET_INVOICE(input: updateAssetInvoice): [return_newAssetInvoice]
-  SET_LINK_PDF_XML_ASSET_INVOICE(input: setLinkPDFXMLAssetInvoice): String
+  SET_LINK_PDF_XML_ASSET_INVOICE(input: setLinkPDFXMLAssetInvoice): String,
+  DELETE_INVOICE_FROM_TRIP(input: deleteInvoiceFromTrip): String
 }

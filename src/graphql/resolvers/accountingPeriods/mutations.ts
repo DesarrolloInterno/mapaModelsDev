@@ -5,23 +5,83 @@ const accountingPeriodsMutations = {
         const { 
             beginningDate,
             endingDate,
+            fiscalYear,
+            recalculate,
+            postToAccounting,
+            userLoggedIn,
+            idEnterprise,
+            status
+        } = input;
+        try {
+            const newRecord = await accountingPeriods.query("exec create_accountingPeriod " +
+                "@beginningDate = '"+beginningDate+"', " +
+                "@endingDate = '"+endingDate+"', " +
+                "@fiscalYear = '"+fiscalYear+"', " +
+                "@recalculate = '"+recalculate+"', " +
+                "@postToAccounting = '"+postToAccounting+"', " +
+                "@userLoggedIn = '"+userLoggedIn+"', " +
+                "@idEnterprise = '"+idEnterprise+"', " +
+                "@status = '"+status+"' ");
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_ACCOUNTING_PERIOD: async (_: any, {input}: any) => {
+        const { 
+            idAccountingPeriod,
+            beginningDate,
+            endingDate,
             numPeriod,
             fiscalYear,
             recalculate,
             postToAccounting,
             userLoggedIn,
-            idEnterprise
+            idEnterprise,
+            status
         } = input;
         try {
-            const newRecord = await accountingPeriods.query("exec create_accountingPeriods " +
-            "@beginningDate = '"+beginningDate+"', " +
-            "@endingDate = '"+endingDate+"', " +
-            "@numPeriod = '"+numPeriod+"', " +
-            "@fiscalYear = '"+fiscalYear+"', " +
-            "@recalculate = '"+recalculate+"', " +
-            "@postToAccounting = '"+postToAccounting+"', " +
-            "@userLoggedIn = '"+userLoggedIn+"', " +
-            "@idEnterprise = '"+idEnterprise+"' ");
+            const newRecord = await accountingPeriods.query("exec update_accountingPeriod " +
+                "@idAccountingPeriod = '"+idAccountingPeriod+"', " +
+                "@beginningDate = '"+beginningDate+"', " +
+                "@endingDate = '"+endingDate+"', " +
+                "@numPeriod = '"+numPeriod+"', " +
+                "@fiscalYear = '"+fiscalYear+"', " +
+                "@recalculate = '"+recalculate+"', " +
+                "@postToAccounting = '"+postToAccounting+"', " +
+                "@userLoggedIn = '"+userLoggedIn+"', " +
+                "@idEnterprise = '"+idEnterprise+"', " +
+                "@status = '"+status+"' ");
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    DELETE_ACCOUNTING_PERIOD: async (_: any, {input}: any) => {
+        const { 
+            idAccountingPeriod,
+            userLoggedIn
+        } = input;
+        try {
+            await accountingPeriods.query("exec delete_accountingPeriod " +
+            "@idAccountingPeriod = '"+idAccountingPeriod+"', " +
+            "@userLoggedIn = '"+userLoggedIn+"' ");
+            return "Registro eliminado correctamente";
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_STATUS_ACCOUNTING_PERIOD: async (_: any, {input}: any) => {
+        const { 
+            idAccountingPeriod,
+            userLoggedIn,
+            status
+        } = input;
+        try {
+            const newRecord = await accountingPeriods.query("exec set_status_accountingPeriod " +
+                "@idAccountingPeriod = '"+idAccountingPeriod+"', " +
+                "@userLoggedIn = '"+userLoggedIn+"', " +
+                "@status = '"+status+"' ");
             return newRecord;
         } catch (error) {
             console.log(error);
