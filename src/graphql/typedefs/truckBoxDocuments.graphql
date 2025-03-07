@@ -31,7 +31,37 @@ type return_new_document{
   documentLink: String
 }
 
+input create_new_truckBoxDocument {
+    idTruckBox: String,
+    nameDocument: String,
+    userLoggedIn: String
+}
+
+type return_new_truckBoxDocuments {
+    nameTruckBox: String
+    document: String
+    idDocument: String
+}
+
+input set_link_truckBoxDocuments {
+    idTruckBox: String,
+    id: String,
+    documentLink: String
+}
+
+input delete_truckBoxDocumentFile {
+    id: String
+    userLoggedIn: String
+}
+
+type return_delete_document{
+  documentLink: String
+}
+
 type Mutation {
     UPLOAD_TRUCKBOX_IMAGES(input: new_truckBoxDocuments): String
     DELETE_TRUCKBOX_IMAGES(input: delete_truckBoxDocuments): [return_new_document]
+    CREATE_TRUCKBOX_DOCUMENTS(input: create_new_truckBoxDocument): [return_new_truckBoxDocuments]
+    SET_LINK_TRUCKBOX_DOCUMENTS(input: set_link_truckBoxDocuments): String
+    DELETE_TRUCKBOX_DOCUMENTS(input: delete_truckBoxDocumentFile): [return_delete_document]
 }
