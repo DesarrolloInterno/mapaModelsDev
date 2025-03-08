@@ -1,0 +1,36 @@
+type vouchers {
+    id: ID,
+    voucherDate: String,
+    voucherType: String,
+    numVoucher: String,
+    description: String,
+    status: String,
+    origin: String,
+    charges: String,
+    payments: String
+}
+
+type Query {
+    GET_ALL_VOUCHERS(origin: String!, date1: String!, date2: String!, status: String!, idEnterprise: String!): [vouchers]
+}
+
+input new_voucher {
+    idBeneficiary: String,
+	beneficiaryType: String,
+	voucherDate: String,
+	voucherType: String,
+	idOrigin: String,
+	origin: String,
+	description: String,
+	userLoggedIn: String,
+	idEnterprise: String
+}
+
+type return_new_voucher {
+    idVoucher: String,
+    message: String
+}
+
+type Mutation {
+    CREATE_VOUCHER(input: new_voucher): [return_new_voucher]
+}

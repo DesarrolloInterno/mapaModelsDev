@@ -122,6 +122,7 @@ import { bonusesMutations, bonusesQueries } from './bonuses'
 import { accountingPeriodsMutations, accountingPeriodsQueries } from './accountingPeriods'
 import { accountingVouchersMutations, accountingVouchersQueries } from './accountingVouchers'
 import { claveCancelacionQueries } from './claveCancelacion'
+import { vouchersMutations, vouchersQueries } from './vouchers'
 
 const resolvers = {
     Query: {
@@ -240,7 +241,8 @@ const resolvers = {
         ...bonusesQueries,
         ...accountingPeriodsQueries,
         ...accountingVouchersQueries,
-        ...claveCancelacionQueries
+        ...claveCancelacionQueries,
+        ...vouchersQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -330,7 +332,8 @@ const resolvers = {
         ...discountsConceptsMutations,
         ...bonusesMutations,
         ...accountingPeriodsMutations,
-        ...accountingVouchersMutations
+        ...accountingVouchersMutations,
+        ...vouchersMutations
     }
 }
 
