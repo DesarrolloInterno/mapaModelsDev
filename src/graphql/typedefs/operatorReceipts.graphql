@@ -168,6 +168,8 @@ type accruedSettlementReceiptsDiscounts {
   idOperatorReceipt: String,
 	name: String,
 	amount: String,
+  numDeadline: String,
+  quantityDeadlines: String
 }
 
 type Query {
