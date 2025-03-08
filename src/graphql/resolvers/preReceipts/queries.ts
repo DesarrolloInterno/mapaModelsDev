@@ -163,6 +163,30 @@ const preReceiptsQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_ACCRUEDSETTLEMENTPRERECEIPTS2: async (_: any, {typeFilter, idWeek, idYear, date1, date2, idEnterprise}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_all_accruedSettlementPreReceipts2 @typeFilter = '"+ typeFilter +"', @idWeek = '"+ idWeek +"', @idYear = '"+ idYear +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_ACCRUEDSETTLEMENTPRERECEIPTS_SUPPLEMENTARYPAYROLL: async (_: any, {idPreReceipt}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_all_accruedSettlementPreReceipts_supplementaryPayroll  @idPreReceipt = '"+ idPreReceipt +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_ACCRUEDSETTLEMENTPRERECEIPTS_DISCOUNTS: async (_: any, {idPreReceipt}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_all_accruedSettlementPreReceipts_discounts  @idPreReceipt = '"+ idPreReceipt +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

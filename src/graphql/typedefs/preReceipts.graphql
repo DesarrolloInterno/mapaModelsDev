@@ -343,6 +343,42 @@ type accruedSettlementReceipts {
   totalFixedPayroll: String
 }
 
+type accruedSettlementPreReceipts2 {
+  id: String,
+  numReceipt: Int,
+	idOperator: String,
+	nomipaq: String,
+	employee_number: String,
+	name: String,
+  nickname: String,
+  quantityTrips: String,
+  travelCommission: String,
+  gratuity: String,
+  envelopePayment: String,
+  verifiedExpenses: String,
+  advances: String,
+  totalLocalMovements: String,
+  supplements: String,
+  netPayment: String,
+  discounts: String,
+  netAmountDeposit: String,
+  payroll: String,
+  payrollDispersion: String
+  fixedPayroll: String
+}
+
+type accruedSettlementPreReceiptsSupplementaryPayroll {
+  idPreReceipt: String,
+	supplementaryPayrollConcept: String,
+	rate: String,
+}
+
+type accruedSettlementPreReceiptsDiscounts {
+  idPreReceipt: String,
+	name: String,
+	amount: String,
+}
+
 type Query {
   GET_ALL_PRE_RECEIPTS(status:String!, idEnterprise: String!): [preReceipts]
   GET_PRE_RECEIPT_SUPPLEMENTARY_PAYROLL_CONCEPTS(idPreReceipt:String!, idEnterprise: String!): [supplementaryPayrollConcepts]
@@ -364,6 +400,10 @@ type Query {
   GET_DISCOUNTDEADLINES_BY_PRE_RECEIPT(date: String!, idPrereceipt: String!, idOperator: String!, idEnterprise: String!): [discountDeadlines]
   GET_ALL_DISCOUNT_DEADLINES_BY_DISCOUNT(idPreReceiptDiscount:String!): [discountDeadlines]
   GET_ALL_ACCRUED_SETTLEMENT_RECEIPTS(typeFilter: String!, date: String!, date1: String!, date2: String!, idEnterprise: String!): [accruedSettlementReceipts]
+
+  GET_ALL_ACCRUEDSETTLEMENTPRERECEIPTS2(typeFilter: String!, idWeek: String!, idYear: String!, date1: String!, date2: String!, idEnterprise: String!):[accruedSettlementPreReceipts2]
+  GET_ALL_ACCRUEDSETTLEMENTPRERECEIPTS_SUPPLEMENTARYPAYROLL(idPreReceipt: String!):[accruedSettlementPreReceiptsSupplementaryPayroll]
+  GET_ALL_ACCRUEDSETTLEMENTPRERECEIPTS_DISCOUNTS(idPreReceipt: String!):[accruedSettlementPreReceiptsDiscounts]
 }
 
 input new_supplementary_payroll_concept{

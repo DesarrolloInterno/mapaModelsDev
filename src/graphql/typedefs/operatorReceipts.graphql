@@ -21,8 +21,7 @@ type operatorReceipts {
 	idEnterprise: Int,
   totalLocalMovements: String,
   nameDocument: String,
-  documentLink: String
-  totalLocalMovements: String
+  documentLink: String,
   fixedPayroll: String,
   payrollDispersion: String
 }
