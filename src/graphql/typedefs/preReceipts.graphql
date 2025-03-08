@@ -17,7 +17,10 @@ type preReceipts {
   totalSupplement: String,
   total: String,
   numTrips: String
-  idOperatorReceipt: Int
+  idOperatorReceipt: Int,
+  fixedPayroll: String,
+  travelCommission: String,
+  gratuity: String
 }
 
 type supplementaryPayrollConcepts {
@@ -307,6 +310,8 @@ input edit_preReceiptLocalMovement{
 
 type accruedSettlementReceipts {
   id: ID,
+  numReceipt: String,
+  idPreReceipts: String,
   nomipaq: String,
   employee_number: String,
   name: String,
@@ -596,16 +601,17 @@ input new_preReceipt{
   dateReceipt: String,
   idEnterprise: String,
   totalSalaryAdvances: String,
-  totalsEmployeeSalary: String,
   totalVerifiedExpense: String,
   totalDiscount: String,
   totalMovements: String,
   totalSupplement: String,
   totalLocalMovements: String,
-  total: String,
   userLoggedIn: String,
   numTrips: String,
   quantityTrips: String,
+  travelCommission: String
+  gratuity: String
+  fixedPayroll: String
 }
 
 input edit_preReceipt{
@@ -613,13 +619,14 @@ input edit_preReceipt{
   trips: String,
   dateReceipt: String,
   totalSalaryAdvances: String,
-  totalsEmployeeSalary: String,
   totalVerifiedExpense: String,
   totalDiscount: String,
   totalMovements: String,
   totalSupplement: String,
   totalLocalMovements: String,
-  total: String,
+  travelCommission: String,
+  gratuity: String,
+  fixedPayroll: String,
   userLoggedIn: String,
   numTrips: String,
   quantityTrips: String,

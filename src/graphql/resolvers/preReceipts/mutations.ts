@@ -510,16 +510,17 @@ const preReceiptsMutations = {
             dateReceipt,
             idEnterprise,
             totalSalaryAdvances,
-            totalsEmployeeSalary,
             totalVerifiedExpense,
             totalDiscount,
             totalMovements,
             totalSupplement,
             totalLocalMovements,
-            total,
             userLoggedIn,
             numTrips,
-            quantityTrips
+            quantityTrips,
+            travelCommission,
+            gratuity,
+            fixedPayroll
         } = input;
 
         try {
@@ -530,16 +531,17 @@ const preReceiptsMutations = {
                 "@dateReceipt = '" + dateReceipt + "', " +
                 "@idEnterprise = '" + idEnterprise + "', " +
                 "@totalSalaryAdvances = '" + totalSalaryAdvances + "', " +
-                "@totalsEmployeeSalary = '" + totalsEmployeeSalary + "', " +
                 "@totalVerifiedExpense = '" + totalVerifiedExpense + "', " +
                 "@totalDiscount = '" + totalDiscount + "', " +
                 "@totalMovements = '" + totalMovements + "', " +
                 "@totalSupplement = '" + totalSupplement + "', " +
                 "@totalLocalMovements = '" + totalLocalMovements + "', " +
-                "@total = '" + total + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@numTrips = '" + numTrips + "', " +
-                "@quantityTrips = '" + quantityTrips + "' "
+                "@quantityTrips = '" + quantityTrips + "', " +
+                "@travelCommission = '" + travelCommission + "', " +
+                "@gratuity = '" + gratuity + "', " +
+                "@fixedPayroll = '" + fixedPayroll + "' "
             );
             return newRecord;
         } catch (error) {
@@ -699,13 +701,14 @@ const preReceiptsMutations = {
             trips,
             dateReceipt,
             totalSalaryAdvances,
-            totalsEmployeeSalary,
             totalVerifiedExpense,
             totalDiscount,
             totalMovements,
             totalSupplement,
             totalLocalMovements,
-            total,
+            travelCommission,
+            gratuity,
+            fixedPayroll,
             userLoggedIn,
             numTrips,
             quantityTrips
@@ -717,16 +720,17 @@ const preReceiptsMutations = {
                 "@trips = '" + trips + "', " +
                 "@dateReceipt = '" + dateReceipt + "', " +
                 "@totalSalaryAdvances = '" + totalSalaryAdvances + "', " +
-                "@totalsEmployeeSalary = '" + totalsEmployeeSalary + "', " +
                 "@totalVerifiedExpense = '" + totalVerifiedExpense + "', " +
                 "@totalDiscount = '" + totalDiscount + "', " +
                 "@totalMovements = '" + totalMovements + "', " +
                 "@totalSupplement = '" + totalSupplement + "', " +
                 "@totalLocalMovements = '" + totalLocalMovements + "', " +
-                "@total = '" + total + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@numTrips = '" + numTrips + "', " +
-                "@quantityTrips = '" + quantityTrips + "' "
+                "@quantityTrips = '" + quantityTrips + "', " +
+                "@travelCommission = '" + travelCommission + "', " +
+                "@gratuity = '" + gratuity + "', " +
+                "@fixedPayroll = '" + fixedPayroll + "' "
             );
             return newRecord;
         } catch (error) {

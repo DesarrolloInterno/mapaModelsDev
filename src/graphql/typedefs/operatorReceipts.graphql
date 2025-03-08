@@ -22,6 +22,9 @@ type operatorReceipts {
   totalLocalMovements: String,
   nameDocument: String,
   documentLink: String
+  totalLocalMovements: String
+  fixedPayroll: String,
+  payrollDispersion: String
 }
 
 type operatorReceiptTrips {
@@ -132,6 +135,42 @@ type localMovementsByOperatorReceipt{
   idOperatorReceipt: String,
 }
 
+type accruedSettlementReceipts2 {
+  id: String,
+  numOperatorReceipt: Int,
+	idOperator: String,
+	nomipaq: String,
+	employee_number: String,
+	name: String,
+  nickname: String,
+  quantityTrips: String,
+  travelCommission: String,
+  gratuity: String,
+  envelopePayment: String,
+  verifiedExpenses: String,
+  advances: String,
+  totalLocalMovements: String,
+  supplements: String,
+  netPayment: String,
+  discounts: String,
+  netAmountDeposit: String,
+  payroll: String,
+  payrollDispersion: String
+  fixedPayroll: String
+}
+
+type accruedSettlementReceiptsSupplementaryPayroll {
+  idOperatorReceipt: String,
+	supplementaryPayrollConcept: String,
+	rate: String,
+}
+
+type accruedSettlementReceiptsDiscounts {
+  idOperatorReceipt: String,
+	name: String,
+	amount: String,
+}
+
 type Query {
   GET_ALL_OPERATOR_RECEIPTS(idEnterprise: String!, date1: String!, date2: String!):[operatorReceipts]
 	GET_OPERATOR_RECEIPT_BY_ID(idOperatorReceipt: String!):[operatorReceipts]
@@ -141,6 +180,9 @@ type Query {
 	GET_MOVEMENTS_BY_OPERATORRECEIPT(idOperatorReceipt: String!, idEnterprise: String!): [movementsByOperatorReceipt]
 	GET_SUPPLEMENTARY_BY_OPERATORRECEIPT(idOperatorReceipt: String!, idEnterprise: String!): [supplementaryPayrollByOperatorReceipt]
   GET_LOCAL_MOVEMENTS_BY_OPERATORRECEIPT(idOperatorReceipt: String!, idEnterprise: String!): [localMovementsByOperatorReceipt]
+  GET_ALL_ACCRUEDSETTLEMENTRECEIPTS2(typeFilter: String!, idWeek: String!, idYear: String!, date1: String!, date2: String!, idEnterprise: String!):[accruedSettlementReceipts2]
+  GET_ALL_ACCRUEDSETTLEMENTRECEIPTS_SUPPLEMENTARYPAYROLL(idOperatorReceipt: String!):[accruedSettlementReceiptsSupplementaryPayroll]
+  GET_ALL_ACCRUEDSETTLEMENTRECEIPTS_DISCOUNTS(idOperatorReceipt: String!):[accruedSettlementReceiptsDiscounts]
 }
 
 input delete_operatorReceipt {

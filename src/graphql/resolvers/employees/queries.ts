@@ -123,6 +123,15 @@ const employeesQueries = {
             console.log(error);
         }
     },
+    GET_OPERATOR_FOR_RECEIPT: async (_: any, {status, idEnterprise}: any) => {
+        try{
+            const result = await employees.query("exec get_operator_for_receipt @status = '"+ status +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
     GET_ALL_DRIVERLICENSES_QUANTITY: async (_: any,{idEnterprise}: any) => {
         try{
             const result = await employees.query("exec get_all_driverLicensesQuantity @idEnterprise = '"+ idEnterprise +"'");
