@@ -36,25 +36,26 @@ type getTripAdvance {
 }
 
 type tripAdvances {
-    id: String,
-    loadingDate: String,
-    numTrip: String,
-    idTruckBox: String,
-    truckBox: String,
-    idClient: String,
-    client: String,
-    idUnit: String,
-    unit: String,
-    idEmployee: String,
-    employee: String,
-    temperature: String,
-    wheelChocks: String,
-    straps: String,
-    deliveryDate: String,
-    observations: String,
-    salesFormat: String,
-    totalAmountAdvances: String
-    tripType: String
+  id: String,
+  loadingDate: String,
+  numTrip: String,
+  idTruckBox: String,
+  truckBox: String,
+  idClient: String,
+  client: String,
+  idUnit: String,
+  unit: String,
+  idEmployee: String,
+  employee: String,
+  temperature: String,
+  wheelChocks: String,
+  straps: String,
+  deliveryDate: String,
+  observations: String,
+  salesFormat: String,
+  totalAmountAdvances: String
+  tripType: String,
+  idOperatorReceipt: Int
 }
 
 type tripAdvancesByIdTrip {
