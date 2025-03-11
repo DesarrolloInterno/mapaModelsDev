@@ -118,6 +118,11 @@ import { preReceiptsQueries } from './preReceipts'
 import preReceiptsMutations from './preReceipts/mutations'
 import { operatorReceiptsMutations, operatorReceiptsQueries } from './operatorReceipts'
 import { discountsConceptsMutations, discountsConceptsQueries } from './discountsConcepts'
+import { bonusesMutations, bonusesQueries } from './bonuses'
+import { accountingPeriodsMutations, accountingPeriodsQueries } from './accountingPeriods'
+import { accountingVouchersMutations, accountingVouchersQueries } from './accountingVouchers'
+import { claveCancelacionQueries } from './claveCancelacion'
+import { vouchersMutations, vouchersQueries } from './vouchers'
 
 const resolvers = {
     Query: {
@@ -232,7 +237,12 @@ const resolvers = {
         ...truckBoxMovementHistoryQueries,
         ...preReceiptsQueries,
         ...operatorReceiptsQueries,
-        ...discountsConceptsQueries
+        ...discountsConceptsQueries,
+        ...bonusesQueries,
+        ...accountingPeriodsQueries,
+        ...accountingVouchersQueries,
+        ...claveCancelacionQueries,
+        ...vouchersQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -319,7 +329,11 @@ const resolvers = {
         ...payrollRatesMutations,
         ...preReceiptsMutations,
         ...operatorReceiptsMutations,
-        ...discountsConceptsMutations
+        ...discountsConceptsMutations,
+        ...bonusesMutations,
+        ...accountingPeriodsMutations,
+        ...accountingVouchersMutations,
+        ...vouchersMutations
     }
 }
 

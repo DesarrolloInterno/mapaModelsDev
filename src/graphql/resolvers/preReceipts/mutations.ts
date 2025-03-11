@@ -510,16 +510,18 @@ const preReceiptsMutations = {
             dateReceipt,
             idEnterprise,
             totalSalaryAdvances,
-            totalsEmployeeSalary,
             totalVerifiedExpense,
             totalDiscount,
             totalMovements,
             totalSupplement,
             totalLocalMovements,
-            total,
             userLoggedIn,
             numTrips,
-            quantityTrips
+            quantityTrips,
+            travelCommission,
+            gratuity,
+            fixedPayroll,
+            tripAdvanceDeadlinesString
         } = input;
 
         try {
@@ -530,16 +532,17 @@ const preReceiptsMutations = {
                 "@dateReceipt = '" + dateReceipt + "', " +
                 "@idEnterprise = '" + idEnterprise + "', " +
                 "@totalSalaryAdvances = '" + totalSalaryAdvances + "', " +
-                "@totalsEmployeeSalary = '" + totalsEmployeeSalary + "', " +
                 "@totalVerifiedExpense = '" + totalVerifiedExpense + "', " +
                 "@totalDiscount = '" + totalDiscount + "', " +
                 "@totalMovements = '" + totalMovements + "', " +
                 "@totalSupplement = '" + totalSupplement + "', " +
                 "@totalLocalMovements = '" + totalLocalMovements + "', " +
-                "@total = '" + total + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@numTrips = '" + numTrips + "', " +
-                "@quantityTrips = '" + quantityTrips + "' "
+                "@quantityTrips = '" + quantityTrips + "', " +
+                "@travelCommission = '" + travelCommission + "', " +
+                "@gratuity = '" + gratuity + "', " +
+                "@fixedPayroll = '" + fixedPayroll + "' "
             );
             return newRecord;
         } catch (error) {
@@ -610,6 +613,24 @@ const preReceiptsMutations = {
         try {
             await preReceipts.query("exec update_idPreReceipt_Discounts2 " +
                 "@discounts = '" + discounts + "', " +
+                "@idPreReceipt = '" + idPreReceipt + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return "Registros editados correctamente"
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_IDPRERECEIPT_TRIPADVANCEDEADLINES: async (_: any, {input}: any) => {
+        const {
+            tripAdvanceDeadlines,
+            idPreReceipt,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await preReceipts.query("exec update_idPreReceipt_tripAdvanceDeadlines " +
+                "@tripAdvanceDeadlines = '" + tripAdvanceDeadlines + "', " +
                 "@idPreReceipt = '" + idPreReceipt + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "' "
             );
@@ -699,13 +720,14 @@ const preReceiptsMutations = {
             trips,
             dateReceipt,
             totalSalaryAdvances,
-            totalsEmployeeSalary,
             totalVerifiedExpense,
             totalDiscount,
             totalMovements,
             totalSupplement,
             totalLocalMovements,
-            total,
+            travelCommission,
+            gratuity,
+            fixedPayroll,
             userLoggedIn,
             numTrips,
             quantityTrips
@@ -717,16 +739,17 @@ const preReceiptsMutations = {
                 "@trips = '" + trips + "', " +
                 "@dateReceipt = '" + dateReceipt + "', " +
                 "@totalSalaryAdvances = '" + totalSalaryAdvances + "', " +
-                "@totalsEmployeeSalary = '" + totalsEmployeeSalary + "', " +
                 "@totalVerifiedExpense = '" + totalVerifiedExpense + "', " +
                 "@totalDiscount = '" + totalDiscount + "', " +
                 "@totalMovements = '" + totalMovements + "', " +
                 "@totalSupplement = '" + totalSupplement + "', " +
                 "@totalLocalMovements = '" + totalLocalMovements + "', " +
-                "@total = '" + total + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@numTrips = '" + numTrips + "', " +
-                "@quantityTrips = '" + quantityTrips + "' "
+                "@quantityTrips = '" + quantityTrips + "', " +
+                "@travelCommission = '" + travelCommission + "', " +
+                "@gratuity = '" + gratuity + "', " +
+                "@fixedPayroll = '" + fixedPayroll + "' "
             );
             return newRecord;
         } catch (error) {
@@ -868,6 +891,25 @@ const preReceiptsMutations = {
         }
 
     },
+    DELETE_TRIP_ADVANCE_DEADLINE: async (_: any, {input}: any) => {
+        const {
+            idTripAdvance,
+            idTripAdvanceDeadline,
+            userLoggedIn
+        } = input;
+
+        try {
+            await preReceipts.query("exec delete_tripAdvanceDeadlines " +
+                "@idTripAdvance = '" + idTripAdvance + "', " +
+                "@idTripAdvanceDeadline = '" + idTripAdvanceDeadline + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return "Registro eliminado correctamente"
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
     UPDATE_PRE_RECEIPT_DISCOUNT: async (_: any, {input}: any) => {
         const {
             idPreReceiptDiscount,
@@ -902,6 +944,33 @@ const preReceiptsMutations = {
                 "@showPrintable = '" + showPrintable + "' "
             );
             return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_LINK_OPERATOR_RECEIPT_DOCUMENT: async (_: any, {input}: any) => {
+        const { idReceipt, link, document, userLoggedIn } = input;
+        try {
+            await preReceipts.query("exec set_linkOperatorReceiptDocument @idReceipt = '"+idReceipt+"', @link = '"+link+"', @document = '"+document+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Documento agregado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_FIXEDPAYROLL_PRERECEIPT: async (_: any, {input}: any) => {
+        const {
+            idPreReceipt,
+            fixedPayroll,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await preReceipts.query("exec update_fixedPayroll_preReceipts " +
+                "@idPreReceipt = '" + idPreReceipt + "', " +
+                "@fixedPayroll = '" + fixedPayroll + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return "Registro eliminado correctamente"
         } catch (error) {
             console.log(error);
         }

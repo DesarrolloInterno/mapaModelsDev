@@ -19,7 +19,11 @@ type operatorReceipts {
 	netAmountDeposit: String,
 	status: String,
 	idEnterprise: Int,
-  totalLocalMovements: String
+  totalLocalMovements: String,
+  nameDocument: String,
+  documentLink: String,
+  fixedPayroll: String,
+  payrollDispersion: String
 }
 
 type operatorReceiptTrips {
@@ -132,6 +136,7 @@ type localMovementsByOperatorReceipt{
 
 type accruedSettlementReceipts2 {
   id: String,
+  numOperatorReceipt: Int,
 	idOperator: String,
 	nomipaq: String,
 	employee_number: String,
@@ -142,13 +147,15 @@ type accruedSettlementReceipts2 {
   gratuity: String,
   envelopePayment: String,
   verifiedExpenses: String,
-  amount: String,
   advances: String,
+  totalLocalMovements: String,
+  supplements: String,
   netPayment: String,
-  totalPayment: String,
-  fixedPayroll: String,
-  payment: String,
-  disbursement: String,
+  discounts: String,
+  netAmountDeposit: String,
+  payroll: String,
+  payrollDispersion: String
+  fixedPayroll: String
 }
 
 type accruedSettlementReceiptsSupplementaryPayroll {
@@ -161,6 +168,8 @@ type accruedSettlementReceiptsDiscounts {
   idOperatorReceipt: String,
 	name: String,
 	amount: String,
+  numDeadline: String,
+  quantityDeadlines: String
 }
 
 type Query {
@@ -178,10 +187,17 @@ type Query {
 }
 
 input delete_operatorReceipt {
-    idOperatorReceipt: String,
-    userLoggedIn: String
+  idOperatorReceipt: String,
+  userLoggedIn: String
+}
+
+input updateFixedPayroll {
+  idOperatorReceipt: String,
+  fixedPayroll: String,
+  userLoggedIn: String
 }
 
 type Mutation {
-    DELETE_OPERATOR_RECEIPT(input: delete_operatorReceipt): String
+  DELETE_OPERATOR_RECEIPT(input: delete_operatorReceipt): String
+  UPDATE_FIXEDPAYROLL_OPERATOR_RECEIPT(input: updateFixedPayroll): String
 }

@@ -68,6 +68,9 @@ type employees {
     tshirtSizes: String
     imageLink: String
     dateRemoved: String
+    contact: String,
+	idDepartment: Int,
+	department: String
 }
 
 type employees_name{
@@ -172,6 +175,18 @@ type operator_employees {
     licensePlates: String
 }
 
+type operator_receipt {
+    id: String
+    name: String
+    nickname: String
+    mailNotification: String
+    phone: String
+    idUnit: Int
+    economicNumber: String
+    licensePlates: String
+    fixedPayroll: String
+}
+
 type driverLicensesQuantity {
     driverLicensesQuantity: Int
 }
@@ -210,6 +225,7 @@ type Query {
     GET_ALL_MEDICAL_VALIDITY_EMPLOYEE(date1: String!, date2: String!, typeReport: String!, status: String!, idDepartment: String!, idEnterprise: String!): [registration_medicalValidity_employees]
     GET_WORKER_ROTATION(date: String!, idDepartment: String!, idEnterprise: String!): [worker_rotation]
     GET_ALL_OPERATOR_EMPLOYEES(status: String!, idEnterprise: String!): [operator_employees]
+    GET_OPERATOR_FOR_RECEIPT(status: String!, idEnterprise: String!): [operator_receipt]
     GET_ALL_DRIVERLICENSES_QUANTITY(idEnterprise: String!):[driverLicensesQuantity]
     GET_ALL_MEDICALVALIDITY_QUANTITY(idEnterprise: String!):[medicalValidityQuantity]
     GET_ALL_EMPLOYEES_BIRTHDAY(monthOfBirth: String!, idEnterprise: String!):[employeesBirthDay]

@@ -59,9 +59,9 @@ const preReceiptsQueries = {
             console.log(error);
         }
     },
-    GET_TRIP_FOR_PRE_RECEIPT_PAYROLL_BY_EMPLOYEE: async (_: any, {idEmployee, idEnterprise}: any) => {
+    GET_TRIP_FOR_PRE_RECEIPT_PAYROLL_BY_EMPLOYEE: async (_: any, {idEmployee, idEnterprise, date}: any) => {
         try{
-            const result = await preReceipts.query("exec get_tripsForPreReceiptPayrollByEmployee @idEmployee = '"+ idEmployee +"', @idEnterprise = '"+ idEnterprise +"'");
+            const result = await preReceipts.query("exec get_tripsForPreReceiptPayrollByEmployee  @idEmployee = '"+ idEmployee +"', @idEnterprise = '"+ idEnterprise +"', @date = '"+ date +"'");
             return result;
 
         } catch (error) {
@@ -79,6 +79,22 @@ const preReceiptsQueries = {
     GET_VERIFIED_EXPENSES_BY_PRE_RECEIPT: async (_: any, {date, idPrereceipt, idOperator, idTrips, idEnterprise}: any) => {
         try{
             const result = await preReceipts.query("exec get_preReceiptVerifiedExpenses_by_prereceipt @date = '"+ date +"', @idPrereceipt = '"+ idPrereceipt +"', @idOperator = '"+ idOperator +"', @idTrips = '"+ idTrips +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_TRIP_ADVANCE_DEADLINES_BY_PRE_RECEIPT: async (_: any, {date, idPrereceipt, idOperator, idTrips, idEnterprise}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_tripAdvanceDeadlines_by_prereceipt @date = '"+ date +"', @idPrereceipt = '"+ idPrereceipt +"', @idOperator = '"+ idOperator +"', @idTrips = '"+ idTrips +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_TRIP_ADVANCE_DEADLINES_BY_PRE_RECEIPT2: async (_: any, {date, idOperator, idTrips, idEnterprise}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_tripAdvanceDeadlines_by_prereceipt2 @date = '"+ date +"', @idOperator = '"+ idOperator +"', @idTrips = '"+ idTrips +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
         } catch (error) {
             console.log(error);
@@ -159,6 +175,30 @@ const preReceiptsQueries = {
     GET_ALL_ACCRUED_SETTLEMENT_RECEIPTS: async (_: any, {typeFilter, date, date1, date2, idEnterprise}: any) => {
         try{
             const result = await preReceipts.query("exec get_all_accruedSettlementReceipts @typeFilter = '" + typeFilter + "', @date = '" + date + "', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_ACCRUEDSETTLEMENTPRERECEIPTS2: async (_: any, {typeFilter, idWeek, idYear, date1, date2, idEnterprise}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_all_accruedSettlementPreReceipts2 @typeFilter = '"+ typeFilter +"', @idWeek = '"+ idWeek +"', @idYear = '"+ idYear +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_ACCRUEDSETTLEMENTPRERECEIPTS_SUPPLEMENTARYPAYROLL: async (_: any, {idPreReceipt}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_all_accruedSettlementPreReceipts_supplementaryPayroll  @idPreReceipt = '"+ idPreReceipt +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_ACCRUEDSETTLEMENTPRERECEIPTS_DISCOUNTS: async (_: any, {idPreReceipt}: any) => {
+        try{
+            const result = await preReceipts.query("exec get_all_accruedSettlementPreReceipts_discounts  @idPreReceipt = '"+ idPreReceipt +"'");
             return result;
         } catch (error) {
             console.log(error);

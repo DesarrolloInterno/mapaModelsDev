@@ -1,0 +1,39 @@
+type accountingVouchers {
+    id: ID,
+	name: String,
+	status: String,
+	idEnterprise: String
+}
+
+type Query {
+    GET_ALL_ACCOUNTING_VOUCHERS(idEnterprise: String!): [accountingVouchers]
+}
+
+input new_accountingVoucher {
+    name: String,
+	userLoggedIn: String,
+	idEnterprise: String
+}
+
+type return_new_accountingVoucher {
+    idAccountingVoucher: String,
+    message: String
+}
+
+input update_accountingVoucher {
+    idAccountingVoucher: String,
+    name: String,
+	userLoggedIn: String,
+	idEnterprise: String
+}
+
+input delete_accountingVoucher {
+	idAccountingVoucher: String,
+	userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_ACCOUNTING_VOUCHER(input: new_accountingVoucher): [return_new_accountingVoucher]
+    UPDATE_ACCOUNTING_VOUCHER(input: update_accountingVoucher): [return_new_accountingVoucher]
+    DELETE_ACCOUNTING_VOUCHER(input: delete_accountingVoucher): String
+}

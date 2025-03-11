@@ -14,44 +14,48 @@ type tripAdvance {
 }
 
 type getTripAdvance {
-    id: ID,
-    date: String,
-    importAdvance: Float,
-    idTrip: String,
-    tripOrderNumber: String,
-    idUnit: Int,
-    unit: String,
-	  idEmployee: Int,
-    employee: String,
-	  comments: String,
-	  status: String,
-    userLoggedIn: String,
-    reference: String,
-    relationTrip: String,
-    name: String
-    numTrip: Int
+  id: ID,
+  date: String,
+  importAdvance: Float,
+  idTrip: String,
+  tripOrderNumber: String,
+  idUnit: Int,
+  unit: String,
+  idEmployee: Int,
+  employee: String,
+  comments: String,
+  status: String,
+  userLoggedIn: String,
+  reference: String,
+  relationTrip: String,
+  name: String
+  numTrip: Int,
+  isDeadlines: String,
+  quantityDeadlines: String,
+  idOperatorReceipt: Int
 }
 
 type tripAdvances {
-    id: String,
-    loadingDate: String,
-    numTrip: String,
-    idTruckBox: String,
-    truckBox: String,
-    idClient: String,
-    client: String,
-    idUnit: String,
-    unit: String,
-    idEmployee: String,
-    employee: String,
-    temperature: String,
-    wheelChocks: String,
-    straps: String,
-    deliveryDate: String,
-    observations: String,
-    salesFormat: String,
-    totalAmountAdvances: String
-    tripType: String
+  id: String,
+  loadingDate: String,
+  numTrip: String,
+  idTruckBox: String,
+  truckBox: String,
+  idClient: String,
+  client: String,
+  idUnit: String,
+  unit: String,
+  idEmployee: String,
+  employee: String,
+  temperature: String,
+  wheelChocks: String,
+  straps: String,
+  deliveryDate: String,
+  observations: String,
+  salesFormat: String,
+  totalAmountAdvances: String
+  tripType: String,
+  idOperatorReceipt: Int
 }
 
 type tripAdvancesByIdTrip {
@@ -60,7 +64,10 @@ type tripAdvancesByIdTrip {
   importAdvance: String,
   reference: String,
   comments: String,
-  placementDate: String
+  placementDate: String,
+  isDeadlines: String,
+  quantityDeadlines: String,
+  idOperatorReceipt: Int
 }
 
 type tripAdvancesCrossing {
@@ -86,11 +93,24 @@ type tripAdvancesCrossing {
     typeCrossing: String
 }
 
+type tripAdvanceDeadlines {
+  id: String,
+  numDeadline: String,
+  dateDeadline: String,
+  amount: String,
+  idTripAdvance: String,
+  idTrip: String,
+  numAdvance: String,
+  idOperator: String,
+  status: String
+}
+
 type Query {
   GET_TRIPADVANCE(status: String!, date1: String!, date2: String!, idEnterprise: String!): [getTripAdvance]
   GET_TRIPADVANCES(date1: String!, date2: String!, idEnterprise: String!, typeFilter: String!): [tripAdvances]
   GET_TRIPADVANCES_BY_IDTRIP(idTrip: String!, idEnterprise: String!): [tripAdvancesByIdTrip]
   GET_TRIPADVANCES_FOR_CROSSING_TRIPS(date1: String!, date2: String!, idEnterprise: String!, typeFilter: String!): [tripAdvancesCrossing]
+  GET_ALL_TRIPADVANCE_DEADLINES_BY_ADVANCE(idTripAdvance: String!): [tripAdvanceDeadlines]
 }
 
 input new_tripAdvance {
@@ -104,7 +124,9 @@ input new_tripAdvance {
   reference: String,
   relationTrip: String,
   userLoggedIn: String,
-  idEnterprise: String
+  idEnterprise: String,
+  isDeadlines: String,
+  quantityDeadlines: String
 }
 
 type return_new_tripAdvance{
@@ -124,7 +146,9 @@ input update_tripAdvance {
   reference: String,
   relationTrip: String,
   userLoggedIn: String,
-  idEnterprise: String
+  idEnterprise: String,
+  isDeadlines: String,
+  quantityDeadlines: String
 }
 
 input delete_tripAdvance {

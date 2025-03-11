@@ -383,6 +383,29 @@ const invoicesMutations = {
             console.log(error);
         }
 
+    },
+    DELETE_INVOICE_FROM_TRIP: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            idTrip,
+            idCancellationCode,
+            cancellationReasons,
+            userLoggedIn
+        } = input;
+
+        try {
+            await invoices.query("exec delete_invoice_from_trip " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@idTrip = '" + idTrip + "', " +
+                "@idCancellationCode = '" + idCancellationCode + "', " +
+                "@cancellationReasons = '" + cancellationReasons + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Factura eliminada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 };
 
