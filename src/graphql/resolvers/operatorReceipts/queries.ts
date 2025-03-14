@@ -91,6 +91,14 @@ const operatorReceiptsQueries = {
             console.log(error);
         }
     },
+    GET_ADVANCES_BY_OPERATORRECEIPT: async (_: any, {idOperatorReceipt, idEnterprise}: any) => {
+        try{
+            const result = await operatorReceipts.query("exec get_advances_by_operatorReceipt @idOperatorReceipt = '"+ idOperatorReceipt +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default operatorReceiptsQueries;
