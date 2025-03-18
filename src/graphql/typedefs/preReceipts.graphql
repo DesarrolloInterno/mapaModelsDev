@@ -767,6 +767,12 @@ input set_linkOperatorReceiptDocument {
   userLoggedIn: String
 }
 
+input updateFixedPayrollPreReceipts {
+  idPreReceipt: String,
+  fixedPayroll: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_PRE_RECEIPT_SUPPLEMENTARY_PAROLL_CONCEPT(input: new_supplementary_payroll_concept): [return_supplementary_payroll_concept]
   CREATE_PRE_RECEIPT_MOVEMENT(input: new_preReceiptMovement): [return_preReceiptMovement]
@@ -803,4 +809,5 @@ type Mutation {
   DELETE_TRIP_ADVANCE_DEADLINE(input: deleteTripAdvanceDeadlines): String
   UPDATE_PRE_RECEIPT_DISCOUNT(input: update_preReceiptDiscount): [return_preReceiptDiscount]
   SET_LINK_OPERATOR_RECEIPT_DOCUMENT(input: set_linkOperatorReceiptDocument): String
+  UPDATE_FIXEDPAYROLL_PRERECEIPT(input: updateFixedPayrollPreReceipts): String
 }

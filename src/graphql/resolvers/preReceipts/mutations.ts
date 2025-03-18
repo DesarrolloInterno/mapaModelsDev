@@ -956,6 +956,24 @@ const preReceiptsMutations = {
         } catch (error) {
             console.log(error);
         }
+    },
+    UPDATE_FIXEDPAYROLL_PRERECEIPT: async (_: any, {input}: any) => {
+        const {
+            idPreReceipt,
+            fixedPayroll,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await preReceipts.query("exec update_fixedPayroll_preReceipts " +
+                "@idPreReceipt = '" + idPreReceipt + "', " +
+                "@fixedPayroll = '" + fixedPayroll + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return "Registro eliminado correctamente"
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
