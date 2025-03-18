@@ -210,6 +210,15 @@ const invoicesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_HIGHEST_BILLED_CLIENTS: async (_: any, {yearFilter, monthFilter, idEnterprise}: any) => {
+        try{
+            const result = await invoices.query("exec get_highestBilledClients @yearFilter = '"+ yearFilter +"', @monthFilter = '"+ monthFilter + "', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
