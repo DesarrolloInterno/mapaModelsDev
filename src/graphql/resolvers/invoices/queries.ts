@@ -20,6 +20,15 @@ const invoicesQueries = {
             console.log(error);
         }
     },
+    GET_INVOICES_RELATEDINVOICES: async (_: any, {idInvoice}: any) => {
+        try{
+            const result = await invoices.query("exec get_invoices_relatedInvoice @idInvoice = '"+ idInvoice +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
     GET_ALL_INVOICES_FOR_COLLECTION: async (_: any, {date1, date2, typeFilter, idEnterprise}: any) => {
         try{
             const result = await invoices.query("exec get_all_invoicesForCollection @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @typeFilter= '"+ typeFilter +"', @idEnterprise = '"+ idEnterprise +"'");
@@ -210,7 +219,36 @@ const invoicesQueries = {
         } catch (error) {
             console.log(error);
         }
-    }
+    },
+    GET_CANCELLED_INVOICES: async (_: any, {date1, date2, dateCancelled1, dateCancelled2, status, typeCancelled, idEnterprise}: any) => {
+        try{
+            const result = await invoices.query("exec get_cancelled_invoices " +
+            "@date1 = '"+ date1 +"', " +
+            "@date2 = '"+ date2 +"', " +
+            "@dateCancelled1 = '"+ dateCancelled1 +"', " +
+            "@dateCancelled2 = '"+ dateCancelled2 +"', " +
+            "@status = '"+ status +"', " +
+            "@typeCancelled = '"+ typeCancelled +"', " +
+            "@idEnterprise = '"+ idEnterprise +"' "
+            );
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_INVOICE_FOR_CANCEL: async (_: any, {token}: any) => {
+        try{
+            const result = await invoices.query("exec get_invoice_for_cancel " +
+            "@token = '"+ token +"', " +
+            "@encrypt = '"+process.env.ENCRYPT+"' "
+            );
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default invoicesQueries;
