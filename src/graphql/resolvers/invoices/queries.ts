@@ -219,6 +219,15 @@ const invoicesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_INVOICES_RELATED_INVOICE: async (_: any, {idInvoice}: any) => {
+        try{
+            const result = await invoices.query("exec get_invoices_relatedInvoice @idInvoice = '"+ idInvoice +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

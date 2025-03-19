@@ -173,6 +173,7 @@ type transportDocument {
   LinkQR: String
   idCCP: String
   CFDItype: String
+  idInvoice: String
 }
 
 type tripAmounts {
