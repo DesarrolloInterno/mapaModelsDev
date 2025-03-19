@@ -57,6 +57,29 @@ const invoicesMutations = {
         }
 
     },
+    UPDATE_INVOICE_CANCEL_CFDI: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            dateCancelCFDI,
+            statusUUID,
+            statusCancelCFDI,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await invoices.query("exec update_invoice_cancel_cfdi " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@dateCancelCFDI = '" + dateCancelCFDI + "', " +
+                "@statusUUID = '" + statusUUID + "', " +
+                "@statusCancelCFDI = '" + statusCancelCFDI + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Acuse cancelación de factura actualizado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
     SET_LINK_PDF_XML_INVOICE: async (_: any, {input}: any) => {
         const {
             idInvoice,
@@ -72,6 +95,25 @@ const invoicesMutations = {
                 "@linkPDF = '" + linkPDF + "', " +
                 "@linkXML = '" + linkXML + "', " +
                 "@linkInvoicePDF = '" + linkInvoicePDF + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Documentos de factura actualizados correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    SET_LINK_ACUSE_INVOICE: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            linkXML,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await invoices.query("exec set_link_acuse_invoices " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@linkXML = '" + linkXML + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "' "
             );
             return 'Documentos de factura actualizados correctamente'
@@ -240,6 +282,22 @@ const invoicesMutations = {
 
         try {
             const newid = await invoices.query("exec set_token_stampInvoice " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_TOKENCANCEL_STAMPINVOICE: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newid = await invoices.query("exec set_tokenCancel_stampInvoice " +
                 "@idInvoice = '" + idInvoice + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "' "
             );

@@ -569,6 +569,55 @@ type relatedInvoices {
   status: String
 }
 
+type cancelledInvoices {
+  id: ID,
+  numInvoice: Int,
+  invoiceSeries: String,
+  idTrip: Int,
+  numTrip: Int,
+  dateCFDI: String,
+  UUID: String,
+  currency: String,
+  total: String,
+  cancelationCode: String,
+  userRemoved: String,
+  cancellationProcess: String,
+  dateRemoved: String,
+  statusCFDI: String,
+  statusSAT: String,
+  idInvoiceReplaces: Int,
+  numInvoiceReplaces: Int,
+  invoiceSeriesReplaces: String,
+  cancellationReasons: String,
+  client: String,
+  UUIDReplaces: String
+}
+
+type invoices_relatedInvoice{
+  id: String,
+	idCurrentInvoice: Int, 
+	numCurrentInvoice: Int,
+	uuidCurrentInvoice: String,
+	idPreviousInvoice: Int,
+	numPreviousInvoice: Int,
+	uuidPreviousInvoice: String,
+	idRelationshipType: Int,
+	relationshipTypeCode: String,
+	relationshipType: String,
+	status: String,
+}
+
+type invoice_for_cancel{
+  id: String,
+	previousUUID: String,
+  currentUUID: String,
+  cancelationCode: String,
+  digitalStampCertificate: String,
+  certificateKey: String,
+  passwordDigitalStampCertificate: String,
+  enterpriseRFC: String
+}
+
 type Query {
   GET_INVOICES_BY_TOKEN(token: String!): [invoiceToken]
   GET_INVOICEAMOUNTS(idInvoice: String!): [invoiceAmounts]
@@ -592,6 +641,9 @@ type Query {
   GET_ASSETINVOICEDOCUMENT(idInvoice: String!): [assetInvoiceDocument]
   GET_ALL_HIGHEST_BILLED_CLIENTS(yearFilter: String!, monthFilter: String!, idEnterprise: String!): [highestBilledClients]
   GET_INVOICES_RELATED_INVOICE(idInvoice: String!): [relatedInvoices]
+  GET_CANCELLED_INVOICES(date1: String!, date2: String!, dateCancelled1: String!, dateCancelled2: String!, status: String!, typeCancelled: String!, idEnterprise: String!): [cancelledInvoices]
+  GET_INVOICES_RELATEDINVOICES(idInvoice: String!): [invoices_relatedInvoice]
+  GET_INVOICE_FOR_CANCEL(token: String!): [invoice_for_cancel]
 }
 
 input setNewInvoices {
@@ -641,6 +693,12 @@ input setLinkPDFXMLInvoice {
   linkPDF: String
   linkXML: String
   linkInvoicePDF: String
+  userLoggedIn: String
+}
+
+input setLinkAcuseInvoice {
+  idInvoice: String
+  linkXML: String
   userLoggedIn: String
 }
 
@@ -794,21 +852,32 @@ input deleteInvoiceFromTrip {
   userLoggedIn: String
 }
 
+input invoiceCancelCfdi {
+  idInvoice: String,
+  dateCancelCFDI: String,
+  statusUUID: String,
+  statusCancelCFDI: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_INVOICE_FROM_TRIP(input: setNewInvoices): [newInvoices]
   CREATE_INVOICE(input: setNewInvoices2): [newInvoices2]
   UPDATE_INVOICE(input: updateInvoices2): [newInvoices2]
   UPDATE_INVOICE_CFDI(input: setCFDIInvoices): String
   SET_LINK_PDF_XML_INVOICE(input: setLinkPDFXMLInvoice): String
+  SET_LINK_ACUSE_INVOICE(input: setLinkAcuseInvoice): String
   SET_INVOICE_SHIPPINGDATE(input: setInvoiceShippingDate): [return_invoiceShippingDate]
   SET_INVOICES_DOCUMENTS(input: set_invoicesDocuments): [new_invoicesDocuments]
   SET_LINK_INVOICES_DOCUMENTS(input: set_link_invoicesDocuments): String
   DELETE_INVOICES_DOCUMENTS(input: delete_invoicesDocuments): String
   SET_INVOICE_AMOUNTS(input: setInvoiceAmount): String
   SET_TOKEN_STAMPINVOICE(input: setTokenStampInvoice): [newToken]
+  SET_TOKENCANCEL_STAMPINVOICE(input: setTokenStampInvoice): [newToken]
   CREATE_ASSET_INVOICE(input: newAssetInvoice): [return_newAssetInvoice]
   SET_ASSET_INVOICE_AMOUNTS(input: setAssetInvoiceAmount): String
   UPDATE_ASSET_INVOICE(input: updateAssetInvoice): [return_newAssetInvoice]
   SET_LINK_PDF_XML_ASSET_INVOICE(input: setLinkPDFXMLAssetInvoice): String,
   DELETE_INVOICE_FROM_TRIP(input: deleteInvoiceFromTrip): String
+  UPDATE_INVOICE_CANCEL_CFDI(input: invoiceCancelCfdi): String
 }
