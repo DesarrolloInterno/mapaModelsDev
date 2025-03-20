@@ -854,6 +854,27 @@ const tripMutations = {
             console.log(error);
         }
 
+    },
+    DELETE_TRIPSTAMP_FROM_TRIP: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            idCancellationCode,
+            cancellationReasons,
+            userLoggedIn
+        } = input;
+
+        try {
+            await trip.query("exec delete_tripStamp_from_trip " +
+                "@idTrip = '" + idTrip + "', " +
+                "@idCancellationCode = '" + idCancellationCode + "', " +
+                "@cancellationReasons = '" + cancellationReasons + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Timbre eliminado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 };
 

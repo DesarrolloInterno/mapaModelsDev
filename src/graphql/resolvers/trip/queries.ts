@@ -231,7 +231,24 @@ const tripQueries = {
         } catch (error) {
             console.log(error);
         }
-    }
+    },
+    GET_CANCELLED_TRIPS: async (_: any, {date1, date2, dateCancelled1, dateCancelled2, status, typeCancelled, idEnterprise}: any) => {
+        try{
+            const result = await trip.query("exec get_cancelled_trips " +
+            "@date1 = '"+ date1 +"', " +
+            "@date2 = '"+ date2 +"', " +
+            "@dateCancelled1 = '"+ dateCancelled1 +"', " +
+            "@dateCancelled2 = '"+ dateCancelled2 +"', " +
+            "@status = '"+ status +"', " +
+            "@typeCancelled = '"+ typeCancelled +"', " +
+            "@idEnterprise = '"+ idEnterprise +"' "
+            );
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default tripQueries;
