@@ -875,7 +875,42 @@ const tripMutations = {
             console.log(error);
         }
 
-    }
+    },
+    GET_TRIPSTAMP_FOR_CANCEL: async (_: any, {token}: any) => {
+        try{
+            const result = await trip.query("exec get_tripStamp_for_cancel " +
+            "@token = '"+ token +"', " +
+            "@encrypt = '"+process.env.ENCRYPT+"' "
+            );
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    UPDATE_TRIP_CANCEL_CFDI: async (_: any, {input}: any) => {
+        const {
+            idRelatedTripUUID,
+            dateCancelCFDI,
+            statusUUID,
+            statusCancelCFDI,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await trip.query("exec update_trip_cancel_cfdi " +
+                "@idRelatedTripUUID = '" + idRelatedTripUUID + "', " +
+                "@dateCancelCFDI = '" + dateCancelCFDI + "', " +
+                "@statusUUID = '" + statusUUID + "', " +
+                "@statusCancelCFDI = '" + statusCancelCFDI + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Acuse cancelación de traslado actualizado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
 };
 
 export default tripMutations;

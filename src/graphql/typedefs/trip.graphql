@@ -1220,6 +1220,25 @@ input deleteTripStampFromTrip {
   userLoggedIn: String
 }
 
+type invoice_for_tripStamp{
+  id: String,
+	previousUUID: String,
+  currentUUID: String,
+  cancelationCode: String,
+  digitalStampCertificate: String,
+  certificateKey: String,
+  passwordDigitalStampCertificate: String,
+  enterpriseRFC: String
+}
+
+input invoiceCancelTripCfdi {
+  idRelatedTripUUID: String,
+  dateCancelCFDI: String,
+  statusUUID: String,
+  statusCancelCFDI: String,
+  userLoggedIn: String
+}
+
 type Query {
   GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!, idEnterprise: String!): [tripsForCrossings]
   GET_ALL_TRIPS(status: String!, date1: String!, date2: String!, idEnterprise: String!): [trips]
@@ -1276,4 +1295,6 @@ type Mutation {
   SET_LINK_PDF_XML_TRANSFERINVOCE(input: set_link_transferInvoice): String
   SET_TRIP_SETTLEMENT(input: set_trip_settlement): [return_set_trip_settlement]
   DELETE_TRIPSTAMP_FROM_TRIP(input: deleteTripStampFromTrip): String
+  GET_TRIPSTAMP_FOR_CANCEL(token: String!): [invoice_for_tripStamp]
+  UPDATE_TRIP_CANCEL_CFDI(input: invoiceCancelTripCfdi): String
 }
