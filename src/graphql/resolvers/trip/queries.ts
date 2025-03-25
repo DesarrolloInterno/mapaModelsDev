@@ -232,6 +232,18 @@ const tripQueries = {
             console.log(error);
         }
     },
+    GET_TRIPSTAMP_FOR_CANCEL: async (_: any, {token}: any) => {
+        try{
+            const result = await trip.query("exec get_tripStamp_for_cancel " +
+            "@token = '"+ token +"', " +
+            "@encrypt = '"+process.env.ENCRYPT+"' "
+            );
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
     GET_CANCELLED_TRIPS: async (_: any, {date1, date2, dateCancelled1, dateCancelled2, status, typeCancelled, idEnterprise}: any) => {
         try{
             const result = await trip.query("exec get_cancelled_trips " +
