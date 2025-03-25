@@ -544,6 +544,31 @@ type assetInvoiceDocument {
   CFDItype: String
 }
 
+type highestBilledClients{
+  id: String,
+  shortName: String,
+	invoicesQuantity: String,
+  total: String,
+	IVA: String,
+  RET: String,
+	totalAmountInvoices: String,
+	currency: String
+}
+
+type relatedInvoices {
+  id: String,
+  idCurrentInvoice: String,
+  numCurrentInvoice: String,
+  uuidCurrentInvoice: String,
+  idPreviousInvoice: String,
+  numPreviousInvoice: String,
+  uuidPreviousInvoice: String,
+  idRelationshipType: String,
+  relationshipTypeCode: String,
+  relationshipType: String,
+  status: String
+}
+
 type cancelledInvoices {
   id: ID,
   numInvoice: Int,
@@ -614,6 +639,8 @@ type Query {
   GET_ASSET_INVOICES_BY_TOKEN(token: String!): [invoiceToken]
   GET_ASSET_INVOICES_BY_ID(idInvoice: String!, idEnterprise: String!): [assetInvoices]
   GET_ASSETINVOICEDOCUMENT(idInvoice: String!): [assetInvoiceDocument]
+  GET_ALL_HIGHEST_BILLED_CLIENTS(yearFilter: String!, monthFilter: String!, idEnterprise: String!): [highestBilledClients]
+  GET_INVOICES_RELATED_INVOICE(idInvoice: String!): [relatedInvoices]
   GET_CANCELLED_INVOICES(date1: String!, date2: String!, dateCancelled1: String!, dateCancelled2: String!, status: String!, typeCancelled: String!, idEnterprise: String!): [cancelledInvoices]
   GET_INVOICES_RELATEDINVOICES(idInvoice: String!): [invoices_relatedInvoice]
   GET_INVOICE_FOR_CANCEL(token: String!): [invoice_for_cancel]

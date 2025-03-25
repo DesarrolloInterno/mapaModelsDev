@@ -220,6 +220,15 @@ const invoicesQueries = {
             console.log(error);
         }
     },
+    GET_ALL_HIGHEST_BILLED_CLIENTS: async (_: any, {yearFilter, monthFilter, idEnterprise}: any) => {
+        try{
+            const result = await invoices.query("exec get_highestBilledClients @yearFilter = '"+ yearFilter +"', @monthFilter = '"+ monthFilter + "', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
     GET_CANCELLED_INVOICES: async (_: any, {date1, date2, dateCancelled1, dateCancelled2, status, typeCancelled, idEnterprise}: any) => {
         try{
             const result = await invoices.query("exec get_cancelled_invoices " +
@@ -237,6 +246,15 @@ const invoicesQueries = {
             console.log(error);
         }
     },
+    GET_INVOICES_RELATED_INVOICE: async (_: any, {idInvoice}: any) => {
+        try{
+            const result = await invoices.query("exec get_invoices_relatedInvoice @idInvoice = '"+ idInvoice +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
     GET_INVOICE_FOR_CANCEL: async (_: any, {token}: any) => {
         try{
             const result = await invoices.query("exec get_invoice_for_cancel " +
@@ -248,7 +266,7 @@ const invoicesQueries = {
         } catch (error) {
             console.log(error);
         }
-    },
+    }
 };
 
 export default invoicesQueries;

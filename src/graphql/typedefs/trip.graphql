@@ -173,6 +173,7 @@ type transportDocument {
   LinkQR: String
   idCCP: String
   CFDItype: String
+  idInvoice: String
 }
 
 type tripAmounts {
@@ -391,6 +392,11 @@ input update_trip2 {
   observations: String,
   userLoggedIn: String,
   temperature: String,
+  americanPortion: String,
+  crossingPortion: String,
+  mexicanPortion: String,
+  countryOrigin: String,
+  countryDestination: String
 }
 
 type return_new_trip{
@@ -546,6 +552,11 @@ input create_trip2 {
   userLoggedIn: String,
   idLoggedIn: String,
   temperature: String,
+  americanPortion: String,
+  crossingPortion: String,
+  mexicanPortion: String,
+  countryOrigin: String,
+  countryDestination: String
 }
 
 type tripsForTracking {
@@ -1291,6 +1302,30 @@ type Query {
   GET_TRIPSTAMP_FOR_CANCEL(token: String!): [invoice_for_tripStamp]
 }
 
+input new_tripAmounts {
+  idTrip: String,
+  idInvoicingConcept: String,
+  invoicingConcept: String,
+  subtotal: String,
+  idIVApercentage: String,
+  IVApercentage: String,
+  IVA: String,
+  idRETpercentage: String,
+  RETpercentage: String,
+  RET: String,
+  totalAmount: String,
+  idSalesFormat: String,
+  codeMeasuringUnit: String,
+  measuringUnit: String,
+  userLoggedIn: String,
+  taxRate: String
+}
+
+input delete_tripAmounts_by_idTrip {
+  idTrip: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_TRIP_FROM_TRIPS(input: create_trip): [return_newTrip]
   CREATE_TRIP_FROM_TRIPS_2(input: create_trip2): [return_newTrip]
@@ -1322,4 +1357,6 @@ type Mutation {
   UPDATE_TRIP_CANCEL_CFDI(input: invoiceCancelTripCfdi): String
   SET_TOKENCANCEL_STAMPTRIP(input: setTokenStampTrip): [newTokenTrip]
   SET_LINK_ACUSE_RELATEDTRIPUUID(input: setLinkAcuseTrasfer): String
+  SET_TRIP_AMOUNTS(input: new_tripAmounts): String
+  DELETE_TRIP_AMOUNTS_BY_IDTRIP(input: delete_tripAmounts_by_idTrip): String
 }

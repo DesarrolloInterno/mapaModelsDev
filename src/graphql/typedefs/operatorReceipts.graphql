@@ -23,7 +23,8 @@ type operatorReceipts {
   nameDocument: String,
   documentLink: String,
   fixedPayroll: String,
-  payrollDispersion: String
+  payrollDispersion: String,
+  totalDiscounts: String
 }
 
 type operatorReceiptTrips {
@@ -172,6 +173,18 @@ type accruedSettlementReceiptsDiscounts {
   quantityDeadlines: String
 }
 
+type preReceiptAdvances_operatorReceipt {
+  id: ID,
+  idPreReceipt: String,
+  numTrip: String,
+  amount: String,
+  status: String,
+  idOperator: String,
+  operator: String,
+  date: String,
+  idOperatorReceipt: String
+}
+
 type Query {
   GET_ALL_OPERATOR_RECEIPTS(idEnterprise: String!, date1: String!, date2: String!):[operatorReceipts]
 	GET_OPERATOR_RECEIPT_BY_ID(idOperatorReceipt: String!):[operatorReceipts]
@@ -184,6 +197,7 @@ type Query {
   GET_ALL_ACCRUEDSETTLEMENTRECEIPTS2(typeFilter: String!, idWeek: String!, idYear: String!, date1: String!, date2: String!, idEnterprise: String!):[accruedSettlementReceipts2]
   GET_ALL_ACCRUEDSETTLEMENTRECEIPTS_SUPPLEMENTARYPAYROLL(idOperatorReceipt: String!):[accruedSettlementReceiptsSupplementaryPayroll]
   GET_ALL_ACCRUEDSETTLEMENTRECEIPTS_DISCOUNTS(idOperatorReceipt: String!):[accruedSettlementReceiptsDiscounts]
+  GET_ADVANCES_BY_OPERATORRECEIPT(idOperatorReceipt: String!, idEnterprise: String!): [preReceiptAdvances_operatorReceipt]
 }
 
 input delete_operatorReceipt {

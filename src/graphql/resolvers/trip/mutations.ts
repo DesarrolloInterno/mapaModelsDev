@@ -106,7 +106,12 @@ const tripMutations = {
             observations ,
             userLoggedIn,
             idLoggedIn,
-            temperature
+            temperature,
+            americanPortion,
+	        crossingPortion,
+	        mexicanPortion,
+            countryOrigin,
+            countryDestination
         } = input;
 
         try {
@@ -128,7 +133,12 @@ const tripMutations = {
                 "@observations = '" + observations + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@idLoggedIn = '" + idLoggedIn + "', " +
-                "@temperature = '" + temperature + "' "
+                "@temperature = '" + temperature + "', " +
+                "@americanPortion = '" + americanPortion + "', " +
+                "@crossingPortion = '" + crossingPortion + "', " +
+                "@mexicanPortion = '" + mexicanPortion + "', " +
+                "@countryOrigin = '" + countryOrigin + "', " +
+                "@countryDestination = '" + countryDestination + "' "
             );
             return newRecord;
         } catch (error) {
@@ -154,7 +164,12 @@ const tripMutations = {
             sealNumber,
             observations ,
             userLoggedIn,
-            temperature
+            temperature,
+            americanPortion,
+	        crossingPortion,
+	        mexicanPortion,
+            countryOrigin,
+            countryDestination
         } = input;
 
         try {
@@ -176,7 +191,12 @@ const tripMutations = {
                 "@sealNumber = '" + sealNumber + "', " +
                 "@observations = '" + observations + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@temperature = '" + temperature + "' "
+                "@temperature = '" + temperature + "', " +
+                "@americanPortion = '" + americanPortion + "', " +
+                "@crossingPortion = '" + crossingPortion + "', " +
+                "@mexicanPortion = '" + mexicanPortion + "', " +
+                "@countryOrigin = '" + countryOrigin + "', " +
+                "@countryDestination = '" + countryDestination + "' "
             );
             return newRecord;
         } catch (error) {
@@ -955,6 +975,64 @@ const tripMutations = {
         }
 
     },
+    SET_TRIP_AMOUNTS: async (_: any, {input}: any) => {
+        const { 
+            idTrip,
+            idInvoicingConcept,
+            invoicingConcept,
+            subtotal,
+            idIVApercentage,
+            IVApercentage,
+            IVA,
+            idRETpercentage,
+            RETpercentage,
+            RET,
+            totalAmount,
+            idSalesFormat,
+            codeMeasuringUnit,
+            measuringUnit,
+            userLoggedIn,
+            taxRate
+        } = input;
+        try {
+            await trip.query("exec set_tripAmounts " +
+                "@idTrip = '" + idTrip + "', " +
+                "@idInvoicingConcept = '" + idInvoicingConcept + "', " +
+                "@invoicingConcept = '" + invoicingConcept + "', " +
+                "@subtotal = '" + subtotal + "', " +
+                "@idIVApercentage = '" + idIVApercentage + "', " +
+                "@IVApercentage = '" + IVApercentage + "', " +
+                "@IVA = '" + IVA + "', " +
+                "@idRETpercentage = '" + idRETpercentage + "', " +
+                "@RETpercentage = '" + RETpercentage + "', " +
+                "@RET = '" + RET + "', " +
+                "@totalAmount = '" + totalAmount + "', " +
+                "@idSalesFormat = '" + idSalesFormat + "', " +
+                "@codeMeasuringUnit = '" + codeMeasuringUnit + "', " +
+                "@measuringUnit = '" + measuringUnit + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@taxRate = '" + taxRate + "' "
+            );
+            return 'Se ha actualizado el registro';
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    DELETE_TRIP_AMOUNTS_BY_IDTRIP: async (_: any, {input}: any) => {
+        const { 
+            idTrip,
+            userLoggedIn
+        } = input;
+        try {
+            await trip.query("exec delete_tripAmounts_by_idTrip " +
+                "@idTrip = '" + idTrip + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Se ha actualizado el registro';
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default tripMutations;
