@@ -10,7 +10,9 @@ const truckBoxInventoryMutations = {
             positioner,
             observations,
 	        userLoggedIn,
-            idEnterprise
+            idEnterprise,
+            straps,
+            wheelChocks
         } = input;
 
         try {
@@ -21,7 +23,9 @@ const truckBoxInventoryMutations = {
                 "@positioner = '" + positioner + "', " +
                 "@observations = '" + observations + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@idEnterprise = '" + idEnterprise + "' "
+                "@idEnterprise = '" + idEnterprise + "', " +
+                "@straps = '" + straps + "', " +
+                "@wheelChocks = '" + wheelChocks + "' "
             );
             return newRecord;
         } catch (error) {
@@ -37,7 +41,9 @@ const truckBoxInventoryMutations = {
             idWarehouse,
             positioner,
             observations,
-	        userLoggedIn
+	        userLoggedIn,
+            straps,
+            wheelChocks
         } = input;
 
         try {
@@ -48,7 +54,9 @@ const truckBoxInventoryMutations = {
                 "@idWarehouse = '" + idWarehouse + "', " +
                 "@positioner = '" + positioner + "', " +
                 "@observations = '" + observations + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@straps = '" + straps + "', " +
+                "@wheelChocks = '" + wheelChocks + "' "
             );
             return newRecord;
         } catch (error) {
@@ -69,6 +77,27 @@ const truckBoxInventoryMutations = {
         } catch (error) {
             console.log(error);
         }
+    },
+    UPDATE_TRUCKBOXINVENTORY_MOORINGGEAR: async (_: any, {input}: any) => {
+        const {
+            idTruckBoxInventory,
+            straps,
+            wheelChocks,
+            userLoggedIn
+        } = input;
+
+        try {
+            await truckBoxInventory.query("exec update_truckBoxInventory_mooringGear " +
+                "@idTruckBoxInventory = '" + idTruckBoxInventory + "', " +
+                "@straps = '" + straps + "', " +
+                "@wheelChocks = '" + wheelChocks + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Equipo de amarre actualizado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 };
 

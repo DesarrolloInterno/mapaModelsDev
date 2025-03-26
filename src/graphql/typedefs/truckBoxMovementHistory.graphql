@@ -15,7 +15,9 @@ type truckBoxMovements {
 	truckBoxStatus: String,
 	status: String,
 	movementType: String,
-    dwellTime: String
+    dwellTime: String,
+	straps: String,
+	wheelChocks: String
 }
 
 type Query {
