@@ -466,6 +466,24 @@ const tripOrderMutations = {
         }
 
     },
+    CREATE_TRIP_ORDER_CROSSING_FROM_TRAVEL_ASIGNMENT: async (_: any, {input}: any) => {
+        const {
+            userLoggedIn,
+            idEnterprise,
+            idTrip
+        } = input;
+
+        try {
+            const newRecord = await tripOrder.query("exec create_tripOrderCrossing_from_travelAsignment " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "', " +
+                "@idTrip = '" + idTrip + "'"
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default tripOrderMutations;
