@@ -20,6 +20,24 @@ const tripDispatchDocumentsQueries = {
             console.log(error);
         }
     },
+    GET_TRIP_FINANCIAL_RECEIPTS_BY_TRIP: async (_: any, {idTrip}: any) => {
+        try{
+            const result = await tripDispatchDocuments.query("exec get_trip_financialReceipts_by_idTrip @idTrip = '"+ idTrip +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_TRIP_FINANCIAL_RECEIPT_BY_ID: async (_: any, {idDispatchDocument}: any) => {
+        try{
+            const result = await tripDispatchDocuments.query("exec get_tripFinancialReceipt_by_id @idDispatchDocument = '"+ idDispatchDocument +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default tripDispatchDocumentsQueries;

@@ -1207,6 +1207,34 @@ type tripsList{
   operator: String 
 }
 
+type tripsForDocumentDigitization{
+  id: String,
+  tripType: String,
+  numTrip: String,
+  availableDate: String,
+  placementDate: String,
+	idUnit: String,
+  unit: String, 
+  idTruckBox: String, 
+  truckBox: String, 
+  idClient: String, 
+  client: String,
+  idEmployee: String, 
+  operator: String, 
+  idOrigin: String, 
+  origin: String, 
+  stateOrigin: String, 
+  townOrigin: String, 
+  idDestination: String, 
+  destination: String
+	stateDestination: String, 
+  townDestination: String, 
+  arrivalDate: String,
+  financialReceipts: String,
+  documentPOD: String
+
+}
+
 type Query {
   GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!, idEnterprise: String!): [tripsForCrossings]
   GET_ALL_TRIPS(status: String!, date1: String!, date2: String!, idEnterprise: String!): [trips]
@@ -1233,6 +1261,7 @@ type Query {
   GET_ALL_TRIPS_FOR_INVOICE(date1: String!, date2: String!, idEnterprise: String!): [tripsForInvoice]
   GET_ALL_TRIPS_FOR_SETTLEMENT(date1: String!, date2: String!, tripType: String!, settlementStatus: String!, idEnterprise: String!): [tripForSettlement]
   GET_ALL_TRIPS_LIST(date1: String!, date2: String!, idEnterprise: String!): [tripsList]
+  GET_ALL_TRIPS_FOR_DOCUMENT_DIGITIZATION(date1: String!, date2: String!, idEnterprise: String!): [tripsForDocumentDigitization]
 }
 
 input new_tripAmounts {

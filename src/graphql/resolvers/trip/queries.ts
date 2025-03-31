@@ -231,6 +231,15 @@ const tripQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_TRIPS_FOR_DOCUMENT_DIGITIZATION: async (_: any, {date1, date2, idEnterprise}: any) => {
+        try{
+            const result = await trip.query("exec get_all_trips_for_documentDigitization @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

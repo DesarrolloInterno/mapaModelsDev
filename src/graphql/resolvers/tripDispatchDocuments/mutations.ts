@@ -50,6 +50,33 @@ const tripDispatchDocumentsMutations = {
         }
 
     },
+    SET_FINANCIAL_RECEIPT_TRIP: async (_: any, {input}: any) => {
+        const { idTrip, userLoggedIn } = input;
+        try {
+            const newRecord = await tripDispatchDocuments.query("exec set_document_financialReceipts_trip @idTrip = '"+idTrip+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_LINK_FINANCIAL_RECEIPT_TRIP: async (_: any, {input}: any) => {
+        const { idDocument, link, document, userLoggedIn } = input;
+        try {
+            await tripDispatchDocuments.query("exec set_linkFinancialReceipt_trip @idDocument = '"+idDocument+"', @link = '"+link+"', @document = '"+document+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Documento agregado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    DELETE_TRIP_FINANCIAL_RECEIPT: async (_: any, {input}: any) => {
+        const { idDocument, userLoggedIn } = input;
+        try {
+            await tripDispatchDocuments.query("exec delete_tripFinancialReceipt @idDocument = '"+idDocument+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return 'Documento eliminado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default tripDispatchDocumentsMutations;
