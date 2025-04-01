@@ -36,6 +36,24 @@ const tripOrderQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_TRIP_ORDER_BY_ID_TRIP_ORDER: async (_: any, {idTripOrder, idEnterprise}: any) => {
+        try{
+            const result = await tripOrder.query("exec get_all_tripOrder_by_idTripOrder @idTripOrder = '"+ idTripOrder +"', @idEnterprise = '"+ idEnterprise +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_TRIP_ORDER_AMOUNTS_BY_ID_TRIP_ORDER: async (_: any, {idTripOrder}: any) => {
+        try{
+            const result = await tripOrder.query("exec get_tripOrderAmounts_by_idTripOrder @idTripOrder = '"+ idTripOrder +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
