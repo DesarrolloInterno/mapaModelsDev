@@ -10,6 +10,8 @@ type tripDispatchDocuments {
 type Query {
   GET_TRIP_DISPATCH_DOCUMENTS_BY_TRIP(idTrip: String!): [tripDispatchDocuments]
   GET_TRIP_DISPATCH_DOCUMENTS_BY_ID(idDispatchDocument: String!): [tripDispatchDocuments]
+  GET_TRIP_FINANCIAL_RECEIPTS_BY_TRIP(idTrip: String!): [tripDispatchDocuments]
+  GET_TRIP_FINANCIAL_RECEIPT_BY_ID(idDispatchDocument: String!): [tripDispatchDocuments]
 }
 
 input set_dispatchDocument_trip {
@@ -37,4 +39,7 @@ type Mutation {
   SET_DISPATCH_DOCUMENT_TRIP(input: set_dispatchDocument_trip): [new_dispatchDocument_trip]
   SET_LINK_DISPATCH_DOCUMENT_TRIP(input: set_link_dispatchDocument_trip): String
   DELETE_TRIP_DISPATCH_DOCUMENT(input: delete_trip_dispatchDocuments): String
+  SET_FINANCIAL_RECEIPT_TRIP(input: set_dispatchDocument_trip): [new_dispatchDocument_trip]
+  SET_LINK_FINANCIAL_RECEIPT_TRIP(input: set_link_dispatchDocument_trip): String
+  DELETE_TRIP_FINANCIAL_RECEIPT(input: delete_trip_dispatchDocuments): String
 }

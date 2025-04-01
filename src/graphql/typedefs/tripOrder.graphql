@@ -311,6 +311,17 @@ input update_travelAssignment_tripCrossing {
   userLoggedIn: String
 }
 
+input new_tripOrderCrossing {
+    userLoggedIn: String,
+    idEnterprise: String,
+    idTrip: String
+}
+
+type return_new_tripOrderCrossing {
+    idTripOrder: String,
+    message: String
+}
+
 type Mutation {
   CREATE_TRIPORDER(input: new_tripOrder): String
   CREATE_TRIPORDER_CROSSING(input: new_tripOrder): String
@@ -331,4 +342,5 @@ type Mutation {
   CONFIRM_TRIPORDER(input: confirm_tripOrder): [responseConfirmTripOrder]
   DELETE_TRIPORDER_PRODUCT(input: delete_tripOrder_product): String
   UPDATE_TRAVEL_ASSIGNMENT_TRIPCROSSING(input: update_travelAssignment_tripCrossing): String
+  CREATE_TRIP_ORDER_CROSSING_FROM_TRAVEL_ASIGNMENT(input: new_tripOrderCrossing): [return_new_tripOrderCrossing]
 }

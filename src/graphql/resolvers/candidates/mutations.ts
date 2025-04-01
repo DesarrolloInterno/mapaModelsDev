@@ -24,7 +24,7 @@ const candidatesMutations = {
         } = input;
         try {
             const newRecord = await candidates.query("exec create_candidates @contact = '"+contact+"', @firstName = '"+firstName+"', @paternalLastName= '"+paternalLastName+"', @maternalLastName = '"+maternalLastName+"', @driverLicenseIsActive = '"+driverLicenseIsActive+"', @APTOIsActive = '"+APTOIsActive+"', @currentlyLabaorando = '"+currentlyLabaorando+"', @age = '"+age+"', @experience = '"+experience+"', @locatedAt = '"+locatedAt+"', @phone = '"+phone+"', @comments = '"+comments+"', @userLoggedIn = '"+userLoggedIn+"', @dateCandidateAdded = '"+dateCandidateAdded+"', @antiquity = '"+antiquity+"', @idJobTitle = '"+idJobTitle+"', @currentJob = '"+currentJob+"', @idEnterprise = '"+ idEnterprise +"'");
-            return newRecord[0].message;
+            return newRecord;
         } catch (error) {
             console.log(error);
         }

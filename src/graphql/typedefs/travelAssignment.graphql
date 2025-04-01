@@ -171,6 +171,7 @@ type responseCreateTrip {
   messageOperator: String
   messagePreReceiptMovement: String
 	idPreReceiptMovement: String
+  idTrip: String
 }
 
 type tripSafetyEquipment {

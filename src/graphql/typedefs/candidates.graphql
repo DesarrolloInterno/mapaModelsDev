@@ -97,8 +97,15 @@ type Query {
     GET_ALL_CANDIDATES(status: String!, date1: String!, date2: String!, idEnterprise: String!): [candidates]
 }
 
+type return_new_candidate {
+  message: String,
+  dateCandidateAdded: String,
+  status: String,
+  candidate: String
+}
+
 type Mutation {
-    CREATE_CANDIDATE(input: create_candidates): String
+    CREATE_CANDIDATE(input: create_candidates): [return_new_candidate]
     UPDATE_CANDIDATE(input: update_candidates): String
     REJECT_CANDIDATE(input: reject_candidate): String
     SET_ACCEPTED_CANDIDATE(input: accept_candidate): String
