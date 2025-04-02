@@ -483,6 +483,68 @@ const tripOrderMutations = {
         } catch (error) {
             console.log(error);
         }
+    },
+    UPDATE_TRIP_ORDER_AMOUNTS: async (_: any, {input}: any) => {
+        const { 
+            idTripOrderAmounts,
+            idInvoicingConcept,
+            invoicingConcept,
+            subtotal,
+            idIVApercentage,
+            IVApercentage,
+            IVA,
+            idRETpercentage,
+            RETpercentage,
+            RET,
+            totalAmount,
+            idSalesFormat,
+            codeMeasuringUnit,
+            measuringUnit,
+            userLoggedIn,
+            status,
+            idTripOrder,
+            taxRate
+        } = input;
+        try {
+            await tripOrder.query("exec update_tripOrderAmounts " + 
+                "@idTripOrderAmounts = '"+idTripOrderAmounts+
+                "', @idInvoicingConcept = '"+idInvoicingConcept+
+                "', @invoicingConcept = '"+invoicingConcept+
+                "', @subtotal = '"+subtotal+
+                "', @idIVApercentage = '"+idIVApercentage+
+                "', @IVApercentage = '"+IVApercentage+
+                "', @IVA = '"+IVA+
+                "', @idRETpercentage = '"+idRETpercentage+
+                "', @RETpercentage = '"+RETpercentage+
+                "', @RET = '"+RET+
+                "', @totalAmount = '"+totalAmount+
+                "', @idSalesFormat = '"+idSalesFormat+
+                "', @codeMeasuringUnit = '"+codeMeasuringUnit+
+                "', @measuringUnit = '"+measuringUnit+
+                "', @userLoggedIn = '"+userLoggedIn+
+                "', @status = '"+status+
+                "', @idTripOrder = '"+idTripOrder+
+                "', @taxRate = '"+taxRate+"'"
+            );
+            return 'Se ha actualizado el registro';
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    DELETE_TRIP_ORDER_AMOUNTS_BY_ID_TRIP_ORDER: async (_: any, {input}: any) => {
+        const { 
+            idTripOrder,
+            userLoggedIn
+        } = input;
+        try {
+            await tripOrder.query("exec delete_tripAmounts_by_idTrip " +
+                "@idTripOrder = '" + idTripOrder + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Se ha actualizado el registro';
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
