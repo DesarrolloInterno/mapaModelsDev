@@ -266,6 +266,24 @@ const invoicesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_INVOICES_TO_FORWARD: async (_: any, {invoiceMonth, invoiceYear, idEnterprise}: any) => {
+        try{
+            const result = await invoices.query("exec get_all_invoices_to_forward @invoiceMonth = '"+ invoiceMonth +"', @invoiceYear = '"+ invoiceYear + "', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_INVOICE_TERMS_AND_CONDITIONS: async (_: any, {idEnterprise}: any) => {
+        try{
+            const result = await invoices.query("exec get_invoiceTermsAndConditions @idEnterprise = '"+ idEnterprise +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

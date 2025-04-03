@@ -618,6 +618,22 @@ type invoice_for_cancel{
   enterpriseRFC: String
 }
 
+type invoicesToForward{
+  id: String,
+  numInvoice: String,
+  invoiceSeries: String,
+  invoiceDate: String,
+  client: String,
+  docInvoicePdf: String,
+  docXml: String
+}
+
+type invoiceTermsAndConditions {
+  id: String,
+  termsAndConditions: String,
+  status: String
+}
+
 type Query {
   GET_INVOICES_BY_TOKEN(token: String!): [invoiceToken]
   GET_INVOICEAMOUNTS(idInvoice: String!): [invoiceAmounts]
@@ -644,6 +660,8 @@ type Query {
   GET_CANCELLED_INVOICES(date1: String!, date2: String!, dateCancelled1: String!, dateCancelled2: String!, status: String!, typeCancelled: String!, idEnterprise: String!): [cancelledInvoices]
   GET_INVOICES_RELATEDINVOICES(idInvoice: String!): [invoices_relatedInvoice]
   GET_INVOICE_FOR_CANCEL(token: String!): [invoice_for_cancel]
+  GET_ALL_INVOICES_TO_FORWARD(invoiceMonth: String!, invoiceYear: String!, idEnterprise: String!): [invoicesToForward]
+  GET_INVOICE_TERMS_AND_CONDITIONS(idEnterprise: String!): [invoiceTermsAndConditions]
 }
 
 input setNewInvoices {
