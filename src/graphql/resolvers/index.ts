@@ -123,6 +123,7 @@ import { accountingPeriodsMutations, accountingPeriodsQueries } from './accounti
 import { accountingVouchersMutations, accountingVouchersQueries } from './accountingVouchers'
 import { claveCancelacionQueries } from './claveCancelacion'
 import { vouchersMutations, vouchersQueries } from './vouchers'
+import { creditNotesMutations, creditNotesQueries } from './creditNotes'
 
 const resolvers = {
     Query: {
@@ -242,7 +243,8 @@ const resolvers = {
         ...accountingPeriodsQueries,
         ...accountingVouchersQueries,
         ...claveCancelacionQueries,
-        ...vouchersQueries
+        ...vouchersQueries,
+        ...creditNotesQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -333,7 +335,8 @@ const resolvers = {
         ...bonusesMutations,
         ...accountingPeriodsMutations,
         ...accountingVouchersMutations,
-        ...vouchersMutations
+        ...vouchersMutations,
+        ...creditNotesMutations
     }
 }
 

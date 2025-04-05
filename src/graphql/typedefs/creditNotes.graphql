@@ -1,0 +1,278 @@
+type creditNotes {
+    id: ID
+    numCreditNote: String
+    creditNoteSeries: String
+    idTrip: String
+    numTrip: String
+    creditNoteDate: String
+    status: String
+    dateRemoved: String
+    client: String
+    origin: String
+    originCountry: String
+    destination: String
+    destinationCountry: String
+    idTruckBoxe: String
+    truckBoxe: String
+    loadingDate: String
+    tripType: String
+    subtotal: String
+    IVA: String
+    RET: String
+    total: String
+    balanceDue: String
+    docPDF: String
+    docXML: String 
+    dateRecorded: String
+    userRecorded: String
+    TAXID: String
+}
+
+type creditNoteAmounts {
+  id: ID
+  idSalesFormat: Int 
+  idInvoicingConcept: Int 
+  invoicingConcept: String 
+  subtotal: String 
+  idIVApercentage: Int
+	IVApercentage: String 
+  IVA: String 
+  idRETpercentage: Int
+  RETpercentage: String 
+  RET: String 
+  totalAmount: String 
+  taxRate: String 
+  measuringUnit: String
+	codeMeasuringUnit: String 
+  status: String
+  isTaxes: String
+  idSalesFormatAmount: Int
+  quantity: String
+  codeInvoicingConcept: String
+  unitImport: String
+}
+
+type creditNoteById {
+  id: ID
+  numCreditNote: Int
+  creditNoteSeries: String
+  creditNoteDate: String
+  status: String
+  idClient: Int
+  client: String
+  clientShortName: String
+  clientRFC: String
+  idOrigin: Int
+  origin: String
+  originCountry: String
+  fullAddressOrigin: String
+  legendOriginCollection: String
+  originCodeCountry: String
+  idDestination: Int
+  destination: String
+  destinationCountry: String
+  fullAddressDestination: String
+  legendDestinationCollection: String
+  destinationCodeCountry: String
+  idTrip: Int
+  numTrip: Int
+  travelClassification: String
+  kilometres: String
+  travelTime: String
+  temperature: String
+  tripType: String
+  currency: String
+  taxes: String
+  isRefrigerated: String
+  isDry: String
+  isDoorDoor: String
+  isCrossing: String
+  isEmpty: String
+  isEmptyPaid: String
+  requestProofDelivery: String
+  idSalesFormatCrossing: Int
+  salesFormatCrossing: String
+  operatorComments: String
+  operationComments: String
+  observations: String
+  productDescription: String
+  crossingType: String
+  americanPortion: String
+  crossingPortion: String
+  mexicanPortion: String
+  typeCrossing: String
+  total: String
+  idPayment: Int
+  codePayment: String
+  payment: String
+  idPaymentMethod: Int
+  codePaymentMethod: String
+  paymentMethod: String
+  idUseOfCFDI: Int
+  codeUseOfCFDI: String
+  useOfCFDI: String
+  loadingDate: String
+  deliveryDate: String
+  exchangeRate: String
+  fullAddressClient: String
+  fiscalSystem: String
+  idUnit: Int
+  unit: String
+  unitLicensePlates: String
+  idTruckBox: Int
+  truckBox: String
+  truckBoxeLicensePlates: String
+  idOperator: Int
+  operator: String
+  idSalesFormat: Int
+  salesFormat: String
+  reference: String
+  UUID: String
+  docCreditNotePdf: String
+  TAXID: String
+}
+
+type creditNoteDocument {
+  id: ID
+  numCreditNote: String
+  sealNumber: String
+  creditNoteDate: String
+  idEnterprise: String
+  enterprise: String
+  enterpriseRFC: String
+  enterpriseFiscalSystem: String
+  enterpriseZipCode: String
+  enterpriseFullAddress: String
+  idTrip: String
+  dateRecorded: String
+  numTrip: String
+  proNumber: String
+  kilometres: String
+  loadingDate: String
+  deliveryDate: String
+  tripType: String
+  grossWeights: String
+  client: String
+  idClient: String
+  clientFullAddress: String
+  reference: String
+  clientRFC: String
+  clientTAXID: String
+  payment: String
+  useOfCFDI: String
+  paymentMethod: String
+  currency: String
+  exchangeRate: String
+  origin: String
+  originRFC: String
+  originTAXID: String
+  originFullAddress: String
+  destination: String
+  destinationRFC: String
+  destinationTAXID: String
+  destinationFullAddress: String
+  unit: String
+  licensePlatesUnit: String
+  insurer: String
+  insurancePolicy: String
+  carrierKey: String
+  permissionType: String
+  permissionNumber: String
+  truckBox: String
+  trailerTypes: String
+  licensePlatesTruckBox: String
+  stateTruckBox: String
+  operator: String
+  driverLicense: String
+  operatorRFC: String
+  countryOperator: String
+  subtotal: String
+  IVA: String
+  RET: String
+  total: String
+  IVApercentage: String
+  RETpercentage: String
+  observations: String
+  customsClearance: String
+  UUID: String
+  SATcertificateNumber: String
+  dateCFDI: String
+  originalChain: String
+  CFDIstamp: String
+  SATStamp: String
+  LinkQR: String
+  idCCP: String
+  CFDItype: String
+}
+
+type Query {
+    GET_ALL_CREDIT_NOTES(date1: String!, date2: String!, date: String!, idEnterprise: String!): [creditNotes]
+    GET_CREDIT_NOTE_BY_ID(idCreditNote: String!, idEnterprise: String!): [creditNoteById]
+    GET_CREDIT_NOTE_AMOUNTS_BY_ID(idCreditNote: String!): [creditNoteAmounts]
+    GET_CREDIT_NOTE_DOCUMENT(idCreditNote: String!): [creditNoteDocument]
+}
+
+input newCreditNote {
+  idEnterprise: String,
+  idClient: String,
+  currency: String,
+  exchangeRate: String,
+  userLoggedIn: String,
+  idPaymentMethod: String,
+  idUseOfCFDI: String,
+  idPayment: String
+}
+
+type return_newCreditNote {
+  idCreditNote: ID
+  message: String
+  numCreditNote: String
+}
+
+input setCreditNoteAmount {
+  idCreditNoteAmount: String,
+  idCreditNote: String,
+  idTrip: String,
+  idSalesFormatAmounts: String,
+  idInvoicingConcept: String,
+  idIVApercentage: String,
+  IVApercentage: String,
+  IVA: String,
+  idRETpercentage: String,
+  RETpercentage: String,
+  RET: String,
+  totalAmount: String,
+  idSalesFormat: String,
+  codeMeasuringUnit: String,
+  measuringUnit: String,
+  isTaxes: String,
+  userLoggedIn: String,
+  status: String,
+  quantity: String,
+  unitImport: String,
+  subtotal: String
+}
+
+input updateCreditNote {
+  idCreditNote: String
+  idEnterprise: String
+  idClient: String
+  idUseOfCFDI: String
+  idPaymentMethod: String
+  idPayment: String
+  currency: String
+  exchangeRate: String
+  userLoggedIn: String
+}
+
+type return_updateCreditNote {
+  idCreditNote: ID
+  message: String
+  numCreditNote: String
+}
+
+type Mutation {
+    CREATE_CREDIT_NOTE(input: newCreditNote): [return_newCreditNote]
+    SET_CREDIT_NOTE_AMOUNTS(input: setCreditNoteAmount): String
+    UPDATE_CREDIT_NOTE(input: updateCreditNote): [return_updateCreditNote]
+}

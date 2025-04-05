@@ -284,6 +284,15 @@ const invoicesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_INVOICES_TO_BE_MATCHED: async (_: any, {idEnterprise}: any) => {
+        try{
+            const result = await invoices.query("exec get_all_invoices_to_be_matched @idEnterprise = '"+ idEnterprise +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
