@@ -1207,6 +1207,71 @@ type tripsList{
   operator: String 
 }
 
+type cancelledTrips {
+  id: ID,
+  idTrip: Int,
+  numTrip: Int,
+  dateCFDI: String,
+  UUID: String,
+  cancelationCode: String,
+  userRemoved: String,
+  cancellationProcess: String,
+  dateRemoved: String,
+  statusCFDI: String,
+  statusSAT: String,
+  cancellationReasons: String,
+  client: String,
+  UUIDReplaces: String
+}
+
+input deleteTripStampFromTrip {
+  idTrip: String,
+  idCancellationCode: String,
+  cancellationReasons: String,
+  userLoggedIn: String
+}
+
+type invoice_for_tripStamp{
+  id: String,
+	previousUUID: String,
+  currentUUID: String,
+  cancelationCode: String,
+  digitalStampCertificate: String,
+  certificateKey: String,
+  passwordDigitalStampCertificate: String,
+  enterpriseRFC: String
+}
+
+type delete_TripStamp0203 {
+  idRelatedTripUUID: String,
+  message: String
+}
+
+input invoiceCancelTripCfdi {
+  idRelatedTripUUID: String,
+  dateCancelCFDI: String,
+  statusUUID: String,
+  statusCancelCFDI: String,
+  userLoggedIn: String
+}
+
+input setTokenStampTrip {
+  idRelatedTripUUID: String
+  userLoggedIn: String
+}
+
+type newTokenTrip {
+  tokenInvoice: String
+  numTrip: String
+  idTrip: String
+}
+
+input setLinkAcuseTrasfer {
+  idRelatedTripUUID: String
+  linkXML: String
+  userLoggedIn: String
+}
+
 type tripsForDocumentDigitization{
   id: String,
   tripType: String,
@@ -1261,6 +1326,8 @@ type Query {
   GET_ALL_TRIPS_FOR_INVOICE(date1: String!, date2: String!, idEnterprise: String!): [tripsForInvoice]
   GET_ALL_TRIPS_FOR_SETTLEMENT(date1: String!, date2: String!, tripType: String!, settlementStatus: String!, idEnterprise: String!): [tripForSettlement]
   GET_ALL_TRIPS_LIST(date1: String!, date2: String!, idEnterprise: String!): [tripsList]
+  GET_CANCELLED_TRIPS(date1: String!, date2: String!, dateCancelled1: String!, dateCancelled2: String!, status: String!, typeCancelled: String!, idEnterprise: String!): [cancelledTrips]
+  GET_TRIPSTAMP_FOR_CANCEL(token: String!): [invoice_for_tripStamp]
   GET_ALL_TRIPS_FOR_DOCUMENT_DIGITIZATION(date1: String!, date2: String!, idEnterprise: String!): [tripsForDocumentDigitization]
 }
 
@@ -1314,6 +1381,11 @@ type Mutation {
   CREATE_TRANSFERINVOCE(input: tripTotalWeight): [create_transferInvoice]
   SET_LINK_PDF_XML_TRANSFERINVOCE(input: set_link_transferInvoice): String
   SET_TRIP_SETTLEMENT(input: set_trip_settlement): [return_set_trip_settlement]
+  DELETE_TRIPSTAMP_FROM_TRIP(input: deleteTripStampFromTrip): String
+  DELETE_TRIPSTAMP0203_FROM_TRIP(input: deleteTripStampFromTrip): [delete_TripStamp0203]
+  UPDATE_TRIP_CANCEL_CFDI(input: invoiceCancelTripCfdi): String
+  SET_TOKENCANCEL_STAMPTRIP(input: setTokenStampTrip): [newTokenTrip]
+  SET_LINK_ACUSE_RELATEDTRIPUUID(input: setLinkAcuseTrasfer): String
   SET_TRIP_AMOUNTS(input: new_tripAmounts): String
   DELETE_TRIP_AMOUNTS_BY_IDTRIP(input: delete_tripAmounts_by_idTrip): String
 }

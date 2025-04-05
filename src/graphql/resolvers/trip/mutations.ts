@@ -875,6 +875,106 @@ const tripMutations = {
         }
 
     },
+    DELETE_TRIPSTAMP_FROM_TRIP: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            idCancellationCode,
+            cancellationReasons,
+            userLoggedIn
+        } = input;
+
+        try {
+            await trip.query("exec delete_tripStamp_from_trip " +
+                "@idTrip = '" + idTrip + "', " +
+                "@idCancellationCode = '" + idCancellationCode + "', " +
+                "@cancellationReasons = '" + cancellationReasons + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Timbre eliminado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    DELETE_TRIPSTAMP0203_FROM_TRIP: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            idCancellationCode,
+            cancellationReasons,
+            userLoggedIn
+        } = input;
+
+        try {
+            const newRecord = await trip.query("exec delete_tripStamp0203_from_trip " +
+                "@idTrip = '" + idTrip + "', " +
+                "@idCancellationCode = '" + idCancellationCode + "', " +
+                "@cancellationReasons = '" + cancellationReasons + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    UPDATE_TRIP_CANCEL_CFDI: async (_: any, {input}: any) => {
+        const {
+            idRelatedTripUUID,
+            dateCancelCFDI,
+            statusUUID,
+            statusCancelCFDI,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await trip.query("exec update_trip_cancel_cfdi " +
+                "@idRelatedTripUUID = '" + idRelatedTripUUID + "', " +
+                "@dateCancelCFDI = '" + dateCancelCFDI + "', " +
+                "@statusUUID = '" + statusUUID + "', " +
+                "@statusCancelCFDI = '" + statusCancelCFDI + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Acuse cancelación de traslado actualizado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    SET_TOKENCANCEL_STAMPTRIP: async (_: any, {input}: any) => {
+        const {
+            idRelatedTripUUID,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newid = await trip.query("exec set_tokenCancel_stampTripUUID " +
+                "@idRelatedTripUUID = '" + idRelatedTripUUID + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_LINK_ACUSE_RELATEDTRIPUUID: async (_: any, {input}: any) => {
+        const {
+            idRelatedTripUUID,
+            linkXML,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await trip.query("exec set_link_acuse_relatedTripUUID " +
+                "@idRelatedTripUUID = '" + idRelatedTripUUID + "', " +
+                "@linkXML = '" + linkXML + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Documentos de traslado actualizados correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
     SET_TRIP_AMOUNTS: async (_: any, {input}: any) => {
         const { 
             idTrip,
