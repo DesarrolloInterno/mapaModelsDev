@@ -1,0 +1,10 @@
+type c_TipoRelacion {
+    id: ID
+    clave: String
+    name: String
+    status: String
+}
+
+type Query {
+    GET_ALL_C_TIPO_RELACION: [c_TipoRelacion]
+}

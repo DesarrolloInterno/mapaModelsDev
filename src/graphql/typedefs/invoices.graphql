@@ -448,6 +448,11 @@ type newToken {
   idTrip: String
 }
 
+type newTokenAssetInvoice {
+  tokenInvoice: String
+  numInvoice: String
+}
+
 type assetInvoiceAmounts {
   id: ID
   idSalesFormat: Int 
@@ -645,6 +650,18 @@ type invoicesToBeMatched {
   status: String
 }
 
+type invoicesToRelate {
+  id: String, 
+  idInvoice: String, 
+  numInvoice: String, 
+  invoiceDate: String, 
+  total: String, 
+  relationshipType: String, 
+  invoiceSeries: String, 
+  client: String,
+  status: String
+}
+
 type Query {
   GET_INVOICES_BY_TOKEN(token: String!): [invoiceToken]
   GET_INVOICEAMOUNTS(idInvoice: String!): [invoiceAmounts]
@@ -674,6 +691,8 @@ type Query {
   GET_ALL_INVOICES_TO_FORWARD(invoiceMonth: String!, invoiceYear: String!, idEnterprise: String!): [invoicesToForward]
   GET_INVOICE_TERMS_AND_CONDITIONS(idEnterprise: String!): [invoiceTermsAndConditions]
   GET_ALL_INVOICES_TO_BE_MATCHED(idEnterprise: String!): [invoicesToBeMatched]
+  GET_ALL_RELATED_INVOICES_BY_ID_INVOICE(idInvoice: String!, idEnterprise: String!): [invoicesToRelate]
+  GET_ALL_INVOICES_BY_CLIENT_TO_RELATE(idClient: String!, idEnterprise: String!): [invoicesToRelate]
 }
 
 input setNewInvoices {
@@ -762,6 +781,11 @@ input setInvoiceAmount {
 }
 
 input setTokenStampInvoice {
+  idInvoice: String
+  userLoggedIn: String
+}
+
+input setTokenStampAssetInvoice {
   idInvoice: String
   userLoggedIn: String
 }
@@ -890,6 +914,36 @@ input invoiceCancelCfdi {
   userLoggedIn: String
 }
 
+input deleteAssetInvoice {
+  idInvoice: String,
+  idTrip: String,
+  idCancellationCode: String,
+  cancellationReasons: String,
+  userLoggedIn: String
+}
+
+input relateInvoice {
+  idCurrentInvoice: String,
+  numCurrentInvoice: String,
+  idPreviousInvoice: String,
+  numPreviousInvoice: String,
+  idRelationshipType: String,
+  relationshipType: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+type return_relatedInvoice {
+  idRelatedInvoice: String,
+  message: String
+}
+
+input deleteRelatedInvoices{
+  idInvoice: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
 type Mutation {
   CREATE_INVOICE_FROM_TRIP(input: setNewInvoices): [newInvoices]
   CREATE_INVOICE(input: setNewInvoices2): [newInvoices2]
@@ -910,4 +964,8 @@ type Mutation {
   SET_LINK_PDF_XML_ASSET_INVOICE(input: setLinkPDFXMLAssetInvoice): String,
   DELETE_INVOICE_FROM_TRIP(input: deleteInvoiceFromTrip): String
   UPDATE_INVOICE_CANCEL_CFDI(input: invoiceCancelCfdi): String
+  DELETE_ASSET_INVOICE(input: deleteAssetInvoice): String
+  SET_TOKENCANCEL_STAMPASSETINVOICE(input: setTokenStampAssetInvoice): [newTokenAssetInvoice]
+  RELATE_INVOICES(input: relateInvoice): [return_relatedInvoice]
+  DELETE_RELATED_INVOICES_BY_ID_INVOICE(input: deleteRelatedInvoices): String
 }

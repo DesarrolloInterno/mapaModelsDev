@@ -464,6 +464,90 @@ const invoicesMutations = {
             console.log(error);
         }
 
+    },
+    DELETE_ASSET_INVOICE: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            idCancellationCode,
+            cancellationReasons,
+            userLoggedIn
+        } = input;
+
+        try {
+            await invoices.query("exec delete_asset_invoice " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@idCancellationCode = '" + idCancellationCode + "', " +
+                "@cancellationReasons = '" + cancellationReasons + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Factura eliminada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    SET_TOKENCANCEL_STAMPASSETINVOICE: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newid = await invoices.query("exec set_tokenCancel_stampAssetInvoice " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    RELATE_INVOICES: async (_: any, {input}: any) => {
+        const {
+            idCurrentInvoice,
+            numCurrentInvoice,
+            idPreviousInvoice,
+            numPreviousInvoice,
+            idRelationshipType,
+            relationshipType,
+            userLoggedIn,
+            idEnterprise
+        } = input;
+
+        try {
+            const newid = await invoices.query("exec relateInvoice " +
+                "@idCurrentInvoice = '" + idCurrentInvoice + "', " +
+                "@numCurrentInvoice = '" + numCurrentInvoice + "', " +
+                "@idPreviousInvoice = '" + idPreviousInvoice + "', " +
+                "@numPreviousInvoice = '" + numPreviousInvoice + "', " +
+                "@idRelationshipType = '" + idRelationshipType + "', " +
+                "@relationshipType = '" + relationshipType + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    DELETE_RELATED_INVOICES_BY_ID_INVOICE: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            userLoggedIn,
+            idEnterprise
+        } = input;
+
+        try {
+            await invoices.query("exec delete_relatedInvoices_by_idInvoice " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
+            );
+            return 'Factura eliminada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 };
 

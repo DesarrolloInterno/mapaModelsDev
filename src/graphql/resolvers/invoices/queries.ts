@@ -293,6 +293,22 @@ const invoicesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_RELATED_INVOICES_BY_ID_INVOICE: async (_: any, {idInvoice,idEnterprise}: any) => {
+        try{
+            const result = await invoices.query("exec get_all_relatedInvoices_by_idInvoice @idInvoice = '"+ idInvoice +"', @idEnterprise = '"+idEnterprise+"' ");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_INVOICES_BY_CLIENT_TO_RELATE: async (_: any, {idClient,idEnterprise}: any) => {
+        try{
+            const result = await invoices.query("exec get_all_invoices_by_client_to_relate @idClient = '"+ idClient +"', @idEnterprise = '"+idEnterprise+"' ");
+            return result;
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

@@ -124,6 +124,7 @@ import { accountingVouchersMutations, accountingVouchersQueries } from './accoun
 import { claveCancelacionQueries } from './claveCancelacion'
 import { vouchersMutations, vouchersQueries } from './vouchers'
 import { creditNotesMutations, creditNotesQueries } from './creditNotes'
+import { c_TipoRelacionQueries } from './c_TipoRelacion'
 
 const resolvers = {
     Query: {
@@ -244,7 +245,8 @@ const resolvers = {
         ...accountingVouchersQueries,
         ...claveCancelacionQueries,
         ...vouchersQueries,
-        ...creditNotesQueries
+        ...creditNotesQueries,
+        ...c_TipoRelacionQueries
     },
     Mutation: {
         ...user_historialMutations,
