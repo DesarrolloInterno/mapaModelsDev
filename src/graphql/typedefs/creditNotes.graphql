@@ -130,6 +130,7 @@ type creditNoteById {
   UUID: String
   docCreditNotePdf: String
   TAXID: String
+  balanceDue: String
 }
 
 type creditNoteDocument {
@@ -205,11 +206,41 @@ type creditNoteDocument {
   CFDItype: String
 }
 
+type relatedCreditNotes {
+  id: String, 
+  idInvoice: String, 
+  numInvoice: String, 
+  invoiceSeries: String, 
+  numTrip: String, 
+  invoiceDate: String, 
+  total: String, 
+  currency: String, 
+  status: String, 
+  relationshipType: String, 
+  client: String
+}
+
+type relatedCreditNotes {
+  id: String,
+	idCreditNote: String, 
+	numCreditNote: String, 
+	uuidCreditNote: String, 
+	idInvoice: String, 
+	numInvoice: String, 
+	uuidInvoice: String,
+	idRelationshipType: String, 
+	relationshipTypeCode: String, 
+	relationshipType: String
+}
+
 type Query {
     GET_ALL_CREDIT_NOTES(date1: String!, date2: String!, date: String!, idEnterprise: String!): [creditNotes]
     GET_CREDIT_NOTE_BY_ID(idCreditNote: String!, idEnterprise: String!): [creditNoteById]
     GET_CREDIT_NOTE_AMOUNTS_BY_ID(idCreditNote: String!): [creditNoteAmounts]
     GET_CREDIT_NOTE_DOCUMENT(idCreditNote: String!): [creditNoteDocument]
+    GET_ALL_RELATED_CREDIT_NOTES_BY_ID_CREDIT_NOTE(idCreditNote: String!): [relatedCreditNotes]
+    GET_ALL_INVOICES_TO_BE_MATCHED(idClient: String!, idEnterprise: String!, folioFilter: String!): [relatedCreditNotes]
+    GET_CREDIT_NOTES_RELATED_CREDIT_NOTE(idCreditNote: String!): [relatedCreditNotes]
 }
 
 input newCreditNote {
@@ -271,8 +302,32 @@ type return_updateCreditNote {
   numCreditNote: String
 }
 
+input relateCreditNote{
+  idCreditNote: String,
+  numCreditNote: String,
+  idInvoice: String,
+  numInvoice: String,
+  numTrip: String,
+  total: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+type return_relatedCreditNote {
+  idRelatedCreditNote: String,
+  message: String
+}
+
+input deleteRelatedCreditNotes{
+  idCreditNote: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
 type Mutation {
     CREATE_CREDIT_NOTE(input: newCreditNote): [return_newCreditNote]
     SET_CREDIT_NOTE_AMOUNTS(input: setCreditNoteAmount): String
     UPDATE_CREDIT_NOTE(input: updateCreditNote): [return_updateCreditNote]
+    CREATE_RELATED_CREDIT_NOTE(input: relateCreditNote): [return_relatedCreditNote]
+    DELETE_RELATED_CREDIT_NOTES_BY_ID_CREDIT_NOTE(input: deleteRelatedCreditNotes): String
 }

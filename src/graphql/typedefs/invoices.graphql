@@ -639,17 +639,6 @@ type invoiceTermsAndConditions {
   status: String
 }
 
-type invoicesToBeMatched {
-  id: String, 
-  numInvoice: String, 
-  invoiceSeries: String, 
-  numTrip: String, 
-  invoiceDate: String, 
-  total: String, 
-  currency: String,
-  status: String
-}
-
 type invoicesToRelate {
   id: String, 
   idInvoice: String, 
@@ -690,9 +679,8 @@ type Query {
   GET_INVOICE_FOR_CANCEL(token: String!): [invoice_for_cancel]
   GET_ALL_INVOICES_TO_FORWARD(invoiceMonth: String!, invoiceYear: String!, idEnterprise: String!): [invoicesToForward]
   GET_INVOICE_TERMS_AND_CONDITIONS(idEnterprise: String!): [invoiceTermsAndConditions]
-  GET_ALL_INVOICES_TO_BE_MATCHED(idEnterprise: String!): [invoicesToBeMatched]
   GET_ALL_RELATED_INVOICES_BY_ID_INVOICE(idInvoice: String!, idEnterprise: String!): [invoicesToRelate]
-  GET_ALL_INVOICES_BY_CLIENT_TO_RELATE(idClient: String!, idEnterprise: String!): [invoicesToRelate]
+  GET_ALL_INVOICES_BY_CLIENT_TO_RELATE(idClient: String!, idEnterprise: String!, folioFilter: String!): [invoicesToRelate]
 }
 
 input setNewInvoices {

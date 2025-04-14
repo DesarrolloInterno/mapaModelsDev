@@ -285,15 +285,6 @@ const invoicesQueries = {
             console.log(error);
         }
     },
-    GET_ALL_INVOICES_TO_BE_MATCHED: async (_: any, {idEnterprise}: any) => {
-        try{
-            const result = await invoices.query("exec get_all_invoices_to_be_matched @idEnterprise = '"+ idEnterprise +"' ");
-            return result;
-
-        } catch (error) {
-            console.log(error);
-        }
-    },
     GET_ALL_RELATED_INVOICES_BY_ID_INVOICE: async (_: any, {idInvoice,idEnterprise}: any) => {
         try{
             const result = await invoices.query("exec get_all_relatedInvoices_by_idInvoice @idInvoice = '"+ idInvoice +"', @idEnterprise = '"+idEnterprise+"' ");
@@ -302,9 +293,9 @@ const invoicesQueries = {
             console.log(error);
         }
     },
-    GET_ALL_INVOICES_BY_CLIENT_TO_RELATE: async (_: any, {idClient,idEnterprise}: any) => {
+    GET_ALL_INVOICES_BY_CLIENT_TO_RELATE: async (_: any, {idClient,idEnterprise, folioFilter}: any) => {
         try{
-            const result = await invoices.query("exec get_all_invoices_by_client_to_relate @idClient = '"+ idClient +"', @idEnterprise = '"+idEnterprise+"' ");
+            const result = await invoices.query("exec get_all_invoices_by_client_to_relate @idClient = '"+ idClient +"', @idEnterprise = '"+idEnterprise+"', @folioFilter ='"+ folioFilter +"' ");
             return result;
         } catch (error) {
             console.log(error);

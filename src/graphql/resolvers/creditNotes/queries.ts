@@ -47,6 +47,33 @@ const creditNotesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_RELATED_CREDIT_NOTES_BY_ID_CREDIT_NOTE: async (_: any, {idCreditNote}: any) => {
+        try{
+            const result = await creditNotes.query("exec get_all_relatedCreditNotes_by_idCreditNote @idCreditNote = '"+ idCreditNote +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_INVOICES_TO_BE_MATCHED: async (_: any, {idClient, idEnterprise, folioFilter}: any) => {
+        try{
+            const result = await creditNotes.query("exec get_all_invoices_to_be_matched @idClient ='"+ idClient + "', @idEnterprise = '"+ idEnterprise +"', @folioFilter ='"+folioFilter+"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_CREDIT_NOTES_RELATED_CREDIT_NOTE: async (_: any, {idCreditNote}: any) => {
+        try{
+            const result = await creditNotes.query("exec get_creditNotes_relatedCreditNotes @idCreditNote = '"+ idCreditNote +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 

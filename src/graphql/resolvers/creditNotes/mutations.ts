@@ -115,6 +115,53 @@ const creditNotesMutations = {
             console.log(error);
         }
 
+    },
+    CREATE_RELATED_CREDIT_NOTE: async (_: any, {input}: any) => {
+        const {
+            idCreditNote,
+            numCreditNote,
+            idInvoice,
+            numInvoice,
+            numTrip,
+            total,
+            userLoggedIn,
+            idEnterprise
+        } = input;
+
+        try {
+            const newid = await creditNotes.query("exec create_related_creditNote " +
+                "@idCreditNote = '" + idCreditNote + "', " +
+                "@numCreditNote = '" + numCreditNote + "', " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@numInvoice = '" + numInvoice + "', " +
+                "@numTrip = '" + numTrip + "', " +
+                "@total = '" + total + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    DELETE_RELATED_CREDIT_NOTES_BY_ID_CREDIT_NOTE: async (_: any, {input}: any) => {
+        const {
+            idCreditNote,
+            userLoggedIn,
+            idEnterprise
+        } = input;
+
+        try {
+            await creditNotes.query("exec delete_relatedCreditNotes_by_idCreditNote " +
+                "@idCreditNote = '" + idCreditNote + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
+            );
+            return 'Nota eliminada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 }
 
