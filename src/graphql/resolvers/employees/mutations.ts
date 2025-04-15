@@ -266,7 +266,11 @@ const employeesMutations = {
             idState,
             idTown,
             CP,
-            userLoggedIn
+            userLoggedIn,
+            DateOfBirth,
+            gender,
+            civilStatus,
+            idEnterprise
         } = input;
         try {
             const newRecord = await employees.query("exec create_employees_personal_information "
@@ -286,7 +290,11 @@ const employeesMutations = {
             +"@idState = '"+idState+"', "
             +"@idTown = '"+idTown+"', "
             +"@CP = '"+CP+"', "
-            +"@userLoggedIn = '"+userLoggedIn+"' ");
+            +"@userLoggedIn = '"+userLoggedIn+"', "
+            +"@DateOfBirth = '"+DateOfBirth+"', "
+            +"@gender = '"+gender+"', "
+            +"@civilStatus = '"+civilStatus+"', "
+            +"@idEnterprise = '"+idEnterprise+"' ");
             return newRecord;
         } catch (error) {
             console.log(error);

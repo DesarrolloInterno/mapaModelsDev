@@ -212,7 +212,7 @@ type employeesAniversary {
 
 type Query {
     GET_ALL_EMPLOYEES(status: String!, idEnterprise: String!): [employees]
-    GET_EMPLOYEE_BY_ID(idEmployee: Int!, idEnterprise: String!): [employees]
+    GET_EMPLOYEE_BY_ID(idEmployee: String!, idEnterprise: String!): [employees]
     GET_NAME_EMPLOYEE(idEmployee: Int!): [employees_name]
     GET_DOC_MEDICAL_VALIDITY(idEmployee: Int!): [employees_name_doc]
     GET_DOC_ANTIDOPING_EMPLOYEE(idEmployee: Int!): [employees_name_doc]
@@ -357,7 +357,11 @@ input employees_personal_information {
     idState: String,
     idTown: String,
     CP: String,
-    userLoggedIn: String
+    userLoggedIn: String,
+    DateOfBirth: String,
+    gender: String,
+    civilStatus: String,
+    idEnterprise: String
 }
 
 input employee_image {
