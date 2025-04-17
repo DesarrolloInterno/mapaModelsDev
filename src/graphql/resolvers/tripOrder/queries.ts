@@ -54,6 +54,15 @@ const tripOrderQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_TRIP_ORDER_FOR_CROSSING: async (_: any, {date1, date2, idEnterprise}: any) => {
+        try{
+            const result = await tripOrder.query("exec get_all_tripOrderForCrossings @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

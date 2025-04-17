@@ -545,6 +545,45 @@ const tripOrderMutations = {
         } catch (error) {
             console.log(error);
         }
+    },
+    CREATE_TRIP_ORDER_CROSSING_FROM_TRIP_ORDER: async (_: any, {input}: any) => {
+        const {
+            userLoggedIn,
+            idEnterprise,
+            idTripOrderOrigin
+        } = input;
+
+        try {
+            const newRecord = await tripOrder.query("exec create_tripOrderCrossing_from_tripOrder " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "', " +
+                "@idTripOrderOrigin = '" + idTripOrderOrigin + "'"
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_ORDER_ORIGIN_FOR_CROSSING: async (_: any, {input}: any) => {
+        const {
+            idTripOrderCrossing,
+			idTripOrder,
+            numTripOrder,
+            userLoggedIn
+        } = input;
+
+        try {
+            await tripOrder.query("exec set_orderOrigin_for_crossing " +
+                "@idTripOrderCrossing = '" + idTripOrderCrossing + "', " +
+                "@idTripOrder = '" + idTripOrder + "', " +
+                "@numTripOrder = '" + numTripOrder + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Asignación de orden actualizada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 };
 
