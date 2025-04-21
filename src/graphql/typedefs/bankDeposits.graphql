@@ -43,12 +43,20 @@ type invoices_bankDeposits {
 type unpaid_Invoices {
     id: ID,
     numInvoice: Int,
+    invoiceSeries: String,
     idClient: Int,
     client: String,
     invoiceDate: String,
     currency: String,
     balanceDue: String,
-    status: String
+    total: String,
+    status: String,
+    exchangeRate: String
+    depositFee: String
+    newInvoiceBalance: String
+    amount: String
+    selectedInvoices: Int
+    keyTable: String
 }
 
 type Query {
