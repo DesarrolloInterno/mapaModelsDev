@@ -269,6 +269,15 @@ const tripQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_NON_BILLABLE_TRIPS: async (_: any, {tripType, isNonBillable, date1, date2, idEnterprise}: any) => {
+        try{
+            const result = await trip.query("exec get_all_nonBillableTrips @tripType = '"+tripType+"', @isNonBillable = '"+ isNonBillable +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

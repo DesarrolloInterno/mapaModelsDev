@@ -34,7 +34,8 @@ const salesFormatMutations = {
             userLoggedIn,
             productDescription,
             crossingType,
-            typeCrossing
+            typeCrossing,
+            totalSaleFormat
         } = input;
 
         try {
@@ -69,7 +70,8 @@ const salesFormatMutations = {
                 "@userLoggedIn = '" + userLoggedIn + "', "+
                 "@productDescription = '" + productDescription + "', "+
                 "@crossingType = '" + crossingType + "', "+
-                "@typeCrossing = '" + typeCrossing + "' "
+                "@typeCrossing = '" + typeCrossing + "', "+
+                "@totalSaleFormat = '" + totalSaleFormat + "' "
             );
             return newRecord;
         } catch (error) {
@@ -110,7 +112,8 @@ const salesFormatMutations = {
             userLoggedIn,
             productDescription,
             crossingType,
-            typeCrossing
+            typeCrossing,
+            totalSaleFormat
         } = input;
 
         try {
@@ -146,7 +149,8 @@ const salesFormatMutations = {
                 "@userLoggedIn = '" + userLoggedIn + "', "+
                 "@productDescription = '" + productDescription + "', "+
                 "@crossingType = '" + crossingType + "', "+
-                "@typeCrossing = '" + typeCrossing + "' "
+                "@typeCrossing = '" + typeCrossing + "', "+
+                "@totalSaleFormat = '" + totalSaleFormat + "' "
             );
             return newRecord;
         } catch (error) {

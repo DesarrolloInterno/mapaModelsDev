@@ -1032,6 +1032,25 @@ const tripMutations = {
         } catch (error) {
             console.log(error);
         }
+    },
+    SET_NON_BILLABLE_TRIPS: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            isNonBillable,
+            userLoggedIn
+        } = input;
+
+        try {
+            const newRecord = await trip.query("exec set_nonBillableTrips " +
+                "@idTrip = '" + idTrip + "', " +
+                "@isNonBillable = '" + isNonBillable + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 };
 

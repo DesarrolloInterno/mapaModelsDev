@@ -369,6 +369,7 @@ input new_salesFormat {
   productDescription: String
   crossingType: String  
   typeCrossing: String
+  totalSaleFormat: String
 }
 
 input update_salesFormat {
@@ -405,6 +406,7 @@ input update_salesFormat {
   productDescription: String
   crossingType: String  
   typeCrossing: String
+  totalSaleFormat: String
 }
 
 input new_salesFormatBoothRoute {
