@@ -17,10 +17,12 @@ type bankDeposits {
     docPDF: String
     docXML: String
     depositType: String
+    bankdeposits: String
 }
 
 type return_bankDeposit {
-    idBankDeposit: Int
+    idBankDeposit: String
+    numBankDeposit: String
     message: String
 }
 
@@ -30,15 +32,19 @@ type invoices_bankDeposits {
 	numBankDeposit: Int,
 	idInvoice: Int,
 	numInvoice: Int,
+    invoiceSeries: String,
 	idClient: Int,
 	client: String,
 	invoiceDate: String,
 	invoiceCurrency: String,
+    invoiceExchangeRate: String,
+    invoiceTotal: String,
 	invoiceBalance: String,
 	depositFee: String,
 	newInvoiceBalance: String,
 	amount: String,
-	status: String
+	status: String,
+    keyTable: String,
 }
 type unpaid_Invoices {
     id: ID,
@@ -78,8 +84,66 @@ input create_bankDeposit {
     depositType: String
     userLoggedIn: String
     idEnterprise: String
+    balanceDue: String
+}
+
+input ubdate_bankDeposit {
+    idBankDeposit: String
+    numBankDeposit: String
+    idClient: String
+    idBankAccount: String
+    exchangeRate: String
+    amount: String
+    reference: String
+    bankDepositDate: String
+    bankDepositControlDate: String
+    observations: String
+    depositType: String
+    userLoggedIn: String
+    balanceDue: String
+}
+
+input set_bankDepositInvoices {
+    idBankdepositInvoices: String
+	idBankDeposit: String
+	numBankDeposit: String 
+	bankDepositCurrency: String
+	idInvoice: String
+	numInvoice: String
+	invoiceSeries: String
+	idClient: String
+	client: String
+	invoiceDate: String
+	invoiceCurrency: String
+	invoiceExchangeRate: String
+	invoiceTotal: String
+	invoiceBalance: String
+	depositFee: String
+	newInvoiceBalance: String
+	amount: String
+	status: String
+	keyTable: String
+	bankDepositExchangeRate: String 
+	userLoggedIn: String
+    idEnterprise: String
+}
+
+input removeInvoiceBankDeposit {
+    idInvoicesBankDeposit: String
+    idBankDeposit: String
+    idInvoice: String
+    userLoggedIn: String
+}
+
+input deleteBankDeposit {
+    idBankDeposit: String
+    userLoggedIn: String
 }
 
 type Mutation {
   CREATE_BANKDEPOSIT(input: create_bankDeposit): [return_bankDeposit]
+  SETBANKDEPOSITINVOICE(input: set_bankDepositInvoices): String
+  UPDATE_BANKDEPOSIT(input: ubdate_bankDeposit): [return_bankDeposit]
+  REMOVE_INVOICE_BANKDEPOSIT(input: removeInvoiceBankDeposit): String
+  DELETE_BANKDEPOSIT(input: deleteBankDeposit): String
 }
