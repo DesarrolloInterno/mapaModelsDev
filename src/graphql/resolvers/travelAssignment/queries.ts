@@ -55,6 +55,15 @@ const travelAssignmentQueries = {
             console.log(error);
         }
     },
+    GET_ALL_TRIP_CUSTOMS_CLEARANCE: async (_: any, {idTrip}: any) => {
+        try{
+            const result = await tripOrder.query("exec get_all_trip_customsClearance @idTrip = '"+ idTrip +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default travelAssignmentQueries;
