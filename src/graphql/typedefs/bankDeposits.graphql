@@ -65,11 +65,58 @@ type unpaid_Invoices {
     keyTable: String
 }
 
+type bankDepositDocument {
+    id: String
+    numBankDeposit: String
+    certificateNumber: String
+    bankDepositDate: String
+    enterpriseFullAddress: String
+    CFDItype: String
+    client: String
+    clientFiscalSystem: String
+    clientRFC: String
+    amount: String
+    exchangeRate: String
+    dateCFDI: String
+    UUID: String
+    originalChain: String
+    CFDIstamp: String
+    LinkQR: String
+    SATStamp: String
+    idEnterprise: String
+}
+
+type invoice_bankDepositDocument {
+    id: String
+    idInvoice: String
+    numInvoice: String
+    invoiceSeries: String
+    UUID: String
+    invoiceExchangeRate: String
+    amount: String
+    invoiceBalance: String
+    newInvoiceBalance: String
+    SATcodeT: String
+    descriptionT: String
+    taxFactorT: String
+    DRquotaT: String
+    DRbaseT: String
+    DRImportT: String
+    SATcodeR: String
+    descriptionR: String
+    taxFactorR: String
+    DRquotaR: String
+    DRbaseR: String
+    DRImportR: String
+}
+
 type Query {
     GET_ALL_BANK_DEPOSITS(date1: String!, date2: String!, idEnterprise: String!): [bankDeposits]
     GET_BANK_DEPOSIT_BY_ID(idBankDeposit: String!, idEnterprise: String!): [bankDeposits]
     GET_INVOICES_BANK_DEPOSITS_BY_IDINVOICE(idBankDeposit: String!, idEnterprise: String!): [invoices_bankDeposits]
     GET_UNPAID_INVOICES_BY_CLIENT(idClient: String!, idEnterprise: String!): [unpaid_Invoices]
+    GET_BANKDEPOSITDOCUMENT(idBankDeposit: String!): [bankDepositDocument]
+    GET_INVOICES_BANKDEPOSITDOCUMENT(idBankDeposit: String!): [invoice_bankDepositDocument]
 }
 
 input create_bankDeposit {

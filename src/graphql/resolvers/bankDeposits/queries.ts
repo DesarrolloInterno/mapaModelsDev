@@ -37,6 +37,24 @@ const bankDepositsQueries = {
             console.log(error);
         }
     },
+    GET_BANKDEPOSITDOCUMENT: async (_: any, {idBankDeposit}: any) => {
+        try{
+            const result = await bankDeposits.query("exec get_bankDepositDocument @idBankDeposit = "+ idBankDeposit);
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_INVOICES_BANKDEPOSITDOCUMENT: async (_: any, {idBankDeposit}: any) => {
+        try{
+            const result = await bankDeposits.query("exec get_invoices_bankDepositDocument @idBankDeposit = "+ idBankDeposit);
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default bankDepositsQueries;
