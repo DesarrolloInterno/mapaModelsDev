@@ -435,12 +435,37 @@ type customsClearanceMessage {
   customsClearanceMessage: String
 }
 
+type clientTravelOrderCustomsClearance {
+  id: String,
+  idClientTravelOrder: String,
+  customsClearance: String,
+  status: String
+}
+
+input setCustomsClearance {
+  idClientTravelOrder: String,
+  customsClearance: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+type return_setCustomsClearance {
+  idClientTravelOrderCustomsClearance: String,
+  message: String
+}
+
+input deleteCustomsClearance {
+  idClientTravelOrder: String,
+  userLoggedIn: String
+}
+
 type Query {
   GET_CLIENT_TRAVEL_ORDERS(date1: String!, date2: String!, idClient: String!): [clientTravelOrder]
   GET_CLIENT_SALES_FORMAT_AMOUNTS(idClient: String!): [clientSalesFormatAmounts]
   GET_CLIENT_ADDRESSES: [clientAdresses]
   GET_CLIENTS_CLIENT_TRAVEL_ORDERS(date1: String!, date2: String!, status: String!, idEnterprise: String!): [clientsClientTravelOrder]
   GET_CLIENTTRAVELORDER_BY_ID(idClientTravelOrder: String!, idEnterprise: String!): [clientsClientTravelOrder]
+  GET_ALL_CLIENT_TRAVEL_ORDER_CUSTOMS_CLEARANCE(idClientTravelOrder: String!): [clientTravelOrderCustomsClearance]
 }
 
 type Mutation {
@@ -457,4 +482,7 @@ type Mutation {
 	REJECT_CLIENT_TRAVEL_ORDER(input: clientTravelOrder_reject): [return_autorize_message_clientTravelOrder]
 	CREATE_CLIENT_TRAVEL_ORDER_REQUEST(input: new_clientTravelOrder_request):[return_clientTravelOrder_request]
 	DELETE_CLIENT_TRAVEL_ORDER(input: delete_clientTravelOrder):String
+
+	SET_CLIENT_TRAVEL_ORDER_CUSTOMS_CLEARANCE(input: setCustomsClearance): [return_setCustomsClearance]
+  	DELETE_ALL_CLIENT_TRAVEL_ORDER_CUSTOMS_CLEARANCE(input: deleteCustomsClearance): String
 }
