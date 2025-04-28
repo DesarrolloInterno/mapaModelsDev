@@ -70,11 +70,16 @@ type bankDepositDocument {
     numBankDeposit: String
     certificateNumber: String
     bankDepositDate: String
+    observations: String
     enterpriseFullAddress: String
     CFDItype: String
+    numberOperation: String
     client: String
     clientFiscalSystem: String
     clientRFC: String
+    clientFullAddress: String
+    currency: String
+    depositType: String
     amount: String
     exchangeRate: String
     dateCFDI: String
@@ -108,6 +113,12 @@ type invoice_bankDepositDocument {
     DRquotaR: String
     DRbaseR: String
     DRImportR: String
+    numPartialities: String
+}
+
+type newTokenBankDeposit {
+  tokenBankDeposit: String
+  numBankDeposit: String
 }
 
 type Query {
@@ -187,10 +198,24 @@ input deleteBankDeposit {
     userLoggedIn: String
 }
 
+input setTokenStampPaymentSupplement {
+  idBankDeposit: String
+  userLoggedIn: String
+}
+
+input setLinkPDFXMLBankDeposit {
+  idBankDeposit: String
+  linkPDF: String
+  linkXML: String
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_BANKDEPOSIT(input: create_bankDeposit): [return_bankDeposit]
   SETBANKDEPOSITINVOICE(input: set_bankDepositInvoices): String
   UPDATE_BANKDEPOSIT(input: ubdate_bankDeposit): [return_bankDeposit]
   REMOVE_INVOICE_BANKDEPOSIT(input: removeInvoiceBankDeposit): String
   DELETE_BANKDEPOSIT(input: deleteBankDeposit): String
+  SET_TOKEN_BANKDEPOSIT(input: setTokenStampPaymentSupplement): [newTokenBankDeposit]
+  SET_LINK_PDF_XML_BANKDEPOSIT(input: setLinkPDFXMLBankDeposit): String
 }

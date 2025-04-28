@@ -172,6 +172,43 @@ const bankDepositsMutations = {
         }
 
     },
+    SET_TOKEN_BANKDEPOSIT: async (_: any, {input}: any) => {
+        const {
+            idBankDeposit,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newid = await bankDeposits.query("exec set_token_stampPaymentSupplement " +
+                "@idBankDeposit = '" + idBankDeposit + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_LINK_PDF_XML_BANKDEPOSIT: async (_: any, {input}: any) => {
+        const {
+            idBankDeposit,
+            linkPDF,
+            linkXML,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await bankDeposits.query("exec set_link_pdf_xml_bankDeposit " +
+                "@idBankDeposit = '" + idBankDeposit + "', " +
+                "@linkPDF = '" + linkPDF + "', " +
+                "@linkXML = '" + linkXML + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Documentos de factura actualizados correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
 };
 
 export default bankDepositsMutations;
