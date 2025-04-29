@@ -300,6 +300,15 @@ const invoicesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_TRIP_CUSTOMS_CLEARANCE: async (_: any, {idTrip}: any) => {
+        try{
+            const result = await invoices.query("exec get_trip_customsClearance @idTrip = '"+ idTrip +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
