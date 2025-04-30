@@ -191,6 +191,7 @@ const bankDepositsMutations = {
     SET_LINK_PDF_XML_BANKDEPOSIT: async (_: any, {input}: any) => {
         const {
             idBankDeposit,
+            UUID,
             linkPDF,
             linkXML,
             userLoggedIn,
@@ -199,11 +200,60 @@ const bankDepositsMutations = {
         try {
             await bankDeposits.query("exec set_link_pdf_xml_bankDeposit " +
                 "@idBankDeposit = '" + idBankDeposit + "', " +
+                "@UUID = '" + UUID + "', " +
                 "@linkPDF = '" + linkPDF + "', " +
                 "@linkXML = '" + linkXML + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "' "
             );
             return 'Documentos de factura actualizados correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    UPDATE_BANKDEPOSIT_CFDI: async (_: any, {input}: any) => {
+        const {
+            idBankDeposit,
+            UUID,
+            dateCFDI,
+            codStatus,
+            satSeal,
+            SATcertificateNumber,
+            CFDIstamp,
+            SATStamp,
+            originalChain,
+            LinkQR,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await bankDeposits.query("exec update_bankdeposit_cfdi " +
+                "@idBankDeposit = '" + idBankDeposit + "', " +
+                "@UUID = '" + UUID + "', " +
+                "@dateCFDI = '" + dateCFDI + "', " +
+                "@codStatus = '" + codStatus + "', " +
+                "@satSeal = '" + satSeal + "', " +
+                "@SATcertificateNumber = '" + SATcertificateNumber + "', " +
+                "@CFDIstamp = '" + CFDIstamp + "', " +
+                "@SATStamp = '" + SATStamp + "', " +
+                "@originalChain = '" + originalChain + "', " +
+                "@LinkQR = '" + LinkQR + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'CFDI de compemento pago actualizado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    UPDATEBANKDEPOSITBALANCE: async (_: any, {input}: any) => {
+        const {
+            idBankDeposit
+        } = input;
+
+        try {
+            await bankDeposits.query("exec update_bankDeposit_balanceDue @idBankDeposit = '" + idBankDeposit + "' ");
+            return 'Deposito actualizado correctamente'
         } catch (error) {
             console.log(error);
         }
