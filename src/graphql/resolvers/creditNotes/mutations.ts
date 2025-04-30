@@ -162,6 +162,80 @@ const creditNotesMutations = {
             console.log(error);
         }
 
+    },
+    UPDATE_CREDIT_NOTE_CFDI: async (_: any, {input}: any) => {
+        const {
+            idCreditNote,
+            UUID,
+            dateCFDI,
+            codStatus,
+            satSeal,
+            SATcertificateNumber,
+            CFDIstamp,
+            SATStamp,
+            originalChain,
+            LinkQR,
+            xmlText,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await creditNotes.query("exec update_credit_note_cfdi " +
+                "@idCreditNote = '" + idCreditNote + "', " +
+                "@UUID = '" + UUID + "', " +
+                "@dateCFDI = '" + dateCFDI + "', " +
+                "@codStatus = '" + codStatus + "', " +
+                "@satSeal = '" + satSeal + "', " +
+                "@SATcertificateNumber = '" + SATcertificateNumber + "', " +
+                "@CFDIstamp = '" + CFDIstamp + "', " +
+                "@SATStamp = '" + SATStamp + "', " +
+                "@originalChain = '" + originalChain + "', " +
+                "@LinkQR = '" + LinkQR + "', " +
+                "@xmlText = '" + xmlText + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'CFDI de nota de crédito actualizado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    SET_TOKEN_STAMP_CREDIT_NOTE: async (_: any, {input}: any) => {
+        const {
+            idCreditNote,
+            userLoggedIn
+        } = input;
+
+        try {
+            const newid = await creditNotes.query("exec set_token_stampCreditNote " +
+                "@idCreditNote = '" + idCreditNote + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_LINK_PDF_XML_CREDIT_NOTE: async (_: any, {input}: any) => {
+        const {
+            idCreditNote,
+            linkXML,
+            linkCreditNotePDF,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await creditNotes.query("exec set_link_pdf_xml_creditNote " +
+                "@idCreditNote = '" + idCreditNote + "', " +
+                "@linkXML = '" + linkXML + "', " +
+                "@linkCreditNotePDF = '" + linkCreditNotePDF + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Documentos de nota de credito actualizados correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 }
 

@@ -41,6 +41,15 @@ const clientTravelOrderQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_CLIENT_TRAVEL_ORDER_CUSTOMS_CLEARANCE: async (_: any, {idClientTravelOrder}: any) => {
+        try{
+            const result = await clientTravelOrder.query("exec get_all_clientTravelOrder_customsClearance @idClientTravelOrder = '"+ idClientTravelOrder +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

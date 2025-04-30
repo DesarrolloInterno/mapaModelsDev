@@ -282,6 +282,13 @@ type tripOrderForCrossings {
   numTrip: String
 }
 
+type tripOrderCustomsClearance {
+  id: String,
+  idTripOrder: String,
+  customsClearance: String,
+  status: String
+}
+
 type Query {
   GET_ALL_TRIP_ORDER(typeFilter:String!, date: String!, date1: String!, date2: String!, idEnterprise: String!): [tripOrder]
   GET_ALL_CROSSING_TRIP_ORDER(typeFilter:String!, date: String!, date1: String!, date2: String!, idEnterprise:String!): [tripOrder]
@@ -290,6 +297,7 @@ type Query {
   GET_ALL_TRIP_ORDER_BY_ID_TRIP_ORDER(idTripOrder: String!, idEnterprise: String!): [tripOrderById]
   GET_TRIP_ORDER_AMOUNTS_BY_ID_TRIP_ORDER(idTripOrder: String!): [tripOrderAmounts]
   GET_ALL_TRIP_ORDER_FOR_CROSSING(date1: String!, date2: String!, idEnterprise: String!): [tripOrderForCrossings]
+  GET_ALL_TRIP_ORDER_CUSTOMS_CLEARANCE(idTripOrder: String!): [tripOrderCustomsClearance]
 }
 
 input new_tripOrder {
@@ -493,6 +501,23 @@ input delete_tripOrderAmounts_by_idTripOrder {
   userLoggedIn: String
 }
 
+input setCustomsClearance {
+  idTripOrder: String,
+  customsClearance: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+type return_setCustomsClearance {
+  idTripOrderCustomsClearance: String,
+  message: String
+}
+
+input deleteCustomsClearance {
+  idTripOrder: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_TRIPORDER(input: new_tripOrder): String
   CREATE_TRIPORDER_CROSSING(input: new_tripOrder): String
@@ -519,4 +544,6 @@ type Mutation {
   UPDATE_TRIP_ORDER_AMOUNTS(input: update_tripOrderAmounts): String
   DELETE_TRIP_ORDER_AMOUNTS_BY_ID_TRIP_ORDER(input: delete_tripOrderAmounts_by_idTripOrder): String
   SET_ORDER_ORIGIN_FOR_CROSSING(input: ser_orderOrigin_for_crossing): String
+  SET_TRIP_ORDER_CUSTOMS_CLEARANCE(input: setCustomsClearance): [return_setCustomsClearance]
+  DELETE_ALL_TRIP_ORDER_CUSTOMS_CLEARANCE(input: deleteCustomsClearance): String
 }

@@ -472,6 +472,44 @@ const ClientTravelOrderMutations = {
             console.log(error);
         }
 
+    },
+    SET_CLIENT_TRAVEL_ORDER_CUSTOMS_CLEARANCE: async (_: any, {input}: any) => {
+        const {
+            idClientTravelOrder,
+            customsClearance,
+            userLoggedIn,
+            idEnterprise
+        } = input;
+
+        try {
+            const newRecord = await clientTravelOrder.query("exec set_clientTravelOrder_customsClearance " +
+                "@idClientTravelOrder = '" + idClientTravelOrder + "', " +
+                "@customsClearance = '" + customsClearance + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    DELETE_ALL_CLIENT_TRAVEL_ORDER_CUSTOMS_CLEARANCE: async (_: any, {input}: any) => {
+        const {
+            idClientTravelOrder,
+            userLoggedIn
+        } = input;
+
+        try {
+            await clientTravelOrder.query("exec delete_all_clientTravelOrder_customsClearance " +
+                "@idClientTravelOrder = '" + idClientTravelOrder + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Régimen aduanero eliminado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 }
 

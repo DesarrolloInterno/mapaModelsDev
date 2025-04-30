@@ -651,6 +651,10 @@ type invoicesToRelate {
   status: String
 }
 
+type tripCustomsClearance {
+  customsClearance: String
+}
+
 type Query {
   GET_INVOICES_BY_TOKEN(token: String!): [invoiceToken]
   GET_INVOICEAMOUNTS(idInvoice: String!): [invoiceAmounts]
@@ -681,6 +685,7 @@ type Query {
   GET_INVOICE_TERMS_AND_CONDITIONS(idEnterprise: String!): [invoiceTermsAndConditions]
   GET_ALL_RELATED_INVOICES_BY_ID_INVOICE(idInvoice: String!, idEnterprise: String!): [invoicesToRelate]
   GET_ALL_INVOICES_BY_CLIENT_TO_RELATE(idClient: String!, idEnterprise: String!, folioFilter: String!): [invoicesToRelate]
+  GET_TRIP_CUSTOMS_CLEARANCE(idTrip: String!): [tripCustomsClearance]
 }
 
 input setNewInvoices {

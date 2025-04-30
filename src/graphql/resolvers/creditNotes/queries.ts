@@ -74,6 +74,27 @@ const creditNotesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_CREDIT_NOTE_BY_TOKEN: async (_: any, {token}: any) => {
+        try{
+            const encrypt = process.env.ENCRYPT;
+            const result = await creditNotes.query("exec get_creditNote_by_token @token = '"+ token +"', @encrypt = '"+encrypt+"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_CREDIT_NOTE_AMOUNTS: async (_: any, {
+        idCreditNote
+    }: any) => {
+        try{
+            const result = await creditNotes.query("exec get_creditNote_amounts @idCreditNote = '"+ idCreditNote +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 

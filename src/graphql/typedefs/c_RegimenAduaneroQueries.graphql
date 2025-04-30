@@ -4,6 +4,7 @@ type c_RegimenAduaneroQueries {
     description: String
     status: String
     ImpoExpo: String
+    name: String
 }
 
 type Query {
