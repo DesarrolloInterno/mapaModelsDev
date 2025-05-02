@@ -17,10 +17,12 @@ type bankDeposits {
     docPDF: String
     docXML: String
     depositType: String
+    bankdeposits: String
 }
 
 type return_bankDeposit {
-    idBankDeposit: Int
+    idBankDeposit: String
+    numBankDeposit: String
     message: String
 }
 
@@ -30,25 +32,160 @@ type invoices_bankDeposits {
 	numBankDeposit: Int,
 	idInvoice: Int,
 	numInvoice: Int,
+    invoiceSeries: String,
 	idClient: Int,
 	client: String,
 	invoiceDate: String,
 	invoiceCurrency: String,
+    invoiceExchangeRate: String,
+    invoiceTotal: String,
 	invoiceBalance: String,
 	depositFee: String,
 	newInvoiceBalance: String,
 	amount: String,
-	status: String
+	status: String,
+    keyTable: String,
 }
 type unpaid_Invoices {
     id: ID,
     numInvoice: Int,
+    invoiceSeries: String,
     idClient: Int,
     client: String,
     invoiceDate: String,
     currency: String,
     balanceDue: String,
-    status: String
+    total: String,
+    status: String,
+    exchangeRate: String
+    depositFee: String
+    newInvoiceBalance: String
+    amount: String
+    selectedInvoices: Int
+    keyTable: String
+}
+
+type bankDepositDocument {
+    id: String
+    numBankDeposit: String
+    certificateNumber: String
+    bankDepositDate: String
+    observations: String
+    enterpriseFullAddress: String
+    CFDItype: String
+    numberOperation: String
+    client: String
+    clientFiscalSystem: String
+    clientRFC: String
+    clientFullAddress: String
+    currency: String
+    depositType: String
+    amount: String
+    exchangeRate: String
+    dateCFDI: String
+    UUID: String
+    originalChain: String
+    CFDIstamp: String
+    LinkQR: String
+    SATStamp: String
+    idEnterprise: String
+    idBankDepositCFDI: String
+}
+
+type invoice_bankDepositDocument {
+    id: String
+    idInvoice: String
+    numInvoice: String
+    invoiceSeries: String
+    UUID: String
+    invoiceExchangeRate: String
+    amount: String
+    invoiceBalance: String
+    newInvoiceBalance: String
+    SATcodeT: String
+    descriptionT: String
+    taxFactorT: String
+    DRquotaT: String
+    DRbaseT: String
+    DRImportT: String
+    SATcodeR: String
+    descriptionR: String
+    taxFactorR: String
+    DRquotaR: String
+    DRbaseR: String
+    DRImportR: String
+    numPartialities: String
+}
+
+type newTokenBankDeposit {
+  tokenBankDeposit: String
+  numBankDeposit: String
+}
+
+type bankToken {
+    idBankDeposit: String
+	numBankDeposit: String
+	date: String
+	certificateNumber: String
+	subtotal: String
+	currency: String
+	total: String
+	enterpriseZipCode: String
+	enterpriseRFC: String
+	enterprise: String
+	enterpriseFiscalSystemCode: String
+	idClient: String
+	client: String
+	clientRFC: String
+	clientTAXID: String
+	clientZipCode: String
+	clientFiscalSystem: String
+	clientUseOfCFDI: String
+	totalAmountPayment: String
+	totalIVAWithholding: String
+	totalTBasedIVA16: String
+	totalTTaxIVA16: String
+	dateBankDeposit: String
+	paymentMethodP: String
+	currencyP: String
+	amount: String
+	numOperation: String
+	beneficiaryAccountNumber: String
+	exchangeRateP: String
+	digitalStampCertificate: String
+	certificateKey: String
+	passwordDigitalStampCertificate: String
+    cfdiExportType: String
+    IVAFactor: String
+    IVApercentage: String
+    IVACode: String
+}
+
+type stamp_invoices_bankDeposits{
+    id: String
+    idInvoice: String
+    equivalenceDR: String
+    numInvoice: String
+    invoiceSeries: String
+    IdDocumento: String
+    amount: String
+    invoiceBalance: String
+    newInvoiceBalance: String
+    invoiceCurrency: String
+    numPartialities: String
+    taxRate: String
+    DRbaseR: String
+    DRImportR: String
+    SATcodeR: String
+    DRquotaR: String
+    taxFactorR: String
+    descriptionR: String
+    DRbaseT: String
+    DRImportT: String
+    SATcodeT: String
+    DRquotaT: String
+    taxFactorT: String
+    descriptionT: String
 }
 
 type Query {
@@ -56,6 +193,12 @@ type Query {
     GET_BANK_DEPOSIT_BY_ID(idBankDeposit: String!, idEnterprise: String!): [bankDeposits]
     GET_INVOICES_BANK_DEPOSITS_BY_IDINVOICE(idBankDeposit: String!, idEnterprise: String!): [invoices_bankDeposits]
     GET_UNPAID_INVOICES_BY_CLIENT(idClient: String!, idEnterprise: String!): [unpaid_Invoices]
+    GET_BANKDEPOSITDOCUMENT(idBankDeposit: String!): [bankDepositDocument]
+    GET_BANKDEPOSITDOCUMENTCFDI(UUID: String!): [bankDepositDocument]
+    GET_INVOICES_BANKDEPOSITDOCUMENT(idBankDeposit: String!): [invoice_bankDepositDocument]
+    GET_INVOICES_BANKDEPOSITDOCUMENTBYIDBANKDEPOSITCFDI(idBankDepositCFDI: String!): [invoice_bankDepositDocument]
+    GET_BANKDEPOSITBYTOKEN(token: String!): [bankToken]
+    GET_INVOICEBANKDEPOSIT(idBankDeposit: String!): [stamp_invoices_bankDeposits]
 }
 
 input create_bankDeposit {
@@ -70,8 +213,101 @@ input create_bankDeposit {
     depositType: String
     userLoggedIn: String
     idEnterprise: String
+    balanceDue: String
+}
+
+input ubdate_bankDeposit {
+    idBankDeposit: String
+    numBankDeposit: String
+    idClient: String
+    idBankAccount: String
+    exchangeRate: String
+    amount: String
+    reference: String
+    bankDepositDate: String
+    bankDepositControlDate: String
+    observations: String
+    depositType: String
+    userLoggedIn: String
+    balanceDue: String
+}
+
+input set_bankDepositInvoices {
+    idBankdepositInvoices: String
+	idBankDeposit: String
+	numBankDeposit: String 
+	bankDepositCurrency: String
+	idInvoice: String
+	numInvoice: String
+	invoiceSeries: String
+	idClient: String
+	client: String
+	invoiceDate: String
+	invoiceCurrency: String
+	invoiceExchangeRate: String
+	invoiceTotal: String
+	invoiceBalance: String
+	depositFee: String
+	newInvoiceBalance: String
+	amount: String
+	status: String
+	keyTable: String
+	bankDepositExchangeRate: String 
+	userLoggedIn: String
+    idEnterprise: String
+}
+
+input removeInvoiceBankDeposit {
+    idInvoicesBankDeposit: String
+    idBankDeposit: String
+    idInvoice: String
+    userLoggedIn: String
+}
+
+input deleteBankDeposit {
+    idBankDeposit: String
+    userLoggedIn: String
+}
+
+input setTokenStampPaymentSupplement {
+  idBankDeposit: String
+  userLoggedIn: String
+}
+
+input setLinkPDFXMLBankDeposit {
+  idBankDeposit: String
+  UUID: String
+  linkPDF: String
+  linkXML: String
+  userLoggedIn: String
+}
+
+input ubdatecfdiBankDeposit {
+    idBankDeposit: String
+    UUID: String
+    dateCFDI: String
+    codStatus: String
+    satSeal: String
+    SATcertificateNumber: String
+    CFDIstamp: String
+    SATStamp: String
+    originalChain: String
+    LinkQR: String
+    userLoggedIn: String
+}
+
+input updateBankDepositBalance {
+    idBankDeposit: String
 }
 
 type Mutation {
   CREATE_BANKDEPOSIT(input: create_bankDeposit): [return_bankDeposit]
+  SETBANKDEPOSITINVOICE(input: set_bankDepositInvoices): String
+  UPDATE_BANKDEPOSIT(input: ubdate_bankDeposit): [return_bankDeposit]
+  REMOVE_INVOICE_BANKDEPOSIT(input: removeInvoiceBankDeposit): String
+  DELETE_BANKDEPOSIT(input: deleteBankDeposit): String
+  SET_TOKEN_BANKDEPOSIT(input: setTokenStampPaymentSupplement): [newTokenBankDeposit]
+  SET_LINK_PDF_XML_BANKDEPOSIT(input: setLinkPDFXMLBankDeposit): String
+  UPDATE_BANKDEPOSIT_CFDI(input: ubdatecfdiBankDeposit): String
+  UPDATEBANKDEPOSITBALANCE(input: updateBankDepositBalance): String
 }
