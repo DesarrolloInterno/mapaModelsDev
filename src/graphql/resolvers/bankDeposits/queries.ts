@@ -48,7 +48,7 @@ const bankDepositsQueries = {
     },
     GET_BANKDEPOSITDOCUMENTCFDI: async (_: any, {UUID}: any) => {
         try{
-            const result = await bankDeposits.query("exec get_bankDepositCFDIDocument @UUID = "+ UUID);
+            const result = await bankDeposits.query("exec get_bankDepositCFDIDocument @UUID = '"+ UUID + "' ");
             return result;
 
         } catch (error) {
@@ -84,14 +84,23 @@ const bankDepositsQueries = {
         }
     },
     GET_INVOICEBANKDEPOSIT: async (_: any, {idBankDeposit}: any) => {
-            try{
-                const result = await bankDeposits.query("exec get_invoices_bankDeposit @idBankDeposit = '"+ idBankDeposit +"' ");
-                return result;
-    
-            } catch (error) {
-                console.log(error);
-            }
-        },
+        try{
+            const result = await bankDeposits.query("exec get_invoices_bankDeposit @idBankDeposit = '"+ idBankDeposit +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_BANKDEPOSITCFDIBYIDBANKDEPOSIT: async (_: any, {idBankDeposit}: any) => {
+        try{
+            const result = await bankDeposits.query("exec get_bankDepositCFDI_by_idBankDeposit @idBankDeposit = '"+ idBankDeposit +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default bankDepositsQueries;

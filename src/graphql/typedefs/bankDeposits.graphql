@@ -188,6 +188,15 @@ type stamp_invoices_bankDeposits{
     descriptionT: String
 }
 
+type bankDepositDocumentCFDI {
+    id: String
+    UUID: String
+    dateCFDI: String
+    docPdf: String
+    docXml: String
+    status: String
+}
+
 type Query {
     GET_ALL_BANK_DEPOSITS(date1: String!, date2: String!, idEnterprise: String!): [bankDeposits]
     GET_BANK_DEPOSIT_BY_ID(idBankDeposit: String!, idEnterprise: String!): [bankDeposits]
@@ -199,6 +208,7 @@ type Query {
     GET_INVOICES_BANKDEPOSITDOCUMENTBYIDBANKDEPOSITCFDI(idBankDepositCFDI: String!): [invoice_bankDepositDocument]
     GET_BANKDEPOSITBYTOKEN(token: String!): [bankToken]
     GET_INVOICEBANKDEPOSIT(idBankDeposit: String!): [stamp_invoices_bankDeposits]
+    GET_BANKDEPOSITCFDIBYIDBANKDEPOSIT(idBankDeposit: String!): [bankDepositDocumentCFDI]
 }
 
 input create_bankDeposit {
