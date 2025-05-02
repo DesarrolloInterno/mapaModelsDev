@@ -367,6 +367,7 @@ type invoice {
   UUID: String
   docInvoicePdf: String
   TAXID: String
+  invoiceObservations: String
 }
 
 type invoiceDocument {
@@ -440,6 +441,7 @@ type invoiceDocument {
   LinkQR: String
   idCCP: String
   CFDItype: String
+  invoiceObservations: String
 }
 
 type newToken {
@@ -506,7 +508,8 @@ type assetInvoices{
 	exchangeRate: String, 
   UUID: String, 
   docInvoicePdf: String,
-  clientTAXID: String
+  clientTAXID: String,
+  invoiceObservations: String
 }
 
 type assetInvoiceDocument {
@@ -546,7 +549,8 @@ type assetInvoiceDocument {
   CFDIstamp: String,
   SATStamp: String,
   LinkQR: String,
-  CFDItype: String
+  CFDItype: String,
+  invoiceObservations: String
 }
 
 type highestBilledClients{
@@ -701,6 +705,7 @@ input setNewInvoices2 {
   currency: String
   exchangeRate: String
   userLoggedIn: String
+  invoiceObservations: String
 }
 
 input updateInvoices2 {
@@ -712,6 +717,7 @@ input updateInvoices2 {
   currency: String
   exchangeRate: String
   userLoggedIn: String
+  invoiceObservations: String
 }
 
 input setCFDIInvoices {
@@ -823,7 +829,8 @@ input newAssetInvoice {
   userLoggedIn: String,
   idPaymentMethod: String,
   idUseOfCFDI: String,
-  idPayment: String
+  idPayment: String,
+  invoiceObservations: String
 }
 
 type return_newAssetInvoice {
@@ -864,7 +871,8 @@ input updateAssetInvoice {
   userLoggedIn: String,
   idPaymentMethod: String,
   idUseOfCFDI: String,
-  idPayment: String
+  idPayment: String,
+  invoiceObservations: String
 }
 
 input setAssetInvoiceAmount {
@@ -937,6 +945,17 @@ input deleteRelatedInvoices{
   idEnterprise: String
 }
 
+type return_invoiceObservations {
+  idInvoice: String,
+  message: String
+}
+
+input updateInvoiceObservations{
+  idInvoice: String,
+  invoiceObservations: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_INVOICE_FROM_TRIP(input: setNewInvoices): [newInvoices]
   CREATE_INVOICE(input: setNewInvoices2): [newInvoices2]
@@ -961,4 +980,5 @@ type Mutation {
   SET_TOKENCANCEL_STAMPASSETINVOICE(input: setTokenStampAssetInvoice): [newTokenAssetInvoice]
   RELATE_INVOICES(input: relateInvoice): [return_relatedInvoice]
   DELETE_RELATED_INVOICES_BY_ID_INVOICE(input: deleteRelatedInvoices): String
+  UPDATE_INVOICE_OBSERVATIONS(input: updateInvoiceObservations): [return_invoiceObservations]
 }
