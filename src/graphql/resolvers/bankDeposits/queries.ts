@@ -101,6 +101,16 @@ const bankDepositsQueries = {
             console.log(error);
         }
     },
+    GET_BANKDEPOSITSTAMPFORCANCEL: async (_: any, {token}: any) => {
+        try{
+            const encrypt = process.env.ENCRYPT;
+            const result = await bankDeposits.query("exec get_bankDepositStamp_for_cancel @token = '"+ token +"', @encrypt = '"+encrypt+"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
 };
 
 export default bankDepositsQueries;

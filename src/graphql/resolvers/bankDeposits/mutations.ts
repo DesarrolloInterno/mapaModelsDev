@@ -259,6 +259,64 @@ const bankDepositsMutations = {
         }
 
     },
+    UPDATE_BANKDEPOSIT_CANCEL_CFDI: async (_: any, {input}: any) => {
+        const {
+            idBankDepositCFDI,
+            dateCancelCFDI,
+            statusUUID,
+            statusCancelCFDI,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await bankDeposits.query("exec update_bankDeposit_cancel_cfdi " +
+                "@idBankDepositCFDI = '" + idBankDepositCFDI + "', " +
+                "@dateCancelCFDI = '" + dateCancelCFDI + "', " +
+                "@statusUUID = '" + statusUUID + "', " +
+                "@statusCancelCFDI = '" + statusCancelCFDI + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Acuse cancelación actualizado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    SET_TOKENCANCEL_STAMPBANKDEPOSIT: async (_: any, {input}: any) => {
+        const {
+            idBankDepositCFDI,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newid = await bankDeposits.query("exec set_tokenCancel_stampBankDepositUUID " +
+                "@idBankDepositCFDI = '" + idBankDepositCFDI + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_LINK_ACUSE_BANKDEPOSITUUID: async (_: any, {input}: any) => {
+        const {
+            idBankDepositUUID,
+            linkXML,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await bankDeposits.query("exec set_link_acuse_BankDepositUUID " +
+                "@idBankDepositUUID = '" + idBankDepositUUID + "', " +
+                "@linkXML = '" + linkXML + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Acuse de cancelación actualizado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
 };
 
 export default bankDepositsMutations;
