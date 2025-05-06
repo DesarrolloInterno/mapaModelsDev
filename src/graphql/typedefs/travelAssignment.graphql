@@ -153,6 +153,7 @@ type travelAssignmentTrip {
   docPdf: String
   idInvoice: String
   numInvoice: String
+  hasPayment: Int
 }
 
 type responseCreateTrip {
@@ -172,6 +173,7 @@ type responseCreateTrip {
   messagePreReceiptMovement: String
 	idPreReceiptMovement: String
   idTrip: String
+  hasPayment: Int
 }
 
 type tripSafetyEquipment {
