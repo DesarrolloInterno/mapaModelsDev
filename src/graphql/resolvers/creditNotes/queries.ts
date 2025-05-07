@@ -95,6 +95,18 @@ const creditNotesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_CREDITNOTESTAMPFORCANCEL: async (_: any, {token}: any) => {
+        try{
+            const result = await creditNotes.query("exec get_creditNote_for_cancel " +
+            "@token = '"+ token +"', " +
+            "@encrypt = '"+process.env.ENCRYPT+"' "
+            );
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 

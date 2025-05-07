@@ -290,6 +290,17 @@ type stampCreditNoteAmounts {
   taxCode: String
 }
 
+type creditNote_for_cancel{
+  id: String,
+	previousUUID: String,
+  currentUUID: String,
+  cancelationCode: String,
+  digitalStampCertificate: String,
+  certificateKey: String,
+  passwordDigitalStampCertificate: String,
+  enterpriseRFC: String
+}
+
 type Query {
     GET_ALL_CREDIT_NOTES(date1: String!, date2: String!, date: String!, idEnterprise: String!): [creditNotes]
     GET_CREDIT_NOTE_BY_ID(idCreditNote: String!, idEnterprise: String!): [creditNoteById]
@@ -300,6 +311,7 @@ type Query {
     GET_CREDIT_NOTES_RELATED_CREDIT_NOTE(idCreditNote: String!): [relatedCreditNotes]
     GET_CREDIT_NOTE_BY_TOKEN(token: String!): [creditNoteToken]
     GET_CREDIT_NOTE_AMOUNTS(idCreditNote: String!): [stampCreditNoteAmounts]
+    GET_CREDITNOTESTAMPFORCANCEL(token: String!): [creditNote_for_cancel]
 }
 
 input newCreditNote {
@@ -415,6 +427,30 @@ input setLinkPDFXMLCreditNote {
   userLoggedIn: String
 }
 
+input deleteCreditNote {
+    idCreditNote: String
+    userLoggedIn: String
+}
+
+input creditNoteCancelCfdi {
+  idCreditNote: String,
+  dateCancelCFDI: String,
+  statusUUID: String,
+  statusCancelCFDI: String,
+  userLoggedIn: String
+}
+
+type newTokenCreditNote{
+  tokenCreditNote: String, 
+  numCreditNote: String
+}
+
+input setLinkAcuseCreditNote {
+  idCreditNote: String
+  linkXML: String
+  userLoggedIn: String
+}
+
 type Mutation {
     CREATE_CREDIT_NOTE(input: newCreditNote): [return_newCreditNote]
     SET_CREDIT_NOTE_AMOUNTS(input: setCreditNoteAmount): String
@@ -424,4 +460,8 @@ type Mutation {
     UPDATE_CREDIT_NOTE_CFDI(input: setCFDICreditNote): String
     SET_TOKEN_STAMP_CREDIT_NOTE(input: setTokenStampCreditNote): [newTokenCreditNote]
     SET_LINK_PDF_XML_CREDIT_NOTE(input: setLinkPDFXMLCreditNote): String
+    DELETE_CREDIT_NOTE(input: deleteCreditNote): String
+    UPDATE_CREDIT_NOTE_CANCEL_CFDI(input: creditNoteCancelCfdi): String
+    SET_TOKENCANCEL_STAMP_CREDITNOTE(input: setTokenStampCreditNote): [newTokenCreditNote]
+    SET_LINK_ACUSE_CREDIT_NOTE(input: setLinkAcuseCreditNote): String
 }

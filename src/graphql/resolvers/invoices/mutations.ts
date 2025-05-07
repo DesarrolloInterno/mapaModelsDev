@@ -177,6 +177,7 @@ const invoicesMutations = {
             currency,
             exchangeRate,
             userLoggedIn,
+            invoiceObservations
         } = input;
 
         try {
@@ -187,7 +188,8 @@ const invoicesMutations = {
                 "@idPayment = '" + idPayment + "', " +
                 "@currency = '" + currency + "', " +
                 "@exchangeRate = '" + exchangeRate + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@invoiceObservations = '" + invoiceObservations + "' "
             );
             return newid;
         } catch (error) {
@@ -256,6 +258,7 @@ const invoicesMutations = {
             currency,
             exchangeRate,
             userLoggedIn,
+            invoiceObservations
         } = input;
 
         try {
@@ -267,7 +270,8 @@ const invoicesMutations = {
                 "@idPayment = '" + idPayment + "', " +
                 "@currency = '" + currency + "', " +
                 "@exchangeRate = '" + exchangeRate + "', " +
-                "@userLoggedIn = '" + userLoggedIn + "' "
+                "@userLoggedIn = '" + userLoggedIn + "', " +
+                "@invoiceObservations = '" + invoiceObservations + "' "
             );
             return newid;
         } catch (error) {
@@ -315,7 +319,8 @@ const invoicesMutations = {
             userLoggedIn,
             idPaymentMethod,
             idUseOfCFDI,
-            idPayment
+            idPayment,
+            invoiceObservations
         } = input;
 
         try {
@@ -327,7 +332,8 @@ const invoicesMutations = {
                 "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@idPaymentMethod = '" + idPaymentMethod + "', " +
                 "@idUseOfCFDI = '" + idUseOfCFDI + "', " +
-                "@idPayment = '" + idPayment + "' "
+                "@idPayment = '" + idPayment + "', " +
+                "@invoiceObservations = '" + invoiceObservations + "' "
             );
             return newid;
         } catch (error) {
@@ -400,7 +406,8 @@ const invoicesMutations = {
             userLoggedIn,
             idPaymentMethod,
             idUseOfCFDI,
-            idPayment
+            idPayment,
+            invoiceObservations
         } = input;
 
         try {
@@ -413,7 +420,8 @@ const invoicesMutations = {
                 "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@idPaymentMethod = '" + idPaymentMethod + "', " +
                 "@idUseOfCFDI = '" + idUseOfCFDI + "', " +
-                "@idPayment = '" + idPayment + "' "
+                "@idPayment = '" + idPayment + "', " +
+                "@invoiceObservations = '" + invoiceObservations + "' "
             );
             return newid;
         } catch (error) {
@@ -548,6 +556,24 @@ const invoicesMutations = {
             console.log(error);
         }
 
+    },
+    UPDATE_INVOICE_OBSERVATIONS: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            invoiceObservations,
+            userLoggedIn
+        } = input;
+
+        try {
+            const newid = await invoices.query("exec update_invoiceObservations " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@invoiceObservations = '" + invoiceObservations + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

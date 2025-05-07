@@ -236,6 +236,81 @@ const creditNotesMutations = {
             console.log(error);
         }
 
+    },
+    DELETE_CREDIT_NOTE: async (_: any, {input}: any) => {
+        const {
+            idCreditNote,
+            userLoggedIn
+        } = input;
+
+        try {
+            await creditNotes.query("exec delete_creditNote " +
+            "@idCreditNote = '" + idCreditNote + "', " +
+            "@userLoggedIn = '" + userLoggedIn + "'"
+            );
+            return 'Nota eliminada correctamente';
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    UPDATE_CREDIT_NOTE_CANCEL_CFDI: async (_: any, {input}: any) => {
+        const {
+            idCreditNote,
+            dateCancelCFDI,
+            statusUUID,
+            statusCancelCFDI,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await creditNotes.query("exec update_creditNote_cancel_cfdi " +
+                "@idCreditNote = '" + idCreditNote + "', " +
+                "@dateCancelCFDI = '" + dateCancelCFDI + "', " +
+                "@statusUUID = '" + statusUUID + "', " +
+                "@statusCancelCFDI = '" + statusCancelCFDI + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Acuse cancelación de nota de crédito actualizado correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    SET_TOKENCANCEL_STAMP_CREDITNOTE: async (_: any, {input}: any) => {
+        const {
+            idCreditNote,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newid = await creditNotes.query("exec set_tokenCancel_stampCreditNotes " +
+                "@idCreditNote = '" + idCreditNote + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_LINK_ACUSE_CREDIT_NOTE: async (_: any, {input}: any) => {
+        const {
+            idCreditNote,
+            linkXML,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await creditNotes.query("exec set_link_acuse_creditNote " +
+                "@idCreditNote = '" + idCreditNote + "', " +
+                "@linkXML = '" + linkXML + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Documentos de factura actualizados correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 }
 
