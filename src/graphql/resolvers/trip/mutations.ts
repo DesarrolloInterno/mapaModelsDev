@@ -111,7 +111,8 @@ const tripMutations = {
 	        crossingPortion,
 	        mexicanPortion,
             countryOrigin,
-            countryDestination
+            countryDestination,
+            linkGps
         } = input;
 
         try {
@@ -138,7 +139,8 @@ const tripMutations = {
                 "@crossingPortion = '" + crossingPortion + "', " +
                 "@mexicanPortion = '" + mexicanPortion + "', " +
                 "@countryOrigin = '" + countryOrigin + "', " +
-                "@countryDestination = '" + countryDestination + "' "
+                "@countryDestination = '" + countryDestination + "', " +
+                "@linkGps = '" + linkGps + "' "
             );
             return newRecord;
         } catch (error) {
@@ -169,7 +171,8 @@ const tripMutations = {
 	        crossingPortion,
 	        mexicanPortion,
             countryOrigin,
-            countryDestination
+            countryDestination,
+            linkGps
         } = input;
 
         try {
@@ -196,7 +199,8 @@ const tripMutations = {
                 "@crossingPortion = '" + crossingPortion + "', " +
                 "@mexicanPortion = '" + mexicanPortion + "', " +
                 "@countryOrigin = '" + countryOrigin + "', " +
-                "@countryDestination = '" + countryDestination + "' "
+                "@countryDestination = '" + countryDestination + "', " +
+                "@linkGps = '" + linkGps + "' "
             );
             return newRecord;
         } catch (error) {

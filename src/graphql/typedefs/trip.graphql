@@ -281,7 +281,8 @@ type trips {
   UUID: String,
   cfdiType: String,
   idInvoice: String,
-  numInvoice: String
+  numInvoice: String,
+  linkGps: String
 }
 
 type tripsForInvoice {
@@ -397,7 +398,8 @@ input update_trip2 {
   crossingPortion: String,
   mexicanPortion: String,
   countryOrigin: String,
-  countryDestination: String
+  countryDestination: String,
+  linkGps: String
 }
 
 type return_new_trip{
@@ -557,7 +559,8 @@ input create_trip2 {
   crossingPortion: String,
   mexicanPortion: String,
   countryOrigin: String,
-  countryDestination: String
+  countryDestination: String,
+  linkGps: String
 }
 
 type tripsForTracking {
