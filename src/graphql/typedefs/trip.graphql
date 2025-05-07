@@ -280,7 +280,8 @@ type trips {
   UUID: String,
   cfdiType: String,
   idInvoice: String,
-  numInvoice: String
+  numInvoice: String,
+  hasPayment: Int
 }
 
 type tripsForInvoice {
