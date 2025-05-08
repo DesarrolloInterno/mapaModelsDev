@@ -278,6 +278,15 @@ const tripQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_INFORMATION_TRIP_BY_ID: async (_: any, {idTrip}: any) => {
+        try{
+            const result = await trip.query("exec get_informationTrip_by_id @idTrip = '" + idTrip + "'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

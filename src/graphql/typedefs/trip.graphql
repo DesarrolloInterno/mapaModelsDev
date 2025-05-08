@@ -637,7 +637,11 @@ type tripsForTracking {
   isRefrigerated: Int,
   placementDate: String,
   arrivalDate: String
-  warehouseDeliveryDate: String
+  warehouseDeliveryDate: String,
+  docInvoicePdf: String, 
+  docPdf: String, 
+  docXml: String,
+  idInvoice: String
 }
 
 type tripTracking_observations {
@@ -1323,6 +1327,36 @@ type nonBillableTrips {
   isNonBillable: String
 }
 
+type return_informationTrip {
+  id: String, 
+  numTrip: String, 
+  tripType: String, 
+  isRefrigerated: String, 
+  isEmpty: String, 
+  isCrossing: String, 
+  isDoorDoor: String, 
+  isEmptyPaid: String, 
+  requestProofDelivery: String, 
+  isDry: String,
+	temperature: String, 
+  client: String, 
+  truckBoxe: String, 
+  truckBoxeLicensePlates: String, 
+  truckBoxeState: String,
+	unit: String, 
+  unitLicensePlates: String, 
+  unitBrand: String, 
+  operator: String, 
+  operatorRFC: String, 
+  socialSecurityNumber: String,
+	personalPhone: String, 
+  businessPhone: String, 
+  arrivalDate: String, 
+  sealNumber: String, 
+  linkGps: String,
+  unitLinkGps: String
+}
+
 type Query {
   GET_ALL_TRIPFORCROSSING(date1: String!, date2: String!, idEnterprise: String!): [tripsForCrossings]
   GET_ALL_TRIPS(status: String!, date1: String!, date2: String!, idEnterprise: String!): [trips]
@@ -1353,6 +1387,7 @@ type Query {
   GET_TRIPSTAMP_FOR_CANCEL(token: String!): [invoice_for_tripStamp]
   GET_ALL_TRIPS_FOR_DOCUMENT_DIGITIZATION(date1: String!, date2: String!, idEnterprise: String!): [tripsForDocumentDigitization]
   GET_ALL_NON_BILLABLE_TRIPS(tripType: String!, isNonBillable: String!, date1: String!, date2: String!, idEnterprise: String!): [nonBillableTrips]
+  GET_INFORMATION_TRIP_BY_ID(idTrip: String!): [return_informationTrip]
 }
 
 input new_tripAmounts {
