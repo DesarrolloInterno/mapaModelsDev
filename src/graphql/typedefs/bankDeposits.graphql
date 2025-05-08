@@ -45,6 +45,7 @@ type invoices_bankDeposits {
 	amount: String,
 	status: String,
     keyTable: String,
+    isInStamp: String,
 }
 type unpaid_Invoices {
     id: ID,
@@ -197,6 +198,17 @@ type bankDepositDocumentCFDI {
     status: String
 }
 
+type bankTokenCancel {
+    id: String
+    previousUUID: String
+    currentUUID: String
+    cancelationCode: String
+    enterpriseRFC: String
+    digitalStampCertificate: String
+    certificateKey: String
+    passwordDigitalStampCertificate: String
+}
+
 type Query {
     GET_ALL_BANK_DEPOSITS(date1: String!, date2: String!, idEnterprise: String!): [bankDeposits]
     GET_BANK_DEPOSIT_BY_ID(idBankDeposit: String!, idEnterprise: String!): [bankDeposits]
@@ -209,6 +221,7 @@ type Query {
     GET_BANKDEPOSITBYTOKEN(token: String!): [bankToken]
     GET_INVOICEBANKDEPOSIT(idBankDeposit: String!): [stamp_invoices_bankDeposits]
     GET_BANKDEPOSITCFDIBYIDBANKDEPOSIT(idBankDeposit: String!): [bankDepositDocumentCFDI]
+    GET_BANKDEPOSITSTAMPFORCANCEL(token: String!): [bankTokenCancel]
 }
 
 input create_bankDeposit {
@@ -310,6 +323,25 @@ input updateBankDepositBalance {
     idBankDeposit: String
 }
 
+input updateBankDepositCancelcfdi {
+    idBankDepositCFDI: String
+    dateCancelCFDI: String
+    statusUUID: String
+    statusCancelCFDI: String
+    userLoggedIn: String
+}
+
+input setTokenCancelStampBankDeposit {
+    idBankDepositCFDI: String
+    userLoggedIn: String
+}
+
+input link_acuse_bankDeposit {
+    idBankDepositUUID: String
+    linkXML: String
+    userLoggedIn: String
+}
+
 type Mutation {
   CREATE_BANKDEPOSIT(input: create_bankDeposit): [return_bankDeposit]
   SETBANKDEPOSITINVOICE(input: set_bankDepositInvoices): String
@@ -320,4 +352,7 @@ type Mutation {
   SET_LINK_PDF_XML_BANKDEPOSIT(input: setLinkPDFXMLBankDeposit): String
   UPDATE_BANKDEPOSIT_CFDI(input: ubdatecfdiBankDeposit): String
   UPDATEBANKDEPOSITBALANCE(input: updateBankDepositBalance): String
+  UPDATE_BANKDEPOSIT_CANCEL_CFDI(input: updateBankDepositCancelcfdi): String
+  SET_TOKENCANCEL_STAMPBANKDEPOSIT(input: setTokenCancelStampBankDeposit): [newTokenBankDeposit]
+  SET_LINK_ACUSE_BANKDEPOSITUUID(input: link_acuse_bankDeposit): String
 }

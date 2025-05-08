@@ -367,6 +367,7 @@ type invoice {
   UUID: String
   docInvoicePdf: String
   TAXID: String
+  hasPayment: Int
   invoiceObservations: String
 }
 
