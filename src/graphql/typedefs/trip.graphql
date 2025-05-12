@@ -1358,7 +1358,10 @@ type return_informationTrip {
   arrivalDate: String, 
   sealNumber: String, 
   linkGps: String,
-  unitLinkGps: String
+  unitLinkGps: String,
+  destination: String, 
+  fullAddressDestination: String, 
+  boothRoute: String
 }
 
 type Query {
