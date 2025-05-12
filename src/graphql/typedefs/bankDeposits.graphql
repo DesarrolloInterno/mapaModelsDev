@@ -64,6 +64,7 @@ type unpaid_Invoices {
     amount: String
     selectedInvoices: Int
     keyTable: String
+    previousBalance: String
 }
 
 type bankDepositDocument {
@@ -187,6 +188,7 @@ type stamp_invoices_bankDeposits{
     DRquotaT: String
     taxFactorT: String
     descriptionT: String
+    invoiceExchangeRate: String
 }
 
 type bankDepositDocumentCFDI {

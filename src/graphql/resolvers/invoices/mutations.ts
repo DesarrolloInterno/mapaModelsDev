@@ -202,7 +202,6 @@ const invoicesMutations = {
             idInvoiceAmount,
             idInvoice,
             idTrip,
-            idSalesFormatAmounts,
             idInvoicingConcept,
             subtotal,
             idIVApercentage,
@@ -225,7 +224,6 @@ const invoicesMutations = {
                 "@idInvoiceAmount = '" + idInvoiceAmount + "', " +
                 "@idInvoice = '" + idInvoice + "', " +
                 "@idTrip = '" + idTrip + "', " +
-                "@idSalesFormatAmounts = '" + idSalesFormatAmounts + "', " +
                 "@idInvoicingConcept = '" + idInvoicingConcept + "', " +
                 "@subtotal = '" + subtotal + "', " +
                 "@idIVApercentage = '" + idIVApercentage + "', " +
@@ -465,6 +463,23 @@ const invoicesMutations = {
                 "@idTrip = '" + idTrip + "', " +
                 "@idCancellationCode = '" + idCancellationCode + "', " +
                 "@cancellationReasons = '" + cancellationReasons + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Factura eliminada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    DELETE_INVOICE_WITHOUT_STAMP: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            userLoggedIn
+        } = input;
+
+        try {
+            await invoices.query("exec delete_invoice_without_stamp " +
+                "@idInvoice = '" + idInvoice + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "' "
             );
             return 'Factura eliminada correctamente'

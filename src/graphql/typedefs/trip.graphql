@@ -190,6 +190,7 @@ type tripAmounts {
   IVApercentage: String
   RETpercentage: String
   totalAmount: String
+  isTaxes: Int
 }
 
 type trips {
@@ -329,6 +330,8 @@ type tripsForInvoice {
   idUseOfCFDI: Int,
   codeUseOfCFDI: String,
   useOfCFDI: String,
+  countryOrigin: String,
+  countryDestination: String,
 }
 
 input update_trip_tripAssignment{

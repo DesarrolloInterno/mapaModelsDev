@@ -762,7 +762,6 @@ input setInvoiceAmount {
   idInvoiceAmount: String
   idInvoice: String
   idTrip: String
-  idSalesFormatAmounts: String
   idInvoicingConcept: String
   subtotal: String
   idIVApercentage: String
@@ -908,6 +907,11 @@ input deleteInvoiceFromTrip {
   userLoggedIn: String
 }
 
+input deleteInvoiceWithoutStamp {
+  idInvoice: String,
+  userLoggedIn: String
+}
+
 input invoiceCancelCfdi {
   idInvoice: String,
   dateCancelCFDI: String,
@@ -976,6 +980,7 @@ type Mutation {
   UPDATE_ASSET_INVOICE(input: updateAssetInvoice): [return_newAssetInvoice]
   SET_LINK_PDF_XML_ASSET_INVOICE(input: setLinkPDFXMLAssetInvoice): String,
   DELETE_INVOICE_FROM_TRIP(input: deleteInvoiceFromTrip): String
+  DELETE_INVOICE_WITHOUT_STAMP(input: deleteInvoiceWithoutStamp): String
   UPDATE_INVOICE_CANCEL_CFDI(input: invoiceCancelCfdi): String
   DELETE_ASSET_INVOICE(input: deleteAssetInvoice): String
   SET_TOKENCANCEL_STAMPASSETINVOICE(input: setTokenStampAssetInvoice): [newTokenAssetInvoice]
