@@ -161,6 +161,7 @@ type bankToken {
     IVAFactor: String
     IVApercentage: String
     IVACode: String
+    clientCodeCountry: String
 }
 
 type stamp_invoices_bankDeposits{
