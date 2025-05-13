@@ -161,6 +161,7 @@ type bankToken {
     IVAFactor: String
     IVApercentage: String
     IVACode: String
+    clientCodeCountry: String
 }
 
 type stamp_invoices_bankDeposits{
@@ -211,6 +212,21 @@ type bankTokenCancel {
     passwordDigitalStampCertificate: String
 }
 
+type bankDepositsToForward {
+    id: String, 
+    numBankDeposit: String, 
+    bankDepositDate: String,
+    client: String, 
+    docPdf: String, 
+    docXml: String
+}
+
+type bankDepositsTermsAndConditions {
+    id: String,
+    termsAndConditions: String,
+    status: String
+}
+
 type Query {
     GET_ALL_BANK_DEPOSITS(date1: String!, date2: String!, idEnterprise: String!): [bankDeposits]
     GET_BANK_DEPOSIT_BY_ID(idBankDeposit: String!, idEnterprise: String!): [bankDeposits]
@@ -224,6 +240,8 @@ type Query {
     GET_INVOICEBANKDEPOSIT(idBankDeposit: String!): [stamp_invoices_bankDeposits]
     GET_BANKDEPOSITCFDIBYIDBANKDEPOSIT(idBankDeposit: String!): [bankDepositDocumentCFDI]
     GET_BANKDEPOSITSTAMPFORCANCEL(token: String!): [bankTokenCancel]
+    GET_ALL_BANKDEPOSITS_TO_FORWARD(bankDepositMonth: String!, bankDepositYear: String!, idEnterprise: String!): [bankDepositsToForward]
+    GET_BANKDEPOSITS_TERMS_AND_CONDITIONS(idEnterprise: String!): [bankDepositsTermsAndConditions]
 }
 
 input create_bankDeposit {

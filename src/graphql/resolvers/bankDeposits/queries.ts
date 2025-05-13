@@ -111,6 +111,24 @@ const bankDepositsQueries = {
             console.log(error);
         }
     },
+    GET_ALL_BANKDEPOSITS_TO_FORWARD: async (_: any, {bankDepositMonth, bankDepositYear, idEnterprise}: any) => {
+        try{
+            const result = await bankDeposits.query("exec get_all_bankDeposits_to_forward @bankDepositMonth = '"+ bankDepositMonth +"', @bankDepositYear = '"+ bankDepositYear + "', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_BANKDEPOSITS_TERMS_AND_CONDITIONS: async (_: any, {idEnterprise}: any) => {
+        try{
+            const result = await bankDeposits.query("exec get_bankDepositsTermsAndConditions @idEnterprise = '"+ idEnterprise +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    } 
 };
 
 export default bankDepositsQueries;
