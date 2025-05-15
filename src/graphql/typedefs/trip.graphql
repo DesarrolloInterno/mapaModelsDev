@@ -1158,16 +1158,17 @@ type tripsByClient {
   RET: String,
   subtotal: String,
   total: String,
-  pagado: String,
-  fechaDePago: String,
+  paid: String,
+  paymentDate: String,
   status: String,
   client: String,
   origin: String,
   destination: String,
-	departureDate: String,
+	deliveryDate: String,
   truckBoxe: String,
   userRecorded: String,
   availableDate: String
+
 }
 
 type tripForSettlement {
