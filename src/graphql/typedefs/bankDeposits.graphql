@@ -215,7 +215,7 @@ type bankTokenCancel {
 type bankDepositsToForward {
     id: String, 
     numBankDeposit: String, 
-    bankDepositDate: String,
+    dateCFDI: String,
     client: String, 
     docPdf: String, 
     docXml: String
