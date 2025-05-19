@@ -309,6 +309,24 @@ const invoicesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_SUMMARY_INVOICES_FOR_COLLECTION_FORECAST2: async (_: any, {date1, currency, idEnterprise, filterStatusType}: any) => {
+        try{
+            const result = await invoices.query("exec get_all_summaryInvoices_for_collectionForecast2 @date1 = '"+ date1 +"', @currency = '"+ currency + "', @idEnterprise = '"+ idEnterprise +"', @filterStatusType = '"+ filterStatusType +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_INVOICES_FOR_COLLECTION_FORECAST_BY_CLIENT: async (_: any, {idClient, date1, currency, idEnterprise, filterStatusType}: any) => {
+        try{
+            const result = await invoices.query("exec get_all_invoices_for_collectionForecast_by_client @idClient = '"+ idClient +"', @date1 = '"+ date1 +"', @currency = '"+ currency + "', @idEnterprise = '"+ idEnterprise +"', @filterStatusType = '"+ filterStatusType +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

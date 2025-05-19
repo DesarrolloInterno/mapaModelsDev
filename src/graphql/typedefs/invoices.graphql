@@ -179,26 +179,43 @@ type invoiceById {
 }
 
 type invoiceCollectionForecast {
-  id: String,
+  idInvoice: String,
   idClient: String,
   client: String,
   numTrip: String,
   cCPDate: String,
   numInvoice: String,
   invoiceSeries: String,
-	invoiceDate: String,
+  invoiceDate: String,
   userRecorded: String,
+  paymentDate: String,
   creditDays: String,
-	remainingDays: String,
-	total: String,
-  subtotal: String,
-  currency: String
+  remainingDays: String,
+  currency: String,
+  sentForCollectionDate: String,
+  daysAfterBeingGenerated: String,
+  invoiceBalance: String,
+  amountApplied: String,
+  range7: String,
+  range15: String,
+  range30: String,
+  range31: String,
+  balanceDue: String,
+  total: String,
+  truckBox: String
 }
 
 type summaryInvoiceCollectionForecast {
   idClient: String,
   client: String,
-	total: String
+  invoiceBalance: String,
+  amountApplied: String,
+  range7: String,
+  range15: String,
+  range30: String,
+  range31: String,
+  balanceDue: String,
+  total: String
 }
 
 type invoicesForAnalysis {
@@ -224,7 +241,9 @@ type invoicesForAnalysis {
   completeInvoice: String,
   currency: String,
 	daysToInvoice: String,
-	possiblePaymentDate: String
+	possiblePaymentDate: String,
+  deliveryDate: String,
+  daysForPayment: String
 }
 
 type invoicesDocuments {
@@ -691,6 +710,8 @@ type Query {
   GET_ALL_RELATED_INVOICES_BY_ID_INVOICE(idInvoice: String!, idEnterprise: String!): [invoicesToRelate]
   GET_ALL_INVOICES_BY_CLIENT_TO_RELATE(idClient: String!, idEnterprise: String!, folioFilter: String!): [invoicesToRelate]
   GET_TRIP_CUSTOMS_CLEARANCE(idTrip: String!): [tripCustomsClearance]
+  GET_ALL_SUMMARY_INVOICES_FOR_COLLECTION_FORECAST2(date1: String!, currency: String!, idEnterprise: String!, filterStatusType: String!): [summaryInvoiceCollectionForecast]
+  GET_ALL_INVOICES_FOR_COLLECTION_FORECAST_BY_CLIENT(idClient: String!, date1: String!, currency: String!, idEnterprise: String!, filterStatusType: String!): [invoiceCollectionForecast]
 }
 
 input setNewInvoices {
@@ -961,6 +982,12 @@ input updateInvoiceObservations{
   userLoggedIn: String
 }
 
+input setRegenerateLinkPDFInvoice {
+  idInvoice: String,
+  linkInvoicePDF: String,
+  userLoggedIn: String
+}
+
 type Mutation {
   CREATE_INVOICE_FROM_TRIP(input: setNewInvoices): [newInvoices]
   CREATE_INVOICE(input: setNewInvoices2): [newInvoices2]
@@ -987,4 +1014,5 @@ type Mutation {
   RELATE_INVOICES(input: relateInvoice): [return_relatedInvoice]
   DELETE_RELATED_INVOICES_BY_ID_INVOICE(input: deleteRelatedInvoices): String
   UPDATE_INVOICE_OBSERVATIONS(input: updateInvoiceObservations): [return_invoiceObservations]
+  SET_REGENERATE_LINK_PDF_INVOICE(input: setRegenerateLinkPDFInvoice): String
 }

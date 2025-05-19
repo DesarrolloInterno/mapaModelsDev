@@ -589,6 +589,25 @@ const invoicesMutations = {
         } catch (error) {
             console.log(error);
         }
+    },
+    SET_REGENERATE_LINK_PDF_INVOICE: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            linkInvoicePDF,
+            userLoggedIn,
+        } = input;
+
+        try {
+            await invoices.query("exec set_regenerate_link_pdf_invoices " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@linkInvoicePDF = '" + linkInvoicePDF + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return 'Documentos de factura actualizados correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 };
 
