@@ -243,7 +243,9 @@ type invoicesForAnalysis {
 	daysToInvoice: String,
 	possiblePaymentDate: String,
   deliveryDate: String,
-  daysForPayment: String
+  daysForPayment: String,
+  tripType: String,
+  isRefrigerated: String
 }
 
 type invoicesDocuments {
