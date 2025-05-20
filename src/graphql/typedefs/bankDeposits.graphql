@@ -227,6 +227,27 @@ type bankDepositsTermsAndConditions {
     status: String
 }
 
+type paymentBreakdowns {
+    id: String,
+    numBankDeposit: String,
+    client: String,
+    reference: String,
+    bankDepositCurrency: String,
+    bankDepositDate: String,
+    dateCFDI: String,
+    UUID: String,
+    docPdf: String,
+    docXml: String,
+    numInvoice: String,
+    invoiceSeries: String,
+    invoiceDate: String,
+    invoiceCurrency: String,
+    invoiceTotal: String,
+    paymentAmount: String,
+    depositAmount: String,
+    depositBalanceDue: String
+}
+
 type Query {
     GET_ALL_BANK_DEPOSITS(date1: String!, date2: String!, idEnterprise: String!): [bankDeposits]
     GET_BANK_DEPOSIT_BY_ID(idBankDeposit: String!, idEnterprise: String!): [bankDeposits]
@@ -242,6 +263,7 @@ type Query {
     GET_BANKDEPOSITSTAMPFORCANCEL(token: String!): [bankTokenCancel]
     GET_ALL_BANKDEPOSITS_TO_FORWARD(bankDepositMonth: String!, bankDepositYear: String!, idEnterprise: String!): [bankDepositsToForward]
     GET_BANKDEPOSITS_TERMS_AND_CONDITIONS(idEnterprise: String!): [bankDepositsTermsAndConditions]
+    GET_ALL_PAYMENT_BREAKDOWNS(date1: String!, date2: String!, idEnterprise: String!): [paymentBreakdowns]
 }
 
 input create_bankDeposit {
