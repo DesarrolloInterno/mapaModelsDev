@@ -128,7 +128,17 @@ const bankDepositsQueries = {
         } catch (error) {
             console.log(error);
         }
-    } 
+    },
+    GET_ALL_PAYMENT_BREAKDOWNS: async (_: any, {date1, date2, idEnterprise}: any) => {
+        try{
+            const result = await bankDeposits.query("exec get_all_payment_breakdowns @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @idEnterprise = '"+ idEnterprise +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
 };
 
 export default bankDepositsQueries;

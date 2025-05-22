@@ -243,7 +243,9 @@ type invoicesForAnalysis {
 	daysToInvoice: String,
 	possiblePaymentDate: String,
   deliveryDate: String,
-  daysForPayment: String
+  daysForPayment: String,
+  tripType: String,
+  isRefrigerated: String
 }
 
 type invoicesDocuments {
@@ -619,7 +621,12 @@ type cancelledInvoices {
   invoiceSeriesReplaces: String,
   cancellationReasons: String,
   client: String,
-  UUIDReplaces: String
+  UUIDReplaces: String,
+  subtotal: String,
+  IVA: String,
+  RET: String,
+  tripType: String,
+  isRefrigerated: String
 }
 
 type invoices_relatedInvoice{
