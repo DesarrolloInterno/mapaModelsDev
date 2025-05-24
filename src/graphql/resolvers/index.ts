@@ -125,6 +125,7 @@ import { claveCancelacionQueries } from './claveCancelacion'
 import { vouchersMutations, vouchersQueries } from './vouchers'
 import { creditNotesMutations, creditNotesQueries } from './creditNotes'
 import { c_TipoRelacionQueries } from './c_TipoRelacion'
+import { debitNotesMutations, debitNotesQueries } from './debitNotes'
 
 const resolvers = {
     Query: {
@@ -246,7 +247,8 @@ const resolvers = {
         ...claveCancelacionQueries,
         ...vouchersQueries,
         ...creditNotesQueries,
-        ...c_TipoRelacionQueries
+        ...c_TipoRelacionQueries,
+        ...debitNotesQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -338,7 +340,8 @@ const resolvers = {
         ...accountingPeriodsMutations,
         ...accountingVouchersMutations,
         ...vouchersMutations,
-        ...creditNotesMutations
+        ...creditNotesMutations,
+        ...debitNotesMutations
     }
 }
 
