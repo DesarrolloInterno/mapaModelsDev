@@ -308,6 +308,7 @@ type invoices {
 	dateRecorded: String
   userRecorded: String
   TAXID: String
+  possiblePaymentDate: String
 }
 
 type invoice {
@@ -532,6 +533,7 @@ type assetInvoices{
   docInvoicePdf: String,
   clientTAXID: String,
   invoiceObservations: String
+  hasPayment: Int,
 }
 
 type assetInvoiceDocument {
