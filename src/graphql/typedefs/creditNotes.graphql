@@ -28,6 +28,7 @@ type creditNotes {
     TAXID: String
     docCreditNotePdf: String
     possiblyPayment: String
+    currency: String
 }
 
 type creditNoteAmounts {
