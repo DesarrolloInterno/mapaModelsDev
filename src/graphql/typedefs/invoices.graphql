@@ -175,7 +175,8 @@ type invoiceById {
 	invoiceDate: String, 
   sentForCollectionDate: String,
 	mail: String,
-  creditDays: String
+  creditDays: String,
+  docInvoicePdf: String
 }
 
 type invoiceCollectionForecast {

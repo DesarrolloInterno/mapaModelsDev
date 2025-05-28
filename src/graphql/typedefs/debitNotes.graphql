@@ -1,0 +1,384 @@
+type debitNotes {
+  id: ID,
+  numDebitNote: String,
+  debitNoteSeries: String,
+  idTrip: String,
+  numTrip: String,
+  debitNoteDate: String,
+  status: String,
+  dateRemoved: String,
+  client: String,
+  subtotal: String,
+  IVA: String,
+  RET: String,
+  total: String,
+  balanceDue: String,
+  docPDF: String,
+  docXML: String,
+  dateRecorded: String,
+  userRecorded: String,
+  possiblyPayment: String,
+  currency: String
+}
+
+type debitNoteAmounts {
+  id: ID
+  idSalesFormat: Int 
+  idInvoicingConcept: Int 
+  invoicingConcept: String 
+  subtotal: String 
+  idIVApercentage: Int
+  IVApercentage: String 
+  IVA: String 
+  idRETpercentage: Int
+  RETpercentage: String 
+  RET: String 
+  totalAmount: String 
+  taxRate: String 
+  measuringUnit: String
+  codeMeasuringUnit: String 
+  status: String
+  isTaxes: String
+  idSalesFormatAmount: Int
+  quantity: String
+  codeInvoicingConcept: String
+  unitImport: String
+}
+
+type debitNoteById {
+  id: String,
+  numDebitNote: String,
+  debitNoteSeries: String 
+  debitNoteDate: String,
+  status: String,
+  idClient: String,
+  client: String,
+  clientShortName: String,
+  clientRFC: String
+  fullAddressClient: String
+  fiscalSystem: String,
+  idTrip: String,
+  numTrip: String,
+  currency: String,
+  total: String,
+  idPayment: String,
+  codePayment: String,
+  payment: String,
+  idPaymentMethod: String,
+  codePaymentMethod: String,
+  paymentMethod: String,
+  idUseOfCFDI: String,
+  codeUseOfCFDI: String,
+  useOfCFDI: String
+  exchangeRate: String,
+  UUID: String,
+  docPdf: String
+  TAXID: String,
+  balanceDue: String
+}
+
+type debitNoteDocument {
+  id: ID, 
+  numDebitNote: String,
+  sealNumber: String,
+  debitNoteDate: String,
+  idEnterprise: String,
+  enterprise: String,
+  enterpriseRFC: String,
+  enterpriseFiscalSystem: String,
+  enterpriseZipCode: String,
+  enterpriseFullAddress: String,
+  idTrip: String,
+  dateRecorded: String,
+  numTrip: String,
+  client: String,
+  idClient: String,
+  clientFullAddress: String,
+  clientRFC: String,
+  clientTAXID: String,
+  payment: String,
+  useOfCFDI: String,
+  paymentMethod: String,
+  currency: String,
+  exchangeRate: String,
+  subtotal: String,
+  IVA: String,
+  RET: String,
+  total: String,
+  IVApercentage: String,
+  RETpercentage: String,
+  UUID: String,
+  SATcertificateNumber: String,
+  dateCFDI: String,
+  originalChain: String,
+  CFDIstamp: String,
+  SATStamp: String,
+  LinkQR: String,
+  CFDItype: String
+}
+
+type relatedDebitNotes {
+  id: String, 
+  idInvoice: String, 
+  numInvoice: String, 
+  invoiceSeries: String, 
+  numTrip: String, 
+  invoiceDate: String, 
+  total: String, 
+  currency: String, 
+  status: String, 
+  relationshipType: String, 
+  client: String
+}
+
+type relatedDebitNotes {
+  id: String,
+	idDebitNote: String, 
+	numDebitNote: String, 
+	uuidDebitNote: String, 
+	idInvoice: String, 
+	numInvoice: String, 
+	uuidInvoice: String,
+	idRelationshipType: String, 
+	relationshipTypeCode: String, 
+	relationshipType: String
+}
+
+type debitNoteToken {
+  id: ID, 
+	dateRecorded: String, 
+	debitNoteSeries: String, 
+	numDebitNote: String, 
+	certificateNumber: String, 
+	enterpriseZipCode: String,
+	idClient: String, 
+	client: String, 
+	clientRFC: String, 
+	clientTAXID: String,
+	clientPayment: String, 
+	clientPaymentMethod: String, 
+	clientZipCode: String, 
+	clientFiscalSystem: String, 
+	clientUseOfCFDI: String,
+	clientCodeCountry: String,
+	subtotal: String, 
+	currency: String, 
+	exchangeRate: String, 
+	total: String, 
+	IVA: String, 
+	RET: String,
+	digitalStampCertificate: String,
+	certificateKey: String,
+	passwordDigitalStampCertificate: String,
+	cfdiExportType: String,
+	enterpriseFiscalSystemCode: String,
+	enterprise: String,
+	enterpriseRFC: String,
+	IVApercentage: String,
+	isTaxes: String
+}
+
+type stampDebitNoteAmounts {
+  id: ID,
+  codeInvoicingConcept: String,
+  quantity: String,
+  codeMeasuringUnit: String,
+  measuringUnit: String,
+  invoicingConcept: String,
+  subtotal: String,
+  taxRate: String,
+  totalAmount: String,
+  IVACode: String,
+  IVAFactor: String,
+  IVApercentage: String,
+  IVA: String,
+  RETCode: String,
+  RETFactor: String,
+  RETpercentage: String,
+  RET: String,
+  taxCode: String
+}
+
+type debitNote_for_cancel{
+    id: String,
+    previousUUID: String,
+    currentUUID: String,
+    cancelationCode: String,
+    digitalStampCertificate: String,
+    certificateKey: String,
+    passwordDigitalStampCertificate: String,
+    enterpriseRFC: String
+}
+
+type Query {
+    GET_ALL_DEBIT_NOTES(date1: String!, date2: String!, date: String!, idEnterprise: String!): [debitNotes]
+    GET_DEBIT_NOTE_BY_ID(idDebitNote: String!, idEnterprise: String!): [debitNoteById]
+    GET_DEBIT_NOTE_AMOUNTS_BY_ID(idDebitNote: String!): [debitNoteAmounts]
+    GET_DEBIT_NOTE_DOCUMENT(idDebitNote: String!): [debitNoteDocument]
+    GET_ALL_RELATED_DEBIT_NOTES_BY_ID_DEBIT_NOTE(idDebitNote: String!): [relatedDebitNotes]
+    GET_DEBIT_NOTES_RELATED_DEBIT_NOTE(idDebitNote: String!): [relatedDebitNotes]
+    GET_DEBIT_NOTE_BY_TOKEN(token: String!): [debitNoteToken]
+    GET_DEBIT_NOTE_AMOUNTS(idDebitNote: String!): [stampDebitNoteAmounts]
+    GET_DEBITNOTESTAMPFORCANCEL(token: String!): [debitNote_for_cancel]
+    GET_ALL_INVOICES_TO_BE_MATCHED_CREDIT_NOTES(idClient: String!, idEnterprise: String!, folioFilter: String!): [relatedDebitNotes]
+}
+
+input newDebitNote {
+  idEnterprise: String,
+  idClient: String,
+  currency: String,
+  exchangeRate: String,
+  userLoggedIn: String,
+  idPaymentMethod: String,
+  idUseOfCFDI: String,
+  idPayment: String
+}
+
+type return_newDebitNote {
+  idDebitNote: ID
+  message: String
+  numDebitNote: String
+}
+
+input setDebitNoteAmount {
+  idDebitNoteAmount: String,
+  idDebitNote: String,
+  idTrip: String,
+  idSalesFormatAmounts: String,
+  idInvoicingConcept: String,
+  idIVApercentage: String,
+  IVApercentage: String,
+  IVA: String,
+  idRETpercentage: String,
+  RETpercentage: String,
+  RET: String,
+  totalAmount: String,
+  idSalesFormat: String,
+  codeMeasuringUnit: String,
+  measuringUnit: String,
+  isTaxes: String,
+  userLoggedIn: String,
+  status: String,
+  quantity: String,
+  unitImport: String,
+  subtotal: String
+}
+
+input updateDebitNote {
+  idDebitNote: String
+  idEnterprise: String
+  idClient: String
+  idUseOfCFDI: String
+  idPaymentMethod: String
+  idPayment: String
+  currency: String
+  exchangeRate: String
+  userLoggedIn: String
+}
+
+type return_updateDebitNote {
+  idDebitNote: ID
+  message: String
+  numDebitNote: String
+}
+
+input relateDebitNote{
+  idDebitNote: String,
+  numDebitNote: String,
+  idInvoice: String,
+  numInvoice: String,
+  numTrip: String,
+  total: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+type return_relatedDebitNote {
+  idRelatedDebitNote: String,
+  message: String
+}
+
+input deleteRelatedDebitNotes{
+  idDebitNote: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
+input setCFDIDebitNote {
+  idDebitNote: String
+  UUID: String
+  dateCFDI: String
+  codStatus: String
+  satSeal: String
+  SATcertificateNumber: String
+  CFDIstamp: String
+  SATStamp: String
+  originalChain: String
+  LinkQR: String
+  xmlText: String
+  userLoggedIn: String
+}
+
+input setTokenStampDebitNote {
+  idDebitNote: String
+  userLoggedIn: String
+}
+
+type newTokenDebitNote {
+  tokenDebitNote: String
+  numDebitNote: String
+}
+
+input setLinkPDFXMLDebitNote {
+  idDebitNote: String
+  linkXML: String
+  linkDebitNotePDF: String
+  userLoggedIn: String
+}
+
+input deleteDebitNote {
+  idDebitNote: String
+  userLoggedIn: String
+}
+
+input deleteDebitNoteWithStamp {
+  idDebitNote: String
+  userLoggedIn: String
+  idCancellationCode: String
+  cancellationReasons: String
+}
+
+input debitNoteCancelCfdi {
+  idDebitNote: String,
+  dateCancelCFDI: String,
+  statusUUID: String,
+  statusCancelCFDI: String,
+  userLoggedIn: String
+}
+
+type newTokenDebitNote{
+  tokenDebitNote: String, 
+  numDebitNote: String
+}
+
+input setLinkAcuseDebitNote {
+  idDebitNote: String
+  linkXML: String
+  userLoggedIn: String
+}
+
+type Mutation {
+    CREATE_DEBIT_NOTE(input: newDebitNote): [return_newDebitNote]
+    SET_DEBIT_NOTE_AMOUNTS(input: setDebitNoteAmount): String
+    UPDATE_DEBIT_NOTE(input: updateDebitNote): [return_updateDebitNote]
+    CREATE_RELATED_DEBIT_NOTE(input: relateDebitNote): [return_relatedDebitNote]
+    DELETE_RELATED_DEBIT_NOTES_BY_ID_DEBIT_NOTE(input: deleteRelatedDebitNotes): String
+    UPDATE_DEBIT_NOTE_CFDI(input: setCFDIDebitNote): String
+    SET_TOKEN_STAMP_DEBIT_NOTE(input: setTokenStampDebitNote): [newTokenDebitNote]
+    SET_LINK_PDF_XML_DEBIT_NOTE(input: setLinkPDFXMLDebitNote): String
+    DELETE_DEBIT_NOTE(input: deleteDebitNote): String
+    DELETE_DEBIT_NOTE_WITH_STAMP(input: deleteDebitNoteWithStamp): String
+    UPDATE_DEBIT_NOTE_CANCEL_CFDI(input: debitNoteCancelCfdi): String
+    SET_TOKENCANCEL_STAMP_DEBITNOTE(input: setTokenStampDebitNote): [newTokenDebitNote]
+    SET_LINK_ACUSE_DEBIT_NOTE(input: setLinkAcuseDebitNote): String
+}
