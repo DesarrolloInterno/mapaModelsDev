@@ -254,6 +254,27 @@ const debitNotesMutations = {
         }
 
     },
+    DELETE_DEBIT_NOTE_WITH_STAMP: async (_: any, {input}: any) => {
+        const {
+            idDebitNote,
+            userLoggedIn,
+            idCancellationCode,
+            cancellationReasons
+        } = input;
+
+        try {
+            await debitNotes.query("exec delete_debitNote_with_stamp " +
+            "@idDebitNote = '" + idDebitNote + "', " +
+            "@userLoggedIn = '" + userLoggedIn + "', " +
+            "@idCancellationCode = '" + idCancellationCode + "', " +
+            "@cancellationReasons = '" + cancellationReasons + "'"
+            );
+            return 'Nota eliminada correctamente';
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
     UPDATE_DEBIT_NOTE_CANCEL_CFDI: async (_: any, {input}: any) => {
         const {
             idDebitNote,

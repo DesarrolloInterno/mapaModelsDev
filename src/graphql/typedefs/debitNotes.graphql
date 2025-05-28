@@ -337,8 +337,15 @@ input setLinkPDFXMLDebitNote {
 }
 
 input deleteDebitNote {
-    idDebitNote: String
-    userLoggedIn: String
+  idDebitNote: String
+  userLoggedIn: String
+}
+
+input deleteDebitNoteWithStamp {
+  idDebitNote: String
+  userLoggedIn: String
+  idCancellationCode: String
+  cancellationReasons: String
 }
 
 input debitNoteCancelCfdi {
@@ -370,6 +377,7 @@ type Mutation {
     SET_TOKEN_STAMP_DEBIT_NOTE(input: setTokenStampDebitNote): [newTokenDebitNote]
     SET_LINK_PDF_XML_DEBIT_NOTE(input: setLinkPDFXMLDebitNote): String
     DELETE_DEBIT_NOTE(input: deleteDebitNote): String
+    DELETE_DEBIT_NOTE_WITH_STAMP(input: deleteDebitNoteWithStamp): String
     UPDATE_DEBIT_NOTE_CANCEL_CFDI(input: debitNoteCancelCfdi): String
     SET_TOKENCANCEL_STAMP_DEBITNOTE(input: setTokenStampDebitNote): [newTokenDebitNote]
     SET_LINK_ACUSE_DEBIT_NOTE(input: setLinkAcuseDebitNote): String
