@@ -163,6 +163,7 @@ type Query {
     GET_CLIENT_BYID(idClient: Int!, idEnterprise: String!): [client]
     GET_CLIENT_USERS_BY_POTENTIAL_CLIENT(idClient: String!): [clientUser]
     GET_ALL_FISCAL_DATA_FROM_CLIENTS(status: String!, idEnterprise: String!): [fiscalData_from_clients]
+    GET_ALL_FISCAL_DATA_CLIENT_COLLECTIONFORECAST(idClient: String!, idEnterprise: String!): [fiscalData_from_clients]
 }
 
 input delete_client {

@@ -54,6 +54,15 @@ const clientQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_FISCAL_DATA_CLIENT_COLLECTIONFORECAST: async (_: any, {idClient, idEnterprise}: any) => {
+        try{
+            const result = await client.query("exec get_all_fiscalData_clients_collectionforecast @idClient = '"+ idClient +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
