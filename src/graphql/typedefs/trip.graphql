@@ -645,7 +645,8 @@ type tripsForTracking {
   docInvoicePdf: String, 
   docPdf: String, 
   docXml: String,
-  idInvoice: String
+  idInvoice: String,
+  tripDocuments: Int
 }
 
 type tripTracking_observations {
@@ -1381,7 +1382,7 @@ type Query {
   GET_ALL_TRIPTRACKING_OBSERVATIONS(idTrip: String!): [tripTracking_observations]
   GET_ALL_TRIPTRACKING_DOCUMENTS_BY_ID_TRIP(idTrip: String!): [tripDocuments]
   GET_TRIP_TRACKING_PICKUPS(idTrip:String!): [tripTrackingPickups]
-  GET_ALL_CROSSING_TRIP_TRACKING(status: String!, date1: String!, date2: String!, idEnterprise: String!): [tripsForTracking]
+  GET_ALL_CROSSING_TRIP_TRACKING(status: String!, idEnterprise: String!): [tripsForTracking]
   GET_SUPPLIERS_LETTER_BY_IDTRIP(idTrip: String!): [suppliersLetter]
   GET_CLEANING_LETTER_BY_IDTRIP(idTrip: String!): [cleaningLetter]
   GET_FUMIGATION_LETTER_BY_IDTRIP(idTrip: String!): [fumigationLetter]

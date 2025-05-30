@@ -141,9 +141,9 @@ const tripQueries = {
             console.log(error);
         }
     },
-    GET_ALL_CROSSING_TRIP_TRACKING: async (_: any, {status, date1, date2, idEnterprise}: any) => {
+    GET_ALL_CROSSING_TRIP_TRACKING: async (_: any, {status,idEnterprise}: any) => {
         try{
-            const result = await trip.query("exec get_all_trips_for_crossingTripsTracking @status = '"+ status +"', @date1 = '"+ date1 + "', @date2= '"+date2+"', @idEnterprise = '"+ idEnterprise +"'");
+            const result = await trip.query("exec get_all_trips_for_crossingTripsTracking @status = '"+ status +"', @idEnterprise = '"+ idEnterprise +"'");
             return result;
 
         } catch (error) {
