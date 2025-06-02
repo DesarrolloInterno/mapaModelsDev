@@ -245,7 +245,13 @@ type paymentBreakdowns {
     invoiceTotal: String,
     paymentAmount: String,
     depositAmount: String,
-    depositBalanceDue: String
+    depositBalanceDue: String,
+    idBankAccount: String,
+    bank: String,
+    balanceDue: String,
+    importIVA: String,
+    importRET: String,
+    subtotal: String,
 }
 
 type Query {
