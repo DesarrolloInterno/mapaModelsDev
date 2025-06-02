@@ -7,4 +7,5 @@ type claveCancelacion {
 
 type Query {
     GET_ALL_CANCELLATION_CODES: [claveCancelacion]
+    GET_ALL_CANCELLATION_CODES_FOR_TRIPS: [claveCancelacion]
 }
