@@ -502,8 +502,8 @@ const tripMutations = {
     SET_LINK_TRIP_DOCUMENT: async (_: any, {input}: any) => {
         const { idDocument, link, document, userLoggedIn } = input;
         try {
-            await trip.query("exec set_linkTripDocument @idDocument = '"+idDocument+"', @link = '"+link+"', @document = '"+document+"', @userLoggedIn = '"+userLoggedIn+"' ");
-            return 'Documento agregado correctamente'
+            const updateRecord = await trip.query("exec set_linkTripDocument @idDocument = '"+idDocument+"', @link = '"+link+"', @document = '"+document+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return updateRecord;
         } catch (error) {
             console.log(error);
         }

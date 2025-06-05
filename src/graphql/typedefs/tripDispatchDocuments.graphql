@@ -35,10 +35,15 @@ input delete_trip_dispatchDocuments {
   userLoggedIn: String
 }
 
+type return_updateTripDocument{
+  tripDocuments: String,
+  message: String 
+}
+
 type Mutation {
   SET_DISPATCH_DOCUMENT_TRIP(input: set_dispatchDocument_trip): [new_dispatchDocument_trip]
-  SET_LINK_DISPATCH_DOCUMENT_TRIP(input: set_link_dispatchDocument_trip): String
-  DELETE_TRIP_DISPATCH_DOCUMENT(input: delete_trip_dispatchDocuments): String
+  SET_LINK_DISPATCH_DOCUMENT_TRIP(input: set_link_dispatchDocument_trip): [return_updateTripDocument]
+  DELETE_TRIP_DISPATCH_DOCUMENT(input: delete_trip_dispatchDocuments): [return_updateTripDocument]
   SET_FINANCIAL_RECEIPT_TRIP(input: set_dispatchDocument_trip): [new_dispatchDocument_trip]
   SET_LINK_FINANCIAL_RECEIPT_TRIP(input: set_link_dispatchDocument_trip): String
   DELETE_TRIP_FINANCIAL_RECEIPT(input: delete_trip_dispatchDocuments): String

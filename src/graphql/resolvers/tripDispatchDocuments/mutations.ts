@@ -14,8 +14,8 @@ const tripDispatchDocumentsMutations = {
     SET_LINK_DISPATCH_DOCUMENT_TRIP: async (_: any, {input}: any) => {
         const { idDocument, link, document, userLoggedIn } = input;
         try {
-            await tripDispatchDocuments.query("exec set_linkDispatchDocument_trip @idDocument = '"+idDocument+"', @link = '"+link+"', @document = '"+document+"', @userLoggedIn = '"+userLoggedIn+"' ");
-            return 'Documento agregado correctamente'
+            const updateRecord = await tripDispatchDocuments.query("exec set_linkDispatchDocument_trip @idDocument = '"+idDocument+"', @link = '"+link+"', @document = '"+document+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return updateRecord;
         } catch (error) {
             console.log(error);
         }
@@ -23,8 +23,8 @@ const tripDispatchDocumentsMutations = {
     DELETE_TRIP_DISPATCH_DOCUMENT: async (_: any, {input}: any) => {
         const { idDocument, userLoggedIn } = input;
         try {
-            await tripDispatchDocuments.query("exec delete_tripDispatchDocuments @idDocument = '"+idDocument+"', @userLoggedIn = '"+userLoggedIn+"' ");
-            return 'Documento eliminado correctamente'
+            const deleteRecord = await tripDispatchDocuments.query("exec delete_tripDispatchDocuments @idDocument = '"+idDocument+"', @userLoggedIn = '"+userLoggedIn+"' ");
+            return deleteRecord
         } catch (error) {
             console.log(error);
         }

@@ -1434,6 +1434,11 @@ type return_set_nonBillableTrips{
   message: String
 }
 
+type return_updateTripDocument{
+  tripDocuments: String,
+  message: String 
+}
+
 type Mutation {
   CREATE_TRIP_FROM_TRIPS(input: create_trip): [return_newTrip]
   CREATE_TRIP_FROM_TRIPS_2(input: create_trip2): [return_newTrip]
@@ -1449,7 +1454,7 @@ type Mutation {
   DELETE_TRIPTRACKING_OBSERVATIONS(input: delete_tripTracking_observations): [return_observations_message]
   UPDATE_TRIP_OBSERVATIONS(input: update_trip_observations): String
   SET_TRIP_DOCUMENT(input: set_tripDocument): [new_Document_trip]
-  SET_LINK_TRIP_DOCUMENT(input: set_link_tripDocument): String
+  SET_LINK_TRIP_DOCUMENT(input: set_link_tripDocument): [return_updateTripDocument]
   UPDATE_TRIP_DOCUMENT(input: update_tripDocuments): String
   UPDATE_TRIP_TRACKING_DYNAMIC(input: update_tripTracking_dynamic): String
   CREATE_TRIP_TRACKING_TRAVEL_PICKUPS(input: new_tripTracking_Pickups): String
