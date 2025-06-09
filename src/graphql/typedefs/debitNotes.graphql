@@ -210,6 +210,22 @@ type debitNote_for_cancel{
     enterpriseRFC: String
 }
 
+type debitNoteToForward{
+  id: String,
+  numDebitNote: String,
+  debitNoteSeries: String,
+  debitNoteDate: String,
+  client: String,
+  docPdf: String,
+  docXml: String
+}
+
+type debitNoteTermsAndConditions {
+  id: String,
+  termsAndConditions: String,
+  status: String
+}
+
 type Query {
     GET_ALL_DEBIT_NOTES(date1: String!, date2: String!, date: String!, idEnterprise: String!): [debitNotes]
     GET_DEBIT_NOTE_BY_ID(idDebitNote: String!, idEnterprise: String!): [debitNoteById]
@@ -221,6 +237,8 @@ type Query {
     GET_DEBIT_NOTE_AMOUNTS(idDebitNote: String!): [stampDebitNoteAmounts]
     GET_DEBITNOTESTAMPFORCANCEL(token: String!): [debitNote_for_cancel]
     GET_ALL_INVOICES_TO_BE_MATCHED_CREDIT_NOTES(idClient: String!, idEnterprise: String!, folioFilter: String!): [relatedDebitNotes]
+    GET_ALL_DEBIT_NOTES_TO_FORWARD(debitNoteMonth: String!, debitNoteYear: String!, idEnterprise: String!): [debitNoteToForward]
+    GET_DEBIT_NOTE_TERMS_AND_CONDITIONS(idEnterprise: String!): [debitNoteTermsAndConditions]
 }
 
 input newDebitNote {

@@ -107,6 +107,24 @@ const debitNotesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_DEBIT_NOTES_TO_FORWARD: async (_: any, {debitNoteMonth, debitNoteYear, idEnterprise}: any) => {
+        try{
+            const result = await debitNotes.query("exec get_all_debit_notes_to_forward @debitNoteMonth = '"+ debitNoteMonth +"', @debitNoteYear = '"+ debitNoteYear + "', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_DEBIT_NOTE_TERMS_AND_CONDITIONS: async (_: any, {idEnterprise}: any) => {
+        try{
+            const result = await debitNotes.query("exec get_debitNoteTermsAndConditions @idEnterprise = '"+ idEnterprise +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 
