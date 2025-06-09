@@ -107,6 +107,24 @@ const creditNotesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_CREDIT_NOTES_TO_FORWARD: async (_: any, {creditNoteMonth, creditNoteYear, idEnterprise}: any) => {
+        try{
+            const result = await creditNotes.query("exec get_all_credit_notes_to_forward @creditNoteMonth = '"+ creditNoteMonth +"', @creditNoteYear = '"+ creditNoteYear + "', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_CREDIT_NOTE_TERMS_AND_CONDITIONS: async (_: any, {idEnterprise}: any) => {
+        try{
+            const result = await creditNotes.query("exec get_creditNoteTermsAndConditions @idEnterprise = '"+ idEnterprise +"' ");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 

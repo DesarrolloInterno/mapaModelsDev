@@ -302,6 +302,22 @@ type creditNote_for_cancel{
   enterpriseRFC: String
 }
 
+type creditNoteToForward{
+  id: String,
+  numCreditNote: String,
+  creditNoteSeries: String,
+  creditNoteDate: String,
+  client: String,
+  docCreditNotePdf: String,
+  docXml: String
+}
+
+type creditNoteTermsAndConditions {
+  id: String,
+  termsAndConditions: String,
+  status: String
+}
+
 type Query {
     GET_ALL_CREDIT_NOTES(date1: String!, date2: String!, date: String!, idEnterprise: String!): [creditNotes]
     GET_CREDIT_NOTE_BY_ID(idCreditNote: String!, idEnterprise: String!): [creditNoteById]
@@ -313,6 +329,8 @@ type Query {
     GET_CREDIT_NOTE_BY_TOKEN(token: String!): [creditNoteToken]
     GET_CREDIT_NOTE_AMOUNTS(idCreditNote: String!): [stampCreditNoteAmounts]
     GET_CREDITNOTESTAMPFORCANCEL(token: String!): [creditNote_for_cancel]
+    GET_ALL_CREDIT_NOTES_TO_FORWARD(creditNoteMonth: String!, creditNoteYear: String!, idEnterprise: String!): [creditNoteToForward]
+    GET_CREDIT_NOTE_TERMS_AND_CONDITIONS(idEnterprise: String!): [creditNoteTermsAndConditions]    
 }
 
 input newCreditNote {
