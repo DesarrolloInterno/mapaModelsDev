@@ -31,13 +31,38 @@ type voucherDetail {
 	idItem: String,	
     itemType: String, 
     status: String,
-    permissionEdit: String
+    permissionEdit: String,
+    numItem: String,
+    itemSeries: String
+}
+
+type voucherDocument {
+    id: String,
+    voucherDate: String,
+    description: String,
+    voucherType: String,
+    numVoucher: String,
+    charges: String,
+    payments: String,
+    userRecorded: String,
+    userAccountant: String
+}
+
+type voucherDocumentDetail {
+    id: String,
+    accountingAccount: String,
+    accountingAccountName: String,
+    charges: String,
+    payments: String
 }
 
 type Query {
-    GET_ALL_VOUCHERS(origin: String!, date1: String!, date2: String!, status: String!, idEnterprise: String!): [vouchers]
+    GET_ALL_VOUCHERS(origin: String!, date1: String!, date2: String!, status: String!, idEnterprise: String!, accountingAccount1: String!, accountingAccount2: String!): [vouchers]
     GET_ALL_VOUCHER_BY_ID(idVoucher: String!, idEnterprise: String!): [vouchers]
     GET_ALL_VOUCHER_DETAIL_BY_IDVOUCHER(idVoucher: String!, idEnterprise: String!): [voucherDetail]
+    GET_VOUCHERDOCUMENT(idVoucher: String!): [voucherDocument]
+    GET_VOUCHERDOCUMENT_DETAIL(idVoucher: String!): [voucherDocumentDetail]
+    GET_ALL_VOUCHERS_WHITOUT_ACCOUNTS(origin: String!, date1: String!, date2: String!, status: String!, idEnterprise: String!): [vouchers]
 }
 
 input new_voucher {
@@ -97,9 +122,21 @@ type return_newVoucherDetail {
     message: String
 }
 
+input toRecordVoucher {
+    idVoucher: String,
+    userLoggedIn: String
+}
+
+input openVoucher {
+    idVoucher: String,
+    userLoggedIn: String
+}
+
 type Mutation {
     CREATE_VOUCHER(input: new_voucher): [return_new_voucher]
     UPDATE_VOUCHER(input: update_voucher): [return_new_voucher]
     DELETE_VOUCHER(input: delete_voucher): String
     UPDATE_VOUCHER_DETAIL(input: update_voucherDetail): [return_newVoucherDetail]
+    SET_TO_RECORD_VOUCHER(input: toRecordVoucher): String
+    SET_OPEN_VOUCHER(input: openVoucher): String
 }

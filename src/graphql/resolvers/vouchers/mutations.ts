@@ -111,6 +111,34 @@ const vouchersMutations = {
         } catch (error) {
             console.log(error);
         }
+    },
+    SET_TO_RECORD_VOUCHER: async (_: any, {input}: any) => {
+        const { 
+            idVoucher,
+            userLoggedIn
+        } = input;
+        try {
+            await vouchers.query("exec set_toRecord_voucher " +
+                "@idVoucher = '"+idVoucher+"', " +
+                "@userLoggedIn = '"+userLoggedIn+"'");
+            return 'Póliza contabilizada correctamente';
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    SET_OPEN_VOUCHER: async (_: any, {input}: any) => {
+        const { 
+            idVoucher,
+            userLoggedIn
+        } = input;
+        try {
+            await vouchers.query("exec set_open_voucher " +
+                "@idVoucher = '"+idVoucher+"', " +
+                "@userLoggedIn = '"+userLoggedIn+"'");
+            return 'Póliza abierta correctamente';
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
