@@ -56,6 +56,24 @@ type voucherDocumentDetail {
     payments: String
 }
 
+type vouchersWithDetail {
+    id: String,
+    idVoucher: String,
+    voucherType: String,
+    beneficiaryName: String,
+    beneficiaryType: String,
+    voucherDescription: String,
+    voucherDate: String,
+    numVoucherDetail: String,
+    idAccountingAccount: String,
+    accountingAccount: String,
+    accountingAccountName: String,
+    reference: String,
+    description: String,
+    charges: String,
+    payments: String
+}
+
 type Query {
     GET_ALL_VOUCHERS(origin: String!, date1: String!, date2: String!, status: String!, idEnterprise: String!, accountingAccount1: String!, accountingAccount2: String!): [vouchers]
     GET_ALL_VOUCHER_BY_ID(idVoucher: String!, idEnterprise: String!): [vouchers]
@@ -63,6 +81,7 @@ type Query {
     GET_VOUCHERDOCUMENT(idVoucher: String!): [voucherDocument]
     GET_VOUCHERDOCUMENT_DETAIL(idVoucher: String!): [voucherDocumentDetail]
     GET_ALL_VOUCHERS_WHITOUT_ACCOUNTS(origin: String!, date1: String!, date2: String!, status: String!, idEnterprise: String!): [vouchers]
+    GET_ALL_VOUCHERS_WITH_DETAIL(origin: String!, date1: String!, date2: String!, status: String!, idEnterprise: String!, accountingAccount1: String!, accountingAccount2: String!): [vouchersWithDetail]
 }
 
 input new_voucher {

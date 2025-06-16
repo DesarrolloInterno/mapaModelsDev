@@ -54,6 +54,15 @@ const vouchersQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_VOUCHERS_WITH_DETAIL: async (_: any, {origin, date1, date2, status, idEnterprise, accountingAccount1, accountingAccount2}: any) => {
+        try{
+            const result = await vouchers.query("exec get_all_vouchers_with_detail @origin = '"+ origin +"', @date1 = '"+ date1 +"', @date2 = '"+ date2 +"', @status = '"+ status+"', @idEnterprise = '"+ idEnterprise+"', @accountingAccount1 = '"+ accountingAccount1 +"', @accountingAccount2 = '"+ accountingAccount2 +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
