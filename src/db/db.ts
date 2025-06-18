@@ -126,6 +126,7 @@ import { vouchers } from "./Entities/vouchers"
 import { creditNotes } from "./Entities/creditNotes"
 import { c_TipoRelacion } from "./Entities/c_TipoRelacion"
 import { debitNotes } from "./Entities/debitNotes"
+import { clientAccountingAccounts } from "./Entities/clientAccountingAccounts"
 
 export const  dbConection = async () =>{
   let PORT: string = process.env.DATABASE_PORT!
@@ -265,7 +266,8 @@ export const  dbConection = async () =>{
       vouchers,
       creditNotes,
       c_TipoRelacion,
-      debitNotes
+      debitNotes,
+      clientAccountingAccounts
     ],
     options: {
       encrypt: true,//true para Windows Azure

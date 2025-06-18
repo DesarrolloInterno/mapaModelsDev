@@ -1,0 +1,42 @@
+type clientAccountingAccounts {
+    id: String,
+	idClient: String,
+	idAccountingAccount: String,
+	accountingAccount: String,
+	nameAccountingAccount: String,
+	idInvoicingConcept: String,
+	nameInvoicingConcept: String,
+	status: String
+}
+
+type Query {
+    GET_CLIENT_ACCOUNTING_ACCOUNTS_BY_IDCLIENT(idClient: String!): [clientAccountingAccounts]
+}
+
+type newClientAccountingAccount {
+    idClientAccountingAccount: String,
+    nameAccountingAccount: String,
+    message: String
+}
+
+input set_clientAccountingAccount {
+    idClientAccountingAccount: String,
+    idClient: String,
+    idAccountingAccount: String,
+    nameAccountingAccount: String,
+    accountingAccount: String,
+    idInvoicingConcept: String,
+    nameInvoicingConcept: String,
+    userLoggedIn: String,
+    status: String
+}
+
+input delete_clientAccountingAccount {
+    idClientAccountingAccount: String,
+    userLoggedIn: String
+}
+
+type Mutation {
+    SET_CLIENT_ACCOUNTING_ACCOUNT(input: set_clientAccountingAccount): [newClientAccountingAccount]
+    DELETE_CLIENT_ACCOUNTING_ACCOUNT(input: delete_clientAccountingAccount): String
+}

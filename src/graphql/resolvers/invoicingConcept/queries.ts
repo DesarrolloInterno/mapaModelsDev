@@ -11,7 +11,15 @@ const invoicingConceptQueries = {
             console.log(error);
         }
     },
+    GET_INVOICINGCONCEPTS_ISNOT_OTHERINCOME: async (_: any, {idEnterprise}: any) => {
+        try{
+            const result = await invoicingConcept.query("exec get_all_invoicingConcepts_isNot_otherIncome @idEnterprise = '"+ idEnterprise +"'");
+            return result;
 
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default invoicingConceptQueries;
