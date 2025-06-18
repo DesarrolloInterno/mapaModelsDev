@@ -1,18 +1,24 @@
 type taxes {
-  id:ID
-  name: String
-  SATcode: String
-  description: String
-  taxChargeType: String
-  percentage: String
-  taxFactor: String
-  status: String
-  idAccountingAccountInvoices: String
-  accountingAccountInvoices: String
-  nameAccountingAccountInvoices: String
-  idAccountingAccountPayment: String
-  accountingAccountPayment: String
-  nameAccountingAccountPayment: String
+  id:ID,
+  name: String,
+  SATcode: String,
+  description: String,
+  taxChargeType: String,
+  percentage: String,
+  taxFactor: String,
+  status: String,
+  idAccountingAccountInvoices: String,
+  accountingAccountInvoices: String,
+  nameAccountingAccountInvoices: String,
+  idAccountingAccountPayment: String,
+  accountingAccountPayment: String,
+  nameAccountingAccountPayment: String,
+  idAccountingAccountInvoicePayments: String,
+  accountingAccountInvoicePayments: String,
+  nameAccountingAccountInvoicePayments: String,
+  idAccountingAccountPaymentPayments: String,
+  accountingAccountPaymentPayments: String,
+  nameAccountingAccountPaymentPayments: String
 }
 
 type taxRate {
@@ -36,13 +42,19 @@ input new_tax {
   taxChargeType: String,
   percentage: String,
   taxFactor: String,
-  userLoggedIn: String
-  idAccountingAccountInvoices: String
-  accountingAccountInvoices: String
-  nameAccountingAccountInvoices: String
-  idAccountingAccountPayments: String
-  accountingAccountPayments: String
-  nameAccountingAccountPayments: String
+  userLoggedIn: String,
+  idAccountingAccountInvoices: String,
+  accountingAccountInvoices: String,
+  nameAccountingAccountInvoices: String,
+  idAccountingAccountPayments: String,
+  accountingAccountPayments: String,
+  nameAccountingAccountPayments: String,
+  idAccountingAccountInvoicePayments: String,
+  accountingAccountInvoicePayments: String,
+  nameAccountingAccountInvoicePayments: String,
+  idAccountingAccountPaymentPayments: String,
+  accountingAccountPaymentPayments: String,
+  nameAccountingAccountPaymentPayments: String,
   idEnterprise: String
 }
 
@@ -53,13 +65,19 @@ input update_tax {
   taxChargeType: String,
   percentage: String,
   taxFactor: String,
-  userLoggedIn: String
-  idAccountingAccountInvoices: String
-  accountingAccountInvoices: String
-  nameAccountingAccountInvoices: String
-  idAccountingAccountPayments: String
-  accountingAccountPayments: String
-  nameAccountingAccountPayments: String
+  userLoggedIn: String,
+  idAccountingAccountInvoices: String,
+  accountingAccountInvoices: String,
+  nameAccountingAccountInvoices: String,
+  idAccountingAccountPayments: String,
+  accountingAccountPayments: String,
+  nameAccountingAccountPayments: String,
+  idAccountingAccountInvoicePayments: String,
+  accountingAccountInvoicePayments: String,
+  nameAccountingAccountInvoicePayments: String,
+  idAccountingAccountPaymentPayments: String,
+  accountingAccountPaymentPayments: String,
+  nameAccountingAccountPaymentPayments: String,
   idEnterprise: String
 }
 

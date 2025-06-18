@@ -16,6 +16,12 @@ const taxesMutations = {
             idAccountingAccountPayments,
             accountingAccountPayments,
             nameAccountingAccountPayments,
+            idAccountingAccountInvoicePayments,
+            accountingAccountInvoicePayments,
+            nameAccountingAccountInvoicePayments,
+            idAccountingAccountPaymentPayments,
+            accountingAccountPaymentPayments,
+            nameAccountingAccountPaymentPayments,
             idEnterprise
         } = input;
         try {
@@ -28,7 +34,14 @@ const taxesMutations = {
             "@nameAccountingAccountInvoices = '"+nameAccountingAccountInvoices+"', "+
             "@idAccountingAccountPayments = '"+idAccountingAccountPayments+"', "+
             "@accountingAccountPayments = '"+accountingAccountPayments+"', "+
-            "@nameAccountingAccountPayments = '"+nameAccountingAccountPayments+"', " + "@idEnterprise = '"+idEnterprise+"' ");
+            "@nameAccountingAccountPayments = '"+nameAccountingAccountPayments+"', "+
+            "@idAccountingAccountInvoicePayments = '"+idAccountingAccountInvoicePayments+"', "+
+            "@accountingAccountInvoicePayments = '"+accountingAccountInvoicePayments+"', "+
+            "@nameAccountingAccountInvoicePayments = '"+nameAccountingAccountInvoicePayments+"', "+
+            "@idAccountingAccountPaymentPayments = '"+idAccountingAccountPaymentPayments+"', "+
+            "@accountingAccountPaymentPayments = '"+accountingAccountPaymentPayments+"', "+
+            "@nameAccountingAccountPaymentPayments = '"+nameAccountingAccountPaymentPayments+"', "+
+            "@idEnterprise = '"+idEnterprise+"' ");
             return newRecord;
         } catch (error) {
             console.log(error);
@@ -49,6 +62,12 @@ const taxesMutations = {
             idAccountingAccountPayments,
             accountingAccountPayments,
             nameAccountingAccountPayments,
+            idAccountingAccountInvoicePayments,
+            accountingAccountInvoicePayments,
+            nameAccountingAccountInvoicePayments,
+            idAccountingAccountPaymentPayments,
+            accountingAccountPaymentPayments,
+            nameAccountingAccountPaymentPayments,
             idEnterprise
         } = input;
         try {
@@ -62,6 +81,12 @@ const taxesMutations = {
             "@idAccountingAccountPayments = '"+idAccountingAccountPayments+"', "+
             "@accountingAccountPayments = '"+accountingAccountPayments+"', "+
             "@nameAccountingAccountPayments = '"+nameAccountingAccountPayments+"', " +
+            "@idAccountingAccountInvoicePayments = '"+idAccountingAccountInvoicePayments+"', "+
+            "@accountingAccountInvoicePayments = '"+accountingAccountInvoicePayments+"', "+
+            "@nameAccountingAccountInvoicePayments = '"+nameAccountingAccountInvoicePayments+"', "+
+            "@idAccountingAccountPaymentPayments = '"+idAccountingAccountPaymentPayments+"', "+
+            "@accountingAccountPaymentPayments = '"+accountingAccountPaymentPayments+"', "+
+            "@nameAccountingAccountPaymentPayments = '"+nameAccountingAccountPaymentPayments+"', "+
             "@idEnterprise = '"+idEnterprise+"' ");
             
             return newRecord;
