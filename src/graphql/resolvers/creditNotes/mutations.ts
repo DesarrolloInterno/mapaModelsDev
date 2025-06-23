@@ -125,7 +125,9 @@ const creditNotesMutations = {
             numTrip,
             total,
             userLoggedIn,
-            idEnterprise
+            idEnterprise,
+            idRelatedCreditNote,
+            status
         } = input;
 
         try {
@@ -137,7 +139,9 @@ const creditNotesMutations = {
                 "@numTrip = '" + numTrip + "', " +
                 "@total = '" + total + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@idEnterprise = '" + idEnterprise + "' "
+                "@idEnterprise = '" + idEnterprise + "', " +
+                "@idRelatedCreditNote = '" + idRelatedCreditNote + "', "+
+                "@status = '" + status + "' "
             );
             return newid;
         } catch (error) {
