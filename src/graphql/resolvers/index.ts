@@ -127,6 +127,7 @@ import { creditNotesMutations, creditNotesQueries } from './creditNotes'
 import { c_TipoRelacionQueries } from './c_TipoRelacion'
 import { debitNotesMutations, debitNotesQueries } from './debitNotes'
 import { clientAccountingAccountsMutations, clientAccountingAccountsQueries } from './clientAccountingAccounts'
+import { trialBalancesMutations, trialBalancesQueries } from './trialBalances'
 
 const resolvers = {
     Query: {
@@ -250,7 +251,8 @@ const resolvers = {
         ...creditNotesQueries,
         ...c_TipoRelacionQueries,
         ...debitNotesQueries,
-        ...clientAccountingAccountsQueries
+        ...clientAccountingAccountsQueries,
+        ...trialBalancesQueries
     },
     Mutation: {
         ...user_historialMutations,
@@ -344,7 +346,8 @@ const resolvers = {
         ...vouchersMutations,
         ...creditNotesMutations,
         ...debitNotesMutations,
-        ...clientAccountingAccountsMutations
+        ...clientAccountingAccountsMutations,
+        ...trialBalancesMutations
     }
 }
 
