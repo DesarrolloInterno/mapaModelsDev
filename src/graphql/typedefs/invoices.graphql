@@ -986,6 +986,11 @@ type return_invoiceObservations {
   message: String
 }
 
+type newVoucherInvoice {
+  idVoucher: String,
+  message: String,
+}
+
 input updateInvoiceObservations{
   idInvoice: String,
   invoiceObservations: String,
@@ -995,6 +1000,11 @@ input updateInvoiceObservations{
 input setRegenerateLinkPDFInvoice {
   idInvoice: String,
   linkInvoicePDF: String,
+  userLoggedIn: String
+}
+
+input setNewVoucherInvoice {
+  idInvoice: String,
   userLoggedIn: String
 }
 
@@ -1025,4 +1035,6 @@ type Mutation {
   DELETE_RELATED_INVOICES_BY_ID_INVOICE(input: deleteRelatedInvoices): String
   UPDATE_INVOICE_OBSERVATIONS(input: updateInvoiceObservations): [return_invoiceObservations]
   SET_REGENERATE_LINK_PDF_INVOICE(input: setRegenerateLinkPDFInvoice): String
+  CREATE_JOURNAL_VOUCHER_INVOICE(input: setNewVoucherInvoice): [newVoucherInvoice]
+  CREATE_JOURNAL_VOUCHER_CANCELED_INVOICE(input: setNewVoucherInvoice): [newVoucherInvoice]
 }
