@@ -400,7 +400,9 @@ input relateCreditNote{
   numTrip: String,
   total: String,
   userLoggedIn: String,
-  idEnterprise: String
+  idEnterprise: String,
+  idRelatedCreditNote: String,
+  status: String
 }
 
 type return_relatedCreditNote {

@@ -1,0 +1,35 @@
+type trialBalance {
+  id: ID,
+  idAccountingAccount: Int,
+  accountingAccount: String,
+  nameAccountingAccount: String,
+  beginningBalance: String,
+  charges: String,
+  payments: String,
+  endingBalance: String
+}
+
+type Query {
+  GET_ALL_TRIAL_BALANCES(accountingAccount1: String!, accountingAccount2: String!, date1: String!, date2: String!, idEnterprise: String!): [trialBalance]
+}
+
+input create_trialBalance{
+  accountingAccount: String,
+  nameAccountingAccount: String,
+  beginningBalance: String,
+  charges: String,
+  payments: String,
+  endingBalance: String,
+  trialBalanceMonth: String,
+  trialBalanceYear: String,
+  userLoggedIn: String
+}
+
+type return_newTrialBalance{
+  idTrialBalance: String,
+  message: String
+}
+
+type Mutation {
+  CREATE_TRIAL_BALANCE_EXCEL(input: create_trialBalance): [return_newTrialBalance]
+}

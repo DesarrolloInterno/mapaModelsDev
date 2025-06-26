@@ -308,7 +308,9 @@ input relateDebitNote{
   numTrip: String,
   total: String,
   userLoggedIn: String,
-  idEnterprise: String
+  idEnterprise: String,
+  idRelatedDebitNote: String,
+  status: String
 }
 
 type return_relatedDebitNote {

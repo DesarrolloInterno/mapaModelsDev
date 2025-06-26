@@ -125,7 +125,9 @@ const debitNotesMutations = {
             numTrip,
             total,
             userLoggedIn,
-            idEnterprise
+            idEnterprise,
+            idRelatedDebitNote,
+            status
         } = input;
 
         try {
@@ -137,7 +139,10 @@ const debitNotesMutations = {
                 "@numTrip = '" + numTrip + "', " +
                 "@total = '" + total + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
-                "@idEnterprise = '" + idEnterprise + "' "
+                "@idEnterprise = '" + idEnterprise + "', " +
+                "@idRelatedDebitNote = '" + idRelatedDebitNote + "', " +
+                "@status = '" + status + "' "
+
             );
             return newid;
         } catch (error) {
