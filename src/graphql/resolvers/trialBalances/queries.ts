@@ -10,6 +10,24 @@ const trialBalancesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ACCOUNTING_BALANCE01: async (_: any, {year, idEnterprise}: any) => {
+        try{
+            const result = await trialBalances.query("exec get_accounting_balance01 @year = '"+ year +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ACCOUNTING_BALANCE: async (_: any, {year, idEnterprise, firstAccount}: any) => {
+        try{
+            const result = await trialBalances.query("exec get_accounting_balance @year = '"+ year +"', @idEnterprise = '"+ idEnterprise +"', @firstAccount = '"+ firstAccount +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

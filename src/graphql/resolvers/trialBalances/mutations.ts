@@ -11,7 +11,8 @@ const trialBalancesMutations = {
             endingBalance,
             trialBalanceMonth,
             trialBalanceYear,
-            userLoggedIn
+            userLoggedIn,
+            idEnterprise
         } = input;
         try {
             const newid = await trialBalances.query("exec create_trialBalance_excel " +
@@ -23,7 +24,8 @@ const trialBalancesMutations = {
                 "@endingBalance = '"+ endingBalance + "', " +
                 "@trialBalanceMonth = '"+ trialBalanceMonth + "', " +
                 "@trialBalanceYear = '"+ trialBalanceYear + "', " +
-                "@userLoggedIn = '"+ userLoggedIn +
+                "@userLoggedIn = '"+ userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise +
                 "'"
             );
             

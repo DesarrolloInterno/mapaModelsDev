@@ -9,8 +9,27 @@ type trialBalance {
   endingBalance: String
 }
 
+type accountingBalance01 {
+  accountingAccount: String,
+  nameAccountingAccount: String,
+  Enero: String,
+  Febrero: String,
+  Marzo: String,
+  Abril: String,
+  Mayo: String,
+  Junio: String,
+  Julio: String,
+  Agosto: String,
+  Septiembre: String,
+  Octubre: String,
+  Noviembre: String,
+  Diciembre: String,
+}
+
 type Query {
   GET_ALL_TRIAL_BALANCES(accountingAccount1: String!, accountingAccount2: String!, date1: String!, date2: String!, idEnterprise: String!): [trialBalance]
+  GET_ACCOUNTING_BALANCE01(year: String!, idEnterprise: String!): [accountingBalance01]
+  GET_ACCOUNTING_BALANCE(year: String!, idEnterprise: String!, firstAccount: String!): [accountingBalance01]
 }
 
 input create_trialBalance{
@@ -22,7 +41,8 @@ input create_trialBalance{
   endingBalance: String,
   trialBalanceMonth: String,
   trialBalanceYear: String,
-  userLoggedIn: String
+  userLoggedIn: String,
+  idEnterprise: String
 }
 
 type return_newTrialBalance{
