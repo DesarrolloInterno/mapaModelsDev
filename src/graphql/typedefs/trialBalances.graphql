@@ -45,6 +45,13 @@ input create_trialBalance{
   idEnterprise: String
 }
 
+input delete_trialBalance_period{
+  trialBalanceMonth: String,
+  trialBalanceYear: String,
+  userLoggedIn: String,
+  idEnterprise: String
+}
+
 type return_newTrialBalance{
   idTrialBalance: String,
   message: String
@@ -52,4 +59,5 @@ type return_newTrialBalance{
 
 type Mutation {
   CREATE_TRIAL_BALANCE_EXCEL(input: create_trialBalance): [return_newTrialBalance]
+  DELETE_TRIAL_BALANCE_PERIOD(input: delete_trialBalance_period): String
 }

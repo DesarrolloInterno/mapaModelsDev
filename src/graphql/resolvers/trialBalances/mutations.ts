@@ -33,6 +33,27 @@ const trialBalancesMutations = {
         } catch (error) {
             console.log(error);
         }
+    },
+    DELETE_TRIAL_BALANCE_PERIOD: async (_: any, {input}: any) => {
+        const { 
+            trialBalanceMonth,
+            trialBalanceYear,
+            userLoggedIn,
+            idEnterprise
+        } = input;
+        try {
+            await trialBalances.query("exec delete_trialBalance_period " +
+                "@trialBalanceMonth = '"+ trialBalanceMonth + "', " +
+                "@trialBalanceYear = '"+ trialBalanceYear + "', " +
+                "@userLoggedIn = '"+ userLoggedIn + "', " +
+                "@idEnterprise = '" + idEnterprise +
+                "'"
+            );
+            
+            return 'Periodo de balansa comprobación eliminat correctament';
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
