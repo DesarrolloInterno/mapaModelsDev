@@ -1363,7 +1363,11 @@ type return_informationTrip {
   unitLinkGps: String,
   destination: String, 
   fullAddressDestination: String, 
-  boothRoute: String
+  boothRoute: String,
+  reference: String,
+  tripTypeText: String,
+  linkText: String,
+  allInformationText: String,
 }
 
 type Query {
