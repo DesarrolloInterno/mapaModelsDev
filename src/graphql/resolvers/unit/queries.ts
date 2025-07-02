@@ -36,6 +36,15 @@ const unitQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_BAFAR_UNITS: async (_: any, {}: any) => {
+        try{
+            const result = await unit.query("exec get_all_bafar_units");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
