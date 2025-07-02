@@ -67,11 +67,17 @@ type unit_noRetired{
   status: String
 }
 
+type bafarUnits {
+  idSamsara: String,
+  licensePlates: String
+}
+
 type Query {
   GET_UNIT(status:String!, idEnterprise:String!): [unit]
   GET_UNIT_DOCUMENTS(idUnit: String!): [unitDocuments]
   GET_UNIT_NO_RETIRED(idEnterprise: String!): [unit_noRetired]
   GET_ACTIVE_UNITS_WITH_ACTIVE_OPERATORS(idEnterprise:String!):[unit]
+  GET_ALL_BAFAR_UNITS: [bafarUnits]
 }
 
 type return_new_unit{
