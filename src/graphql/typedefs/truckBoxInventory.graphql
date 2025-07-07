@@ -29,7 +29,8 @@ input new_truckBoxInventory{
   userLoggedIn: String,
   idEnterprise: String,
   straps: String,
-  wheelChocks: String
+  wheelChocks: String,
+  typeMovement: String
 }
 
 type return_new_truckBoxInventory{
