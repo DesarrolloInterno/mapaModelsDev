@@ -13,7 +13,18 @@ type truckBoxInventory {
   status: String,
   dwellTime: String,
   straps: String, 
-  wheelChocks: String
+  wheelChocks: String,
+  typeMovement: String,
+  idClientOrigin: Int,
+  clientOrigin: String,
+  idClientDestination: Int,
+  ClientDestination: String,
+  dateTruckboxes: String,
+  idTrip: Int,
+  numTrip: Int,
+  tripType: String,
+  idUnit: Int,
+  unit: String,
 }
 
 type Query {
@@ -47,7 +58,8 @@ input update_truckBoxInventory {
   observations: String,
   userLoggedIn: String,
   straps: String,
-  wheelChocks: String
+  wheelChocks: String,
+  typeMovement: String,
 }
 
 input delete_truckBoxInventory {

@@ -45,7 +45,8 @@ const truckBoxInventoryMutations = {
             observations,
 	        userLoggedIn,
             straps,
-            wheelChocks
+            wheelChocks,
+            typeMovement
         } = input;
 
         try {
@@ -58,7 +59,8 @@ const truckBoxInventoryMutations = {
                 "@observations = '" + observations + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@straps = '" + straps + "', " +
-                "@wheelChocks = '" + wheelChocks + "' "
+                "@wheelChocks = '" + wheelChocks + "', " +
+                "@typeMovement = '" + typeMovement + "' "
             );
             return newRecord;
         } catch (error) {
