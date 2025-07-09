@@ -162,7 +162,11 @@ type invoicesForCollection {
   sentForCollectionDate: String,
   billingReceptionPersonMail: String,
   total: String,
-  invoiceSeries: String
+  invoiceSeries: String,
+
+  financialReceipts: String,
+  documentPOD: String,
+  idTrip: String
 }
 
 type invoiceById {
