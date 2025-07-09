@@ -175,6 +175,7 @@ type transportDocument {
   CFDItype: String
   idInvoice: String
   invoiceObservations: String
+  temperature: String
 }
 
 type tripAmounts {
