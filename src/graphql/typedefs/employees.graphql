@@ -261,6 +261,7 @@ type operatorEmployeesReport {
     number: String,
     licenseEffectiveDate: String,
     dateSeniority: String,
+    driverLicenseDocument: String,
     shoeSizes: String,
     dressVestSizes: String,
     tshirtSizes: String
