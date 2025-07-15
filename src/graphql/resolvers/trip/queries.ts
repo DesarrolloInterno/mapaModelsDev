@@ -287,6 +287,24 @@ const tripQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_TRIPS_FOR_TRIPS_TRACKING_LAST_WEEK: async (_: any, {idEnterprise}: any) => {
+        try{
+            const result = await trip.query("exec get_all_trips_for_tripsTracking_last_week @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    GET_ALL_TRIPS_FOR_CROSSING_TRIPS_TRACKING_LAST_WEEK: async (_: any, {idEnterprise}: any) => {
+        try{
+            const result = await trip.query("exec get_all_trips_for_crossingTripsTracking_last_week @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

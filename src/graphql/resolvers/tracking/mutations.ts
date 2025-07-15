@@ -92,6 +92,23 @@ const trackingMutations = {
         } catch (error) {
             console.log(error);
         }
+    },
+    UPDATE_DELETE_TRACKING_DATE: async (_: any, {input}: any) => {
+        const {
+            idTrip,
+            tripType
+        } = input;
+
+        try {
+            await tracking.query("exec update_delete_trackingDate " +
+                "@idTrip = '" + idTrip + "', " +
+                "@tripType = '" + tripType + "' "
+            );
+            return 'Fecha eliminada correctamente'
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 };
 

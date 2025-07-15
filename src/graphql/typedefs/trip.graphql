@@ -1402,6 +1402,8 @@ type Query {
   GET_ALL_TRIPS_FOR_DOCUMENT_DIGITIZATION(date1: String!, date2: String!, idEnterprise: String!): [tripsForDocumentDigitization]
   GET_ALL_NON_BILLABLE_TRIPS(tripType: String!, isNonBillable: String!, date1: String!, date2: String!, idEnterprise: String!): [nonBillableTrips]
   GET_INFORMATION_TRIP_BY_ID(idTrip: String!): [return_informationTrip]
+  GET_ALL_TRIPS_FOR_TRIPS_TRACKING_LAST_WEEK(idEnterprise: String!): [tripsForTracking]
+  GET_ALL_TRIPS_FOR_CROSSING_TRIPS_TRACKING_LAST_WEEK(idEnterprise: String!): [tripsForTracking]
 }
 
 input new_tripAmounts {
