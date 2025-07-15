@@ -1148,6 +1148,7 @@ type tripHistory {
   codesalesFormat: String,
   typeCrossing: String,
   warehouseDeliveryDate: String,
+  paymentDate: String
 }
 
 type tripsByClient {
