@@ -74,9 +74,15 @@ input update_truckBoxInventory_mooringGear {
   userLoggedIn: String
 }
 
+input update_truckBoxStatus {
+  idTruckBox: String,
+  status: String
+}
+
 type Mutation {
   CREATE_TRUCKBOXINVENTORY(input: new_truckBoxInventory): [return_new_truckBoxInventory]
   UPDATE_TRUCKBOXINVENTORY(input: update_truckBoxInventory): [return_new_truckBoxInventory]
   DELETE_TRUCKBOXINVENTORY(input: delete_truckBoxInventory): String
   UPDATE_TRUCKBOXINVENTORY_MOORINGGEAR(input: update_truckBoxInventory_mooringGear): String
+  UPDATE_TRUCKBOXINVENTORY_STATUS(input: update_truckBoxStatus): String
 }

@@ -102,6 +102,22 @@ const truckBoxInventoryMutations = {
             console.log(error);
         }
 
+    },
+    UPDATE_TRUCKBOXINVENTORY_STATUS: async (_: any, {input}: any) => {
+        const {
+            idTruckBox,
+            status
+        } = input;
+
+        try {
+            await truckBoxInventory.query("exec update_truckBoxInventory_status " +                
+                "@idTruckBox = '" + idTruckBox + "', " +
+                "@status = '" + status + "' "
+            );
+            return 'Estatus actualizado correctamente';
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
