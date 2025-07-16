@@ -314,6 +314,7 @@ type invoices {
   userRecorded: String
   TAXID: String
   possiblePaymentDate: String
+  exchangeRate: String
 }
 
 type invoice {
