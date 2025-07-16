@@ -1312,8 +1312,8 @@ type tripsForDocumentDigitization{
   townDestination: String, 
   arrivalDate: String,
   financialReceipts: String,
-  documentPOD: String
-
+  documentPOD: String,
+  numTripOrder: String
 }
 
 type nonBillableTrips {
