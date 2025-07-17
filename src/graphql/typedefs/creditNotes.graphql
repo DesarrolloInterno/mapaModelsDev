@@ -223,7 +223,7 @@ type relatedCreditNotes {
   client: String
 }
 
-type relatedCreditNotes {
+type relatedCreditNotes2 {
   id: String,
 	idCreditNote: String, 
 	numCreditNote: String, 
@@ -233,7 +233,8 @@ type relatedCreditNotes {
 	uuidInvoice: String,
 	idRelationshipType: String, 
 	relationshipTypeCode: String, 
-	relationshipType: String
+	relationshipType: String,
+  invoiceSeries: String
 }
 
 type creditNoteToken {
@@ -325,7 +326,7 @@ type Query {
     GET_CREDIT_NOTE_DOCUMENT(idCreditNote: String!): [creditNoteDocument]
     GET_ALL_RELATED_CREDIT_NOTES_BY_ID_CREDIT_NOTE(idCreditNote: String!): [relatedCreditNotes]
     GET_ALL_INVOICES_TO_BE_MATCHED(idClient: String!, idEnterprise: String!, folioFilter: String!): [relatedCreditNotes]
-    GET_CREDIT_NOTES_RELATED_CREDIT_NOTE(idCreditNote: String!): [relatedCreditNotes]
+    GET_CREDIT_NOTES_RELATED_CREDIT_NOTE(idCreditNote: String!): [relatedCreditNotes2]
     GET_CREDIT_NOTE_BY_TOKEN(token: String!): [creditNoteToken]
     GET_CREDIT_NOTE_AMOUNTS(idCreditNote: String!): [stampCreditNoteAmounts]
     GET_CREDITNOTESTAMPFORCANCEL(token: String!): [creditNote_for_cancel]
