@@ -131,7 +131,7 @@ type relatedDebitNotes {
   client: String
 }
 
-type relatedDebitNotes {
+type relatedDebitNotes2 {
   id: String,
 	idDebitNote: String, 
 	numDebitNote: String, 
@@ -141,7 +141,8 @@ type relatedDebitNotes {
 	uuidInvoice: String,
 	idRelationshipType: String, 
 	relationshipTypeCode: String, 
-	relationshipType: String
+	relationshipType: String,
+  invoiceSeries: String
 }
 
 type debitNoteToken {
@@ -232,7 +233,7 @@ type Query {
     GET_DEBIT_NOTE_AMOUNTS_BY_ID(idDebitNote: String!): [debitNoteAmounts]
     GET_DEBIT_NOTE_DOCUMENT(idDebitNote: String!): [debitNoteDocument]
     GET_ALL_RELATED_DEBIT_NOTES_BY_ID_DEBIT_NOTE(idDebitNote: String!): [relatedDebitNotes]
-    GET_DEBIT_NOTES_RELATED_DEBIT_NOTE(idDebitNote: String!): [relatedDebitNotes]
+    GET_DEBIT_NOTES_RELATED_DEBIT_NOTE(idDebitNote: String!): [relatedDebitNotes2]
     GET_DEBIT_NOTE_BY_TOKEN(token: String!): [debitNoteToken]
     GET_DEBIT_NOTE_AMOUNTS(idDebitNote: String!): [stampDebitNoteAmounts]
     GET_DEBITNOTESTAMPFORCANCEL(token: String!): [debitNote_for_cancel]
