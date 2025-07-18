@@ -314,6 +314,7 @@ type invoices {
   userRecorded: String
   TAXID: String
   possiblePaymentDate: String
+  currency: String
   exchangeRate: String
 }
 
@@ -605,7 +606,8 @@ type relatedInvoices {
   idRelationshipType: String,
   relationshipTypeCode: String,
   relationshipType: String,
-  status: String
+  status: String,
+  previousInvoiceSeries: String
 }
 
 type cancelledInvoices {
@@ -648,7 +650,7 @@ type invoices_relatedInvoice{
 	idRelationshipType: Int,
 	relationshipTypeCode: String,
 	relationshipType: String,
-	status: String,
+	status: String
 }
 
 type invoice_for_cancel{
