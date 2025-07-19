@@ -12,7 +12,8 @@ const truckBoxInventoryMutations = {
 	        userLoggedIn,
             idEnterprise,
             straps,
-            wheelChocks
+            wheelChocks,
+            typeMovement
         } = input;
 
         try {
@@ -25,7 +26,8 @@ const truckBoxInventoryMutations = {
                 "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@idEnterprise = '" + idEnterprise + "', " +
                 "@straps = '" + straps + "', " +
-                "@wheelChocks = '" + wheelChocks + "' "
+                "@wheelChocks = '" + wheelChocks + "', " +
+                "@typeMovement = '" + typeMovement + "' "
             );
             return newRecord;
         } catch (error) {
@@ -43,7 +45,8 @@ const truckBoxInventoryMutations = {
             observations,
 	        userLoggedIn,
             straps,
-            wheelChocks
+            wheelChocks,
+            typeMovement
         } = input;
 
         try {
@@ -56,7 +59,8 @@ const truckBoxInventoryMutations = {
                 "@observations = '" + observations + "', " +
                 "@userLoggedIn = '" + userLoggedIn + "', " +
                 "@straps = '" + straps + "', " +
-                "@wheelChocks = '" + wheelChocks + "' "
+                "@wheelChocks = '" + wheelChocks + "', " +
+                "@typeMovement = '" + typeMovement + "' "
             );
             return newRecord;
         } catch (error) {
@@ -98,6 +102,22 @@ const truckBoxInventoryMutations = {
             console.log(error);
         }
 
+    },
+    UPDATE_TRUCKBOXINVENTORY_STATUS: async (_: any, {input}: any) => {
+        const {
+            idTruckBox,
+            status
+        } = input;
+
+        try {
+            await truckBoxInventory.query("exec update_truckBoxInventory_status " +                
+                "@idTruckBox = '" + idTruckBox + "', " +
+                "@status = '" + status + "' "
+            );
+            return 'Estatus actualizado correctamente';
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

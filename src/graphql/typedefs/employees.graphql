@@ -210,6 +210,63 @@ type employeesAniversary {
     seniority: String
 }
 
+type operatorEmployeesReport {
+    id: String,
+    name: String,
+    nickname: String,
+    mailNotification: String,
+    phone: String,
+    startDate: String,
+    businessPhone: String,
+    status: String,
+	DateOfBirth: String,
+    gender: String,
+    civilStatus: String,
+    employee_number: String,
+    nomipaq: String,
+    address: String,
+    outsideAddressNumber: String,
+	insideAddressNumber: String,
+    neighborhood: String,
+    CP: String,
+    idCountry: String,
+    country: String,
+    idState: String,
+    state: String,
+    idTown: String,
+    town: String,
+    socialSecurityNumber: String,
+    CURP: String,
+    RFC: String,
+    CPSAT: String,
+    bankAccount: String,
+    expenseAccount: String,
+    infonavitCredit: String,
+	netSalary: String,
+    grossSalary: String,
+    IDS: String,
+    allergies: String,
+    Disease: String,
+    surgeries: String,
+    idTypeBlood: String,
+    bloodName: String,
+	medicalTreatments: String,
+    medicalEffectiveDate: String,
+    medicalDocument: String,
+    antidopingDate: String,
+    result: String,
+    antidopingDocument: String,
+	comments: String,
+    typeLicense: String,
+    number: String,
+    licenseEffectiveDate: String,
+    dateSeniority: String,
+    driverLicenseDocument: String,
+    shoeSizes: String,
+    dressVestSizes: String,
+    tshirtSizes: String
+}
+
 type Query {
     GET_ALL_EMPLOYEES(status: String!, idEnterprise: String!): [employees]
     GET_EMPLOYEE_BY_ID(idEmployee: String!, idEnterprise: String!): [employees]
@@ -230,6 +287,7 @@ type Query {
     GET_ALL_MEDICALVALIDITY_QUANTITY(idEnterprise: String!):[medicalValidityQuantity]
     GET_ALL_EMPLOYEES_BIRTHDAY(monthOfBirth: String!, idEnterprise: String!):[employeesBirthDay]
     GET_ALL_EMPLOYEES_ANIVERSARY(monthOfBirth: String!, idEnterprise: String!):[employeesAniversary]
+    GET_ALL_OPERATOR_EMPLOYEES_REPORT(status: String!, idEnterprise: String!):[operatorEmployeesReport]
 }
 
 input update_employees {

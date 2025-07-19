@@ -165,6 +165,15 @@ const employeesQueries = {
         } catch (error) {
             console.log(error);
         }
+    },
+    GET_ALL_OPERATOR_EMPLOYEES_REPORT: async (_: any, {status, idEnterprise}: any) => {
+        try{
+            const result = await employees.query("exec get_all_operator_employees_report @status = '"+ status +"', @idEnterprise = '"+ idEnterprise +"'");
+            return result;
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 

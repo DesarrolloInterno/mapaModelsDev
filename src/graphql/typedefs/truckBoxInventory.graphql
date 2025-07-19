@@ -13,7 +13,18 @@ type truckBoxInventory {
   status: String,
   dwellTime: String,
   straps: String, 
-  wheelChocks: String
+  wheelChocks: String,
+  typeMovement: String,
+  idClientOrigin: Int,
+  clientOrigin: String,
+  idClientDestination: Int,
+  ClientDestination: String,
+  dateTruckboxes: String,
+  idTrip: Int,
+  numTrip: Int,
+  tripType: String,
+  idUnit: Int,
+  unit: String,
 }
 
 type Query {
@@ -29,7 +40,8 @@ input new_truckBoxInventory{
   userLoggedIn: String,
   idEnterprise: String,
   straps: String,
-  wheelChocks: String
+  wheelChocks: String,
+  typeMovement: String
 }
 
 type return_new_truckBoxInventory{
@@ -46,7 +58,8 @@ input update_truckBoxInventory {
   observations: String,
   userLoggedIn: String,
   straps: String,
-  wheelChocks: String
+  wheelChocks: String,
+  typeMovement: String,
 }
 
 input delete_truckBoxInventory {
@@ -61,9 +74,15 @@ input update_truckBoxInventory_mooringGear {
   userLoggedIn: String
 }
 
+input update_truckBoxStatus {
+  idTruckBox: String,
+  status: String
+}
+
 type Mutation {
   CREATE_TRUCKBOXINVENTORY(input: new_truckBoxInventory): [return_new_truckBoxInventory]
   UPDATE_TRUCKBOXINVENTORY(input: update_truckBoxInventory): [return_new_truckBoxInventory]
   DELETE_TRUCKBOXINVENTORY(input: delete_truckBoxInventory): String
   UPDATE_TRUCKBOXINVENTORY_MOORINGGEAR(input: update_truckBoxInventory_mooringGear): String
+  UPDATE_TRUCKBOXINVENTORY_STATUS(input: update_truckBoxStatus): String
 }

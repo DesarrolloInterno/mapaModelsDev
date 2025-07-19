@@ -7,4 +7,5 @@ type tripType {
 
 type Query {
   GET_TRIPTYPE(status:String!): [tripType]
+  GET_TRIPTYPE2(status:String!): [tripType]
 }
