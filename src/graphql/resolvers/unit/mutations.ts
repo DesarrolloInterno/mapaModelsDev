@@ -209,6 +209,59 @@ const unitMutations = {
         }
 
     },
+    SET_SAMSARA_POSITION: async (_: any, {input}: any) => {
+        const {
+            idSamsara,
+            strAlias,
+            intEvent,
+            intGpsDate,
+            intServerDate,
+            dbLatitude,
+            dbLongitude,
+            dbAltitude,
+            intCourse,
+            dbSpeed,
+            dbOdometer,
+            strLocation,
+            intMsgSequence,
+            intGpsFix,
+            intSatellites,
+            intHDOP,
+            intInputStatus,
+            intOutputStatus,
+            dbBatteryLevel,
+            engineState
+        } = input;
+
+        try {
+            const newRecord = await unit.query("exec setSamsaraPosition " +
+                "@idSamsara = '" + idSamsara + "', " +
+                "@strAlias = '" + strAlias + "', " +
+                "@intEvent = '" + intEvent + "', " +
+                "@intGpsDate = '" + intGpsDate + "', " +
+                "@intServerDate = '" + intServerDate + "', " +
+                "@dbLatitude = '" + dbLatitude + "', " +
+                "@dbLongitude = '" + dbLongitude + "', " +
+                "@dbAltitude = '" + dbAltitude + "', " +
+                "@intCourse = '" + intCourse + "', " +
+                "@dbSpeed = '" + dbSpeed + "', " +
+                "@dbOdometer = '" + dbOdometer + "', " +
+                "@strLocation = '" + strLocation + "', " +
+                "@intMsgSequence = '" + intMsgSequence + "', " +
+                "@intGpsFix = '" + intGpsFix + "', " +
+                "@intSatellites = '" + intSatellites + "', " +
+                "@intHDOP = '" + intHDOP + "', " +
+                "@intInputStatus = '" + intInputStatus + "', " +
+                "@intOutputStatus = '" + intOutputStatus + "', " +
+                "@dbBatteryLevel = '" + dbBatteryLevel + "', " +
+                "@engineState = '" + engineState + "' "
+            );
+            return newRecord;
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
 };
 
 export default unitMutations;

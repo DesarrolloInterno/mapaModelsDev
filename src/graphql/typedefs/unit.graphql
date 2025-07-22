@@ -69,7 +69,8 @@ type unit_noRetired{
 
 type bafarUnits {
   idSamsara: String,
-  licensePlates: String
+  licensePlates: String,
+  intEvent: String
 }
 
 type Query {
@@ -178,10 +179,56 @@ type return_new_document{
   documentLink: String
 }
 
+input samsaraPosition {
+  idSamsara: String,
+  strAlias: String,
+  intEvent: String,
+  intGpsDate: String,
+  intServerDate: String,
+  dbLatitude: String,
+  dbLongitude: String,
+  dbAltitude: String,
+  intCourse: String,
+  dbSpeed: String,
+  dbOdometer: String,
+  strLocation: String,
+  intMsgSequence: String,
+  intGpsFix: String,
+  intSatellites: String,
+  intHDOP: String,
+  intInputStatus: String,
+  intOutputStatus: String,
+  dbBatteryLevel: String,
+  engineState: String
+}
+
+type return_samsaraPosition {
+  strGpsID: String,
+  strAlias: String,
+	intEvent: String,
+	intGpsDate: String,
+	intServerDate: String,
+	dbLatitude: String,
+	dbLongitude: String,
+	dbAltitude: String,
+	intCourse: String,
+	dbSpeed: String,
+	dbOdometer: String,
+	strLocation: String,
+	intMsgSequence: String,
+	intGpsFix: String,
+	intSatellites: String,
+	intHDOP: String,
+	intInputStatus: String,
+	intOutputStatus: String,
+	dbBatteryLevel: String
+}
+
 type Mutation {
   CREATE_UNIT(input: new_unit): [return_new_unit]
   DELETE_UNIT(input: delete_unit): String
   UPDATE_UNIT(input: update_unit): [return_new_unit]
   EDIT_UNIT_IMAGES(input: edit_unitDocuments): String
   DELETE_UNIT_DOCUMENTS(input: delete_unitDocuments): [return_new_document]
+  SET_SAMSARA_POSITION(input: samsaraPosition): [return_samsaraPosition]
 }
