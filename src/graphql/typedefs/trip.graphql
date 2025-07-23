@@ -1150,6 +1150,8 @@ type tripHistory {
   typeCrossing: String,
   warehouseDeliveryDate: String,
   paymentDate: String
+  bankDepositDate: String,
+  numBankDeposit: String,
 }
 
 type tripsByClient {
