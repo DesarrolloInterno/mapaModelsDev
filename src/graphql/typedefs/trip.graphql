@@ -286,7 +286,8 @@ type trips {
   idInvoice: String,
   numInvoice: String,
   linkGps: String,
-  hasPayment: Int
+  hasPayment: Int,
+  cancellationProcess: String
 }
 
 type tripsForInvoice {

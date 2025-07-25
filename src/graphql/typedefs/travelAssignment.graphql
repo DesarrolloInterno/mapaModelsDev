@@ -155,6 +155,7 @@ type travelAssignmentTrip {
   numInvoice: String
   hasPayment: Int
   tripDocuments: Int
+  cancellationProcess: String
 }
 
 type responseCreateTrip {

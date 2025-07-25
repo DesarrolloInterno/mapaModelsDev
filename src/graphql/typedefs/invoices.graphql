@@ -14,6 +14,9 @@ type newInvoices {
   numInvoice: String
   docXml: String
   docPdf: String
+  messageUnit: String
+	messageTruckBox: String
+	messageOperator: String
 }
 
 type newInvoices2 {
