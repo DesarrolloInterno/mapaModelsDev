@@ -18,6 +18,7 @@ type invoicingConcept {
 
 type Query {
   GET_INVOICINGCONCEPT(status:String!, idEnterprise:String!): [invoicingConcept]
+  GET_INVOICINGCONCEPT2(status:String!, idEnterprise:String!): [invoicingConcept]
   GET_INVOICINGCONCEPTS_ISNOT_OTHERINCOME(idEnterprise:String!): [invoicingConcept]
 }
 
