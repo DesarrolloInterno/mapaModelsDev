@@ -1047,4 +1047,6 @@ type Mutation {
   SET_REGENERATE_LINK_PDF_INVOICE(input: setRegenerateLinkPDFInvoice): String
   CREATE_JOURNAL_VOUCHER_INVOICE(input: setNewVoucherInvoice): [newVoucherInvoice]
   CREATE_JOURNAL_VOUCHER_CANCELED_INVOICE(input: setNewVoucherInvoice): [newVoucherInvoice]
+  CREATE_JOURNAL_VOUCHER_OTHER_INVOICE(input: setNewVoucherInvoice): [newVoucherInvoice]
+  CREATE_JOURNAL_VOUCHER_CANCELED_OTHER_INVOICE(input: setNewVoucherInvoice): [newVoucherInvoice]
 }

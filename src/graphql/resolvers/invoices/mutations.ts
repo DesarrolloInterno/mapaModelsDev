@@ -643,6 +643,40 @@ const invoicesMutations = {
         }
 
     },
+    CREATE_JOURNAL_VOUCHER_OTHER_INVOICE: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newid = await invoices.query("exec create_journal_voucher_other_invoice " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    CREATE_JOURNAL_VOUCHER_CANCELED_OTHER_INVOICE: async (_: any, {input}: any) => {
+        const {
+            idInvoice,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newid = await invoices.query("exec create_journal_voucher_canceled_other_invoice " +
+                "@idInvoice = '" + idInvoice + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
 };
 
 export default invoicesMutations;
