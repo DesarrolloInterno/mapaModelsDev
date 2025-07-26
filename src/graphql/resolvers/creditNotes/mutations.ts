@@ -315,6 +315,40 @@ const creditNotesMutations = {
             console.log(error);
         }
 
+    },
+    CREATE_JOURNAL_VOUCHER_CREDIT_NOTES: async (_: any, {input}: any) => {
+        const {
+            idCreditNote,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newid = await creditNotes.query("exec create_journal_voucher_creditNotes " +
+                "@idCreditNote = '" + idCreditNote + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    CREATE_JOURNAL_VOUCHER_CANCELED_CREDIT_NOTES: async (_: any, {input}: any) => {
+        const {
+            idCreditNote,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newid = await creditNotes.query("exec create_journal_voucher_canceled_creditNotes " +
+                "@idCreditNote = '" + idCreditNote + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 }
 

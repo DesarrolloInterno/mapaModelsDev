@@ -473,6 +473,16 @@ input setLinkAcuseCreditNote {
   userLoggedIn: String
 }
 
+input setNewVoucherCreditNote {
+  idCreditNote: String,
+  userLoggedIn: String
+}
+
+type newVoucherCreditNote {
+  idVoucher: String,
+  message: String,
+}
+
 type Mutation {
     CREATE_CREDIT_NOTE(input: newCreditNote): [return_newCreditNote]
     SET_CREDIT_NOTE_AMOUNTS(input: setCreditNoteAmount): String
@@ -486,4 +496,6 @@ type Mutation {
     UPDATE_CREDIT_NOTE_CANCEL_CFDI(input: creditNoteCancelCfdi): String
     SET_TOKENCANCEL_STAMP_CREDITNOTE(input: setTokenStampCreditNote): [newTokenCreditNote]
     SET_LINK_ACUSE_CREDIT_NOTE(input: setLinkAcuseCreditNote): String
+    CREATE_JOURNAL_VOUCHER_CREDIT_NOTES(input: setNewVoucherCreditNote): [newVoucherCreditNote]
+    CREATE_JOURNAL_VOUCHER_CANCELED_CREDIT_NOTES(input: setNewVoucherCreditNote): [newVoucherCreditNote]
 }
