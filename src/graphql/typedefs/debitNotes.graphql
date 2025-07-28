@@ -388,6 +388,16 @@ input setLinkAcuseDebitNote {
   userLoggedIn: String
 }
 
+input setNewVoucherDebitNote {
+  idDebitNote: String,
+  userLoggedIn: String
+}
+
+type newVoucherDebitNote {
+  idVoucher: String,
+  message: String,
+}
+
 type Mutation {
     CREATE_DEBIT_NOTE(input: newDebitNote): [return_newDebitNote]
     SET_DEBIT_NOTE_AMOUNTS(input: setDebitNoteAmount): String
@@ -402,4 +412,6 @@ type Mutation {
     UPDATE_DEBIT_NOTE_CANCEL_CFDI(input: debitNoteCancelCfdi): String
     SET_TOKENCANCEL_STAMP_DEBITNOTE(input: setTokenStampDebitNote): [newTokenDebitNote]
     SET_LINK_ACUSE_DEBIT_NOTE(input: setLinkAcuseDebitNote): String
+    CREATE_JOURNAL_VOUCHER_DEBIT_NOTES(input: setNewVoucherDebitNote): [newVoucherDebitNote]
+    CREATE_JOURNAL_VOUCHER_CANCELED_DEBIT_NOTES(input: setNewVoucherDebitNote): [newVoucherDebitNote]
 }

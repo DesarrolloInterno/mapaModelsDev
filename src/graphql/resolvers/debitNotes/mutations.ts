@@ -337,6 +337,40 @@ const debitNotesMutations = {
             console.log(error);
         }
 
+    },
+    CREATE_JOURNAL_VOUCHER_DEBIT_NOTES: async (_: any, {input}: any) => {
+        const {
+            idDebitNote,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newid = await debitNotes.query("exec create_journal_voucher_debitNotes " +
+                "@idDebitNote = '" + idDebitNote + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    CREATE_JOURNAL_VOUCHER_CANCELED_DEBIT_NOTES: async (_: any, {input}: any) => {
+        const {
+            idDebitNote,
+            userLoggedIn,
+        } = input;
+
+        try {
+            const newid = await debitNotes.query("exec create_journal_voucher_canceled_debitNotes " +
+                "@idDebitNote = '" + idDebitNote + "', " +
+                "@userLoggedIn = '" + userLoggedIn + "' "
+            );
+            return newid;
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 }
 
