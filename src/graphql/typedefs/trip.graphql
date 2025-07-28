@@ -287,7 +287,8 @@ type trips {
   numInvoice: String,
   linkGps: String,
   hasPayment: Int,
-  cancellationProcess: String
+  cancellationProcess: String,
+  invoiceSeries: String
 }
 
 type tripsForInvoice {
@@ -1150,7 +1151,8 @@ type tripHistory {
   codesalesFormat: String,
   typeCrossing: String,
   warehouseDeliveryDate: String,
-  paymentDate: String
+  paymentDate: String,
+  invoiceSeries: String
 }
 
 type tripsByClient {
